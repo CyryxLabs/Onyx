@@ -1,0 +1,13 @@
+[Unit]
+Description=Onyx AI Assistant by Cyryx Labs
+After=graphical-session.target network-online.target
+
+[Service]
+Type=simple
+ExecStart=/opt/cyryx-labs/onyx/Onyx
+Restart=no
+TimeoutStopSec=15
+KillMode=mixed
+
+[Install]
+WantedBy=default.target

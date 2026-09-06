@@ -1,0 +1,126 @@
+{
+  "schema": "onyx.phase7.approved-sources-company-graph.v1",
+  "candidate": "phase7-approved-sources-company-graph-v1",
+  "created_at": "2026-07-23T17:30:00-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flags": [
+    "ONYX_PHASE7_APPROVED_SOURCES_V1",
+    "ONYX_PHASE7_COMPANY_GRAPH_V1"
+  ],
+  "enabled_value": "true",
+  "default_off": true,
+  "workspace_aliases_entry_root": {
+    "acceptance_id": "VE-P7-WORKSPACE-ALIASES-V1-E6-001",
+    "candidate_manifest_sha256": "ec1938f4b1671187ed8384f104bb6082b0bd75d157cf4c8f12e259beb5612ca4",
+    "artifact_root_sha256": "1ae29f0e8300b19737f61e795ea867f474d5dc7efd803a5a6bbaef4e74f2362e",
+    "decision": "accepted"
+  },
+  "claims": {
+    "approved_source_registry_implemented": true,
+    "company_graph_read_only_implemented": true,
+    "source_rights_scoring_freshness": true,
+    "all_prd_knowledge_semantics": true,
+    "declared_contradiction_supersession_closure": true,
+    "artifact_only_completion_denied": true,
+    "source_content_instruction_authority": false,
+    "url_fetch": false,
+    "artifact_content_read": false,
+    "graph_persistent_writes": false,
+    "e1_e5_ready": true,
+    "external_e6_accepted": false,
+    "live_wiring": false,
+    "runtime_authority_added": false,
+    "automatic_contradiction_discovery": false,
+    "founder_brief_implemented": false,
+    "phase7_exit": false,
+    "full_onyx_prd_complete": false
+  },
+  "verification": {
+    "execution": "one-test-file-per-fresh-python-process",
+    "test_files": 7,
+    "passed": 154,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "subtests_passed": 65
+  },
+  "effects": {
+    "persistent_source_writes_when_explicitly_enabled": [
+      "capability_descriptors insert",
+      "capability_descriptors lifecycle update"
+    ],
+    "persistent_graph_writes": 0,
+    "persistent_reads_when_explicitly_enabled": [
+      "workspaces",
+      "capability_descriptors",
+      "artifact_index",
+      "evidence_records",
+      "claims",
+      "event_envelopes"
+    ],
+    "secret_reads": 0,
+    "url_fetches": 0,
+    "browser_launches": 0,
+    "artifact_content_reads": 0,
+    "network_calls": 0,
+    "process_calls": 0,
+    "provider_calls": 0,
+    "live_surface_changes": 0
+  },
+  "rollback": "Leave both exact feature flags unset; both factories return before host binding and every existing engine remains unchanged.",
+  "limitations": [
+    "Candidate remains default-off and is not wired to V13, startup, voice, UI or dashboard.",
+    "Approved HTTPS locators are metadata only and are not fetched; artifact aliases are reattested without reading bytes.",
+    "The graph projects caller-supplied exact ledger-bound assertions and performs no automatic contradiction discovery.",
+    "Freshness alerts and the Founder Brief remain unimplemented.",
+    "Phase 7 is not exited and the full Onyx PRD is incomplete."
+  ],
+  "artifacts": [
+    {
+      "path": "core/phase7_approved_sources_v1.py",
+      "bytes": 48028,
+      "sha256": "6f86867121846fb266bb7cabd0755422f3d09e4ff2087bdd89955c3dfea9f686"
+    },
+    {
+      "path": "core/phase7_company_graph_v1.py",
+      "bytes": 34190,
+      "sha256": "8e1ca71f9588a987071c59634e71e91e2ca18766e0d4d723ed9942e4fcb27359"
+    },
+    {
+      "path": "tests/test_phase7_approved_sources_v1.py",
+      "bytes": 16198,
+      "sha256": "4b142f2ea59381f2ec40be27b1b07c9416a5220a6d705ed67bbb990d048a94ad"
+    },
+    {
+      "path": "tests/test_phase7_company_graph_v1.py",
+      "bytes": 24341,
+      "sha256": "ec441ab8ae35e0709caf14faeebeefd7c23c4edb05544c04d4dc4296a24ecd1a"
+    },
+    {
+      "path": "scripts/verify_phase7_approved_sources_company_graph_v1.py",
+      "bytes": 13505,
+      "sha256": "1da747d0d891a572aadfff84cbca8a03ef12168363da3c057d6875e8e5bfb8bc"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0031-phase7-approved-sources-company-graph-v1.md",
+      "bytes": 2940,
+      "sha256": "146bc133cca5ae43a39fe36937ccb469169dba8dbdf473d3759d3da41a114295"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase7-approved-sources-company-graph-v1/PHASE7_APPROVED_SOURCES_COMPANY_GRAPH_V1_CHECKPOINT.md",
+      "bytes": 2164,
+      "sha256": "7b108c3b1f735e5012f8b69893e23ee438f4b22b0b795d07d8b5adbc2a69b366"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase7-approved-sources-company-graph-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 1428,
+      "sha256": "a053f592527b59f89db2599cf0135abcce0f00718db6524c4687cf9d3183ad85"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase7-approved-sources-company-graph-v1/cumulative-selection.json",
+      "bytes": 1578,
+      "sha256": "f55c678f5f0609a112ce47435caa5d0c3338067bf1c3c3a55571fbe3a5030b95"
+    }
+  ],
+  "artifact_root_sha256": "d9efc2186412abbf95a1cd03b901c5f797bcb7c50e6b3a6d256211dd2eeac1c3"
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "evidence_id": "VE-P4-EXIT-CANDIDATE-001",
+  "scope_id": "VE-SCOPE-P4-E1E5-001",
+  "captured_at": "2026-07-19T22:21:20.4604583-04:00",
+  "activation": false,
+  "e6_accepted": false,
+  "repository": "C:/MAAX_Assistant/Mark-XLVIII",
+  "git": {
+    "branch": "codex/sealed-jarvis-baseline",
+    "base_head": "b2dc0b21f487013cebec34bb148ffb1aeb02611a",
+    "dirty": true,
+    "tracked_status_porcelain_v1_count": 37,
+    "tracked_status_porcelain_v1_lf_sha256": "639de8290414eed05edcec1dc7cfab353eae8bf6a364769bfd159ab321de247f",
+    "binding_note": "HEAD is the base; R10 and VE-SCOPE-P4-E1E5-001 bind the relevant dirty/untracked current bytes. Cache/runtime output is excluded."
+  },
+  "environment": {
+    "interpreter": ".venv/Scripts/python.exe",
+    "python": "CPython 3.13.7 MSC v.1944 64 bit AMD64",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "dependency_manifests": ["requirements.txt", "requirements-dev.txt", "requirements-build.txt", "setup.py"],
+    "pip_freeze_all_count": 127,
+    "pip_freeze_all_canonical_lf_sha256": "a0705b4ef6f637779d2bd7de91627fc3995016bf25c49474e4ab0d45a2b3813c",
+    "dependency_limit": "Installed-set observation only; no hash-pinned release lock is claimed."
+  },
+  "input_binding": {
+    "r10_manifest": "docs/onyx/VE-SCOPE-P44-R10-001.sha256",
+    "r10_files": 77,
+    "r10_manifest_sha256": "7745fd80ef2f8dda06fffee3a497097cc6c89cae7a1cbc89f514dc07cf88ef4d",
+    "candidate_manifest": "docs/onyx/VE-SCOPE-P4-E1E5-001.sha256"
+  },
+  "commands": [
+    {
+      "name": "source_gate",
+      "command": ".venv\\Scripts\\python.exe scripts\\verify_phase4_exit_candidate.py --output docs\\onyx\\checkpoints\\phase4-e1-e5\\source-gate.json",
+      "result": {"exit": 0, "status": "P4_EXIT_CANDIDATE_SOURCE_OK", "r10_files": 77, "flags_off": 8},
+      "artifact": "docs/onyx/checkpoints/phase4-e1-e5/source-gate.json",
+      "artifact_sha256": "d27d290b501ecb05ee226b53ac2a30d2a813dcd2594717c0c62a45f538427fa7"
+    },
+    {
+      "name": "proportional_safety",
+      "command": ".venv\\Scripts\\python.exe -m pytest -q -p no:cacheprovider --basetemp .phase4-e1e5-test-20260719-a --junitxml docs\\onyx\\checkpoints\\phase4-e1-e5\\phase4-safety.junit.xml [52 collected cases listed in JUnit]",
+      "result": {"exit": 0, "passed": 52, "failed": 0, "errors": 0, "skipped": 0, "seconds": 92.896},
+      "artifact": "docs/onyx/checkpoints/phase4-e1-e5/phase4-safety.junit.xml",
+      "artifact_sha256": "b136441cd8165e7ae64f0f60ace6bfa08a6b43ca0f58485492976027aafb6ded"
+    },
+    {
+      "name": "static_and_diff",
+      "command": ".venv\\Scripts\\python.exe -m ruff check scripts\\verify_phase4_exit_candidate.py tests\\test_phase4_exit_candidate.py --select F,E9; git diff --check",
+      "result": {"exit": 0, "ruff": "All checks passed", "diff_check": "clean"}
+    }
+  ],
+  "coverage": [
+    "strict/default-off flags and process flags off",
+    "no enhanced startup imports, including literal dynamic imports",
+    "disabled rollback creates no owner-like path",
+    "R10 exact manifest reconstruction and negative scope probes",
+    "missing/corrupt/unknown sidecar failure",
+    "workspace and mission isolation with explicit legacy-only path",
+    "cancellation identity and cleanup",
+    "restart without duplicate dispatch",
+    "unknown outcome reconciliation without blind retry"
+  ],
+  "skips": [],
+  "limitations": [
+    "No owner data, startup integration, flag activation or Onyx restart was performed.",
+    "No provider, credential, browser, physical device, LAN, installer or release artifact was exercised.",
+    "Accepted R10 regression evidence is referenced, not replaced by this proportional exit-package gate.",
+    "E6 and Phase 5 handoff remain pending."
+  ]
+}

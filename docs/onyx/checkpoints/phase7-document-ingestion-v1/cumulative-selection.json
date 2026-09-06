@@ -1,0 +1,18 @@
+{
+  "schema": "onyx.phase7.document-ingestion.v1.cumulative-selection",
+  "execution": "one-test-file-per-fresh-python-process",
+  "expected": {"test_files": 10, "passed": 178, "failed": 0, "errors": 0, "skipped": 1, "subtests_passed": 77},
+  "explained_skips": [{"path": "tests/test_control_plane.py", "count": 1, "reason": "POSIX mode assertions are unavailable on Windows"}],
+  "tests": [
+    {"path": "tests/test_phase7_document_ingestion_v1.py", "passed": 17, "skipped": 0, "subtests_passed": 0},
+    {"path": "tests/test_phase7_layered_memory_v1.py", "passed": 14, "skipped": 0, "subtests_passed": 0},
+    {"path": "tests/test_phase7_approved_sources_v1.py", "passed": 13, "skipped": 0, "subtests_passed": 0},
+    {"path": "tests/test_phase7_company_graph_v1.py", "passed": 16, "skipped": 0, "subtests_passed": 0},
+    {"path": "tests/test_phase7_founder_command_v1.py", "passed": 14, "skipped": 0, "subtests_passed": 0},
+    {"path": "tests/test_phase7_workspace_memory_v1.py", "passed": 21, "skipped": 0, "subtests_passed": 0},
+    {"path": "tests/test_phase7_workspace_aliases_v1.py", "passed": 22, "skipped": 0, "subtests_passed": 0},
+    {"path": "tests/test_control_plane.py", "passed": 31, "skipped": 1, "subtests_passed": 52},
+    {"path": "tests/test_workspace_registry.py", "passed": 10, "skipped": 0, "subtests_passed": 10},
+    {"path": "tests/test_memory_store.py", "passed": 20, "skipped": 0, "subtests_passed": 15}
+  ]
+}

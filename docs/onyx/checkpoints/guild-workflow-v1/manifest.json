@@ -1,0 +1,60 @@
+{
+  "schema": "onyx.guild.workflow.v1",
+  "candidate": "guild-workflow-v1",
+  "created_at": "2026-08-17T22:50:46-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_GUILD_WORKFLOW_V1",
+  "default_off": true,
+  "accepted_guild_handoff_root_sha256": "104efcc6762416ea6ffd2055a5368df49f605a9e507cc746d8cf0bbf37be6b79",
+  "verification": {
+    "test_files": 30,
+    "passed": 752,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 17,
+    "subtests_passed": 96
+  },
+  "artifacts": [
+    {
+      "path": "core/guild_workflow_v1.py",
+      "bytes": 14958,
+      "sha256": "b6bcae20ed66f8599ba8d084ec7f56edef20e18ebf99734c4f9c8e219119072a"
+    },
+    {
+      "path": "tests/test_guild_workflow_v1.py",
+      "bytes": 12448,
+      "sha256": "8ca12b1b96dee2b64c736593c6c1552a3f87f20d1dcd10877077b02b01771ef2"
+    },
+    {
+      "path": "scripts/verify_guild_workflow_v1.py",
+      "bytes": 7755,
+      "sha256": "9aebeeb1e26fe6e9d2d188f28076991b1dd2caaefc3a375ffb109d9a8ea58e89"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0056-guild-workflow-v1.md",
+      "bytes": 3002,
+      "sha256": "11e01073a27606c43164e57e6bc2d34bf7b63e9da2bf3b9c9eb58e9a25043fa4"
+    },
+    {
+      "path": "docs/onyx/research/GUILD_WORKFLOW_V1_SOURCES.md",
+      "bytes": 1672,
+      "sha256": "b19ceebe6a43a99e64484146e4f063d94859c832b9fda934e4ac32c720106f5d"
+    },
+    {
+      "path": "docs/onyx/checkpoints/guild-workflow-v1/GUILD_WORKFLOW_V1_CHECKPOINT.md",
+      "bytes": 1801,
+      "sha256": "59fc3c6e60e8940e4ada9bcb00aadab61ec176a692ad68806a4adc6f2bc770af"
+    },
+    {
+      "path": "docs/onyx/checkpoints/guild-workflow-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 969,
+      "sha256": "7373c7c7767bd54a25ce81b92a96c42d1103b9b50a2f9096d9e32f05ecb99c4d"
+    },
+    {
+      "path": "docs/onyx/checkpoints/guild-workflow-v1/cumulative-selection.json",
+      "bytes": 4595,
+      "sha256": "9f0a16ca88d84dba78e0596860dac35469bf49bfde159a664e2c1ebde3b33582"
+    }
+  ],
+  "artifact_root_sha256": "48043deead60aecc926925a191926f785896229026097e1e2048e46916dabfdc"
+}

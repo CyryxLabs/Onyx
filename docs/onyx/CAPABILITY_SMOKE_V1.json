@@ -1,0 +1,213 @@
+{
+  "schema": "onyx.capability-smoke.v1",
+  "system": "Windows",
+  "counts": {
+    "pass": 8,
+    "fail": 0,
+    "inconclusive": 1,
+    "skipped": 16
+  },
+  "results": [
+    {
+      "capability": "system_status",
+      "feature": "Hardware Monitoring",
+      "verdict": "pass",
+      "detail": "{'cpu_percent': 20.4, 'ram_percent': 89.5, 'ram_used_gb': 28.5, 'ram_total_gb': 31.8, 'cpu_temp_c': None, 'gpu_percent': 29.0, 'uptime': '14h 30m', 'process_count': 556}",
+      "seconds": 0.266,
+      "note": ""
+    },
+    {
+      "capability": "file_controller",
+      "feature": "System/File Control",
+      "verdict": "pass",
+      "detail": "Contents of .onyx-capability-smoke-pfa82gpc/ (2 items): \ud83d\udcc4 sample.py (34.0 B) \ud83d\udcc4 sample.txt (63.0 B)",
+      "seconds": 0.006,
+      "note": ""
+    },
+    {
+      "capability": "file_processor",
+      "feature": "File Processor",
+      "verdict": "pass",
+      "detail": "This document describes a preliminary test or demonstration (a \"smoke sample\") of a capability related to \"Onyx.\" [PREVIEW ONLY - NOT SAVED] Generated content is preview-only by de",
+      "seconds": 9.202,
+      "note": ""
+    },
+    {
+      "capability": "code_helper",
+      "feature": "Code Helper",
+      "verdict": "inconclusive",
+      "detail": "declined rather than executed: This code defines a very simple function that adds two values together. Here's a breakdown: ### What this code does: This code defines a function name",
+      "seconds": 11.845,
+      "note": ""
+    },
+    {
+      "capability": "reminder",
+      "feature": "Smart Reminders",
+      "verdict": "pass",
+      "detail": "Reminder set for January 01 at 09:00 AM.",
+      "seconds": 0.062,
+      "note": "creates a dated reminder far in the future; harmless if it lands"
+    },
+    {
+      "capability": "proactive",
+      "feature": "Proactive Check-ins",
+      "verdict": "pass",
+      "detail": "{'engine': 'ProactiveEngine', 'silence_gate_secs': 'instance-configured'}",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "capability": "memory",
+      "feature": "Persistent Memory",
+      "verdict": "pass",
+      "detail": "phase7_layered_memory_v1 loaded (46 public names)",
+      "seconds": 0.013,
+      "note": ""
+    },
+    {
+      "capability": "language_memory",
+      "feature": "Silent Language Memory",
+      "verdict": "pass",
+      "detail": "no language key stored yet (set silently on first spoken use)",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "capability": "voice_provider",
+      "feature": "Real-time Voice",
+      "verdict": "pass",
+      "detail": "stale-session recovery armed; fresh-session faults still reach the breaker",
+      "seconds": 0.083,
+      "note": "configuration and recovery path only; a live call needs a session"
+    },
+    {
+      "capability": "screen_capture",
+      "feature": "Visual Awareness",
+      "verdict": "skipped",
+      "detail": "captures the owner's screen; pass --allow-capture to include it",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "capability": "weather",
+      "feature": "Weather Report",
+      "verdict": "skipped",
+      "detail": "needs network; pass --allow-network",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "capability": "web_search",
+      "feature": "Multi-Mode Web Search",
+      "verdict": "skipped",
+      "detail": "needs network; pass --allow-network",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "capability": "youtube",
+      "feature": "YouTube Control",
+      "verdict": "skipped",
+      "detail": "needs network; pass --allow-network",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "capability": "flight_finder",
+      "feature": "Flight Finder",
+      "verdict": "skipped",
+      "detail": "needs network; pass --allow-network",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "capability": "send_message",
+      "feature": "Send Message",
+      "verdict": "skipped",
+      "detail": "sends on the owner's behalf; also drives the desktop via pyautogui",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "capability": "open_app",
+      "feature": "System Control",
+      "verdict": "skipped",
+      "detail": "launches applications and changes what is on screen",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "capability": "computer_control",
+      "feature": "System Control",
+      "verdict": "skipped",
+      "detail": "moves the pointer and types into whatever holds focus",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "capability": "computer_settings",
+      "feature": "System Control",
+      "verdict": "skipped",
+      "detail": "changes volume, brightness, WiFi and power state",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "capability": "desktop_control",
+      "feature": "Desktop Control",
+      "verdict": "skipped",
+      "detail": "rearranges windows and the desktop",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "capability": "browser_control",
+      "feature": "Browser Control",
+      "verdict": "skipped",
+      "detail": "launches a browser and navigates it",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "capability": "game_updater",
+      "feature": "Game Updater",
+      "verdict": "skipped",
+      "detail": "triggers downloads and installs",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "capability": "dev_agent",
+      "feature": "Autonomous Tasks",
+      "verdict": "skipped",
+      "detail": "executes arbitrary generated code",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "capability": "morning_briefing",
+      "feature": "Morning Briefing",
+      "verdict": "skipped",
+      "detail": "first-boot greeting; needs a real session start to observe",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "capability": "hybrid_input",
+      "feature": "Hybrid Input",
+      "verdict": "skipped",
+      "detail": "keyboard/voice switching is a UI behaviour, not a callable",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "capability": "content_panel",
+      "feature": "Dynamic Content Panel",
+      "verdict": "skipped",
+      "detail": "HUD rendering layer; observable only in the running UI",
+      "seconds": 0.0,
+      "note": ""
+    }
+  ],
+  "honesty": "A skip is not a pass. Skipped capabilities are implemented but cannot be exercised without acting on the owner's behalf, and remain unevidenced by this run."
+}

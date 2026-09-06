@@ -1,0 +1,35 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-ARGOS-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-08-19",
+  "findings": {"P0":0,"P1":0,"P2":0,"P3":0},
+  "candidate_manifest_sha256": "9fa80a73e07d84fa35b9ab37f210ed30e07cc8c4b0747f35f6b86a81982bd2fa",
+  "artifact_root_sha256": "11f51eb86be4e9e953bf0df0e7740683a291ec2f83c641b7054a0fe201738d62",
+  "feature_flag": "ONYX_ARGOS_V1",
+  "accepted_phase9_exit_root_sha256": "90d1947576ebaf430cd179b1624c74974789a1426552afb42eab53b180f81fc6",
+  "results": {"test_files":33,"passed":868,"failed":0,"errors":0,"skipped":17,"subtests_passed":96},
+  "review_history": {
+    "functional": "PASS (autonomous session): unregistered-source and missing-rights-note rejection, closed 8-category / 4-kind taxonomies, injected observed_at bounds, severity/confidence 1-5 with exact-type discipline (bool rejected), deterministic weight-then-id ranking, bounded brief limits — adversarially tested (35 tests); is_actionable structurally False, machine-asserted",
+    "integrity": "PASS (autonomous session): artifact root 11f51eb8 and all 8 artifacts recomputed exactly; Phase 9 exit entry-bind byte-exact",
+    "quality": "PASS (autonomous session): original Cyryx work, no third-party world-monitoring source copied; verifier asserts both taxonomies, forbids network/process/publish/fetch tokens, reproduces the 33-file gate with per-file sum check (868/0/0/17/96)"
+  },
+  "scope_exclusions": [
+    "live world-signal fetching — owner-gated, only via the accepted Phase 9 live-ingestion connector",
+    "provider adapters / scheduling — not built",
+    "action authority — none; a signal can never trigger an action",
+    "runtime wiring — none added",
+    "matrix/ledger documentation updates — batched into the next documentation-authority pass"
+  ],
+  "claims": {
+    "argos_registry_default_off_contract_complete": true,
+    "citation_rights_taxonomy_and_ranking_enforced": true,
+    "proprietary_original_work": true,
+    "third_party_world_monitor_code_used": false,
+    "action_authority_added": false,
+    "network_or_process_opened": false,
+    "live_world_intelligence_proven": false,
+    "independent_human_review_performed": false,
+    "full_onyx_prd_complete": false
+  }
+}

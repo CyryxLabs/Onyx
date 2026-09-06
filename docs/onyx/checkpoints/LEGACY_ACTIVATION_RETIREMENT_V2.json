@@ -1,0 +1,253 @@
+{
+  "schema": "onyx.legacy-activation-retirement.v2",
+  "issued_at": "2026-08-23T17:00:00-04:00",
+  "predecessor": {
+    "path": "docs/onyx/checkpoints/LEGACY_ACTIVATION_RETIREMENT_V1.json",
+    "sha256": "756ca894da679559717d8c4ab6247ccbe80227687ddaca28ffa79a7711afa132"
+  },
+  "policy": {
+    "historical_sources_are_immutable": true,
+    "historical_hashes_are_rebound": false,
+    "registered_nodes_must_remain_collected": true,
+    "successor_tests_are_sha256_bound": true,
+    "successor_tests_must_execute": true,
+    "retired_successor_generations_cannot_be_current": true
+  },
+  "claims": [
+    {
+      "id": "activation-v1-v11-historical-closures",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_onyx_live_activation_v1.py::test_accepted_candidate_bytes_and_e6_records_remain_exact",
+        "tests/test_onyx_live_activation_v10.py::test_accepted_predecessor_envelopes_remain_exact_without_future_discovery",
+        "tests/test_onyx_live_activation_v10_c002_acceptance.py::test_p0_candidate_manifest_and_25_file_root_are_exact",
+        "tests/test_onyx_live_activation_v10_c003_acceptance.py::test_p0_c003_manifest_and_26_file_root_are_exact",
+        "tests/test_onyx_live_activation_v11_c001_acceptance.py::test_p0_manifest_and_19_file_root_are_exact",
+        "tests/test_onyx_live_activation_v2.py::test_no_live_enablement_provider_calls_or_existing_host_drift",
+        "tests/test_onyx_live_activation_v3.py::test_v1_v2_are_frozen_rejected_v3_is_independent_and_host_has_no_drift",
+        "tests/test_onyx_live_activation_v4.py::test_v1_v2_v3_are_frozen_rejected_v4_is_independent_and_host_has_no_drift",
+        "tests/test_onyx_live_activation_v4_acceptance.py::test_external_acceptance_validates_exact_frozen_candidate",
+        "tests/test_onyx_live_activation_v4_acceptance.py::test_acceptance_anchors_are_exact[tests/test_onyx_live_activation_v4_acceptance.py-86b22756c450db1c12e0891eef866c75791854b3c18d8580dfe56332ac6c7b14]",
+        "tests/test_onyx_live_activation_v4_acceptance.py::test_activation_and_rollback_recipes_are_exact_but_not_executed",
+        "tests/test_onyx_live_activation_v5.py::test_accepted_v4_and_host_bytes_are_unchanged",
+        "tests/test_onyx_live_activation_v6.py::test_v5_and_frozen_host_bytes_are_unchanged",
+        "tests/test_onyx_live_activation_v6_acceptance.py::test_external_acceptance_validates_exact_frozen_candidate",
+        "tests/test_onyx_live_activation_v6_acceptance.py::test_reproduced_gate[scripts/verify_onyx_live_activation_v6.py-ONYX_LIVE_ACTIVATION_V6_CUMULATIVE_OK]",
+        "tests/test_onyx_live_activation_v7.py::test_v6_bytes_are_frozen",
+        "tests/test_onyx_live_activation_v7_acceptance.py::test_external_acceptance_validates_exact_frozen_candidate",
+        "tests/test_onyx_live_activation_v7_acceptance.py::test_reproduced_gate[scripts/verify_onyx_live_activation_v7.py-ONYX_LIVE_ACTIVATION_V7_CUMULATIVE_OK]",
+        "tests/test_onyx_live_activation_v7_acceptance.py::test_reproduced_gate[scripts/verify_onyx_live_activation_v7_manifest.py-ONYX_LIVE_ACTIVATION_V7_MANIFEST_OK]",
+        "tests/test_onyx_live_activation_v7_acceptance.py::test_focused_v7_is_six_of_six",
+        "tests/test_onyx_live_activation_v7_acceptance.py::test_v4_through_v7_real_count_is_thirty_one",
+        "tests/test_onyx_live_activation_v7_acceptance.py::test_v2_through_v7_real_count_is_fifty_seven",
+        "tests/test_onyx_live_activation_v8.py::test_v8_cumulative_preserves_default_off_desktop_and_v7_acceptance",
+        "tests/test_onyx_live_activation_v8_acceptance.py::test_v8_external_acceptance",
+        "tests/test_onyx_live_activation_v9.py::test_v9_frozen_acceptance_roots_remain_exact",
+        "tests/test_onyx_live_activation_v9_acceptance.py::test_v9_external_acceptance"
+      ],
+      "historical_sources": [
+        {
+          "path": "tests/test_onyx_live_activation_v1.py",
+          "sha256": "66cc8a5ea33df0dd453b44a92c54dfc0146905f8bb00621d0ddb3ef342c316c8"
+        },
+        {
+          "path": "tests/test_onyx_live_activation_v2.py",
+          "sha256": "8b84eccee4cb020e448119cec05f9e47fcf0f1af53d3245fc2df63442ba48e8c"
+        },
+        {
+          "path": "tests/test_onyx_live_activation_v3.py",
+          "sha256": "31c67de48a54c6145cda72ea25bf526dcd21b12ef8866c77b7bf149300bda6b8"
+        },
+        {
+          "path": "tests/test_onyx_live_activation_v4.py",
+          "sha256": "4c776af560a7f3bfd470bef91d205fddbe509c6c767cbaad2b754f3023068783"
+        },
+        {
+          "path": "tests/test_onyx_live_activation_v4_acceptance.py",
+          "sha256": "84f76aed53a3f70ca3502a40f5d9354dac5c5472469127c2133f08e9091a2285"
+        },
+        {
+          "path": "tests/test_onyx_live_activation_v5.py",
+          "sha256": "7fdf6b5dcdf122b351bf5f77c25bfa3784fd8de38876c6790e31719316f2bf64"
+        },
+        {
+          "path": "tests/test_onyx_live_activation_v6.py",
+          "sha256": "0eed5cad48d30d38523e50b0ce6081762175d84b29e0e062ad2400b26a1bd565"
+        },
+        {
+          "path": "tests/test_onyx_live_activation_v6_acceptance.py",
+          "sha256": "eecadb3265966780a7822d15db688019fd7086b16472b87d68dc1a87d9b196fb"
+        },
+        {
+          "path": "tests/test_onyx_live_activation_v7.py",
+          "sha256": "9ec4a10de3c08cf5e90ed6d58ca0292e9ff6f3edf1467be683d7ecd20bba8b6a"
+        },
+        {
+          "path": "tests/test_onyx_live_activation_v7_acceptance.py",
+          "sha256": "bad81b091ae09ca41f289f9515f2d630ca1fffbd83f2913426899f4d38d746d9"
+        },
+        {
+          "path": "tests/test_onyx_live_activation_v8.py",
+          "sha256": "c1145ce15156dd9636f70aa23c4f8bfe799ebd44c8fe7a7e688041df60f6c9fb"
+        },
+        {
+          "path": "tests/test_onyx_live_activation_v8_acceptance.py",
+          "sha256": "573d00bee40734c7a429fa2102af9d38a4d1220e1562653fa6128d66de0c1a94"
+        },
+        {
+          "path": "tests/test_onyx_live_activation_v9.py",
+          "sha256": "bc11d1263b1b762790baace8f97919097879b9ef75fe3e3bd1fad6304dafd549"
+        },
+        {
+          "path": "tests/test_onyx_live_activation_v9_acceptance.py",
+          "sha256": "ea1377949933297b4b159f29165723e51fbc60fb15fc88c3fb1f33db149b00ae"
+        },
+        {
+          "path": "tests/test_onyx_live_activation_v10.py",
+          "sha256": "b0218d8730ccc8c7ed99ac7a63046bd6fb8c32af395f24a92d998f754dbb6a65"
+        },
+        {
+          "path": "tests/test_onyx_live_activation_v10_c002_acceptance.py",
+          "sha256": "b0c8eddf0ff0ad2ebcdbb794a9437e7d9a849dadd137bbd39331d7ce4da7956c"
+        },
+        {
+          "path": "tests/test_onyx_live_activation_v10_c003_acceptance.py",
+          "sha256": "6ffd8d4e7a3419fa8af5bd65355d45ac6722984b044f5433f76a3954a63184a5"
+        },
+        {
+          "path": "tests/test_onyx_live_activation_v11_c001_acceptance.py",
+          "sha256": "39cc55953877184b442ab4a9bd8987f8cfba4f34be6ab48bf4ea3b9d48e21b8a"
+        }
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_phase6_current_v1.py",
+          "sha256": "63600423124867cd4ca5d35a67d5875e40be407f2eb0d8e640a36bf51770f855"
+        }
+      ],
+      "reason": "The immutable V1-V11 closures and their retired V19 successor remain historical; the Phase 6 current verifier proves the active V24 activation chain."
+    },
+    {
+      "id": "hud-v5-v7-historical-closures",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_hud_orb_v5_live_acceptance.py::test_external_acceptance_rehashes_exact_candidate_and_boundary",
+        "tests/test_hud_orb_v5_live_acceptance.py::test_candidate_manifest_closure_and_v3_anchors_are_exact",
+        "tests/test_hud_orb_v6_c003_acceptance.py::test_hud_v6_c003_external_acceptance",
+        "tests/test_hud_orb_v7_c003_acceptance.py::test_p3_v9_v10_and_shortcuts_match_authenticated_pyside_predecessors"
+      ],
+      "historical_sources": [
+        {
+          "path": "tests/test_hud_orb_v5_live_acceptance.py",
+          "sha256": "6f6b87b54499e582f2c8157b4e12fe3715c85a899cefc4813752e054fbf4b825"
+        },
+        {
+          "path": "tests/test_hud_orb_v6_c003_acceptance.py",
+          "sha256": "94d64130a23c6968258be5ffdb67d760b8c4f11d01425ffcaaa60b34230d6326"
+        },
+        {
+          "path": "tests/test_hud_orb_v7_c003_acceptance.py",
+          "sha256": "92b4687492cea578f8a696ed165855346bda969fa45793ef135f9fa02d2d515f"
+        }
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_onyx_hud_current_acceptance_v19.py",
+          "sha256": "3e576bf563d1af507c7f3dc10eb152ee5a181fad405c1d5604178005fa368453"
+        }
+      ],
+      "reason": "The frozen HUD closures predate the arc-free current V19 HUD authority."
+    },
+    {
+      "id": "phase4-r1-r6-source-closures",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_phase4_exit_candidate.py::test_current_candidate_source_gate_passes_without_activation",
+        "tests/test_phase4_exit_candidate_r2.py::test_current_startup_sources_pass_explicit_no_dynamic_execution_policy",
+        "tests/test_phase4_exit_candidate_r2.py::test_r2_manifest_reconstructs_exact_set_and_current_bytes",
+        "tests/test_phase4_exit_candidate_r2.py::test_source_gate_passes_without_activation_or_external_anchor",
+        "tests/test_phase4_exit_candidate_r4.py::test_r11_manifest_is_current_and_exact",
+        "tests/test_phase4_exit_candidate_r4.py::test_r4_source_only_is_current_nonactivating_and_owner_safe",
+        "tests/test_phase4_exit_candidate_r5.py::test_current_r5_is_frozen_but_not_externally_anchored",
+        "tests/test_phase4_exit_candidate_r6.py::test_r12_manifest_is_current_and_comprehensive",
+        "tests/test_phase4_exit_candidate_r6.py::test_r6_source_gate_is_nonactivating_and_owner_safe"
+      ],
+      "historical_sources": [
+        {
+          "path": "tests/test_phase4_exit_candidate.py",
+          "sha256": "89b07c189805de3e95ec50bf2fc248fe3f1c87bc36806bd41f1afec9ecbc7023"
+        },
+        {
+          "path": "tests/test_phase4_exit_candidate_r2.py",
+          "sha256": "adef5f22ad18da7298c678b5d2f3bbae8721f1e1a5cc2d811c5983b2945023dd"
+        },
+        {
+          "path": "tests/test_phase4_exit_candidate_r4.py",
+          "sha256": "177aaff526958bb858a35c669ef2a4b37f5a3113f62f3d3adccc16b2aaf1d91d"
+        },
+        {
+          "path": "tests/test_phase4_exit_candidate_r5.py",
+          "sha256": "f78571b6dc283235267b426e12e2a2178e4f3898956cdcafcc6068bfd89e3812"
+        },
+        {
+          "path": "tests/test_phase4_exit_candidate_r6.py",
+          "sha256": "b381e007e77c02e9187a2656fffa0ca325a326e96513ab4f4ca8d53ef3fa110f"
+        }
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_phase4_governed_successor_v1.py",
+          "sha256": "909f5593adede94f69eb82af46d05bdb5bf27fbdfb90655b97124b7ede5affc4"
+        }
+      ],
+      "reason": "The Phase 4 manifests and no-dynamic-import boundary are frozen predecessor policy; the governed successor proves current non-activation authority."
+    },
+    {
+      "id": "phase5-integration-v1-v2-historical-closures",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_phase5_integration_v1.py::test_accepted_anchors_and_reserved_ui_are_byte_preserved",
+        "tests/test_phase5_integration_v2_transition.py::test_transition_verifier_proves_history_before_v2",
+        "tests/test_phase5_integration_v2_transition.py::test_historical_v10_v1_and_in_scope_anchors_are_byte_exact",
+        "tests/test_phase5_integration_v2_transition.py::test_v2_manifest_and_root_manifest_close_all_transition_files"
+      ],
+      "historical_sources": [
+        {
+          "path": "tests/test_phase5_integration_v1.py",
+          "sha256": "4d5a3432ee90009266cf57a33d098f57430aca1831f1ab07b354e0797e775fef"
+        },
+        {
+          "path": "tests/test_phase5_integration_v2_transition.py",
+          "sha256": "2efe373bf0740d32384929ab3ade7aabbcce16388d7d0063b33ef9ce3b3a1f9e"
+        }
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_phase5_integration_v3_acceptance.py",
+          "sha256": "0df8c79957c09ff4df2abe5e3699bdd023e920a35beead9de07fb4befcf6c0cb"
+        }
+      ],
+      "reason": "The V1-V2 recursive envelopes remain historical; the V3 integration suite is the current operational contract."
+    },
+    {
+      "id": "phase7-workspace-memory-external-closure",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_phase7_workspace_memory_v1_acceptance.py::test_phase7_workspace_memory_v1_external_acceptance"
+      ],
+      "historical_sources": [
+        {
+          "path": "tests/test_phase7_workspace_memory_v1_acceptance.py",
+          "sha256": "dedd79753a0f2ed895da77686b383bdd7da6bf4eef19fa3c09ade4d5243fcf44"
+        }
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_phase7_workspace_memory_v1.py",
+          "sha256": "d814a0743e17934ef0e2dc65d4f1505d7a576aaab9c6a20073f6858fcdf4cbd4"
+        }
+      ],
+      "reason": "The external V1 package hash is frozen while current workspace-memory behavior remains covered by its live suite."
+    }
+  ]
+}

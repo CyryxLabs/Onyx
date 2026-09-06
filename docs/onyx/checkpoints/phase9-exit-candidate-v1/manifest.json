@@ -1,0 +1,52 @@
+{
+  "schema": "onyx.phase9.exit-candidate.v1",
+  "candidate": "phase9-exit-candidate-v1",
+  "created_at": "2026-07-25T12:00:00-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "accepted_component_roots": 12,
+  "claims": {
+    "phase9_intelligence_layer_default_off_implementation_complete": true,
+    "official_source_first_proven": true,
+    "world_monitor_bound": false,
+    "live_execution_bound": false,
+    "autonomous_trading_enabled": false,
+    "phase10_started": false,
+    "full_onyx_prd_complete": false
+  },
+  "verification": {
+    "test_files": 23,
+    "passed": 472,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "subtests_passed": 80
+  },
+  "artifacts": [
+    {
+      "path": "scripts/verify_phase9_exit_candidate_v1.py",
+      "bytes": 9034,
+      "sha256": "21327a77872760e3c46772756a994f5844e5f35e84e607bf6e20f9d56a4db4f0"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0048-phase9-exit-candidate-v1.md",
+      "bytes": 4703,
+      "sha256": "5b93ed61611a28547e2559e1afe5647b939daca4f5d557172722fadcadaa2992"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase9-exit-candidate-v1/PHASE9_EXIT_CANDIDATE_V1_CHECKPOINT.md",
+      "bytes": 2298,
+      "sha256": "be0626d0b03d7bdd0764aecec2233755e6fe1eb8389d287961d0bc50f857d81f"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase9-exit-candidate-v1/coverage-map.json",
+      "bytes": 2253,
+      "sha256": "99936d30190d6ccef8e6d5ead595cb57b60572a6dea7c90b947616729ede453f"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase9-exit-candidate-v1/cumulative-selection.json",
+      "bytes": 2765,
+      "sha256": "652cae8bae75adc783b0d749f5b697ab2cd543a1944ca60eb2ad28377403ad21"
+    }
+  ],
+  "artifact_root_sha256": "90d1947576ebaf430cd179b1624c74974789a1426552afb42eab53b180f81fc6"
+}

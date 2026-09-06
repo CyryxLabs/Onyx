@@ -1,0 +1,55 @@
+{
+  "schema": "onyx.advanced-operations-source-acceptance.v3",
+  "evidence_id": "VE-ADVANCED-OPS-V19-001",
+  "status": "source_candidate",
+  "predecessor": {
+    "path": "docs/onyx/acceptance/VE-ADVANCED-OPS-V18-001.manifest.json",
+    "sha256": "7639008ccffeb54a2b3ee9d4127e4a20b9e71fd3b2b32e5679b061c1d17170d6"
+  },
+  "domain": "ONYX-ADVANCED-OPS-SOURCE-V19",
+  "root_sha256": "ad80e6f907f9129b9006563af9c9bddab3ec989204c713e93101b50d638c5ef3",
+  "policy": {
+    "accepted_runtime_engine_replaced": false,
+    "phase6_authority_replaced": false,
+    "voice_provider_or_voice_changed": false,
+    "mutable_state_inside_application_tree": false,
+    "owner_private_runtime_required": true,
+    "historical_v10_function_restored_after_activation": true
+  },
+  "validation": {
+    "focused_command": ".venv-release-v16/Scripts/python.exe -m pytest -q tests/test_onyx_live_activation_v21.py tests/test_runtime_validation_bundle_v1.py",
+    "focused_passed": 21,
+    "focused_failed": 0,
+    "integrated_passed": 280,
+    "integrated_failed": 0,
+    "activation_chain_passed": 139,
+    "activation_chain_failed": 0,
+    "transition_chain_passed": 51,
+    "transition_chain_failed": 0,
+    "predecessor_integrated_passed": 260,
+    "predecessor_activation_chain_passed": 136,
+    "predecessor_transition_chain_passed": 48
+  },
+  "files": [
+    {
+      "path": "core/onyx_live_activation_v21.py",
+      "sha256": "9000e21644cb2599fa1b3e48b64fa5f3322355108f12e2edb1e0571fca12352f"
+    },
+    {
+      "path": "scripts/build_release.py",
+      "sha256": "fae5e4208eff89e20c54ade6f8a4f61f881617d30e851c2f1e4d1f0cba49bed5"
+    },
+    {
+      "path": "scripts/package_hygiene.py",
+      "sha256": "4ebd521cbf1898a99b8dffc5d55ebd22902f55d42c69cb6f3bddbbf2db9dd030"
+    },
+    {
+      "path": "tests/test_onyx_live_activation_v21.py",
+      "sha256": "da972d0674e17d5b80d4c76bcf1923ccc6a0486b8408d93bc22d8bf9815e968c"
+    },
+    {
+      "path": "tests/test_runtime_validation_bundle_v1.py",
+      "sha256": "eb6ba2ec77cf7568dd1cd86524378f741180912d3611f8b0bfe5c3fcd946d722"
+    }
+  ]
+}

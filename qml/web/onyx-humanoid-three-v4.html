@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    html,body,#stage{width:100%;height:100%;margin:0;overflow:hidden;background:transparent}
+    canvas{display:block;width:100%;height:100%;pointer-events:none}
+  </style>
+</head>
+<body><div id="stage"></div>
+<script type="module">
+import * as THREE from './vendor/three/three.module.min.js';
+import {
+  decodeOnyxPointCloud,
+  ONYX_POINT_COUNT,
+  ONYX_SOURCE_HEIGHT,
+  ONYX_SOURCE_WIDTH,
+} from './data/onyx-humanoid-pointcloud-v1.js';
+
+const stage = document.getElementById('stage');
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(31, 1, .1, 100);
+camera.position.set(0, .04, 8.35);
+const renderer = new THREE.WebGLRenderer({
+  alpha:true,
+  antialias:true,
+  powerPreference:'high-performance',
+  preserveDrawingBuffer:true,
+});
+renderer.setClearColor(0x050607, 0);
+renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.16;
+stage.appendChild(renderer.domElement);
+
+const state = {
+  mode:'READY',audio:0,reduced:false,active:true,formation:0,start:performance.now(),
+  pointerTargetX:0,pointerTargetY:0,pointerX:0,pointerY:0,
+  attentionSource:'pointer',cameraLockUntil:0,contextLost:false,renderRequested:true,
+};
+const entity = new THREE.Group();
+entity.position.y = -.03;
+scene.add(entity);
+
+function hash(value) {
+  const x = Math.sin(value * 12.9898 + 78.233) * 43758.5453;
+  return x - Math.floor(x);
+}
+
+const packed = decodeOnyxPointCloud();
+const view = new DataView(packed.buffer, packed.byteOffset, packed.byteLength);
+const positions = new Float32Array(ONYX_POINT_COUNT * 3);
+const colours = new Float32Array(ONYX_POINT_COUNT * 3);
+const intensities = new Float32Array(ONYX_POINT_COUNT);
+const seeds = new Float32Array(ONYX_POINT_COUNT);
+for (let index = 0; index < ONYX_POINT_COUNT; index += 1) {
+  const offset = index * 8;
+  const sourceX = view.getUint16(offset, true);
+  const sourceY = view.getUint16(offset + 2, true);
+  const red = packed[offset + 4] / 255;
+  const green = packed[offset + 5] / 255;
+  const blue = packed[offset + 6] / 255;
+  const intensity = packed[offset + 7] / 255;
+  const x = (sourceX / (ONYX_SOURCE_WIDTH - 1) - .5) * 7.82;
+  const y = (.5 - sourceY / (ONYX_SOURCE_HEIGHT - 1)) * 4.38;
+  const headX = x / 1.08;
+  const headY = (y - .76) / 1.52;
+  const headDepth = Math.sqrt(Math.max(0, 1 - headX * headX - headY * headY));
+  const shoulderDepth = Math.sqrt(Math.max(0, 1 - Math.pow(x / 3.72, 2))) * .22;
+  const z = y > -.43 && Math.abs(x) < 1.22 ? headDepth * .62 : shoulderDepth;
+  const seed = hash(sourceX * .017 + sourceY * .131);
+  positions[index * 3] = x;
+  positions[index * 3 + 1] = y;
+  positions[index * 3 + 2] = z + (seed - .5) * .045;
+  colours[index * 3] = Math.max(Math.pow(red, .72), intensity * .20);
+  colours[index * 3 + 1] = Math.max(Math.pow(green, .72), intensity * .31);
+  colours[index * 3 + 2] = Math.max(Math.pow(blue, .72), intensity * .33);
+  intensities[index] = intensity;
+  seeds[index] = seed;
+}
+
+const anatomyGeometry = new THREE.BufferGeometry();
+anatomyGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+anatomyGeometry.setAttribute('color', new THREE.BufferAttribute(colours, 3));
+anatomyGeometry.setAttribute('aIntensity', new THREE.BufferAttribute(intensities, 1));
+anatomyGeometry.setAttribute('aSeed', new THREE.BufferAttribute(seeds, 1));
+
+const vertexShader = `
+  attribute float aIntensity;
+  attribute float aSeed;
+  varying vec3 vColor;
+  varying float vAlpha;
+  uniform float uTime;
+  uniform float uFormation;
+  uniform float uState;
+  uniform float uAudio;
+  uniform float uPixelRatio;
+  uniform float uGlow;
+  uniform vec2 uPointer;
+  float ease(float value) { value=clamp(value,0.0,1.0); return 1.0-pow(1.0-value,3.0); }
+  void main() {
+    vec3 target=position;
+    float verticalOrder=clamp((target.y+2.2)/4.4,0.0,1.0);
+    float localFormation=ease((uFormation-verticalOrder*.18-aSeed*.08)*1.28);
+    float angle=aSeed*25.1327+localFormation*12.5664;
+    float spiralRadius=(1.0-localFormation)*(.18+aSeed*1.75);
+    vec3 flow=mix(vec3(0.0,-1.72,.1),target,localFormation);
+    flow.x+=cos(angle)*spiralRadius;
+    flow.y+=(1.0-localFormation)*aSeed*1.25;
+    flow.z+=sin(angle)*spiralRadius*.42;
+    float breathMask=smoothstep(-2.15,-.35,-target.y);
+    float breath=sin(uTime*1.16+aSeed*.45)*.010*breathMask;
+    flow.x*=1.0+breath;
+    flow.y+=breath*.34;
+    float travellingPulse=.5+.5*sin(target.y*7.0-uTime*3.2+aSeed*1.8);
+    float interaction=clamp(uState*.22+uAudio,0.0,1.0);
+    flow.z+=travellingPulse*interaction*(.025+aIntensity*.018);
+
+    // The complete cranial anatomy follows attention with enough travel to be
+    // visually legible while the neck and shoulders remain structurally calm.
+    float headMask=smoothstep(-.52,-.18,target.y)
+      *(1.0-smoothstep(1.08,1.28,abs(target.x)));
+    vec3 headCentre=vec3(0.0,.69,.13);
+    vec3 relative=flow-headCentre;
+    float yaw=uPointer.x*.220;
+    float pitch=-uPointer.y*.135;
+    vec3 yawed=vec3(
+      relative.x*cos(yaw)+relative.z*sin(yaw),
+      relative.y,
+      -relative.x*sin(yaw)+relative.z*cos(yaw)
+    );
+    vec3 tracked=vec3(
+      yawed.x,
+      yawed.y*cos(pitch)-yawed.z*sin(pitch),
+      yawed.y*sin(pitch)+yawed.z*cos(pitch)
+    )+headCentre+vec3(uPointer.x*.070,uPointer.y*.038,0.0);
+    flow=mix(flow,tracked,headMask);
+    vec4 mvPosition=modelViewMatrix*vec4(flow,1.0);
+    gl_Position=projectionMatrix*mvPosition;
+    float perspective=8.0/max(2.0,-mvPosition.z);
+    gl_PointSize=uPixelRatio*perspective*(uGlow>.5?1.65+aIntensity*3.25:.62+aIntensity*1.48);
+    float pulseLight=interaction*travellingPulse*.32;
+    float speaking=step(.90,uState);
+    float faceEnergy=headMask*speaking*(.46+uAudio*.42);
+    vec3 cyryxTeal=vec3(.098,.780,.753);
+    vColor=color*(1.04+pulseLight)+vec3(.02,.25,.24)*pulseLight;
+    // Speech illuminates the complete facial anatomy uniformly in Cyryx teal;
+    // there is intentionally no centre-origin radial lamp or ray burst.
+    vColor=mix(vColor,cyryxTeal*(.68+aIntensity*.46),faceEnergy);
+    vAlpha=((.30+aIntensity*.70)+headMask*speaking*(.12+uAudio*.16))*localFormation;
+  }
+`;
+const fragmentShader = `
+  varying vec3 vColor;
+  varying float vAlpha;
+  uniform float uGlow;
+  void main() {
+    float radius=length(gl_PointCoord-vec2(.5));
+    if(radius>.5) discard;
+    float edge=smoothstep(.5,.02,radius);
+    float alpha=vAlpha*edge*(uGlow>.5?.17:.92);
+    gl_FragColor=vec4(vColor,alpha);
+  }
+`;
+
+function anatomyMaterial(glow) {
+  return new THREE.ShaderMaterial({
+    uniforms:{
+      uTime:{value:0},uFormation:{value:0},uState:{value:0},uAudio:{value:0},
+      uPixelRatio:{value:renderer.getPixelRatio()},uGlow:{value:glow?1:0},
+      uPointer:{value:new THREE.Vector2()},
+    },
+    vertexShader,fragmentShader,vertexColors:true,transparent:true,
+    blending:glow?THREE.AdditiveBlending:THREE.NormalBlending,depthWrite:false,
+  });
+}
+const baseMaterial = anatomyMaterial(false);
+const glowMaterial = anatomyMaterial(true);
+const anatomy = new THREE.Points(anatomyGeometry, baseMaterial);
+const glow = new THREE.Points(anatomyGeometry, glowMaterial);
+glow.position.z = -.018;
+entity.add(glow, anatomy);
+
+// Deterministic dissolving perimeter from the reel motion language. It does
+// not define or replace the approved Cyryx humanoid anatomy.
+const haloCount=2600;
+const haloPositions = new Float32Array(haloCount * 3);
+for (let index = 0; index < haloCount; index += 1) {
+  const a=hash(index+17), b=hash(index+109), c=hash(index+941);
+  const angle=b*Math.PI*2;
+  if (a < .48) {
+    haloPositions[index*3]=Math.cos(angle)*(1.02+c*.38);
+    haloPositions[index*3+1]=.76+Math.sin(angle)*(1.45+c*.34);
+  } else {
+    const side=b<.5?-1:1;
+    haloPositions[index*3]=side*(.55+Math.abs(b-.5)*6.6);
+    haloPositions[index*3+1]=-1.05-c*.88+Math.sin(angle)*.20;
+  }
+  haloPositions[index*3+2]=(c-.5)*.52;
+}
+const haloGeometry = new THREE.BufferGeometry();
+haloGeometry.setAttribute('position',new THREE.BufferAttribute(haloPositions,3));
+const haloMaterial = new THREE.PointsMaterial({color:0x19c7c0,size:.016,transparent:true,opacity:.28,blending:THREE.AdditiveBlending,depthWrite:false});
+const halo = new THREE.Points(haloGeometry,haloMaterial);
+entity.add(halo);
+
+const rings = new THREE.Group();
+rings.position.set(0,.77,-.42);
+entity.add(rings);
+for (let index=0; index<7; index+=1) {
+  rings.add(new THREE.Mesh(
+    new THREE.RingGeometry(1.08+index*.23,1.086+index*.23,128),
+    new THREE.MeshBasicMaterial({color:0x127f7b,transparent:true,opacity:0,side:THREE.DoubleSide,blending:THREE.AdditiveBlending,depthWrite:false}),
+  ));
+}
+const coreMaterial = new THREE.ShaderMaterial({
+  uniforms:{uEnergy:{value:0}},
+  vertexShader:'varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}',
+  fragmentShader:'varying vec2 vUv;uniform float uEnergy;void main(){float d=length(vUv-.5);float a=smoothstep(.5,0.,d);gl_FragColor=vec4(.08,.92,.88,a*a*(.18+uEnergy*.58));}',
+  transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,
+});
+const core = new THREE.Mesh(new THREE.PlaneGeometry(.34,.34),coreMaterial);
+core.position.set(0,-1.73,.52);
+entity.add(core);
+
+window.OnyxEntity = {
+  setState(mode,audio,reduced,active) {
+    state.mode=String(mode||'READY').toUpperCase();
+    state.audio=Math.max(0,Math.min(1,Number(audio)||0));
+    state.reduced=Boolean(reduced);
+    state.active=active!==false;
+    if(!state.active)state.formation=1;
+    requestRender();
+  },
+  setAttention(x,y,source) {
+    const kind=String(source||'pointer').toLowerCase();
+    state.pointerTargetX=Math.max(-1,Math.min(1,Number(x)||0));
+    state.pointerTargetY=Math.max(-1,Math.min(1,Number(y)||0));
+    state.attentionSource=kind;
+    if(kind==='camera')state.cameraLockUntil=performance.now()+650;
+  },
+  reset(){state.formation=0;state.start=performance.now();requestRender();},
+};
+
+function updatePointer(clientX,clientY) {
+  if(performance.now()<state.cameraLockUntil)return;
+  const bounds=stage.getBoundingClientRect();
+  if(bounds.width<2||bounds.height<2)return;
+  state.pointerTargetX=Math.max(-1,Math.min(1,((clientX-bounds.left)/bounds.width-.5)*2));
+  state.pointerTargetY=Math.max(-1,Math.min(1,(.5-(clientY-bounds.top)/bounds.height)*2));
+  state.attentionSource='pointer';
+}
+window.addEventListener('pointermove',event=>updatePointer(event.clientX,event.clientY),{passive:true});
+document.addEventListener('pointerleave',()=>{
+  state.pointerTargetX=0;state.pointerTargetY=0;
+});
+function modeLevel(mode) {
+  if(mode==='SPEAKING')return 1;
+  if(mode==='LISTENING')return .72;
+  if(mode==='THINKING'||mode==='PROCESSING'||mode==='EXECUTING')return .52;
+  return 0;
+}
+let lastFrame=0;
+function requestRender() {
+  state.renderRequested=true;
+}
+function resize() {
+  const width=Math.max(2,stage.clientWidth), height=Math.max(2,stage.clientHeight);
+  renderer.setSize(width,height,false);camera.aspect=width/height;camera.updateProjectionMatrix();
+  const pixelRatio=renderer.getPixelRatio();
+  baseMaterial.uniforms.uPixelRatio.value=pixelRatio;
+  glowMaterial.uniforms.uPixelRatio.value=pixelRatio;
+  requestRender();
+}
+new ResizeObserver(resize).observe(stage);resize();
+
+renderer.domElement.addEventListener('webglcontextlost',event=>{
+  event.preventDefault();
+  state.contextLost=true;
+});
+renderer.domElement.addEventListener('webglcontextrestored',()=>{
+  state.contextLost=false;
+  requestRender();
+});
+document.addEventListener('visibilitychange',()=>{
+  if(!document.hidden)requestRender();
+});
+
+function renderFrame(now,force=false) {
+  if(state.contextLost)return false;
+  const targetFps=state.reduced?12:(state.mode==='SPEAKING'?30:24);
+  if(!force&&now-lastFrame<1000/targetFps)return false;
+  lastFrame=now;
+  const elapsed=Math.max(0,now-state.start);
+  state.formation=state.reduced?1:Math.max(state.formation,Math.min(1,elapsed/2750));
+  const time=now*.001, interaction=modeLevel(state.mode);
+  const pointerEase=state.reduced?1:(state.attentionSource==='camera'?.145:.185);
+  const pointerTargetX=state.reduced?0:state.pointerTargetX;
+  const pointerTargetY=state.reduced?0:state.pointerTargetY;
+  state.pointerX+=(pointerTargetX-state.pointerX)*pointerEase;
+  state.pointerY+=(pointerTargetY-state.pointerY)*pointerEase;
+  const breathing=state.reduced?0:Math.sin(time*1.16)*.0045;
+  entity.scale.set(1+breathing*.6,1+breathing,1+breathing*.45);
+  entity.rotation.y=state.reduced?0:Math.sin(time*.32)*.018+state.pointerX*.032;
+  entity.rotation.x=state.reduced?0:-state.pointerY*.012;
+  entity.position.x=state.reduced?0:state.pointerX*.060;
+  entity.position.y=-.03+(state.reduced?0:state.pointerY*.026);
+  halo.rotation.y=-entity.rotation.y*1.8;
+  halo.rotation.z=state.reduced?0:Math.sin(time*.23)*.004;
+  haloMaterial.opacity=.16+interaction*.16+state.audio*.16;
+  for(const material of [baseMaterial,glowMaterial]) {
+    material.uniforms.uTime.value=time;
+    material.uniforms.uFormation.value=state.formation;
+    material.uniforms.uState.value=interaction;
+    material.uniforms.uAudio.value=state.audio;
+    material.uniforms.uPointer.value.set(state.pointerX,state.pointerY);
+  }
+  rings.visible=interaction>.5;
+  rings.children.forEach((ring,index)=>{
+    const progress=(time*(.16+interaction*.10)+index/rings.children.length)%1;
+    ring.scale.setScalar(.72+progress*.64);
+    ring.material.opacity=(1-progress)*(.018+interaction*.070+state.audio*.08);
+  });
+  coreMaterial.uniforms.uEnergy.value=.42+interaction*.32+state.audio*.55+Math.sin(time*1.16)*.08;
+  renderer.render(scene,camera);
+  return true;
+}
+function animate(now) {
+  requestAnimationFrame(animate);
+  const force=state.renderRequested;
+  if((state.active||force)&&renderFrame(now,force))state.renderRequested=false;
+}
+
+window.__ONYX_THREE_READY__=true;
+window.__ONYX_RENDER_INFO__=()=>({
+  renderer:'three-webgl-humanoid-pointcloud-v2',sourceImageAtRuntime:false,
+  calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,
+  points:renderer.info.render.points,sourcePoints:ONYX_POINT_COUNT,
+  webgl2:renderer.capabilities.isWebGL2,state:state.mode,
+  pointer:[state.pointerX,state.pointerY],
+  attentionSource:state.attentionSource,
+});
+requestAnimationFrame(animate);
+</script></body></html>

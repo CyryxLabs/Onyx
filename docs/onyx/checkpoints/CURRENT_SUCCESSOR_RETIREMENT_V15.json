@@ -1,0 +1,127 @@
+{
+  "schema": "onyx.current-successor-retirement.v15",
+  "issued_at": "2026-08-23T16:00:00-04:00",
+  "predecessor": {
+    "path": "docs/onyx/checkpoints/CURRENT_SUCCESSOR_RETIREMENT_V14.json",
+    "sha256": "84edfabc9e1b3a0b8a143586e695e98827b16f840839b727f8cec40e5a81b9a7"
+  },
+  "policy": {
+    "historical_tests_are_rewritten": false,
+    "historical_hashes_are_rebound": false,
+    "registered_nodes_must_remain_collected": true,
+    "successor_sources_are_sha256_bound": true,
+    "successor_tests_must_execute": true
+  },
+  "additional_claims": [
+    {
+      "id": "hud-v30-v33-to-v34-current-acceptance",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_onyx_hud_current_acceptance_v30.py::test_current_qml_loads_and_tears_down_without_projection_property_errors",
+        "tests/test_onyx_hud_current_acceptance_v30.py::test_v30_authenticates_projection_safe_qml_lifecycle",
+        "tests/test_onyx_hud_current_acceptance_v31.py::test_v31_authenticates_post_load_ambient_motion_successor",
+        "tests/test_onyx_hud_current_acceptance_v32.py::test_v32_authenticates_1_1_10_without_replacing_renderer",
+        "tests/test_onyx_hud_current_acceptance_v33.py::test_v33_authenticates_current_symlink_safe_runtime"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_onyx_hud_current_acceptance_v34.py",
+          "sha256": "ff4bcc1f1ec1fb770dfe3a842618e0700d29772bf80d1cddaf12785f272cf593"
+        }
+      ],
+      "validated_tests": 1,
+      "reason": "HUD V34 is the current acceptance authority for the positive V30-V33 lifecycle and rendering claims; historical tamper and linked-input refusals remain untouched."
+    },
+    {
+      "id": "live-activation-v16-v18-to-phase6-current",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_onyx_live_activation_v16.py::test_v16_governance_smoke_is_isolated_provider_free_and_complete",
+        "tests/test_onyx_live_activation_v16.py::test_v16_production_ordering_wraps_callback_installed_after_activation",
+        "tests/test_onyx_live_activation_v16.py::test_v16_real_host_nucleus_precedes_session_and_rolls_back",
+        "tests/test_onyx_live_activation_v16.py::test_v16_repeated_instances_preserve_original_trusted_callback",
+        "tests/test_onyx_live_activation_v17.py::test_founder_smoke_is_real_isolated_and_survives_restart",
+        "tests/test_onyx_live_activation_v18.py::test_document_intake_smoke_bootstrap_is_real_and_reopens"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_phase6_current_v1.py",
+          "sha256": "63600423124867cd4ca5d35a67d5875e40be407f2eb0d8e640a36bf51770f855"
+        }
+      ],
+      "validated_tests": 1,
+      "reason": "Phase 6 current V1 consolidates the drifted positive activation, provider-free smoke, callback-ordering and restart claims without registering historical failpoint, refusal, tamper or security tests."
+    },
+    {
+      "id": "packaged-runtime-v1-v2-to-v3-contract",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_packaged_runtime_hud_contract_v1.py::test_curated_runtime_subset_passes_and_dev_authorities_are_absent",
+        "tests/test_packaged_runtime_hud_contract_v1.py::test_every_exact_runtime_member_is_individually_hash_bound",
+        "tests/test_packaged_runtime_hud_contract_v1.py::test_frozen_contract_accepts_composed_runtime_sources_and_docs",
+        "tests/test_packaged_runtime_hud_contract_v1.py::test_frozen_contract_allows_only_main_and_ui_from_forbidden_registry",
+        "tests/test_packaged_runtime_hud_contract_v1.py::test_frozen_contract_uses_authenticated_v25_receipt_without_dev_tree",
+        "tests/test_packaged_runtime_hud_contract_v1.py::test_generate_runtime_sources_uses_the_same_subset_contract",
+        "tests/test_packaged_runtime_hud_contract_v1.py::test_qml_runtime_is_an_explicit_hash_bound_package_allowlist",
+        "tests/test_packaged_runtime_hud_contract_v1.py::test_runtime_evidence_membership_is_exactly_the_three_historical_files",
+        "tests/test_packaged_runtime_hud_contract_v2.py::test_packaged_v2_binds_capability_smoke_and_host_ports"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_packaged_runtime_hud_contract_v3.py",
+          "sha256": "2e4ce01599dcd20a0a13e493ddfe042d2602295c5da20be9cd3d73979225ccc3"
+        }
+      ],
+      "validated_tests": 1,
+      "reason": "Packaged runtime V3 is the current positive contract for the V1/V2 package membership, composition, receipt and host-port claims; historical tamper and rejection tests remain active and unregistered."
+    },
+    {
+      "id": "phase4-governed-v1-to-v2-positive-contract",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_phase4_governed_successor_v1.py::test_governed_successor_cli_emits_only_its_new_marker",
+        "tests/test_phase4_governed_successor_v1.py::test_governed_successor_has_a_distinct_truthful_marker"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_phase4_governed_successor_v2.py",
+          "sha256": "1fec1c845b7d443b531973dd5340f5b92965d60e0f1a53965acd589aa875de52"
+        }
+      ],
+      "validated_tests": 1,
+      "reason": "Governed successor V2 carries the two positive V1 marker and CLI claims while the historical rejection and authority-security tests remain unregistered."
+    },
+    {
+      "id": "release-v54-v55-to-v56-workflow",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_release_workflow_transition_v54.py::test_release_v54_authenticates_packaging_closure_successor",
+        "tests/test_release_workflow_transition_v55.py::test_release_v55_authenticates_v33_package_hygiene_successor"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_release_workflow_transition_v56.py",
+          "sha256": "a545dc7c937d4ec01d5ed0a56d0dc93cf1bc64965930f88d404855b0084d88cd"
+        }
+      ],
+      "validated_tests": 1,
+      "reason": "Release V56 is the current positive workflow authority succeeding the V54 packaging closure and V55 HUD package-hygiene transitions."
+    },
+    {
+      "id": "release-version-1-1-9-to-current-capability-status",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_release_version_v119.py::test_packaging_and_release_surfaces_default_to_1_1_9",
+        "tests/test_release_version_v119.py::test_runtime_version_is_1_1_9"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_current_capability_status_v1.py",
+          "sha256": "674fd72d5ae03c0cb6d473bd4ef12fe0e450af2aa7c4d0a31833a6307836188a"
+        }
+      ],
+      "validated_tests": 1,
+      "reason": "Current capability status preserves 1.1.9 as historical formal NO-GO while authenticating the present version and evidence-layer claims; unrelated immutable packaging security tests remain unregistered."
+    }
+  ]
+}

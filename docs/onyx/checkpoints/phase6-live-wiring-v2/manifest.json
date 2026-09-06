@@ -1,0 +1,99 @@
+{
+  "schema": "OnyxPhase6LiveWiringCheckpoint.v2",
+  "candidate": "phase6-live-wiring-v2-candidate-001",
+  "status": "candidate_default_off_not_live",
+  "generated_at": "2026-07-23T14:45:00-04:00",
+  "feature_flag": "ONYX_PHASE6_LIVE_WIRING_V2",
+  "enabled_value": "true",
+  "default_off": true,
+  "live_wiring": false,
+  "artifacts": [
+    {
+      "path": "core/phase6_live_wiring_v2.py",
+      "bytes": 27089,
+      "sha256": "ba590092b3f9f135086ae33bcf98c59d28d5f199734b704944edf1a9c66e38f3"
+    },
+    {
+      "path": "tests/test_phase6_live_wiring_v2.py",
+      "bytes": 18085,
+      "sha256": "70b47251d781f9d989076c0e7efdcec70d04d44bfb6a2064a7c67493952b1d85"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0027-phase6-live-wiring-v2.md",
+      "bytes": 2804,
+      "sha256": "c8b5b2aba87694568e58fb9ca627749ed72e59195cb95721501cd77245ac90c8"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase6-live-wiring-v2/PHASE6_LIVE_WIRING_V2_CHECKPOINT.md",
+      "bytes": 3462,
+      "sha256": "a80e9e3292c321b2bf2ebe6e672d077996792a4d84f23ab99046403b52f0eb09"
+    },
+    {
+      "path": "scripts/verify_phase6_live_wiring_v2.py",
+      "bytes": 6102,
+      "sha256": "b82f5025a5e604a97dc42a309cb88900b48d7ef04b3f0d762d7efa6e92486bea"
+    }
+  ],
+  "artifact_root_sha256": "dfdcd199147871cc10f3bf120db21cdffda339d12e0737b6e6e44526a7e5615b",
+  "component_acceptance_roots": 15,
+  "component_acceptance_root_sha256": "5c71569c070feda97efa2f844d48b1e5c54161450a561ba1f9e2c715be27fd27",
+  "composition": {
+    "base": "Phase6LiveWiringV1",
+    "provider_registry": "ProviderRegistryV1",
+    "research_pipeline": "ResearchVerifierPipelineV1",
+    "local_mcp": "LocalMCPIdentityV1",
+    "router": "UnifiedCommandRouterV1",
+    "external_agent": "DisabledExternalAgentDescriptorCatalogV1"
+  },
+  "lifecycle": {
+    "patched_controller_seams": [
+      "_create_session",
+      "_detach_session"
+    ],
+    "host_seams_changed": 0,
+    "rollback": "exact-v1-instance-lookup",
+    "session_scope": "one-operational-v2-per-live-wiring-v1-session"
+  },
+  "provider_truth": {
+    "provider_id": "google-gemini",
+    "api_version": "v1beta",
+    "remote": true,
+    "v1_registry_status": "blocked_by_policy",
+    "text_plan_reason": "local_hard_filter",
+    "confidential_remote_route": false
+  },
+  "verification": {
+    "focused_v2_passed_before_manifest": 14,
+    "predecessor_regression_passed": 155,
+    "total_passed_before_manifest": 169,
+    "ruff_lint": "passed",
+    "ruff_format": "passed",
+    "py_compile": "passed"
+  },
+  "effects": {
+    "provider_calls": 0,
+    "process_calls": 0,
+    "network_calls": 0,
+    "live_calls": 0,
+    "mcp_process_opened": false,
+    "external_agent_installed": false
+  },
+  "scope": {
+    "main_modified": false,
+    "ui_modified": false,
+    "dashboard_modified": false,
+    "qml_modified": false,
+    "voice_modified": false,
+    "tool_route_modified": false,
+    "launcher_modified": false,
+    "live_activation": false,
+    "phase6_exit_claimed": false
+  },
+  "limitations": [
+    "The candidate is not enabled by any live activation or shortcut.",
+    "The accepted Unified Router V1 permits local-private text routes only, so remote Gemini remains blocked by policy.",
+    "No provider, network, process, MCP, live-integration, tool, or external-agent dispatch is performed.",
+    "A governed remote-provider successor is required for public and internal Gemini routing.",
+    "Phase 6 exit and complete Onyx operation are not claimed."
+  ]
+}

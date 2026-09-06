@@ -1,0 +1,29 @@
+{
+  "schema": "onyx.packaged-runtime-hud-contract.v5",
+  "predecessor": {
+    "module_path": "core/onyx_packaged_runtime_hud_contract_v4.py",
+    "module_sha256": "6efae9777ce5e5b34f4ae59620a96ee564847ce950cc9e26bd823a5349c2ff0a",
+    "manifest_path": "core/onyx_packaged_runtime_hud_contract_v4.manifest.json",
+    "manifest_sha256": "4e9eabce9ba24a21496b8514bf1a8a3c0ddf26ce82d90eb0bbc1b597a9764e8e"
+  },
+  "runtime_inputs": [
+    {"path": "core/onyx_hud_current_acceptance_v36.py", "sha256": "de3de40c70851c1fe830b0c4520a0dcbd6d44900a9b5151814240ebce9baa948"},
+    {"path": "core/onyx_hud_orb_v13.py", "sha256": "67ab626612debbdcd7e4cf9be673b4776aefa7dd5dff24fd2ef1fb59125b7702"},
+    {"path": "docs/onyx/acceptance/VE-HUD-CURRENT-V36-E6-001.manifest.json", "sha256": "b3fdd3d35b44b673f9a82921f1fd884065d9c6b1beeaa97755c989d9faadd257"},
+    {"path": "packaging/onyx.spec", "sha256": "0cd195e511ed2dd81b6d5b32e43ca9e0cecb7bc368a00961860d51a0377226c8"},
+    {"path": "qml/OnyxLiveShellGuardedV2.qml", "sha256": "c80875810278f6ccea0c5a9852901e716120c25c158c677c20282e3657ecaa54"},
+    {"path": "qml/OnyxLiveShellV12.qml", "sha256": "e7df43c464c5fd661b3d9171d52994347b8d97386a14773a3f144a66a86cdc51"},
+    {"path": "qml/components/OnyxOrbEntityV9.qml", "sha256": "8d84f7348e2311afac424a73f91751db3fb5c93e67115f30e0adb72920f21974"},
+    {"path": "scripts/package_hygiene.py", "sha256": "11c5a657321f0e2a77ac65b1b65f7c72e00e16045b65d2080a45d1e316ac00a9"},
+    {"path": "ui.py", "sha256": "52b29b0b23981e0661ca5592b8f759686d21b2112679ebf26f7163b80250dbbf"}
+  ],
+  "semantics": {
+    "current_hud": "V36",
+    "current_shell": "V12",
+    "current_orb": "liquid-metal-V9",
+    "current_host": "V13",
+    "one_qml_root": true,
+    "tests_in_runtime": false,
+    "formal_release_ready": false
+  }
+}

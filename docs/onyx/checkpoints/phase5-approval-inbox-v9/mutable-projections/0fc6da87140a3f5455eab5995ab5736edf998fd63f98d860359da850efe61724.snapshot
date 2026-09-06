@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Onyx
+Comment=AI assistant with local tools, local memory and configured cloud models
+Exec=/opt/cyryx-labs/onyx/Onyx
+Icon=onyx
+Terminal=false
+Categories=Utility;Office;
+StartupNotify=true
+StartupWMClass=Onyx

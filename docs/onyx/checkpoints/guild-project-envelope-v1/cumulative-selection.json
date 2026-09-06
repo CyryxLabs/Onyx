@@ -1,0 +1,218 @@
+{
+  "schema": "onyx.guild.project-envelope.v1.cumulative-selection",
+  "execution": "one-test-file-per-fresh-python-process",
+  "expected": {
+    "test_files": 34,
+    "passed": 910,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 17,
+    "subtests_passed": 96
+  },
+  "tests": [
+    {
+      "path": "tests/test_phase7_workspace_memory_v1.py",
+      "passed": 21,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_phase7_workspace_aliases_v1.py",
+      "passed": 22,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_phase7_approved_sources_v1.py",
+      "passed": 13,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_phase7_company_graph_v1.py",
+      "passed": 16,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_phase7_founder_command_v1.py",
+      "passed": 14,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_phase7_layered_memory_v1.py",
+      "passed": 14,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_phase7_document_ingestion_v1.py",
+      "passed": 17,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_control_plane.py",
+      "passed": 35,
+      "skipped": 1,
+      "subtests_passed": 68
+    },
+    {
+      "path": "tests/test_workspace_registry.py",
+      "passed": 10,
+      "skipped": 0,
+      "subtests_passed": 10
+    },
+    {
+      "path": "tests/test_memory_store.py",
+      "passed": 20,
+      "skipped": 0,
+      "subtests_passed": 15
+    },
+    {
+      "path": "tests/test_domain_ledger.py",
+      "passed": 11,
+      "skipped": 0,
+      "subtests_passed": 3
+    },
+    {
+      "path": "tests/test_artifact_service.py",
+      "passed": 65,
+      "skipped": 16,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_phase8_microsoft_graph_read_v1.py",
+      "passed": 24,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_phase8_microsoft_graph_oauth_v1.py",
+      "passed": 41,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_phase8_microsoft_graph_live_read_e2e_v1.py",
+      "passed": 33,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_phase8_microsoft_graph_device_bootstrap_v2.py",
+      "passed": 8,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_phase8_microsoft_graph_calendar_v1.py",
+      "passed": 18,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_phase8_microsoft_graph_mail_v1.py",
+      "passed": 18,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_phase8_microsoft_graph_tasks_v1.py",
+      "passed": 22,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_phase8_microsoft_graph_drive_v1.py",
+      "passed": 18,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_phase9_intelligence_ingestion_v1.py",
+      "passed": 18,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_phase9_opportunity_scoring_v1.py",
+      "passed": 15,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_phase9_live_ingestion_v1.py",
+      "passed": 18,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_phase10_brand_passport_v1.py",
+      "passed": 32,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_phase10_editorial_calendar_v1.py",
+      "passed": 34,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_phase10_provider_connector_v1.py",
+      "passed": 32,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_phase10_content_draft_v1.py",
+      "passed": 37,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_guild_profiles_v1.py",
+      "passed": 48,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_guild_handoff_v1.py",
+      "passed": 43,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_guild_workflow_v1.py",
+      "passed": 35,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_guild_execution_intent_v1.py",
+      "passed": 44,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_phase10_audience_strategy_v1.py",
+      "passed": 37,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_argos_v1.py",
+      "passed": 35,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_guild_project_envelope_v1.py",
+      "passed": 42,
+      "skipped": 0,
+      "subtests_passed": 0
+    }
+  ]
+}

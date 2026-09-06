@@ -1,0 +1,6 @@
+d275d7166de989dcbf57a8ad9d2c217dd0f52ff433e3ce2ba9301333cb73bfed  docs/onyx/acceptance/VE-HUD-ORB-V7-C003-E6-001.md
+8e25a01d1701a5effc9d49c8ceee6958e2d00e5926c582612894332e9fc2fb73  docs/onyx/acceptance/VE-HUD-ORB-V7-C003-E6-001.manifest.json
+6a7100ab98407aeb48cbb6caeb862b55bf18d50c9a66076e26f5f74cf91a6cfe  docs/onyx/VE-SOURCE-HUD-ORB-V7-C003-E6-001.sha256
+0a5842d2c5ce33e63fee0a573d27efa2be423e545e4a21d1e7b1c3e8d3026735  docs/onyx/VE-ACCEPTANCE-HUD-ORB-V7-C003-E6-001.sha256
+3e04457fea56a2d2777d1a7cabaf36712996fef04fc22405194783aea7a554ca  scripts/verify_hud_orb_v7_c003_acceptance.py
+e965bd99beeb066e380c554616ebbf1e9362569ab2adecc9d3beea2dd4fdbe87  tests/test_hud_orb_v7_c003_acceptance.py

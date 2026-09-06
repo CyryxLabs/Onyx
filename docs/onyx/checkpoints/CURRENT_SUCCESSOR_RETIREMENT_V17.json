@@ -1,0 +1,33 @@
+{
+  "schema": "onyx.current-successor-retirement.v17",
+  "issued_at": "2026-08-23T19:20:00-04:00",
+  "predecessor": {
+    "path": "docs/onyx/checkpoints/CURRENT_SUCCESSOR_RETIREMENT_V16.json",
+    "sha256": "9abf9c0b6117be6df3293b0651e8406d69a9885443306368e811a49a37b991a9"
+  },
+  "policy": {
+    "historical_tests_are_rewritten": false,
+    "historical_hashes_are_rebound": false,
+    "registered_nodes_must_remain_collected": true,
+    "successor_sources_are_sha256_bound": true,
+    "successor_tests_must_execute": true
+  },
+  "additional_claims": [
+    {
+      "id": "release-v56-to-v57-current-authority",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_release_workflow_transition_v56.py::test_release_v56_authenticates_exact_capability_runtime_closure",
+        "tests/test_release_workflow_transition_v56.py::test_release_v56_preserves_immutable_packaged_v2_contract"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_release_workflow_transition_v57.py",
+          "sha256": "3e6f53868e4e79790c0c4c5ec24441d82a9bf1c60ee208bb6e354d4ab059b109"
+        }
+      ],
+      "validated_tests": 2,
+      "reason": "Release V57 authenticates the V3/V34/V16 closure while V56 remains an immutable predecessor."
+    }
+  ]
+}

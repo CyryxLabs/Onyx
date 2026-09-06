@@ -1,0 +1,12 @@
+*
+!requirements.lock
+!packaging/
+packaging/*
+!packaging/linux/
+packaging/linux/*
+!packaging/linux/Dockerfile.release-validation
+!packaging/linux/Dockerfile.deb-clean-validation
+!packaging/linux/verify_deb_clean_install.sh
+!release/
+release/*
+!release/*.deb

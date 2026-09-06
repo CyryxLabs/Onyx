@@ -1,0 +1,57 @@
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.pytest-*/
+.pytest*/
+.tmp-*/
+.tmp*/
+.review-*/
+.review*/
+.cert-*/
+.verify-*/
+.phase*/
+.codex-tmp-*/
+.codex-tmp*/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+build/
+dist/
+release/
+rollback/releases/
+/rollback/user-data-pre-*/
+/onyx*-diag-*/
+tmp*/
+_onyx_*_home/
+_onyx_*_tmp/
+NVIDIA Corporation/
+
+# Runtime state and credentials
+config/api_keys.json
+config/certs/*.key
+config/certs/*.crt
+config/onyx.ico
+config/onyx.png
+memory/long_term.json
+memory/onyx_memory.sqlite3*
+memory/exports/
+uploads/
+
+# Generated reminder helpers and local artifacts
+reminder_scripts/
+*.log
+memory/onyx_missions.sqlite3*
+runtime/**
+!runtime/.gitkeep
+
+# Generated verification evidence and machine-local captures
+docs/onyx/checkpoints/**/evidence/
+docs/onyx/**/*.bundle.json
+docs/onyx/**/*.xml
+docs/onyx/**/*.png
+docs/onyx/**/*.jpg
+docs/onyx/**/*.mp4

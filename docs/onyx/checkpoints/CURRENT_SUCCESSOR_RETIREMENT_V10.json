@@ -1,0 +1,120 @@
+{
+  "schema": "onyx.current-successor-retirement.v10",
+  "issued_at": "2026-08-11T03:42:00-04:00",
+  "predecessor": {
+    "path": "docs/onyx/checkpoints/CURRENT_SUCCESSOR_RETIREMENT_V9.json",
+    "sha256": "e537c4fb2002132b205cbce62d47701a6d9819015e1a320cf844f3dfc035d115"
+  },
+  "policy": {
+    "historical_tests_are_rewritten": false,
+    "historical_hashes_are_rebound": false,
+    "registered_nodes_must_remain_collected": true,
+    "successor_sources_are_sha256_bound": true,
+    "successor_tests_must_execute": true
+  },
+  "additional_claims": [
+    {
+      "id": "hud-v6-v27-to-v30",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_onyx_hud_current_acceptance_v26.py::test_v26_authenticates_source_frozen_split_and_v25_predecessor",
+        "tests/test_onyx_hud_current_acceptance_v27.py::test_v27_authenticates_single_root_source_closure",
+        "tests/test_onyx_hud_orb_v6_candidate.py::test_accepted_v5_visual_anchors_and_pyside_hosts_are_current",
+        "tests/test_onyx_hud_orb_v6_candidate.py::test_v6_renders_with_one_quick_widget_and_v5_projection",
+        "tests/test_onyx_live_activation_v9.py::test_v9_installs_v6_before_one_mainwindow_and_setup_uses_v9_shortcut"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_onyx_hud_current_acceptance_v30.py",
+          "sha256": "761300c89c2dfda2a49d5346e1ca34184fcc12ec369dc4eabca926d250bf5084"
+        }
+      ],
+      "validated_tests": 6,
+      "reason": "HUD V30 is the current guarded cinematic source authority; V6, V26 and V27 remain immutable predecessor evidence."
+    },
+    {
+      "id": "phase5-v37-v47-to-v48",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_freeze_release_source_v47.py::test_freezer_selects_exact_v47_current_authorities",
+        "tests/test_phase5_current_successor_transition_v10.py::test_v13_current_target_drift_fails_closed",
+        "tests/test_phase5_current_successor_transition_v10.py::test_v13_manifest_tamper_fails_closed",
+        "tests/test_phase5_current_successor_transition_v10.py::test_v13_predecessor_tamper_fails_closed",
+        "tests/test_phase5_current_successor_transition_v2.py::test_transition_preserves_every_predecessor_binding_without_rebinding",
+        "tests/test_phase5_current_successor_transition_v37.py::test_v37_authenticates_v36_and_current_package_authorities",
+        "tests/test_phase5_current_successor_transition_v38.py::test_v38_authenticates_v37_and_frozen_runtime_authorities",
+        "tests/test_phase5_current_successor_transition_v40.py::test_v40_is_the_immutable_predecessor_of_current_v41",
+        "tests/test_phase5_current_successor_transition_v41.py::test_v41_is_the_immutable_predecessor_of_current_v42",
+        "tests/test_phase5_current_successor_transition_v42.py::test_v42_is_the_immutable_predecessor_of_current_v43",
+        "tests/test_phase5_current_successor_transition_v45.py::test_v45_authenticates_v44_and_current_portable_release_corrections",
+        "tests/test_phase5_current_successor_transition_v47.py::test_v47_authenticates_v46_and_current_security_successor"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_phase5_current_successor_transition_v48.py",
+          "sha256": "55ae4da653aa989811675e12e6ee422e6742adc9718644d79c3ab92717d4f496"
+        },
+        {
+          "path": "tests/test_freeze_release_source_v48.py",
+          "sha256": "6421315faa8ffec78616be879096d068a713280109cc066808d144b763cecbcd"
+        }
+      ],
+      "validated_tests": 2,
+      "reason": "Phase 5 V48 authenticates the current evidence and Orb corrections while preserving V37 through V47 as immutable records."
+    },
+    {
+      "id": "release-documentation-v28-v47-to-v48",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_current_release_documentation_v47.py::test_current_release_status_exposes_security_successor_boundary",
+        "tests/test_onyx_live_activation_v19_c001_acceptance.py::test_v19_c001_acceptance_verifier_reproduces_historical_artifacts",
+        "tests/test_release_workflow_transition_v28.py::test_release_v28_authenticates_v27_and_binds_packaged_runtime_contract",
+        "tests/test_release_workflow_transition_v31.py::test_release_v31_authenticates_v30_and_transitive_runtime_closure",
+        "tests/test_release_workflow_transition_v32.py::test_release_v32_historical_fixture_was_not_rebound",
+        "tests/test_release_workflow_transition_v32.py::test_release_v32_remains_the_exact_immutable_v33_predecessor",
+        "tests/test_release_workflow_transition_v33.py::test_release_v33_authenticates_icon_fix_v32_and_runtime",
+        "tests/test_release_workflow_transition_v33.py::test_release_v33_external_receipt_pins_ungraphed_verifier",
+        "tests/test_release_workflow_transition_v34.py::test_release_v34_remains_immutable_under_current_v38",
+        "tests/test_release_workflow_transition_v35.py::test_release_v35_remains_immutable_under_current_v38",
+        "tests/test_release_workflow_transition_v36.py::test_release_v36_remains_immutable_under_current_v38",
+        "tests/test_release_workflow_transition_v37.py::test_release_v37_remains_immutable_under_current_v39",
+        "tests/test_release_workflow_transition_v38.py::test_release_v38_is_the_immutable_predecessor_of_current_v39",
+        "tests/test_release_workflow_transition_v39.py::test_release_v39_authenticates_phase11_long_path_fix_and_v38",
+        "tests/test_release_workflow_transition_v40.py::test_release_v40_authenticates_single_root_fix_and_v39",
+        "tests/test_release_workflow_transition_v41.py::test_release_v41_authenticates_installer_smoke_isolation_and_v40",
+        "tests/test_release_workflow_transition_v46.py::test_release_v46_authenticates_hud_v30_and_runtime_closure",
+        "tests/test_release_workflow_transition_v47.py::test_release_v47_authenticates_dependency_safe_successor"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_release_workflow_transition_v48.py",
+          "sha256": "0e51276130f3382a3d6e45179a82056420d7ceb64651b95e13bd4ea1dc9b4b35"
+        },
+        {
+          "path": "tests/test_current_release_documentation_v48.py",
+          "sha256": "127056e16638c46d2d9443d044b822fdfbcaa886a8ebc6f0f5cc83259b42ff46"
+        }
+      ],
+      "validated_tests": 2,
+      "reason": "Release V48 and its current status test are the active acyclic authorities; V28 through V47 retain their exact recorded hashes and predecessor meaning."
+    },
+    {
+      "id": "retirement-v4-v7-to-v9",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_current_successor_retirement_v4.py::test_retirement_v4_authenticates_v3_and_phase_v37",
+        "tests/test_current_successor_retirement_v5.py::test_retirement_v5_authenticates_v4_and_phase_v38",
+        "tests/test_current_successor_retirement_v6.py::test_retirement_v6_authenticates_v5_and_phase_v39",
+        "tests/test_current_successor_retirement_v7.py::test_retirement_v7_authenticates_v6_and_phase_v40"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_current_successor_retirement_v9.py",
+          "sha256": "183962903ca2821e399882b61f03f80a451351189f3ef1a74a754a08b7f7bd1e"
+        }
+      ],
+      "validated_tests": 1,
+      "reason": "Retirement V9 preserves the exact V4 through V8 chain and is the immutable predecessor of this additive V10 registry."
+    }
+  ]
+}

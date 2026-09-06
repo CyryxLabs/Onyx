@@ -1,0 +1,93 @@
+{
+  "schema_version": 4,
+  "evidence_id": "VE-P4-EXIT-CANDIDATE-R4-001",
+  "captured_at": "2026-07-19T23:51:41.3971121-04:00",
+  "activation": false,
+  "e6_accepted": false,
+  "phase5_unlocked": false,
+  "repository": "C:/MAAX_Assistant/Mark-XLVIII",
+  "git": {
+    "branch": "codex/sealed-jarvis-baseline",
+    "base_head": "b2dc0b21f487013cebec34bb148ffb1aeb02611a",
+    "dirty": true,
+    "tracked_status_porcelain_v1_count": 37
+  },
+  "manifest_dag": {
+    "source_manifest_path": "docs/onyx/VE-SCOPE-P4-E1E5-R4-001.sha256",
+    "evidence_artifact_manifest_path": "docs/onyx/VE-ARTIFACTS-P4-E1E5-R4-001.sha256",
+    "bundle_claims_own_hash": false,
+    "bundle_claims_evidence_manifest_hash": false,
+    "bundle_claims_source_manifest_hash": false,
+    "external_source_anchor": false,
+    "rule": "Only a later independent E6 record may anchor the completed artifact-manifest SHA-256."
+  },
+  "accepted_dependency": {
+    "r11_manifest": "docs/onyx/VE-SCOPE-P44-R11-001.sha256",
+    "r11_files": 79,
+    "r11_manifest_sha256": "6b94727640bdc60a5001d6b6ebf0cc484ec7cf37bd52c18634487fa430e72edc"
+  },
+  "shortcut_durability": {
+    "implementation": "ui.py",
+    "implementation_sha256": "ce6495d40fda9f4d666518ac150f6f750593edcae18452b747dad9fc14505d3c",
+    "regression": "tests/test_desktop_shortcut.py",
+    "regression_sha256": "510be6ba3596854ac525e9a5a85a39224b195a350f9147be2aa990dab1b2f82c",
+    "focused_result": "2 passed"
+  },
+  "source_gate": {
+    "invocation": ".venv\\Scripts\\python.exe scripts\\verify_phase4_exit_candidate_r4.py --gate source --output docs\\onyx\\checkpoints\\phase4-e1-e5\\phase4-r4-source.json",
+    "exit": 0,
+    "status": "P4_EXIT_CANDIDATE_R4_SOURCE_OK",
+    "static_closure_files": 44,
+    "static_closure_modules_sha256": "77ff4828ddba925c3a64ef3d6907ee8e63d43d7f59d8e207f32bc0bda3817c1f",
+    "fresh_subprocess_loaded": ["main", "ui", "dashboard.server", "dashboard.security"],
+    "fresh_subprocess_authority_modules": [],
+    "fresh_subprocess_offline_guarded": true,
+    "selection_nodes": 30,
+    "selection_sources": 10,
+    "artifact": "docs/onyx/checkpoints/phase4-e1-e5/phase4-r4-source.json",
+    "artifact_bytes": 757,
+    "artifact_sha256": "a9cdedc75bf0859e77aa60a907f9b81cd8a34b8522599a6f9232ac43fbfa01a1"
+  },
+  "proportional_gate": {
+    "invocation": ".venv\\Scripts\\python.exe scripts\\verify_phase4_exit_candidate_r4.py --gate test --junitxml docs\\onyx\\checkpoints\\phase4-e1-e5\\phase4-r4-safety.junit.xml --basetemp .phase4-e1e5-r4-proportional-final2 --raw-log docs\\onyx\\checkpoints\\phase4-e1-e5\\phase4-r4-pytest.log",
+    "result": {
+      "exit": 0,
+      "pytest_passed": 67,
+      "subtests_passed": 6,
+      "junit_tests": 73,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "pytest_seconds": 199.68,
+      "junit_seconds": 199.655,
+      "raw_runner_seconds": 200.624442
+    },
+    "raw_log": "docs/onyx/checkpoints/phase4-e1-e5/phase4-r4-pytest.log",
+    "raw_log_bytes": 3336,
+    "raw_log_sha256": "e3b930ff5a4e2f649c6ef89389b4449ffa890ea6eea7deec422727af8bbfa873",
+    "junit": "docs/onyx/checkpoints/phase4-e1-e5/phase4-r4-safety.junit.xml",
+    "junit_bytes": 10659,
+    "junit_sha256": "508d5e13999357d94e1d5aad359325ef0b002343c6fdbf026bc0910a2d7f34de"
+  },
+  "static_gate": {
+    "invocation": ".venv\\Scripts\\python.exe scripts\\verify_phase4_exit_candidate_r4.py --gate static --raw-log docs\\onyx\\checkpoints\\phase4-e1-e5\\phase4-r4-static.log",
+    "exit": 0,
+    "duration_seconds": 0.318743,
+    "raw_log": "docs/onyx/checkpoints/phase4-e1-e5/phase4-r4-static.log",
+    "raw_log_bytes": 676,
+    "raw_log_sha256": "c9c67acc71a33852e9041558a7be9f428ed94b17881e1a45c087ab699e22b0c9"
+  },
+  "verified_claims": [
+    "R11 reconstructs the complete 79-file successor universe.",
+    "The shortcut generator is bound to the diagnostic launcher and official icon by two focused tests.",
+    "Twelve R3 behavioral/DAG/default-off functions are retained individually; only the obsolete R10-current binding assertion is replaced by the R11-bound R4 assertion.",
+    "All eight Phase 4 flags remain default-off; the guarded import probe loaded no authority-bearing module.",
+    "The proportional gate and static checks completed with zero failures or errors."
+  ],
+  "limitations": [
+    "No activation, owner write, provider/device/browser/package execution, commit or push occurred.",
+    "Operational PID and port observations are separate ephemeral evidence and are not accepted by this bundle.",
+    "E6 is false and Phase 5 remains blocked."
+  ],
+  "skips": []
+}

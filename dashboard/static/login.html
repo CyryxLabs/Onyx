@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Onyx</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:     #050607;
+      --card:   #0A0D0F;
+      --border: #1B2227;
+      --accent: #19C7C0;
+      --adim:   rgba(15,107,104,0.22);
+      --text:   #C7C9CC;
+      --muted:  #8C949E;
+    }
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      width: 340px;
+      padding: 44px 36px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      text-align: center;
+    }
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 10px;
+      margin-bottom: 6px;
+    }
+    .logo em { color: var(--accent); font-style: normal; }
+    .sub {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .hint {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 28px;
+    }
+    .key-wrap {
+      position: relative;
+      margin-bottom: 16px;
+    }
+    .key-input {
+      width: 100%;
+      padding: 18px 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      color: var(--text);
+      font-size: 30px;
+      font-weight: 700;
+      font-family: 'Courier New', monospace;
+      text-align: center;
+      letter-spacing: 10px;
+      text-transform: uppercase;
+      outline: none;
+      transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+      caret-color: var(--accent);
+    }
+    .key-input::placeholder {
+      color: rgba(94,106,126,0.5);
+      letter-spacing: 6px;
+      font-size: 20px;
+    }
+    .key-input:focus {
+      border-color: var(--accent);
+      background: var(--adim);
+      box-shadow: 0 0 0 3px rgba(25,199,192,0.12);
+    }
+    .err {
+      font-size: 12px;
+      color: #f87171;
+      min-height: 18px;
+      margin-bottom: 14px;
+    }
+    .btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--accent);
+      color: #050607;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.1s;
+    }
+    .btn:hover  { opacity: 0.88; }
+    .btn:active { transform: scale(0.98); }
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      20%,60% { transform: translateX(-7px); }
+      40%,80% { transform: translateX(7px); }
+    }
+    .shake { animation: shake 0.35s ease; }
+    .voice-note {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 20px;
+      line-height: 1.6;
+      text-align: left;
+    }
+    .voice-note code {
+      background: rgba(255,255,255,0.07);
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 9px;
+    }
+    #reconnecting {
+      display: none;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 16px;
+    }
+    body {
+      position: relative; overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 42%, rgba(15,107,104,0.18), transparent 34%),
+        radial-gradient(circle at 15% 88%, rgba(25,199,192,0.05), transparent 30%),
+        #050607;
+    }
+    body::before {
+      content: ""; position: fixed; width: min(72vw, 720px); aspect-ratio: 1;
+      left: 50%; top: 46%; transform: translate(-50%, -50%); border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, rgba(199,201,204,0.10), rgba(15,107,104,0.05) 28%, rgba(5,6,7,0) 68%);
+      pointer-events: none;
+    }
+    .card {
+      position: relative; width: min(calc(100vw - 32px), 390px); padding: 48px 40px;
+      background: linear-gradient(145deg, rgba(17,22,26,0.88), rgba(5,6,7,0.80));
+      border-color: rgba(140,148,158,0.18); border-radius: 32px;
+      box-shadow: 0 32px 120px rgba(0,0,0,0.52), 0 0 54px rgba(15,107,104,0.06);
+      backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px);
+    }
+    .logo { color: #C7C9CC; font-weight: 600; letter-spacing: 12px; }
+    .logo em { text-shadow: 0 0 22px rgba(25,199,192,0.24); }
+    .key-input { background: rgba(5,6,7,0.48); border-color: rgba(140,148,158,0.18); border-radius: 20px; }
+    .key-input:focus { border-color: #19C7C0; box-shadow: 0 0 0 1px rgba(25,199,192,0.20), 0 0 30px rgba(15,107,104,0.12); }
+    .btn { background: #0F6B68; color: #C7C9CC; border-radius: 999px; min-height: 48px; }
+    @media (max-width: 420px) { .card { padding: 40px 24px; border-radius: 28px; } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card" id="card">
+    <div class="logo"><em>O</em>NYX</div>
+    <div class="sub">Cyryx Labs · Remote Access</div>
+    <p id="reconnecting">Reconnecting…</p>
+    <p class="hint">Press <strong style="color:var(--text)">Remote Control</strong> in the Onyx desktop app to get a QR code or session key.</p>
+    <div class="key-wrap">
+      <input class="key-input" id="key" type="text" maxlength="6"
+             autocomplete="off" autocorrect="off" spellcheck="false"
+             placeholder="· · · · · ·">
+    </div>
+    <div class="err" id="err"></div>
+    <button class="btn" onclick="doLogin()">CONNECT</button>
+    <p class="voice-note">
+      🎤 <strong style="color:var(--text)">Voice commands:</strong> use the
+      <code>https://</code> dashboard URL, accept the one-time local certificate
+      warning, then allow microphone access when your browser asks.
+    </p>
+  </div>
+
+  <script>
+    const ONYX_DEVICE_TOKEN_KEY = 'onyx_device_token';
+    const ONYX_SESSION_KEY_KEY = 'onyx_key';
+    const ONYX_SESSION_TOKEN_KEY = 'onyx_token';
+
+    // Try auto-reconnect with stored device token (set on first QR login)
+    (async function() {
+      const devTok = localStorage.getItem(ONYX_DEVICE_TOKEN_KEY);
+      if (!devTok) return;
+      document.getElementById('reconnecting').style.display = 'block';
+      try {
+        const r = await fetch('/api/device-login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ device_token: devTok }),
+        });
+        const d = await r.json();
+        if (d.ok && d.token) {
+          sessionStorage.setItem(ONYX_SESSION_KEY_KEY, d.key);
+          sessionStorage.setItem(ONYX_SESSION_TOKEN_KEY, d.token);
+          location.replace('/');
+          return;
+        }
+      } catch (_) {}
+      // Device token rejected (server restarted) — clear it and show normal form
+      localStorage.removeItem(ONYX_DEVICE_TOKEN_KEY);
+      document.getElementById('reconnecting').style.display = 'none';
+    })();
+
+    const inp = document.getElementById('key');
+    inp.focus();
+
+    inp.addEventListener('input', () => {
+      inp.value = inp.value.toUpperCase().replace(/[^A-Z2-9]/g, '');
+      if (inp.value.length === 6) doLogin();
+    });
+    inp.addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+
+    async function doLogin() {
+      const key = inp.value.trim();
+      if (key.length < 6) { shake(); return; }
+      let data;
+      try {
+        const r = await fetch('/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ pin: key })
+        });
+        data = await r.json();
+      } catch (e) {
+        document.getElementById('err').textContent = 'Connection error';
+        shake(); return;
+      }
+      if (data.ok && data.token) {
+        sessionStorage.setItem(ONYX_SESSION_KEY_KEY, key);
+        sessionStorage.setItem(ONYX_SESSION_TOKEN_KEY, data.token);
+        location.href = '/';
+      } else {
+        inp.value = '';
+        inp.focus();
+        document.getElementById('err').textContent = 'Invalid or expired key';
+        shake();
+      }
+    }
+
+    function shake() {
+      const c = document.getElementById('card');
+      c.classList.remove('shake');
+      void c.offsetWidth;
+      c.classList.add('shake');
+    }
+  </script>
+</body>
+</html>

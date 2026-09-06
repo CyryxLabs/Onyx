@@ -1,0 +1,97 @@
+{
+  "schema": "onyx.phase8.microsoft-graph-drive.v1",
+  "candidate": "phase8-microsoft-graph-drive-v1",
+  "created_at": "2026-07-24T13:05:33-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_PHASE8_MICROSOFT_GRAPH_DRIVE_V1",
+  "enabled_value": "true",
+  "default_off": true,
+  "entry_roots": {
+    "phase8_tasks_v1_artifact_root_sha256": "984f32cf236bac4b9ef1c4ad0a63bcf9a1384c19a0fdc8feae5720d0334f6508",
+    "decision": "accepted"
+  },
+  "claims": {
+    "read_only_files_read": true,
+    "route_pinned_drive_get": true,
+    "bounded_same_origin_nextlink_paging": true,
+    "normalized_drive_items": true,
+    "read_scope_exact_validation": true,
+    "best_effort_refresh_rotation": true,
+    "content_download": false,
+    "drive_mutation_authority": false,
+    "live_listing_e2e": false,
+    "live_wiring": false,
+    "phase8_exit": false,
+    "full_onyx_prd_complete": false,
+    "e1_e5_ready": true,
+    "external_e6_accepted": false
+  },
+  "verification": {
+    "test_files": 20,
+    "passed": 421,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "subtests_passed": 80
+  },
+  "effects": {
+    "default_off_import_persistent_writes": 0,
+    "default_off_import_network_calls": 0,
+    "default_off_import_process_calls": 0,
+    "default_off_import_provider_calls": 0,
+    "model_calls": 0,
+    "action_dispatches": 0,
+    "live_surface_changes": 0
+  },
+  "limitations": [
+    "Default-off and not wired to V13, startup, voice, UI or dashboard.",
+    "Live listing E2E requires delegated Files.Read consent on the Entra app and an explicitly confirmed run; until then this is contract evidence only.",
+    "Metadata only: no content bytes, no content download, no SharePoint library enumeration.",
+    "No upload, rename, move, delete or share authority.",
+    "Refresh-token rotation is best-effort in-module to tolerate the frozen vault byte cap.",
+    "Phase 8 aggregate exit and full Onyx PRD completion remain pending."
+  ],
+  "artifacts": [
+    {
+      "path": "core/phase8_microsoft_graph_drive_v1.py",
+      "bytes": 19350,
+      "sha256": "4f261f45476bac15539dee8154fdf904e4f0f8bbb51df9e3533e79bf391d30d2"
+    },
+    {
+      "path": "tests/test_phase8_microsoft_graph_drive_v1.py",
+      "bytes": 14439,
+      "sha256": "6410a665f25d49580e2c062847d340a323c2ccd66b7c63944da40cb6e16ec61f"
+    },
+    {
+      "path": "scripts/verify_phase8_microsoft_graph_drive_v1.py",
+      "bytes": 7564,
+      "sha256": "fa77d2e50f383c604d5e47096ab1450785fece9a196d65abaf80d9fba91ceb3a"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0043-phase8-microsoft-graph-drive-v1.md",
+      "bytes": 1955,
+      "sha256": "6a4714934a27df8130934edc95c3cde531870647b132027d90fefb2c7f37cd75"
+    },
+    {
+      "path": "docs/onyx/research/PHASE8_MICROSOFT_GRAPH_DRIVE_V1_SOURCES.md",
+      "bytes": 2447,
+      "sha256": "c8e62b714fa511e5797ac8cf5318c3032a9d5a08399306565a93fd40acee3a0c"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase8-microsoft-graph-drive-v1/PHASE8_MICROSOFT_GRAPH_DRIVE_V1_CHECKPOINT.md",
+      "bytes": 1796,
+      "sha256": "8a08a4a5867776eb99218312097cd43458ce2f4a2c721b6e61fc79f93c2ea6af"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase8-microsoft-graph-drive-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 1012,
+      "sha256": "de0d5d42ac361f72d712e016840bc867f2a7d37173243e08db904525afbe0cae"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase8-microsoft-graph-drive-v1/cumulative-selection.json",
+      "bytes": 2451,
+      "sha256": "e121199793cfc73e66dd95eb65a1e9386f5091e45a3d554a7870d9ed71548910"
+    }
+  ],
+  "artifact_root_sha256": "c79ee2960fdf3c74f4ec33cb693cd328a79bfa5547a8e74d2033603f9f0a6c21"
+}

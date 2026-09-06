@@ -1,0 +1,89 @@
+{
+  "schema": "OnyxPhase6LocalTextCompatibility.v1",
+  "candidate": "phase6-local-text-compat-candidate-001",
+  "status": "candidate_default_off_not_live",
+  "activation": {
+    "flag": "ONYX_PHASE6_LOCAL_TEXT_COMPAT_V1",
+    "enabled_value": "true",
+    "exact": "ONYX_PHASE6_LOCAL_TEXT_COMPAT_V1=true",
+    "default": "off",
+    "factory_only": true,
+    "explicit_install_required": true,
+    "live_wiring": false
+  },
+  "artifact_root_algorithm": "sha256-sorted-path-nul-digest-lf-v1",
+  "artifact_root_sha256": "9c14301f67b1f01604909265a50b9591645fa7d11451f981811e90e30da80611",
+  "artifacts": [
+    {
+      "path": "core/phase6_local_text_compat_v1.py",
+      "bytes": 31598,
+      "sha256": "6c17bdb0fc91dca58fb347c0d9b143d2dafe272d61552289c9d4b0e80e109fe8"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0025-phase6-local-text-compat-v1.md",
+      "bytes": 3611,
+      "sha256": "ab71aafe23bfc8bccf20a2f9840cb1d87bcf97080a042ca4d9eed777447fa993"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase6-local-text-compat-v1/PHASE6_LOCAL_TEXT_COMPAT_V1_CHECKPOINT.md",
+      "bytes": 2832,
+      "sha256": "fe3b073945eacb5e76b350fba64238645184baa2ad410c6a37f1e707d7f4694a"
+    },
+    {
+      "path": "scripts/verify_phase6_local_text_compat_v1.py",
+      "bytes": 8636,
+      "sha256": "8b9927df1f41dcf860bea1f261f534cff9e3171a618f399e79c9e647cc476436"
+    },
+    {
+      "path": "tests/test_phase6_local_text_compat_v1.py",
+      "bytes": 18372,
+      "sha256": "0b6a6140040d37e00504971d9e9bd1591e84b6ed51a3e617bede6f16fe994071"
+    }
+  ],
+  "contracts": {
+    "providers": [
+      "ollama",
+      "openai_compatible"
+    ],
+    "host_surfaces": [
+      "call_llm",
+      "call_llm_text",
+      "call_llm_stream"
+    ],
+    "transport": "factory_injected_only",
+    "privacy": "http_loopback_only",
+    "network_calls": 0,
+    "real_provider_calls": 0,
+    "silent_cross_routing": false,
+    "streaming_nonstreaming": true,
+    "tool_call_parity": true,
+    "timeouts_cancellation_budgets": true,
+    "timeout_enforcement": "injected_transport",
+    "blocking_cancellation": "cooperative",
+    "lazy_stream_failure_mapping": true,
+    "owner_drift_restoration": true,
+    "exact_rollback": true,
+    "llm_client_bytes_changed": false
+  },
+  "verification": {
+    "focused": "31 passed",
+    "cumulative": "133 passed, 221 subtests passed",
+    "synthetic_local_fakes_only": true,
+    "network_calls": 0,
+    "credentials_used": false,
+    "live_activation": false,
+    "e6": "not_performed",
+    "independent_verifier": "P6_LOCAL_TEXT_COMPAT_V1_OK"
+  },
+  "frozen_anchors": {
+    "core/llm_client.py": "e5c0f805e0d10a07e38054316fb9c6423409190cfa0f48bc39694e65c6a4e417"
+  },
+  "limitations": [
+    "No real Ollama or OpenAI-compatible server was contacted.",
+    "No model availability, quality, latency or resource-consumption claim is made.",
+    "The candidate is isolated, default-off and absent from live startup surfaces.",
+    "Unified Router work remains outside this ADR and is reserved for ADR-0024.",
+    "Independent E6 acceptance remains required before any activation decision."
+    ,"Blocking timeout enforcement belongs to the injected transport; cancellation while it is blocked is cooperative."
+  ]
+}

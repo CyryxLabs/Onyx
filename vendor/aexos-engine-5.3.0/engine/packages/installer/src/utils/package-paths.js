@@ -1,0 +1,105 @@
+'use strict';
+
+const fs = require('node:fs');
+const path = require('node:path');
+
+/**
+ * The scope is consolidated on a single npm org, `@aexos`, so the core package
+ * is `@aexos/core`. Publishing under two scopes at once would have required
+ * owning two organisations.
+ *
+ * Because the unscoped half of that name is `core`, npm would infer a binary
+ * called `core` for `npx @aexos/core <command>`. Root `package.json` therefore
+ * declares an explicit `core` bin alias; without it npx exits with
+ * `could not determine executable to run`.
+ *
+ * Every earlier name stays recognised. A project installed under an older name
+ * still has that name in its own node_modules, and refusing to see it would
+ * break the very upgrade path that renames it.
+ */
+const CORE_PACKAGE_NAME = '@aexos/core';
+// Historical names, deliberately NOT rewritten to the current scope: this list
+// exists so a project installed under an older name still resolves. Renaming
+// these entries would silently break the upgrade path they exist to serve.
+const LEGACY_CORE_PACKAGE_NAMES = [
+  '@cyryxlabs/aexos',
+  '@aexos-squads/core',
+  'aexos-core',
+  '@cyryx/aexos-core',
+];
+const CORE_PACKAGE_NAMES = new Set([CORE_PACKAGE_NAME, ...LEGACY_CORE_PACKAGE_NAMES]);
+
+function isCorePackageRoot(candidate) {
+  if (!candidate) return false;
+
+  try {
+    const packageJsonPath = path.join(candidate, 'package.json');
+    const cyryxCorePath = path.join(candidate, '.aexos-core');
+
+    if (!fs.existsSync(packageJsonPath) || !fs.existsSync(cyryxCorePath)) {
+      return false;
+    }
+
+    const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
+    return CORE_PACKAGE_NAMES.has(packageJson.name);
+  } catch {
+    return false;
+  }
+}
+
+function resolvePackageJsonRoot(packageName) {
+  try {
+    return path.dirname(require.resolve(`${packageName}/package.json`));
+  } catch {
+    return null;
+  }
+}
+
+function getLocalRepoRoot() {
+  return path.resolve(__dirname, '..', '..', '..', '..');
+}
+
+function getCyryxCorePackageRoot() {
+  const candidates = [
+    process.env.AEXOS_CORE_PACKAGE_ROOT,
+    getLocalRepoRoot(),
+    // Every name the package has shipped under, current first. A project
+    // installed before the rename resolves through its own recorded name.
+    ...[CORE_PACKAGE_NAME, ...LEGACY_CORE_PACKAGE_NAMES].map(resolvePackageJsonRoot),
+  ];
+
+  const packageRoot = candidates.find(isCorePackageRoot);
+  if (!packageRoot) {
+    throw new Error(
+      `AEXOS core package root not found. Install ${CORE_PACKAGE_NAME} or set ` +
+        'AEXOS_CORE_PACKAGE_ROOT.',
+    );
+  }
+
+  return packageRoot;
+}
+
+function resolveCyryxCorePath(...segments) {
+  return path.join(getCyryxCorePackageRoot(), ...segments);
+}
+
+function requireCyryxCoreModule(...segments) {
+  return require(resolveCyryxCorePath(...segments));
+}
+
+function getCyryxCoreVersion() {
+  const packageJson = require(resolveCyryxCorePath('package.json'));
+  return packageJson.version;
+}
+
+module.exports = {
+  getCyryxCorePackageRoot,
+  resolveCyryxCorePath,
+  requireCyryxCoreModule,
+  getCyryxCoreVersion,
+  // Exported so the other resolvers agree on one list instead of each carrying
+  // its own copy, which is how a rename leaves half the code behind.
+  CORE_PACKAGE_NAME,
+  LEGACY_CORE_PACKAGE_NAMES,
+  CORE_PACKAGE_NAMES,
+};

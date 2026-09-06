@@ -1,0 +1,83 @@
+{
+  "schema": "onyx.hud-orb.v7.candidate",
+  "candidate": "hud-orb-v7-cinematic-candidate-003",
+  "supersedes": "hud-orb-v7-cinematic-candidate-002-owner-superseded-never-live",
+  "status": "candidate-default-off-e6-pending",
+  "flag": "ONYX_HUD_V7_LIVE=1",
+  "default_off": true,
+  "live_activated": false,
+  "quick_widgets": 1,
+  "rollback": "exact-installed-hud-v6",
+  "artifact_root_algorithm": "sha256-sorted-path-nul-digest-lf-v1",
+  "artifact_root_sha256": "5e0f16fcbf6885ed20b3bf3967a2af24b1d8dc4d174c0fdb7b0f5b78855aafe4",
+  "performance": {
+    "active_cpu_max_percent": 0.8,
+    "idle_cpu_max_percent": 0.15,
+    "hidden_cpu_max_percent": 0.15,
+    "projection_target_fps_max": 16,
+    "visual_timer_fps_max": 12,
+    "idle_hidden_target_fps": 0
+  },
+  "artifacts": [
+    {
+      "path": "core/onyx_hud_orb_v7.py",
+      "sha256": "31fd7d0df7413ac9dbba3db463de28390bdfaa75e2173dae54c04dfd82a6c150"
+    },
+    {
+      "path": "docs/onyx/checkpoints/hud-orb-v7-candidate/HUD_ORB_V7_CHECKPOINT.md",
+      "sha256": "637de4529609bc18ecbfbabb6fd7b3ac28551950da0d876cfc0c51830a890b45"
+    },
+    {
+      "path": "docs/onyx/checkpoints/hud-orb-v7-candidate/hud-orb-v7-c003-1440x900.png",
+      "sha256": "ac05686b74829c59f404da455184e13bc073ce426ad882b4ddef8b12fe873399"
+    },
+    {
+      "path": "docs/onyx/checkpoints/hud-orb-v7-candidate/hud-orb-v7-c003.metrics.json",
+      "sha256": "4572af9e0779838c815e81fe2f1889a37ae84f45b626430dba126687375a1dd0"
+    },
+    {
+      "path": "docs/onyx/rejections/HUD_ORB_V6_VISUAL_REJECTION.md",
+      "sha256": "0ff9bf724dd332d1f9853b49821f942b8ecd9a6b3536875db0d82f243dd5f8d9"
+    },
+    {
+      "path": "qml/OnyxLiveShellV7.qml",
+      "sha256": "2af16b3990fc6a48ae95eb23c77cdb70fad25f8a83b762ecc2a58cf11ae6d5d8"
+    },
+    {
+      "path": "qml/components/OnyxOrbEntityV7.qml",
+      "sha256": "52f5db82488729324e230e6132ec44b19c5f4e529e3c636c904d341736f70131"
+    },
+    {
+      "path": "scripts/capture_hud_orb_v7_evidence.py",
+      "sha256": "608c6ad0a5c3a0f72d8eebf9c85365d7c4d42259ae23c96958304504cbdde6be"
+    },
+    {
+      "path": "scripts/verify_hud_orb_v7_candidate.py",
+      "sha256": "258eab8e02d97928c9d953421e3a267ca55e565efe30b146916ad8116d1750f2"
+    },
+    {
+      "path": "tests/test_onyx_hud_orb_v7_candidate.py",
+      "sha256": "1326a23e19be685a29a0ad5274397a634b52b594f6ddd57ee3e2382feee30e98"
+    }
+  ],
+  "frozen_anchors": {
+    "core/onyx_hud_orb_v6.py": "ee5f5f62ab0c799313e7b9ffcf7b3f5364af8b1d80d2d126a63fa4b2290b4233",
+    "docs/onyx/checkpoints/hud-orb-v6-candidate/manifest.json": "ba034588791b1003a6743bf037ae32a11285adcac7c4084cba1bc5bb3923ae1c",
+    "docs/onyx/acceptance/VE-HUD-ORB-V6-C003-E6-001.md": "c9663515321554cec4e69524ee13eb543194562167da6ac21aafb219bcc65d9f",
+    "docs/onyx/acceptance/VE-HUD-ORB-V6-C003-E6-001.manifest.json": "fbd22e3fd4e944a55ef872370c858783871eb5b20c27df58cefe14b3dc7dc4b9",
+    "qml/assets/onyx-orb-particle-v6.png": "9582f4df844cbf03df45a97d6a7c351e9ad9dd291f097b53326f6d1597e44582",
+    "core/onyx_live_activation_v9.py": "deb26314ef3871cb12fc8e3cee936f88e385122fad242c830580421ccb22a9d2",
+    "docs/onyx/checkpoints/onyx-live-activation-v9/manifest.json": "38de625b7725dab7aa9c7906f7f3164687f1f20a0cca6e683fe64145bb53142a"
+  },
+  "verification": {
+    "focused": "19 passed",
+    "physical_capture": "1440x900-d3d11",
+    "visual_qa": "c003-approved-no-external-orbit-tracks",
+    "external_e6": "pending"
+  },
+  "limitations": [
+    "One local Windows D3D11 capture is not cross-platform visual proof.",
+    "Performance values are a single settled host-process sample.",
+    "The candidate is default-off and has not been activated in runtime V9."
+  ]
+}

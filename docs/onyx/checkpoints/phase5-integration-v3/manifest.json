@@ -1,0 +1,140 @@
+{
+  "schema": "onyx.phase5.integration-transition-bundle.v3",
+  "candidate": "phase5-integration-v3",
+  "created_at": "2026-07-22",
+  "default_off": true,
+  "live_activated": false,
+  "live_restart_performed": false,
+  "rejected_predecessors": [
+    {
+      "candidate": "phase5-integration-v1",
+      "preserved_exact": true,
+      "reachable_from_v3": false,
+      "reason": "dispatch arguments were not inseparably bound to authorization"
+    },
+    {
+      "candidate": "phase5-integration-v2",
+      "preserved_exact": true,
+      "reachable_from_v3": false,
+      "reason": "duplicate invocation references did not burn the original prepared decision"
+    }
+  ],
+  "files": [
+    {
+      "path": "core/phase5_integration_v3.py",
+      "sha256": "52d48c121da485c024811e6cd3fafbabaed971175d7cb41ad23358c5c2879b0d"
+    },
+    {
+      "path": "tests/test_phase5_integration_v3.py",
+      "sha256": "c2b92406ce5f7b6d1a8f88afe167dbf62aed8059cccea47bc2c523dd4956ad02"
+    },
+    {
+      "path": "scripts/verify_phase5_integration_v3_transition.py",
+      "sha256": "c23724bc5d5ac2a184bdca5766e53ec4324ac4ea5fe8601998421477e1ded025"
+    },
+    {
+      "path": "tests/test_phase5_integration_v3_transition.py",
+      "sha256": "11c448200591b5038ca77afedb633f8712294eeff86fa2357924a16bba789b47"
+    },
+    {
+      "path": "main.py",
+      "sha256": "6b82fed0d7c932a08d2d1f8a31d7650a1b235d55085ee608fdbb7651e5f49712"
+    }
+  ],
+  "historical_execution_closures": [
+    {
+      "closure": "runtime-v10-e6",
+      "manifest_path": "docs/onyx/checkpoints/phase5-integration-v3/projections/runtime-v10.json",
+      "manifest_sha256": "a897faf253ad18899c9abd724c74dddbcf14593a9f0dd9b7af89ac4ca270abba",
+      "closure_root_sha256": "b37df684730d1e18d8291a68af12af814f34aada22ebb1428fe29e5858dc7ed8"
+    },
+    {
+      "closure": "approval-inbox-v15-e6",
+      "manifest_path": "docs/onyx/checkpoints/phase5-integration-v3/projections/approval-inbox-v15.json",
+      "manifest_sha256": "895ad5b300f9ce7c0d467a80cb321d00af92f268b40fa573ea387afc5cd6c9f4",
+      "closure_root_sha256": "8a125205928d9b55e662f5da1086a9f2605e98eab34533281379cae2875d007d"
+    },
+    {
+      "closure": "capability-nexus-v32-e6",
+      "manifest_path": "docs/onyx/checkpoints/phase5-integration-v3/projections/capability-nexus-v32.json",
+      "manifest_sha256": "5f43294603f3f61c6a59128849ee6dd1ceedc7d63185364a9240df8b3c524474",
+      "closure_root_sha256": "17946d71960d5f08ae2b6979e3ab23ee255ccca2e6bf6e22153d07acffe65bb1"
+    }
+  ],
+  "permission_broker_transition": {
+    "historical_acceptance_sha256": "8358ba39d7ff2d965eae7af7c24007f64f4670bef349447737c72e88776cbffc",
+    "current_generic_hook_sha256": "e37fb092410ba0843036dbdc779342c4d24a811bbfcf0de8812f2f6144e7d250",
+    "historical_authority": "V15 bundle and V32 artifact manifest",
+    "post_acceptance_transition_governed": true
+  },
+  "live_surface_transition": {
+    "main_sha256_before_v3": "9366edc9868852aee95b80cc9cd2c7d0342bc47a74d482278e303076aa4b559a",
+    "main_sha256_after_v3": "6b82fed0d7c932a08d2d1f8a31d7650a1b235d55085ee608fdbb7651e5f49712",
+    "permission_broker_unchanged": "e37fb092410ba0843036dbdc779342c4d24a811bbfcf0de8812f2f6144e7d250",
+    "dashboard_server_unchanged": "4d3142dc9c6a78cfe76f804de2b154334da2d7790484783a993babc92300bae1"
+  },
+  "authority_boundary": {
+    "implementation": "independent-no-v1-v2-import-or-subclass",
+    "executable_extension": "local.catalog/catalog_read",
+    "material_arguments": ["cursor", "page_size"],
+    "duplicate_valid_burns_original": true,
+    "duplicate_invalid_burns_original": true,
+    "duplicate_unknown_burns_original": true,
+    "concurrent_collision_burns_original": true,
+    "collision_never_reads": true,
+    "seal_window": 256,
+    "provider_free": true,
+    "effect": "none",
+    "egress": "none",
+    "cost_micro": 0,
+    "remote_approve": false,
+    "remote_grant": false,
+    "remote_dispatch": false
+  },
+  "projection_copy_contract": {
+    "single_source_handle_read": true,
+    "source_fstat_stability_check": true,
+    "manifest_digest_checked_on_read_bytes": true,
+    "exclusive_destination_create": true,
+    "destination_fsync": true,
+    "destination_rehash_before_execution": true,
+    "exact_tree_pre_and_post_execution": true,
+    "extra_missing_changed_rejected": true,
+    "precopy_toctou_claim": false
+  },
+  "verification": {
+    "focused": {"passed": 35, "failed": 0, "deselected": 0},
+    "cumulative": {"passed": 230, "failed": 0, "deselected": 0},
+    "ruff": "pass",
+    "py_compile": "pass",
+    "performance_100_authorize_consume_reads": {
+      "p50_ms": 7.4978,
+      "p95_ms": 22.4206,
+      "max_ms": 32.8626,
+      "thread_delta": 0
+    },
+    "environmental_warning": "pytest cache directory access denied; test basetemp succeeded"
+  },
+  "reproducible_cumulative_command": [
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_session_grants_v11.py",
+    "tests/test_approval_inbox_v15_acceptance.py",
+    "tests/test_capability_nexus_v32_acceptance.py",
+    "tests/test_phase5_component_adapters_v3.py",
+    "tests/test_phase5_runtime_v10.py",
+    "tests/test_phase5_integration_v3.py",
+    "tests/test_phase5_integration_v3_transition.py",
+    "--basetemp",
+    ".pytest-p5-v3-cumulative"
+  ],
+  "cumulative_deselections": 0,
+  "concurrent_transition_boundary": {
+    "surfaces": ["ui.py", "qml", "dashboard/static"],
+    "scope": "out-of-scope-concurrent-HUD-transition",
+    "v3_dependency": false,
+    "current_bytes_adopted": false
+  }
+}

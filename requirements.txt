@@ -1,0 +1,57 @@
+sounddevice
+google-genai
+pillow
+requests
+beautifulsoup4
+ddgs
+playwright
+PySide6>=6.8,<6.12
+pyautogui
+pyperclip
+pygetwindow
+opencv-python
+numpy
+mss
+psutil
+miniaudio
+send2trash
+youtube-transcript-api
+python-pptx
+python-docx
+pandas
+openpyxl
+odfpy
+xlrd
+pdfplumber
+pypdf>=6.15.0,<7
+pypdfium2>=5,<6
+defusedxml
+pydub
+fastapi
+uvicorn[standard]
+# Security-fixed 48+ releases publish a macOS arm64 wheel but no Intel wheel.
+# Formal macOS builds are therefore Apple Silicon-only and remain binary-only.
+cryptography>=48.0.1
+python-multipart
+comtypes; sys_platform == "win32"
+pycaw; sys_platform == "win32"
+win10toast; sys_platform == "win32"
+pywinauto; sys_platform == "win32"
+pywin32; sys_platform == "win32"
+wmi; sys_platform == "win32"
+qrcode[pil]
+tzdata>=2026.1
+
+# Runtime modules discovered and shipped through PyInstaller dependency hooks.
+# Keep them explicit so the dependency lock, bundle inventory, legal metadata,
+# and SPDX release SBOM describe the same executable closure.
+attrs==25.4.0
+curl-cffi==0.15.0
+h2==4.4.1
+importlib-metadata==8.7.0
+itsdangerous==2.2.0
+jsonschema==4.25.1
+markupsafe==3.0.3
+mcp==1.28.1
+pyreadline3==3.5.4; sys_platform == "win32"
+werkzeug==3.1.8

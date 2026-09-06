@@ -1,0 +1,22 @@
+{
+  "schema": "onyx.packaged-runtime-hud-contract.v6",
+  "runtime_inputs": [
+    {"path": "core/onyx_hud_orb_v14.py", "sha256": "d5b8e2ff9dd7e49a7676777149f31286212942d7193982ad3ace0fc2c73a2a32"},
+    {"path": "qml/OnyxLiveShellV13.qml", "sha256": "f778fbf4b6c4e481a711c8f08373d8c0262c2acdf530be967122ecf61434f209"},
+    {"path": "qml/components/OnyxHumanoidEntityV10.qml", "sha256": "91ec111c7c4b031343d767a88a583b27fd97e9fef91e1c740ebd770c83e136fb"},
+    {"path": "qml/assets/onyx-humanoid-cyryx-v11.png", "sha256": "e5d5796d843094945b6ca7aacfbac2daa9e701b49fee1e71e07af4c233bb7e43"},
+    {"path": "qml/web/onyx-humanoid-three-v1.html", "sha256": "909edcf6617f99ad41d6d34f637b9068efbf62e228261675047297677a501e39"},
+    {"path": "qml/web/data/onyx-humanoid-pointcloud-v1.js", "sha256": "ffd52a2690c79841202eecd1be5c188a2b0976a8954c89f3f7f0712391c42886"},
+    {"path": "qml/web/vendor/three/three.module.min.js", "sha256": "e2b5ee6bccd38fd6d8a2428546b83c5f2426d84b152ef82be8055556e3b40eb6"},
+    {"path": "qml/web/vendor/three/three.core.min.js", "sha256": "61ba0df005b05991361d040d8ff670e1aadfd0ce7aeebd1fdb0725957a8957de"},
+    {"path": "ui.py", "sha256": "bfe3ec8943853870b0907a3f65e99397bc431f0da69afc97a9f2b7e4abf75f47"},
+    {"path": "core/onyx_hud_current_acceptance_v37.py", "sha256": "21e621e4d5cd2e3383030836f7f751f7f6a9fa8bcb0a3abb4aad76a69e0ea55c"},
+    {"path": "docs/onyx/acceptance/VE-HUD-CURRENT-V37-E6-001.manifest.json", "sha256": "9b9a945b564c0a9bde8da7ba9cf1b924e228150abe47bc5a78af704c50ab50ed"}
+  ],
+  "semantics": {
+    "current_orb": "humanoid-presence-v10",
+    "staged_living_motion": true,
+    "provider_independent": true,
+    "formal_release_ready": false
+  }
+}

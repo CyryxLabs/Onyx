@@ -1,0 +1,98 @@
+{
+  "schema": "onyx.live-activation.v7",
+  "candidate": "onyx-live-activation-v7",
+  "created_at": "2026-07-23",
+  "status": "candidate-ready-for-independent-gate",
+  "default_off": true,
+  "live_activated": false,
+  "live_restart_performed": false,
+  "provider_calls_performed": false,
+  "credential_provisioned": false,
+  "network_calls": 0,
+  "files": [
+    {"path":"core/onyx_live_activation_v7.py","role":"transition-v7","sha256":"906c7c0e31cb5efc28e5357bb158545e903d65ff1f160b3899bc3e2fb3c1dc77"},
+    {"path":"scripts/launch_onyx_live_v7.pyw","role":"transition-v7-launcher","sha256":"a5dae76af4b09af90aa89b3638e2329fbed8c79a50fbcafa0a6179f38d82c531"},
+    {"path":"scripts/launch_onyx_live_v7_active.cmd","role":"transition-v7-active-control","sha256":"c3a144c6913c6c77aed0752d44913966b4b3eabf1c014e20761c8dec1adea1ae"},
+    {"path":"scripts/launch_onyx_live_v7_rollback.cmd","role":"transition-v7-rollback-control","sha256":"b6312849e2687fe152c5ae2667ce130fac1475ae2ca2cb2e53e53270c7777e29"},
+    {"path":"scripts/verify_onyx_live_activation_v7.py","role":"transition-v7-cumulative-verifier","sha256":"6d32952922ebd5a9fbb8b09ae2e7a366f6fb7fc5678a9dc459b1c3825ce17b97"},
+    {"path":"scripts/verify_onyx_live_activation_v7_host.py","role":"transition-v7-real-host-gate","sha256":"c7868cd2fa1fd42c457da96cc295be817dc1ffd5ec93ba3294162f279e6ff109"},
+    {"path":"scripts/verify_onyx_live_activation_v7_provider.py","role":"transition-v7-full-host-fake-provider-e2e","sha256":"48e7a1e63046848c7b93274cf17ef2be82fc561f163eb88b52ab3a97251ffc66"},
+    {"path":"scripts/verify_onyx_live_activation_v7_manifest.py","role":"transition-v7-manifest-verifier","sha256":"ac5f19a65ccbcaa03aaa33e677b8d1ba4c3dd3d10f09fce0a626e19df29bcb33"},
+    {"path":"tests/test_onyx_live_activation_v7.py","role":"transition-v7-tests","sha256":"9ec4a10de3c08cf5e90ed6d58ca0292e9ff6f3edf1467be683d7ecd20bba8b6a"},
+    {"path":"docs/onyx/checkpoints/onyx-live-activation-v7/ONYX_LIVE_ACTIVATION_V7_CHECKPOINT.md","role":"transition-v7-checkpoint","sha256":"fc2cb24e0593500a39f3b9c69b29008803d1a6b6a7f695fd63c8b13f5988871b"},
+
+    {"path":"docs/onyx/checkpoints/onyx-live-activation-v6/manifest.json","role":"frozen-v6-manifest","sha256":"4b7b3bcdb7c87043e97baa952b883dcfc9f498026c272099f5222de7decb4453"},
+    {"path":"core/onyx_live_activation_v6.py","role":"frozen-v6-base","sha256":"68d75e89728355b6b26b153f19ec5d732f26369b79d7e03e700bc8b00ee95f54"},
+    {"path":"main.py","role":"frozen-host","sha256":"6b82fed0d7c932a08d2d1f8a31d7650a1b235d55085ee608fdbb7651e5f49712"},
+    {"path":"ui.py","role":"frozen-host","sha256":"e5768626b7eb9d162a54cd67b08b5cb7d9685fb5c0e1b8c951843a1146fc252b"},
+    {"path":"core/permission_broker.py","role":"frozen-host-broker","sha256":"e37fb092410ba0843036dbdc779342c4d24a811bbfcf0de8812f2f6144e7d250"},
+    {"path":"core/phase5_integration_v3.py","role":"accepted-phase5-bridge","sha256":"52d48c121da485c024811e6cd3fafbabaed971175d7cb41ad23358c5c2879b0d"},
+    {"path":"dashboard/server.py","role":"frozen-host-dashboard","sha256":"4d3142dc9c6a78cfe76f804de2b154334da2d7790484783a993babc92300bae1"},
+    {"path":"qml/OnyxLiveShellV5.qml","role":"accepted-hud-shell","sha256":"9ff4d3d5d3771d1bbf2c2f8fe68793fd05e8cc80fd0c0644d700596d7cd39e47"},
+    {"path":"qml/components/OnyxOrbCinematicV5.qml","role":"accepted-orb","sha256":"adff9ee062fff1c735bd28d4a77591581b6e4ce131067b1724699da5055e2622"}
+  ],
+  "phase5_identity": {
+    "principal_id": "onyx-owner",
+    "workspace_id": "onyx-local-workspace",
+    "account_id": "cyryx-local-account",
+    "profile_id": "onyx-owner-profile"
+  },
+  "host_contract": {
+    "class": "main.OnyxLive",
+    "window_class": "ui.MainWindow",
+    "v6_transactional_writes": 22,
+    "v7_transactional_writes": 1,
+    "total_transactional_writes": 23,
+    "frozen_host_modified": false,
+    "frozen_v6_modified": false,
+    "exact_input_audio_mime": "audio/pcm;rate=16000",
+    "provider_failure_terminates_host": false
+  },
+  "local_catalog": {
+    "root_cause": "host_generated_raw_hex_reference_rejected_as_token_like",
+    "private_reference_grammar": "catalog-p<PID>-n<N>",
+    "public_arguments_coerced": false,
+    "full_main_broker": true,
+    "bridge": "core.phase5_integration_v3.Phase5IntegrationV3",
+    "runtime_state": "READY",
+    "completed_reads": 1,
+    "same_call_id_reexecution": 0,
+    "egress": "none",
+    "cost_micro": 0,
+    "denial_diagnostic": "content-free-state-reason-code-enabled"
+  },
+  "preserved_v6": {
+    "provider_call_identity": "exact_call_id",
+    "provider_argument_binding": "canonical_arguments_sha256",
+    "replay_capacity": 256,
+    "concurrent_duplicates": "single_flight",
+    "provider_circuit_authority": "single_owning_asyncio_loop",
+    "manual_recovery": "cross_thread_command_with_ack",
+    "qt_setup_surfaces": 1
+  },
+  "activation": {
+    "master": "ONYX_LIVE_ACTIVATION_V7=1",
+    "launcher": "scripts/launch_onyx_live_v7.pyw",
+    "controlled_restart_required": true,
+    "independent_gate_required": true
+  },
+  "rollback": {
+    "single_switch": "ONYX_LIVE_ROLLBACK_V7=1",
+    "delegates_to": "scripts/launch_onyx.pyw"
+  },
+  "verification": {
+    "focused": {"passed": 6, "failed": 0},
+    "combined_v4_v5_v6_v7": {"passed": 57, "failed": 0},
+    "identity_variants_refused": 32,
+    "main_catalog_entries": 26,
+    "phase5_bridges_across_reconnect": 2,
+    "fake_provider_1011_recovery": "pass",
+    "full_host_authorize_model_tool": "pass",
+    "v7_failpoint_rollback": "pass",
+    "ruff": "pass",
+    "py_compile": "pass",
+    "v6_manifest_gate": "pass",
+    "network_calls": 0,
+    "live_activation": "not_performed"
+  }
+}

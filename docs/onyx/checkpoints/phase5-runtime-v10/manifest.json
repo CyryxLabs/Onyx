@@ -1,0 +1,122 @@
+{
+  "schema": "onyx.phase5.runtime-candidate-bundle.v1",
+  "candidate": "phase5-runtime-v10",
+  "created_at": "2026-07-22",
+  "bundle_root": "docs/onyx/checkpoints/phase5-runtime-v10",
+  "isolated": true,
+  "default_off": true,
+  "live_wired": false,
+  "files": [
+    {
+      "path": "core/phase5_runtime_v10.py",
+      "sha256": "f80fd636e145e669cc1ea76cfc024fcc5d385451cc1ef8624f7c9d8e0ac3f439"
+    },
+    {
+      "path": "tests/test_phase5_runtime_v10.py",
+      "sha256": "b2a6d9524d2d5d1b85af3325462f7bd28793180cee0ea4295d6600750615cfff"
+    }
+  ],
+  "historical_files": [
+    {
+      "path": "core/phase5_runtime_v1.py",
+      "sha256": "437bff54676a5691efe2494c21e7d6812a7559726cf336e52c4d8e5ca5bbf59f"
+    },
+    {
+      "path": "tests/test_phase5_runtime_v1.py",
+      "sha256": "35f56c59b661a00cf3f372397a1175971d2a4d7c1951f858f96b2816afd9ff13"
+    },
+    {
+      "path": "core/phase5_runtime_v2.py",
+      "sha256": "85288ceeafaa2597a587eeb610ea2edf90e472dff993d0aa7f56e652f230c33b"
+    },
+    {
+      "path": "tests/test_phase5_runtime_v2.py",
+      "sha256": "1cea61a9fa841c24d002ef0b1e1f6ad23d7151ec2c30fcaf52378d017679b9e4"
+    },
+    {
+      "path": "core/phase5_runtime_v3.py",
+      "sha256": "4665848e43478fe3e90ea2e6ab6a462e76641309d130a16127eb9f85f6c12ab2"
+    },
+    {
+      "path": "tests/test_phase5_runtime_v3.py",
+      "sha256": "a9c6b84649f6fee85c67b77baa217e1fc365109f5face2322e0c525562469ac9"
+    },
+    {
+      "path": "core/phase5_runtime_v4.py",
+      "sha256": "cb5b2a6768fc3da7f4d61861adebc8e3a117fe1b55b540dbfed67c12d42d0dba"
+    },
+    {
+      "path": "tests/test_phase5_runtime_v4.py",
+      "sha256": "e8969daf1fb11b1101b73b021bb403f5ac268ef7f3cbf8b5b9adb3e3fda878c9"
+    },
+    {
+      "path": "core/phase5_runtime_v5.py",
+      "sha256": "b181fd69d5bc7a4e08e2220a2e10fdeceb4f9cdf15fd32bdb2ad6dc85e9e4dad"
+    },
+    {
+      "path": "tests/test_phase5_runtime_v5.py",
+      "sha256": "84179de1b9a93c8cbe4e55ec86c23f818f6d5f2be50ea4bdca07e6ac7bcc735a"
+    },
+    {
+      "path": "core/phase5_runtime_v6.py",
+      "sha256": "28996b9066d6ccc4a0461e19447dbcd89b24b2c58edddd88e40a78b9b11dece5"
+    },
+    {
+      "path": "tests/test_phase5_runtime_v6.py",
+      "sha256": "14a7c5c23c855c528cdc98a40186914b94939e126b5d07fed40bae6b3bc4c930"
+    },
+    {
+      "path": "core/phase5_runtime_v7.py",
+      "sha256": "0051d6a20cd42e898f36f51cbf6de39b793be645f44efec62a4ace0e888e5b05"
+    },
+    {
+      "path": "tests/test_phase5_runtime_v7.py",
+      "sha256": "2c0c198e1b7104a8adef5cc3dfac91c66915ac946289f06fbc1f3299a29e16e3"
+    },
+    {
+      "path": "core/phase5_runtime_v8.py",
+      "sha256": "a3206bc5767c83bf9407f97d3ede32227eba3fe4c18d9753b69fe6b730d806d7"
+    },
+    {
+      "path": "tests/test_phase5_runtime_v8.py",
+      "sha256": "7d397bbd9e0cc812dafaddab6b60c5b39fc594bfd2e536b17d84e832f19276da"
+    },
+    {
+      "path": "core/phase5_runtime_v9.py",
+      "sha256": "55130494afe02bbbd52acad4d9b4e12cf09e69aeba51592b0bd97c93ccdf0da1"
+    },
+    {
+      "path": "tests/test_phase5_runtime_v9.py",
+      "sha256": "99de4fc6cf1bcefa32de48be6d76f0753980582cb461ebd203f44a6c6cd1406c"
+    }
+  ],
+  "verification": {
+    "focused": {
+      "passed": 103,
+      "failed": 0
+    },
+    "cumulative": {
+      "passed": 1111,
+      "subtests_passed": 221,
+      "failed": 0
+    },
+    "ruff": "pass",
+    "py_compile": "pass",
+    "performance": {
+      "evaluate_consume_iterations": 2000,
+      "p50_ms": 3.810200,
+      "p95_ms": 6.635800,
+      "max_ms": 18.153800,
+      "termination_iterations": 256,
+      "termination_mean_ms": 1.283404,
+      "worker_thread_delta": 0
+    }
+  },
+  "limitations": [
+    "candidate-only; no startup, UI, dashboard, or live wiring",
+    "host executes and acknowledges cleanup actions",
+    "a crypto latch is intentionally unrecoverable within the same runtime instance",
+    "bounded diagnostics retain only the newest 128 telemetry faults",
+    "external functional, integrity, and quality review pending"
+  ]
+}

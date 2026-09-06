@@ -1,0 +1,35 @@
+{
+  "schema": "onyx.source-identity-acceptance.v2",
+  "acceptance_id": "VE-ONYX-LIVE-ACTIVATION-V15-CURRENT-SOURCE-002",
+  "decision": "authenticated_source_identity_only",
+  "observation_date": "2026-08-04",
+  "predecessor": {
+    "path": "docs/onyx/acceptance/VE-ONYX-LIVE-ACTIVATION-V15-CURRENT-SOURCE-001.manifest.json",
+    "sha256": "b43d50754382b4e4465c190776ef4564666d9ac25efb35ccd23db7c419c877d6"
+  },
+  "source": {
+    "path": "core/onyx_live_activation_v15.py",
+    "size": 52463,
+    "sha256": "8b0fdf50dfd2884a7015a91120cd8b9097c6fd320d30ec811a2df0ec6e38e80b"
+  },
+  "continuity": {
+    "canonical_installed_version": "1.1.9",
+    "canonical_installed_source_match": true,
+    "canonical_installed_source_sha256": "8b0fdf50dfd2884a7015a91120cd8b9097c6fd320d30ec811a2df0ec6e38e80b",
+    "prior_1_1_8_manifest_sha256": "b43d50754382b4e4465c190776ef4564666d9ac25efb35ccd23db7c419c877d6",
+    "historical_acceptance_reused": false
+  },
+  "record": {
+    "path": "docs/onyx/acceptance/VE-ONYX-LIVE-ACTIVATION-V15-CURRENT-SOURCE-002.md",
+    "size": 1022,
+    "sha256": "f218b00cb062423406ea9fe8a62d8fc7839212e927a4413b08c490c056b10d92"
+  },
+  "accepted_scope": "current_source_byte_identity_only",
+  "unclaimed": [
+    "functional_acceptance",
+    "security_acceptance",
+    "cross_platform_parity",
+    "release_readiness",
+    "project_completion"
+  ]
+}

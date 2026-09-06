@@ -1,0 +1,38 @@
+{
+  "schema": "onyx.hud.current.v39.acceptance.v1",
+  "candidate": "onyx-hud-v14-stable-multimodal-attention-001",
+  "decision": "accepted-source",
+  "current_root": "qml/OnyxLiveShellV13.qml",
+  "runtime_inputs": [
+    {"path": "core/camera_gesture_attention_v1.py", "sha256": "b22003d6a48a781a6f1aedd5e22f43a74f3a24c880e0924566b0324085e1e535"},
+    {"path": "qml/components/OnyxHumanoidEntityV10.qml", "sha256": "4144419917ea68d68f6138806ff56fdbdd5aaee2b1d4491b3ba554ba6506c0f0"},
+    {"path": "qml/assets/onyx-humanoid-cyryx-v11.png", "sha256": "e5d5796d843094945b6ca7aacfbac2daa9e701b49fee1e71e07af4c233bb7e43"},
+    {"path": "qml/web/onyx-humanoid-three-v1.html", "sha256": "f54a2ad8dd5c407fbf5430b8f6b7b1631519249e8b72df684fef685f21f9b29d"},
+    {"path": "qml/web/data/onyx-humanoid-pointcloud-v1.js", "sha256": "ffd52a2690c79841202eecd1be5c188a2b0976a8954c89f3f7f0712391c42886"},
+    {"path": "qml/web/vendor/three/three.module.min.js", "sha256": "e2b5ee6bccd38fd6d8a2428546b83c5f2426d84b152ef82be8055556e3b40eb6"},
+    {"path": "qml/web/vendor/three/three.core.min.js", "sha256": "61ba0df005b05991361d040d8ff670e1aadfd0ce7aeebd1fdb0725957a8957de"},
+    {"path": "ui.py", "sha256": "d89fb5a8fc020262b95a202c9e0a262fe6e6f72ef5b756355643d578929763a8"},
+    {"path": "qml/OnyxLiveShellV13.qml", "sha256": "3853981ac7efd90d5301448d20bb32967f3d6ac3b549f94a9e3800eafa8c132c"},
+    {"path": "core/onyx_hud_orb_v14.py", "sha256": "d5b8e2ff9dd7e49a7676777149f31286212942d7193982ad3ace0fc2c73a2a32"},
+    {"path": "tests/test_camera_gesture_attention_v1.py", "sha256": "60b0345b5de8be9855dfd38c73e557b2102939836fee34640d23bfbe1ab818bf"},
+    {"path": "tests/test_onyx_humanoid_entity_v10.py", "sha256": "07642f3f8899ac6943063d23adc92c57d080898dec2bca9c21fd4cb17fa72309"},
+    {"path": "tests/test_close_to_background_v1.py", "sha256": "85f9f4b4ed7a3e33ba4eb967b6fe81305017f70e84037ad5e9892ac4b5118c7c"}
+  ],
+  "semantics": {
+    "palette_changed": false,
+    "abstract_humanoid": true,
+    "three_js_runtime": true,
+    "source_image_rendering": false,
+    "global_pointer_attention": true,
+    "camera_gesture_attention": true,
+    "attention_bridge_coalesced": true,
+    "intermittent_flicker_guard": true,
+    "governed_native_close": true,
+    "camera_identity_processing": false,
+    "second_camera_capture": false,
+    "audio_pipeline_changed": false,
+    "reduced_motion_static": true,
+    "network_activity": false,
+    "published": false
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "acceptance_id": "VE-P6-LOCAL-MCP-V1-E6-001",
+  "decision": "accepted",
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "candidate_manifest_path": "docs/onyx/checkpoints/phase6-local-mcp-v1/manifest.json",
+  "candidate_manifest_sha256": "9529946b80d4ee8c4434acd2db064afab03bbb049482e82126a57151fc395921",
+  "artifact_root_sha256": "c0efe67f8e28fb6444456d535f482c5af783d20508fcb48a618dd3b3ce693f6f",
+  "artifact_count": 6,
+  "frozen_anchor_count": 5,
+  "focused": {
+    "passed": 27,
+    "failed": 0
+  },
+  "cumulative": {
+    "passed": 59,
+    "failed": 0
+  },
+  "protocol_revision": "2025-11-25",
+  "transport": "stdio-newline-utf8-json-rpc",
+  "network_calls": 0,
+  "provider_calls": 0,
+  "default_off": true,
+  "factory_only": true,
+  "live_activation": false,
+  "phase6_exit": false
+}

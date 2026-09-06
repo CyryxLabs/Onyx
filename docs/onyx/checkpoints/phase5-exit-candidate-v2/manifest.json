@@ -1,0 +1,469 @@
+{
+  "schema": "onyx.phase5.exit-candidate.v2",
+  "candidate": "phase5-exit-candidate-v2",
+  "created_at": "2026-07-23",
+  "status": "candidate-e1-e5-e6-pending",
+  "claims": {
+    "e1_e5_candidate": true,
+    "external_e6_accepted": false,
+    "phase5_exit_complete": false,
+    "phase6_unlocked": false,
+    "live_activated": false,
+    "runtime_authority_added": false,
+    "onyx_complete": false,
+    "v9_e6_composed": true
+  },
+  "rollback": {
+    "kind": "evidence-only",
+    "application_restart_required": false,
+    "runtime_state_created": false,
+    "candidate_v1_retained": true,
+    "activation_v9_retained": true
+  },
+  "predecessor": {
+    "candidate": "phase5-exit-candidate-v1",
+    "manifest_path": "docs/onyx/checkpoints/phase5-exit-candidate-v1/manifest.json",
+    "manifest_sha256": "3188e006fa11040eb8d743086c74f0ceae70a1d62b70e9919ca73cb41187ec80",
+    "verifier_path": "scripts/verify_phase5_exit_candidate_v1.py",
+    "verifier_sha256": "a49f23a28c304c6ee62125636c3b30d1af35619716d00e8d33147b002a29f01c"
+  },
+  "component_acceptances": [
+    "VE-P5-RUNTIME-V10-E6-001",
+    "VE-P51-GRANTS-R11-E6-001",
+    "VE-P52-APPROVAL-INBOX-V15-E6-001",
+    "VE-P53-CAPABILITY-NEXUS-V32-E6-001",
+    "VE-P5-INTEGRATION-V3-E6-001"
+  ],
+  "startup_closure": [
+    ".github/workflows/release-packages.yml",
+    "packaging/linux/onyx.desktop",
+    "packaging/macos/entitlements.plist",
+    "packaging/onyx.spec",
+    "packaging/windows/onyx.iss",
+    "scripts/bootstrap_onyx_live_v8.pyw",
+    "scripts/bootstrap_onyx_live_v9.pyw",
+    "scripts/build_release.py",
+    "scripts/check_release_eligibility.py",
+    "scripts/launch_onyx.pyw",
+    "scripts/launch_onyx_live_v1.pyw",
+    "scripts/launch_onyx_live_v2.pyw",
+    "scripts/launch_onyx_live_v3.pyw",
+    "scripts/launch_onyx_live_v4.pyw",
+    "scripts/launch_onyx_live_v4_active.cmd",
+    "scripts/launch_onyx_live_v4_rollback.cmd",
+    "scripts/launch_onyx_live_v5.pyw",
+    "scripts/launch_onyx_live_v5_active.cmd",
+    "scripts/launch_onyx_live_v5_rollback.cmd",
+    "scripts/launch_onyx_live_v6.pyw",
+    "scripts/launch_onyx_live_v6_active.cmd",
+    "scripts/launch_onyx_live_v6_rollback.cmd",
+    "scripts/launch_onyx_live_v7.pyw",
+    "scripts/launch_onyx_live_v7_active.cmd",
+    "scripts/launch_onyx_live_v7_rollback.cmd",
+    "scripts/launch_onyx_live_v8.pyw",
+    "scripts/launch_onyx_live_v8_active.cmd",
+    "scripts/launch_onyx_live_v8_rollback.cmd",
+    "scripts/launch_onyx_live_v9.pyw",
+    "scripts/launch_onyx_live_v9_active.cmd",
+    "scripts/launch_onyx_live_v9_rollback.cmd",
+    "setup.py"
+  ],
+  "cumulative_selection": {
+    "path": "docs/onyx/checkpoints/phase5-exit-candidate-v2/cumulative-selection.json",
+    "expected_passed": 257,
+    "expected_failed": 0,
+    "historical_direct_passed": 275,
+    "historical_direct_failed": 2
+  },
+  "v9_acceptance": {
+    "acceptance_id": "VE-ONYX-LIVE-ACTIVATION-V9-E6-001",
+    "candidate_manifest_path": "docs/onyx/checkpoints/onyx-live-activation-v9/manifest.json",
+    "candidate_manifest_sha256": "38de625b7725dab7aa9c7906f7f3164687f1f20a0cca6e683fe64145bb53142a",
+    "acceptance_record_path": "docs/onyx/acceptance/VE-ONYX-LIVE-ACTIVATION-V9-E6-001.md",
+    "acceptance_record_sha256": "91a3613df269d1fe222c437b92b0d3022f3f2a603ae9689a951e63e0c4e4f0ec",
+    "acceptance_metadata_path": "docs/onyx/acceptance/VE-ONYX-LIVE-ACTIVATION-V9-E6-001.manifest.json",
+    "acceptance_metadata_sha256": "bb8a3e88b6db05b548a306aba3e2c09bdd3b0f760777d34a64326e8820743cbd",
+    "acceptance_verifier_path": "scripts/verify_onyx_live_activation_v9_acceptance.py",
+    "acceptance_verifier_sha256": "660f07a81dbd9bfd141f9ca2e11ed45124e0d873db5a0ff1aad84cb7c4667d1c",
+    "acceptance_test_path": "tests/test_onyx_live_activation_v9_acceptance.py",
+    "acceptance_test_sha256": "ea1377949933297b4b159f29165723e51fbc60fb15fc88c3fb1f33db149b00ae",
+    "acceptance_sha_path": "docs/onyx/VE-ACCEPTANCE-ONYX-LIVE-ACTIVATION-V9-E6-001.sha256",
+    "acceptance_sha256": "a69c912b947b4605305da86b070fbddab8812a84cc8c2cf6b138a641e5cb339b",
+    "source_manifest_path": "docs/onyx/VE-SOURCE-ONYX-LIVE-ACTIVATION-V9-E6-001.sha256",
+    "source_manifest_sha256": "0082d6b553a1f6af2b35aa1661f46905ac737baf7c7b362fb6642304d2f27871",
+    "artifact_manifest_path": "docs/onyx/VE-ARTIFACTS-ONYX-LIVE-ACTIVATION-V9-E6-001.sha256",
+    "artifact_manifest_sha256": "034c4569ee69cb60b4e821ee1e64a383fb29887b4f2cd196689681ff45889d5e"
+  },
+  "independent_root": {
+    "algorithm": "sha256-domain-count-u32be-path-u32be-role-digest32-v1",
+    "binding_count": 73,
+    "sha256": "2255b9a8a5315f99ab376f7f32d22ef8d39e6c2c4039a9ff77afa4ddf75e5fa6"
+  },
+  "files": [
+    {
+      "path": ".github/workflows/release-packages.yml",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "84409f0bc2a24ce7c0a6db11419b07d680674df7e77836b51b7cd5509aa03cab"
+    },
+    {
+      "path": ".venv/Scripts/pythonw.exe",
+      "role": "v9-frozen-runtime-pythonw",
+      "sha256": "51361a2d68a5b4ecf1bad4d7214066e05f9598074e72662e62f7b2e3be3329b3"
+    },
+    {
+      "path": "core/onyx_hud_orb_v6.py",
+      "role": "v9-frozen-accepted-hud-v6-host",
+      "sha256": "ee5f5f62ab0c799313e7b9ffcf7b3f5364af8b1d80d2d126a63fa4b2290b4233"
+    },
+    {
+      "path": "core/onyx_live_activation_v8.py",
+      "role": "v9-frozen-accepted-v8-base",
+      "sha256": "a088d0c49851699c5486a59a4db6734b8ec81ed7c01ad821bf8a1ea1966486f4"
+    },
+    {
+      "path": "core/onyx_live_activation_v9.py",
+      "role": "v9-frozen-v8-hud-v6-composition",
+      "sha256": "deb26314ef3871cb12fc8e3cee936f88e385122fad242c830580421ccb22a9d2"
+    },
+    {
+      "path": "docs/onyx/CAPABILITY_MATRIX.md",
+      "role": "historical-projection-full-file",
+      "sha256": "2ba2507ccbf4ff5cae4a38609366f2c547bf47446527cf14ded3636806c10a87"
+    },
+    {
+      "path": "docs/onyx/VE-ACCEPTANCE-ONYX-LIVE-ACTIVATION-V9-E6-001.sha256",
+      "role": "v9-e6-acceptance-anchor",
+      "sha256": "a69c912b947b4605305da86b070fbddab8812a84cc8c2cf6b138a641e5cb339b"
+    },
+    {
+      "path": "docs/onyx/VE-ARTIFACTS-ONYX-LIVE-ACTIVATION-V9-E6-001.sha256",
+      "role": "v9-e6-artifact-anchor",
+      "sha256": "034c4569ee69cb60b4e821ee1e64a383fb29887b4f2cd196689681ff45889d5e"
+    },
+    {
+      "path": "docs/onyx/VE-SOURCE-ONYX-LIVE-ACTIVATION-V9-E6-001.sha256",
+      "role": "v9-e6-source-anchor",
+      "sha256": "0082d6b553a1f6af2b35aa1661f46905ac737baf7c7b362fb6642304d2f27871"
+    },
+    {
+      "path": "docs/onyx/VERIFICATION_EVIDENCE.md",
+      "role": "historical-projection-full-file",
+      "sha256": "7f1d216fc8fb5e9b02f40b1bab21c80c79746c2dcc1171df4829708494e4a2ad"
+    },
+    {
+      "path": "docs/onyx/acceptance/VE-HUD-ORB-V6-C003-E6-001.manifest.json",
+      "role": "v9-frozen-accepted-hud-v6-c003-e6-root",
+      "sha256": "fbd22e3fd4e944a55ef872370c858783871eb5b20c27df58cefe14b3dc7dc4b9"
+    },
+    {
+      "path": "docs/onyx/acceptance/VE-HUD-ORB-V6-C003-E6-001.md",
+      "role": "v9-frozen-accepted-hud-v6-c003-e6",
+      "sha256": "c9663515321554cec4e69524ee13eb543194562167da6ac21aafb219bcc65d9f"
+    },
+    {
+      "path": "docs/onyx/acceptance/VE-ONYX-LIVE-ACTIVATION-V8-E6-001.manifest.json",
+      "role": "v9-frozen-accepted-v8-e6-root",
+      "sha256": "7a5c9f903bded763457bc465ab3dfdbb8c63193776cbab449725d7438f1dc479"
+    },
+    {
+      "path": "docs/onyx/acceptance/VE-ONYX-LIVE-ACTIVATION-V8-E6-001.md",
+      "role": "v9-frozen-accepted-v8-e6",
+      "sha256": "ee17b06e2f468c94621e7dda913e3dcda6850f3fbce478f0a5200fa9de1f1c0b"
+    },
+    {
+      "path": "docs/onyx/acceptance/VE-ONYX-LIVE-ACTIVATION-V9-E6-001.manifest.json",
+      "role": "v9-e6-metadata",
+      "sha256": "bb8a3e88b6db05b548a306aba3e2c09bdd3b0f760777d34a64326e8820743cbd"
+    },
+    {
+      "path": "docs/onyx/acceptance/VE-ONYX-LIVE-ACTIVATION-V9-E6-001.md",
+      "role": "v9-e6-record",
+      "sha256": "91a3613df269d1fe222c437b92b0d3022f3f2a603ae9689a951e63e0c4e4f0ec"
+    },
+    {
+      "path": "docs/onyx/checkpoints/hud-orb-v6-candidate/manifest.json",
+      "role": "v9-frozen-accepted-hud-v6-c003-root",
+      "sha256": "ba034588791b1003a6743bf037ae32a11285adcac7c4084cba1bc5bb3923ae1c"
+    },
+    {
+      "path": "docs/onyx/checkpoints/onyx-live-activation-v8/manifest.json",
+      "role": "v9-frozen-accepted-v8-candidate-root",
+      "sha256": "ab28f369248df1ed807aeeee15658193a533881bf68fb2268d49692b52c20392"
+    },
+    {
+      "path": "docs/onyx/checkpoints/onyx-live-activation-v9/ONYX_LIVE_ACTIVATION_V9_CHECKPOINT.md",
+      "role": "v9-frozen-candidate-checkpoint",
+      "sha256": "ab4c6af74832a0cc8f7aa66bb442c3d367dfbd18015f5a314a1b61a53ece3e6a"
+    },
+    {
+      "path": "docs/onyx/checkpoints/onyx-live-activation-v9/manifest.json",
+      "role": "v9-candidate-manifest",
+      "sha256": "38de625b7725dab7aa9c7906f7f3164687f1f20a0cca6e683fe64145bb53142a"
+    },
+    {
+      "path": "docs/onyx/checkpoints/onyx-live-activation-v9/runtime-manifest.json",
+      "role": "v9-frozen-runtime-bundle-root",
+      "sha256": "8474c1716d9ad0ece51b52cfca3d80a75e5c8fa45ed35b2385b8d91b6b939947"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase5-exit-candidate-v1/PHASE5_EXIT_CANDIDATE_V1_CHECKPOINT.md",
+      "role": "candidate-v1-frozen-root",
+      "sha256": "8788ce0185800725a7af8e7754dc72a12890b89e62c0cb4f1ef4a5c553d1688d"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase5-exit-candidate-v1/manifest.json",
+      "role": "candidate-v1-frozen-root",
+      "sha256": "3188e006fa11040eb8d743086c74f0ceae70a1d62b70e9919ca73cb41187ec80"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase5-exit-candidate-v2/PHASE5_EXIT_CANDIDATE_V2_CHECKPOINT.md",
+      "role": "candidate-v2-checkpoint",
+      "sha256": "6688e37a033d172676d28026c8db8fd942fcdc2c252e3444c5e492ed4c753fce"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase5-exit-candidate-v2/cumulative-selection.json",
+      "role": "candidate-v2-cumulative-selection",
+      "sha256": "39735644fa8b88bd856eb994a526a56da4f79544ad4a6f9bd96fe9651fcafc8f"
+    },
+    {
+      "path": "main.py",
+      "role": "v9-frozen-frozen-host",
+      "sha256": "6b82fed0d7c932a08d2d1f8a31d7650a1b235d55085ee608fdbb7651e5f49712"
+    },
+    {
+      "path": "packaging/linux/onyx.desktop",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "0fc6da87140a3f5455eab5995ab5736edf998fd63f98d860359da850efe61724"
+    },
+    {
+      "path": "packaging/macos/entitlements.plist",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "3c70bd8a436460de7e999674c5c924231cbfb4f7d142ff7b1a94f9ee772144b4"
+    },
+    {
+      "path": "packaging/onyx.spec",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "2ab5ade541b6cd8b9c6edcd52320535d7cad912d150169156810330c577506b3"
+    },
+    {
+      "path": "packaging/windows/onyx.iss",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "b3326de599c2ebf13f0ba79452e68e6c373fecb1d94cc318626de9c0a0fd4392"
+    },
+    {
+      "path": "scripts/bootstrap_onyx_live_v8.pyw",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "896c9755a529354868691cc739864113f2644e7594f009dae38ab1dd3eb91adf"
+    },
+    {
+      "path": "scripts/bootstrap_onyx_live_v9.pyw",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "91004253f6f5d0d9228245d4a554367d1c3add41438d081d794187e1e3a9d6f5"
+    },
+    {
+      "path": "scripts/build_release.py",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "1d06830f743c818fb89fc6571efa971a35a9a46f005661b4d9cb6c6e6ab2c5e3"
+    },
+    {
+      "path": "scripts/check_release_eligibility.py",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "8a762c3e679f108f3c1a166f3820c4aafe0f774a8bd9d37e319ae47e576917a7"
+    },
+    {
+      "path": "scripts/launch_onyx.pyw",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "34808ff75aee0418fb0c2af9107e51fffbdc62ef43b04885f6a1df9b94151451"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v1.pyw",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "d920ba4fb222532e6a54ba6cc51bb52801ed5ce693e77c12282e4fa65bb09d9d"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v2.pyw",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "b614616b3efc188b8179596e16d1a209c60d6cefefbb429146d6c9775d770e3b"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v3.pyw",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "86df14f853654053984623bef3557e205c28898b36b8c6ff02558f834877fc6a"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v4.pyw",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "a7bfc190cb95d49e871fcd312f32badbd1a5a6d18393ca725d214f1f66769af8"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v4_active.cmd",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "0b2c04b227027fe06795a176ac11e929e0da33863ff597df1331f772623b7cf2"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v4_rollback.cmd",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "87a90f03b1b35926288ef0db1235658d4a4c3fcd4eb3dad53c5a655b4c4fe79f"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v5.pyw",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "1b468782ad6d1784eaaad5e188a63a84ff00e52505ef1602cca01c6b320c98a1"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v5_active.cmd",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "b0b897aa345e7776ac48f2a7adf81c5f6fd98597ff3f6e1faeccfa658c2ca1a1"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v5_rollback.cmd",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "51e332ba23c55248c3992b8e516abb6d36207a58e98fd5a0585be2b745ed522d"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v6.pyw",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "de6aff494b5c9c22dc93e209c50cfa5710a6d7012b217d263c22bca3076eeb0f"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v6_active.cmd",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "525aa4d5e156dcda0bdd72fe3dfe5d429d3d658a495e249ef9235940528e587e"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v6_rollback.cmd",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "05818c5fd17e923d009fc408a834dbb2dd53dc48b9a296cd141ab1a4da40eb94"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v7.pyw",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "a5dae76af4b09af90aa89b3638e2329fbed8c79a50fbcafa0a6179f38d82c531"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v7_active.cmd",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "c3a144c6913c6c77aed0752d44913966b4b3eabf1c014e20761c8dec1adea1ae"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v7_rollback.cmd",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "b6312849e2687fe152c5ae2667ce130fac1475ae2ca2cb2e53e53270c7777e29"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v8.pyw",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "ded88457c5ed4aa593748dffb8ca7233d879b0277d5a1fab054a50b20b46209b"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v8_active.cmd",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "e5fc573933b59bedad413989b2a28e2203ae14aed5a7d30f4784dda7aa1ab01c"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v8_rollback.cmd",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "8989b85827ee2c7dce553f3ab9b125dfaa6e532095018b98b9f4fe262c3899c1"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v9.pyw",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "b06189d5a50ec2b310b8990432d56cf4c5a30b8db9aae83630d579fa945b82aa"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v9_active.cmd",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "08a12c0cb851351a397ad28dfb82336130e4f35a187226ed38a5c96727478552"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v9_rollback.cmd",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "3a4ab9939da87d6f096dada724555ebb0cad2ba434371d5c6933476c1473b962"
+    },
+    {
+      "path": "scripts/verify_onyx_live_activation_v9.py",
+      "role": "v9-frozen-cumulative-verifier",
+      "sha256": "fb686d3aecc0c17fc7dc1b4c58e3d65ea97552228d6e3078d97ede013f497ebf"
+    },
+    {
+      "path": "scripts/verify_onyx_live_activation_v9_acceptance.py",
+      "role": "v9-e6-verifier",
+      "sha256": "660f07a81dbd9bfd141f9ca2e11ed45124e0d873db5a0ff1aad84cb7c4667d1c"
+    },
+    {
+      "path": "scripts/verify_phase5_exit_candidate_v1.py",
+      "role": "candidate-v1-frozen-root",
+      "sha256": "a49f23a28c304c6ee62125636c3b30d1af35619716d00e8d33147b002a29f01c"
+    },
+    {
+      "path": "scripts/verify_phase5_exit_candidate_v2.py",
+      "role": "candidate-v2-verifier",
+      "sha256": "aa84896bb967faa10ccaae3ed6d47758c7123baef17df11e92a340700d314e6c"
+    },
+    {
+      "path": "setup.py",
+      "role": "startup-release-closure-v1-v9",
+      "sha256": "2c21a273cb2a05fb587176e5a0231150dcd31ec114ed6c144173c60d69a4d8e5"
+    },
+    {
+      "path": "tests/test_approval_inbox_v15_acceptance.py",
+      "role": "candidate-v2-cumulative-test",
+      "sha256": "71d407a90645c85fc7786f3bb1ce2a5486452242a2f674c0206c1399ecc6e47b"
+    },
+    {
+      "path": "tests/test_capability_nexus_v32_acceptance.py",
+      "role": "candidate-v2-cumulative-test",
+      "sha256": "bad2a161bd684a313e0b999a7c57dd9d30d485a04eab9d6a9f94089862821e2c"
+    },
+    {
+      "path": "tests/test_onyx_live_activation_v9.py",
+      "role": "v9-frozen-candidate-tests",
+      "sha256": "0cdcde2cfb7e2892e0df2a7623ca0ad1340983307dd6c2f6cf8cdcda4d74d624"
+    },
+    {
+      "path": "tests/test_onyx_live_activation_v9_acceptance.py",
+      "role": "v9-e6-tests",
+      "sha256": "ea1377949933297b4b159f29165723e51fbc60fb15fc88c3fb1f33db149b00ae"
+    },
+    {
+      "path": "tests/test_phase5_component_adapters_v3.py",
+      "role": "candidate-v2-cumulative-test",
+      "sha256": "8b9d315f147cba1e34080190d6d74ba2a488c49315bd13cd651dc0f359d8951a"
+    },
+    {
+      "path": "tests/test_phase5_exit_candidate_v1.py",
+      "role": "candidate-v1-frozen-root",
+      "sha256": "e7700a8450f82fc77ef32719b3cbe0e0299e865435e83db746c3a77a88ce7c73"
+    },
+    {
+      "path": "tests/test_phase5_exit_candidate_v2.py",
+      "role": "candidate-v2-tests",
+      "sha256": "7cefa97b42ce409b8ccfdd013eaca0640efa50093667f320fe11b96abed4763e"
+    },
+    {
+      "path": "tests/test_phase5_integration_v3.py",
+      "role": "candidate-v2-cumulative-test",
+      "sha256": "c2b92406ce5f7b6d1a8f88afe167dbf62aed8059cccea47bc2c523dd4956ad02"
+    },
+    {
+      "path": "tests/test_phase5_integration_v3_transition.py",
+      "role": "candidate-v2-cumulative-test",
+      "sha256": "11c448200591b5038ca77afedb633f8712294eeff86fa2357924a16bba789b47"
+    },
+    {
+      "path": "tests/test_phase5_runtime_v10.py",
+      "role": "candidate-v2-cumulative-test",
+      "sha256": "b2a6d9524d2d5d1b85af3325462f7bd28793180cee0ea4295d6600750615cfff"
+    },
+    {
+      "path": "tests/test_session_grants_v11.py",
+      "role": "candidate-v2-cumulative-test",
+      "sha256": "5a6ac10632a499c74c8672278e339945dbd8034433c2651f4ae2b6c4df396e69"
+    },
+    {
+      "path": "ui.py",
+      "role": "v9-frozen-frozen-ui-host",
+      "sha256": "e5768626b7eb9d162a54cd67b08b5cb7d9685fb5c0e1b8c951843a1146fc252b"
+    }
+  ]
+}

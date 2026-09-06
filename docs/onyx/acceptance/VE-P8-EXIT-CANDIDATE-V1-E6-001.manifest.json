@@ -1,0 +1,35 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P8-EXIT-CANDIDATE-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-07-24",
+  "findings": {"P0":0,"P1":0,"P2":0,"P3":0},
+  "candidate_manifest_sha256": "8b23754d1d0cbc6f5ec613a5b454ed66cb933cd007fb0c4524f8d92cd8bdfd46",
+  "artifact_root_sha256": "114cba2de27b680848ed5bfe6ddba7e0033c6448d6f85d198689aa8cffc1485a",
+  "accepted_component_roots": 28,
+  "results": {"test_files":20,"passed":421,"failed":0,"errors":0,"skipped":8,"subtests_passed":80},
+  "review_history": {
+    "functional": "PASS-WITH-CONCERNS remediated: P1 live-run over-claim + P2 unenforced mapping/unguarded flags + P3 no sum-check, all fixed and re-verified",
+    "integrity": "PASS: artifact root 114cba2d and all 28 accepted roots recomputed exactly; no predecessor modified",
+    "quality": "PASS-WITH-CONCERNS remediated: scoped completion boolean, enforced mapping, explained device_bootstrap gate, narrowed drive key"
+  },
+  "remediation": [
+    "removed every live-run assertion; aggregate rescoped to default-off connector contract layer only",
+    "renamed completion flag phase8_connector_layer_default_off_implementation_complete",
+    "narrowed drive requirement key to drive_metadata_read",
+    "verifier machine-enforces requirement to evidence mapping",
+    "verifier guards live_e2e_bound_in_aggregate, phase9_started, one_provider_proven_before_generalizing",
+    "verifier cross-checks per-file test-count sum against aggregate",
+    "checkpoint explains device_bootstrap_v2 exclusion from accepted roots"
+  ],
+  "claims": {
+    "phase8_connector_layer_default_off_implementation_complete": true,
+    "one_provider_proven_before_generalizing": true,
+    "phase9_may_begin": true,
+    "live_wiring": false,
+    "live_e2e_bound_in_aggregate": false,
+    "runtime_authority_added": false,
+    "phase9_started": false,
+    "full_onyx_prd_complete": false
+  }
+}

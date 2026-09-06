@@ -1,0 +1,48 @@
+{
+  "schema": "onyx.current-successor-retirement.v11",
+  "issued_at": "2026-08-11T13:18:00-04:00",
+  "predecessor": {
+    "path": "docs/onyx/checkpoints/CURRENT_SUCCESSOR_RETIREMENT_V10.json",
+    "sha256": "45b03775c218654916db57b9d7abe5ef8cdb760140b047333567fa5ea7a96cf9"
+  },
+  "policy": {
+    "historical_tests_are_rewritten": false,
+    "historical_hashes_are_rebound": false,
+    "registered_nodes_must_remain_collected": true,
+    "successor_sources_are_sha256_bound": true,
+    "successor_tests_must_execute": true
+  },
+  "additional_claims": [
+    {
+      "id": "phase5-v49-v50-to-v51",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_phase5_current_successor_transition_v49.py::test_v49_authenticates_v48_and_current_motion_successor",
+        "tests/test_phase5_current_successor_transition_v50.py::test_v50_authenticates_v49_without_runtime_authority_change"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_phase5_current_successor_transition_v51.py",
+          "sha256": "e9f85d17205537bc95ff13685621ed41cf2b086449eda661b6d17f2d57d03f72"
+        }
+      ],
+      "validated_tests": 1,
+      "reason": "Phase 5 V51 binds the exact qualification workflow while V49 and V50 remain immutable predecessor evidence."
+    },
+    {
+      "id": "release-v50-to-v51",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_release_workflow_transition_v50.py::test_release_v50_authenticates_post_r10b_evidence_successor"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_release_workflow_transition_v51.py",
+          "sha256": "0103a00406ce0f2a90d24123262142cea35af73eefcff0cbd5e34c91340f23dd"
+        }
+      ],
+      "validated_tests": 1,
+      "reason": "Release V51 authenticates the exact native qualification and publication pipeline while Release V50 remains immutable predecessor evidence."
+    }
+  ]
+}

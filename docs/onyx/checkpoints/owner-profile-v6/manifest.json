@@ -1,0 +1,99 @@
+{
+  "schema": "onyx.owner-profile-candidate-bundle.v6",
+  "candidate": "owner-profile-v6",
+  "created_at": "2026-07-22",
+  "bundle_root": "docs/onyx/checkpoints/owner-profile-v6",
+  "isolated": true,
+  "default_off": true,
+  "live_wired": false,
+  "files": [
+    {
+      "path": "core/owner_profile_v6.py",
+      "sha256": "f5bc62f7c326acea61ff8e2508814cbbbd7ac2c4833b2bcccb5353d44c530e0d"
+    },
+    {
+      "path": "tests/test_owner_profile_v6.py",
+      "sha256": "72d44825c927704faae4f46802820babf89e4645d7cf16b33dc923289a155df1"
+    }
+  ],
+  "historical_rejected": [
+    {
+      "candidate": "owner-profile-v1",
+      "core_sha256": "b2296227bb165f32117978e234519430af15838ad757104eeba08b8b7751b754",
+      "tests_sha256": "fafdf46a0a716f09aca81668ffda0b566af369be4d89095dc1be0a02209ee035"
+    },
+    {
+      "candidate": "owner-profile-v2",
+      "core_sha256": "12c459c1d34376a121e7a837d6dbeca365967c69affdc12b7d3e18ea1c76cd73",
+      "tests_sha256": "76f0481f91b82b650ece00d86ad0bfffe21fa4020e46d8e3dcaaaf7e36832714"
+    },
+    {
+      "candidate": "owner-profile-v3",
+      "core_sha256": "abf5e990b875a4ed04e9e9fed15eb550f972facf02b060683aa1e3abe88e4d16",
+      "tests_sha256": "f327a01f7d82a5df2d5e05d2bde70e3b89f06c6c4f69011e0ee257521033fe38"
+    },
+    {
+      "candidate": "owner-profile-v4",
+      "core_sha256": "a3ab381ed50c6fd539b10775ce0058b51c5a06b89bd87b1156e6793f6f438fd5",
+      "tests_sha256": "ee57cc1f0b629f72cbdd8f7d53bc2fd78451a7524995c5eac74d6e60d043d5f0"
+    },
+    {
+      "candidate": "owner-profile-v5",
+      "core_sha256": "53f6de7dfb7eb1f15f4f5c309257219a2ce67af7a662f0bb7e267fd1644daa18",
+      "tests_sha256": "1a4f9e2dcd5ec4ca1e3f4ff0390200ce56a6705dceb5499203d34a45dbab36ad",
+      "rejection": "A static HMAC journal had no required cross-restart monotonic chain-head authority."
+    }
+  ],
+  "host_anchor": {
+    "required_port": "ChainHeadStore.load + compare_and_set",
+    "file_fallback": false,
+    "semantic_memory_authority": false,
+    "windows_adapter": "Windows Credential Manager protected current-user credential blob plus fixed profile-derived namespace, bounded named mutex, compare/read/write/readback",
+    "macos_adapter": "interface only; Keychain CAS adapter requires real-host implementation and testing",
+    "linux_adapter": "interface only; Secret Service CAS adapter requires real-host implementation and testing"
+  },
+  "verification": {
+    "focused_v6": {
+      "passed": 34,
+      "failed": 0
+    },
+    "cumulative_v1_v2_v3_v4_v5_v6_memory_store": {
+      "passed": 163,
+      "subtests_passed": 15,
+      "failed": 0
+    },
+    "ruff_check": "pass",
+    "ruff_format_check": "pass",
+    "py_compile": "pass",
+    "stable_reconcile_benchmark": {
+      "iterations": 200,
+      "median_ms": 15.476,
+      "p95_ms": 25.961,
+      "max_ms": 52.084
+    },
+    "live_surface_imports": 0
+  },
+  "security_closure": {
+    "required_separate_monotonic_chain_head": true,
+    "chain_head_profile_sequence_mac_and_version_bound": true,
+    "cas_readback_and_concurrent_single_winner": true,
+    "downgrade_jump_odd_sequence_and_same_mac_rejected": true,
+    "terminal_matches_anchor_before_projection_repair": true,
+    "missing_unavailable_stale_future_mismatch_and_rollback_are_sticky_degraded": true,
+    "no_projection_write_on_anchor_or_journal_mismatch": true,
+    "crash_before_and_after_terminal_and_cas_is_resolved": true,
+    "stale_bob_snapshot_cannot_replace_carol": true,
+    "preforget_snapshot_cannot_resurrect_owner": true,
+    "journal_byte_cap_is_checked_before_json_decode": true,
+    "semantic_memory_is_projection_only": true,
+    "literal_non_translatable_sir_and_no_efendim": true
+  },
+  "limitations": [
+    "candidate-only; no live wiring, restart, commit, or production credential creation",
+    "Windows Credential Manager provides current-user protected storage and the adapter provides CAS for cooperating Onyx processes through a named mutex; it is not a TPM-backed irreversible hardware counter",
+    "macOS Keychain and Linux Secret Service adapters remain explicit platform work and cannot be claimed from Windows tests",
+    "atomic journal replacement yields an old or new stable snapshot on supported local filesystems but cannot guarantee physical-media flush across every power-loss/filesystem combination",
+    "journal history is bounded to 4096 records and 2500000 bytes and fails closed at capacity",
+    "independent functional, integrity, and quality review pending"
+  ]
+}

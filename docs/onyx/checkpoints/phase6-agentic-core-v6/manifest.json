@@ -1,0 +1,97 @@
+{
+  "schema": "OnyxPhase6AgenticCoreCheckpoint.v6",
+  "status": "candidate_default_off_unaccepted",
+  "generated_at": "2026-07-23T01:30:00-04:00",
+  "environment": {
+    "platform": "Windows 11 10.0.26200",
+    "python": "3.13.7 x64"
+  },
+  "activation": {
+    "feature_flag": "ONYX_PHASE6_AGENTIC_CORE_V6",
+    "enabled_value": "true",
+    "default": "off",
+    "live_wiring": false
+  },
+  "artifacts": [
+    {
+      "path": "core/phase6_agentic_core_v6.py",
+      "bytes": 12794,
+      "sha256": "38f68d7dd8eb04fe7c9caa956db5a52d0a96426bab6a45f07b96e67e45d8001a"
+    },
+    {
+      "path": "tests/test_phase6_agentic_core_v6.py",
+      "bytes": 9846,
+      "sha256": "83218e07beaa85e570998936278cb3cd53fcaee9f0b37d55cb675b35dedf8dc0"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0015-phase6-agentic-core-v6-ascii-sql-lexing.md",
+      "bytes": 3349,
+      "sha256": "b5f53cf7e79cb1dc65eedead54b83b97136903838b665216123c6bd56ecad77a"
+    },
+    {
+      "path": "docs/onyx/rejections/PHASE6_AGENTIC_CORE_V5_REJECTION.md",
+      "bytes": 1136,
+      "sha256": "1b30f6e940a5c3666f252b0e805d57dfd08009067e6bb73600677365b0b7f4d9"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase6-agentic-core-v6/PHASE6_AGENTIC_CORE_V6_CHECKPOINT.md",
+      "bytes": 4276,
+      "sha256": "96504a9007b919dc8ccb1ef4373d094580a382c785e772e49630726cf4acc124"
+    }
+  ],
+  "artifact_root_sha256": "ca7d7f3281d9926848696e25befe63373738596dbc7e9b5bdaf95325922b06b0",
+  "frozen_v5": {
+    "core_sha256": "1b8936d96f836263607be5d9c2d00048362f38d35f0afdcac273c1dd0e3c4787",
+    "tests_sha256": "aba9ef6def4b242fc598df70117c4c934949f77f88215bf72738f3df69931faa",
+    "adr_sha256": "20fdd0dfec4e96f2f167f5f7519709093e4137107bedacbbaa16728629e53783",
+    "checkpoint_sha256": "a5c368d0367d688bae4423858138994787edc72fb5112c1e9803fc623f98cbdc",
+    "manifest_sha256": "b879f2d3266601ec76fec2fa08c4dcb6364217d6b23d7d63811d700c769b8958",
+    "artifact_root_sha256": "9913b6731fd4ccdb103ce511ddb0b4133be456b4acd878dd45091f522d9d1fe4",
+    "status": "rejected_preserved_not_live"
+  },
+  "verification": {
+    "focused_before_manifest": "29 passed, 1 deselected",
+    "cumulative_before_manifest": "133 passed, 1 deselected",
+    "stable_before_manifest": "245 passed, 44 subtests passed, 1 deselected",
+    "cumulative_with_manifest": "134 passed, no deselection",
+    "stable_with_manifest": "246 passed, 44 subtests passed, no deselection",
+    "frozen_v5_closure": "26 focused, 104 cumulative, 216 stable plus 44 subtests",
+    "ascii_classes": "SP TAB CR LF FF only; explicit identifiers and numbers; A-Z byte lowering only",
+    "unicode_regressions": "Kelvin NBSP VT Greek Cyrillic fullwidth sharp-S and non-ASCII identifiers remain exact",
+    "valid_schema_distinction": "same-name K and Kelvin-type schemas have distinct signatures",
+    "fail_before_write": "Kelvin-type tamper rejected with unchanged database hash",
+    "ruff_lint": "passed",
+    "ruff_format": "passed",
+    "py_compile": "passed",
+    "performance": {
+      "unicode_sql_tokenizer": {
+        "samples": 2000,
+        "median_ms": 0.038,
+        "p95_ms": 0.091,
+        "max_ms": 0.921
+      },
+      "full_schema_signature": {
+        "samples": 500,
+        "median_ms": 1.284,
+        "p95_ms": 2.789,
+        "max_ms": 7.584
+      }
+    }
+  },
+  "scope_guards": {
+    "network_calls": false,
+    "provider_calls": false,
+    "process_restart": false,
+    "live_config_change": false,
+    "main_py_modified_by_v6": false,
+    "frozen_v1_v5_modified_by_v6": false,
+    "commit_or_push": false
+  },
+  "limitations": [
+    "Only SP TAB CR LF FF and ASCII keyword case are benign outside-state formatting.",
+    "Every non-ASCII code point and vertical tab remains exact.",
+    "V4 spawn-pickleable and return-only callback constraints remain.",
+    "Provider planning, Gemini Live, Phase 5 binding, memory and external agents remain separate slices.",
+    "No Phase 6 exit or live activation is claimed."
+  ]
+}

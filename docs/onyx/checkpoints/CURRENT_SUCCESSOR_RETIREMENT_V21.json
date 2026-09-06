@@ -1,0 +1,49 @@
+{
+  "schema": "onyx.current-successor-retirement.v21",
+  "issued_at": "2026-08-24T15:45:00-04:00",
+  "predecessor": {
+    "path": "docs/onyx/checkpoints/CURRENT_SUCCESSOR_RETIREMENT_V20.json",
+    "sha256": "431d7faf5cda975ddac0c9f805b0a1be0110a33015ab7bf24d2073ed2a1c394e"
+  },
+  "policy": {
+    "historical_tests_are_rewritten": false,
+    "historical_hashes_are_rebound": false,
+    "registered_nodes_must_remain_collected": true,
+    "successor_sources_are_sha256_bound": true,
+    "successor_tests_must_execute": true,
+    "exact_nodeids_only": true,
+    "v21_precedes_v20_on_overlap": true
+  },
+  "additional_claims": [
+    {
+      "id": "release-v57-v60-to-v61-current-authority",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_release_workflow_transition_v57.py::test_release_v57_authenticates_current_runtime_closure",
+        "tests/test_release_workflow_transition_v57.py::test_release_v57_rejects_transition_or_predecessor_tamper[False]",
+        "tests/test_release_workflow_transition_v57.py::test_release_v57_rejects_transition_or_predecessor_tamper[True]",
+        "tests/test_release_workflow_transition_v57.py::test_release_v57_preserves_v56_bytes_and_refreshes_current_targets",
+        "tests/test_release_workflow_transition_v58.py::test_release_v58_authenticates_current_runtime_closure",
+        "tests/test_release_workflow_transition_v58.py::test_release_v58_rejects_transition_or_predecessor_tamper[False]",
+        "tests/test_release_workflow_transition_v58.py::test_release_v58_rejects_transition_or_predecessor_tamper[True]",
+        "tests/test_release_workflow_transition_v58.py::test_release_v58_rejects_linked_transition",
+        "tests/test_release_workflow_transition_v59.py::test_release_v59_authenticates_current_runtime_closure",
+        "tests/test_release_workflow_transition_v59.py::test_release_v59_rejects_transition_or_predecessor_tamper[False]",
+        "tests/test_release_workflow_transition_v59.py::test_release_v59_rejects_transition_or_predecessor_tamper[True]",
+        "tests/test_release_workflow_transition_v59.py::test_release_v59_rejects_linked_transition",
+        "tests/test_release_workflow_transition_v60.py::test_release_v60_authenticates_current_runtime_closure",
+        "tests/test_release_workflow_transition_v60.py::test_release_v60_rejects_transition_or_predecessor_tamper[False]",
+        "tests/test_release_workflow_transition_v60.py::test_release_v60_rejects_transition_or_predecessor_tamper[True]",
+        "tests/test_release_workflow_transition_v60.py::test_release_v60_rejects_linked_transition"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_release_workflow_transition_v61.py",
+          "sha256": "2861345215004507e81844ee08823da3af074af6acebbf15b6c6e76b7673d9b0"
+        }
+      ],
+      "validated_tests": 16,
+      "reason": "V61 is the current additive release authority; V57-V60 remain immutable historical predecessors."
+    }
+  ]
+}

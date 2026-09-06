@@ -1,0 +1,100 @@
+{
+  "schema": "onyx.phase9.intelligence-ingestion.v1",
+  "candidate": "phase9-intelligence-ingestion-v1",
+  "created_at": "2026-07-24T22:00:00-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_PHASE9_INTELLIGENCE_INGESTION_V1",
+  "enabled_value": "true",
+  "default_off": true,
+  "entry_roots": {
+    "phase8_exit_artifact_root_sha256": "114cba2de27b680848ed5bfe6ddba7e0033c6448d6f85d198689aa8cffc1485a",
+    "decision": "accepted"
+  },
+  "claims": {
+    "deterministic_ingestion_contract": true,
+    "separate_publication_and_event_time": true,
+    "future_publication_denied": true,
+    "recycled_story_dedup": true,
+    "closed_claim_typing": true,
+    "consequential_claim_corroboration": true,
+    "source_health_tiers": true,
+    "temporal_freshness": true,
+    "live_source_fetch": false,
+    "opportunity_scoring": false,
+    "conflicting_claim_detection": false,
+    "world_monitor_connector": false,
+    "network_or_model_or_action": false,
+    "live_wiring": false,
+    "phase9_exit": false,
+    "full_onyx_prd_complete": false,
+    "e1_e5_ready": true,
+    "external_e6_accepted": false
+  },
+  "verification": {
+    "test_files": 21,
+    "passed": 439,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "subtests_passed": 80
+  },
+  "effects": {
+    "default_off_import_persistent_writes": 0,
+    "default_off_import_network_calls": 0,
+    "default_off_import_process_calls": 0,
+    "default_off_import_model_calls": 0,
+    "action_dispatches": 0,
+    "live_surface_changes": 0
+  },
+  "limitations": [
+    "Default-off and not wired to V13, startup, voice, UI or dashboard.",
+    "Pure deterministic transform over already-collected items; performs no live source fetch, network call, model call or persistence.",
+    "No opportunity scoring, conflicting-claim detection or general open-text/NLP claim understanding.",
+    "World Monitor connector remains BLOCKED_BY_LICENSE and is not implemented.",
+    "Never turns any item into a trading or other action.",
+    "Phase 9 exit and full Onyx PRD completion remain pending."
+  ],
+  "artifacts": [
+    {
+      "path": "core/phase9_intelligence_ingestion_v1.py",
+      "bytes": 14583,
+      "sha256": "1e5c96deeb428cbdca6295113411d86c937d35095b26e6ad81fe2f50f25eb379"
+    },
+    {
+      "path": "tests/test_phase9_intelligence_ingestion_v1.py",
+      "bytes": 15332,
+      "sha256": "02b2ac68f6e2a7ede2f7ecd717ae41cafd12b53b350382c0aa9cc644cf247895"
+    },
+    {
+      "path": "scripts/verify_phase9_intelligence_ingestion_v1.py",
+      "bytes": 7747,
+      "sha256": "cbda1844e40bdf69b65ae34998a409b9a778576f51ca27c7d21cc806332e8263"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0045-phase9-intelligence-ingestion-v1.md",
+      "bytes": 3318,
+      "sha256": "c3e474ac5d31f2a3b6fff35a770cc04ab532e6db04d31085932d8cb029a8e99a"
+    },
+    {
+      "path": "docs/onyx/research/PHASE9_INTELLIGENCE_INGESTION_V1_SOURCES.md",
+      "bytes": 3083,
+      "sha256": "641d985bdc76c94c640bc27caf51046f4690c6428f4f03aa724f90325fec6c2f"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase9-intelligence-ingestion-v1/PHASE9_INTELLIGENCE_INGESTION_V1_CHECKPOINT.md",
+      "bytes": 2690,
+      "sha256": "5fd68a33f8671fe283b16b38cc1282ad1259a9579645a6db0d77212915fae6bd"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase9-intelligence-ingestion-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 1279,
+      "sha256": "105fd430ecbfee5fd13b53c1a66288a9cd89be579eaa2fec1d062841f267aec8"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase9-intelligence-ingestion-v1/cumulative-selection.json",
+      "bytes": 2566,
+      "sha256": "93eb820bd6c4eac5806c1e1f8741cd42fac63dc3ace55f90b6b7783f94497da7"
+    }
+  ],
+  "artifact_root_sha256": "977132cea3f9316bb1b7a62ecc4c8368da6f2a12a7e65a62b9d5511a833cbb6a"
+}

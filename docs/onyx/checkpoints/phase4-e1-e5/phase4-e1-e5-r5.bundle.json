@@ -1,0 +1,58 @@
+{
+  "schema_version": 5,
+  "evidence_id": "VE-P4-EXIT-CANDIDATE-R5-001",
+  "activation": false,
+  "e6_accepted": false,
+  "phase5_unlocked": false,
+  "manifest_dag": {
+    "source_manifest_path": "docs/onyx/VE-SCOPE-P4-E1E5-R5-001.sha256",
+    "artifact_manifest_path": "docs/onyx/VE-ARTIFACTS-P4-E1E5-R5-001.sha256",
+    "external_registration_must_store": "source_manifest_sha256",
+    "external_source_anchor_present": false,
+    "bundle_claims_own_hash": false,
+    "bundle_claims_manifest_hashes": false
+  },
+  "accepted_dependency": {
+    "r11_manifest": "docs/onyx/VE-SCOPE-P44-R11-001.sha256",
+    "r11_files": 79,
+    "r11_manifest_sha256": "6b94727640bdc60a5001d6b6ebf0cc484ec7cf37bd52c18634487fa430e72edc"
+  },
+  "history": {
+    "r4_status": "historical_rejected_as_exit_evidence",
+    "r4_bundle_sha256": "61d7b2e099a93a8e78b2ba3222169f24449862d1c2c9851b9fd6e40ba3640424",
+    "reason": "R4 described external registration of the second-level artifact manifest instead of the top-level source manifest."
+  },
+  "reused_r4_evidence": {
+    "long_suite_rerun": false,
+    "pytest_log": {
+      "path": "docs/onyx/checkpoints/phase4-e1-e5/phase4-r4-pytest.log",
+      "bytes": 3336,
+      "sha256": "e3b930ff5a4e2f649c6ef89389b4449ffa890ea6eea7deec422727af8bbfa873"
+    },
+    "junit": {
+      "path": "docs/onyx/checkpoints/phase4-e1-e5/phase4-r4-safety.junit.xml",
+      "bytes": 10659,
+      "sha256": "508d5e13999357d94e1d5aad359325ef0b002343c6fdbf026bc0910a2d7f34de",
+      "tests": 73,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "source": {
+      "path": "docs/onyx/checkpoints/phase4-e1-e5/phase4-r4-source.json",
+      "bytes": 757,
+      "sha256": "a9cdedc75bf0859e77aa60a907f9b81cd8a34b8522599a6f9232ac43fbfa01a1"
+    },
+    "static": {
+      "path": "docs/onyx/checkpoints/phase4-e1-e5/phase4-r4-static.log",
+      "bytes": 676,
+      "sha256": "c9c67acc71a33852e9041558a7be9f428ed94b17881e1a45c087ab699e22b0c9"
+    }
+  },
+  "limitations": [
+    "No external source-manifest registration exists in R5.",
+    "No long suite was rerun; exact immutable R4 outputs are reused.",
+    "No activation, runtime change, owner write, flag change, commit or push occurred.",
+    "E6 is false and Phase 5 remains blocked."
+  ]
+}

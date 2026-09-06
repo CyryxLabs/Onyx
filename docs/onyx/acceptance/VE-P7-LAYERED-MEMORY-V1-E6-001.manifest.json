@@ -1,0 +1,48 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P7-LAYERED-MEMORY-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-07-23",
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "candidate_manifest_path": "docs/onyx/checkpoints/phase7-layered-memory-v1/manifest.json",
+  "candidate_manifest_sha256": "2818c6ffe66681436286d89f557c57cd23c35c29ee7f29d53d7eb2bf9d8ec95d",
+  "artifact_root_sha256": "96218afa17936918aaed3bc4f225db3fee0eb117fa4e94f9439d93d1f6ed1020",
+  "artifacts": 7,
+  "workspace_memory_entry_roots": 4,
+  "results": {
+    "test_files": 9,
+    "passed": 161,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 1,
+    "explained_platform_skips": 1,
+    "subtests_passed": 77
+  },
+  "claims": {
+    "layered_memory_v1_accepted": true,
+    "seven_typed_layers": true,
+    "workspace_principal_isolation": true,
+    "pre_ranking_hard_filters": true,
+    "hmac_integrity": true,
+    "normalized_deduplication": true,
+    "explicit_entity_resolution": true,
+    "correction_supersession_contradiction": true,
+    "freshness_validity": true,
+    "retention_export_delete": true,
+    "source_deletion": true,
+    "poisoning_defenses": true,
+    "instruction_authority": false,
+    "global_vector_index": false,
+    "general_nlp_entity_extraction": false,
+    "accepted_workspace_memory_modified": false,
+    "live_wiring": false,
+    "runtime_authority_added": false,
+    "phase7_exit": false,
+    "full_onyx_prd_complete": false
+  }
+}

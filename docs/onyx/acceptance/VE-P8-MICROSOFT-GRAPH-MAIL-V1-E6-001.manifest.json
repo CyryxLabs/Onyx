@@ -1,0 +1,50 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P8-MICROSOFT-GRAPH-MAIL-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-07-24",
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 2
+  },
+  "candidate_manifest_path": "docs/onyx/checkpoints/phase8-microsoft-graph-mail-v1/manifest.json",
+  "candidate_manifest_sha256": "98f9cc7c75cf496275ab326af352d3332cd8f604b702c8047f405df264034acf",
+  "artifact_root_sha256": "73875e708fbd9684cddec51fb34cb327b958c7e851f5035f37cbce9540cf30f0",
+  "artifacts": 8,
+  "results": {
+    "test_files": 18,
+    "passed": 381,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "explained_platform_skips": 8,
+    "subtests_passed": 80
+  },
+  "review_history": {
+    "functional_initial": "FAIL: 0 P0, 1 P1, 1 P2, 2 P3",
+    "functional_reverify": "PASS: P1/P2/P3 closed on fixed bytes",
+    "integrity_initial": "PASS: 0 P0, 0 P1, 0 P2",
+    "integrity_reverify": "PASS: root 73875e70 reconfirmed",
+    "quality_initial": "PASS: 0 P0, 0 P1, 0 P2",
+    "quality_reverify": "PASS: delta re-check on fixed bytes"
+  },
+  "claims": {
+    "microsoft_graph_mail_v1_accepted": true,
+    "exact_recipient_content_verified_grant": true,
+    "draft_content_digest_recomputed": true,
+    "durable_ledger_one_shot_seam": true,
+    "reconcilable_two_step_send": true,
+    "sent_items_reconciliation": true,
+    "uncertain_outcome_reconcile_before_resend": true,
+    "no_send_auto_retry_on_429": true,
+    "route_pinned_mail_transport": true,
+    "attachments_denied": true,
+    "reply_forward_delete_authority": false,
+    "live_send_e2e": false,
+    "live_wiring": false,
+    "phase8_exit": false,
+    "full_onyx_prd_complete": false
+  }
+}

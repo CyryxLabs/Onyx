@@ -1,0 +1,60 @@
+{
+  "schema": "onyx.guild.handoff.v1",
+  "candidate": "guild-handoff-v1",
+  "created_at": "2026-08-17T22:41:18-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_GUILD_HANDOFF_V1",
+  "default_off": true,
+  "accepted_guild_profiles_root_sha256": "818196ac6bd2048bbfe5218d0e576b392b07aa1005816b6f4b867f3ee9bbc09d",
+  "verification": {
+    "test_files": 29,
+    "passed": 717,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 17,
+    "subtests_passed": 96
+  },
+  "artifacts": [
+    {
+      "path": "core/guild_handoff_v1.py",
+      "bytes": 17778,
+      "sha256": "958857fc886ee75ac8f3cbc1ddcc88f6d9c97961a06f426df700761aed0ccfdd"
+    },
+    {
+      "path": "tests/test_guild_handoff_v1.py",
+      "bytes": 13744,
+      "sha256": "cb2c524e517a0383f7f16f7f68d13aad638f4be4063f2b07b4c9f030ad1d2190"
+    },
+    {
+      "path": "scripts/verify_guild_handoff_v1.py",
+      "bytes": 8089,
+      "sha256": "de4ed7391db5e6e6a12d040348bd36449cbe8e5333bca8dfdf694b55b20135de"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0055-guild-handoff-v1.md",
+      "bytes": 3331,
+      "sha256": "70f5df9c357bb4a4bd0f6006049b943a26c7e4fdaf1990a4847d79937d6f89c3"
+    },
+    {
+      "path": "docs/onyx/research/GUILD_HANDOFF_V1_SOURCES.md",
+      "bytes": 1712,
+      "sha256": "6e9692ed9361c68699a53780b814802039cf95cae14e6df1c62c4ad488dcd787"
+    },
+    {
+      "path": "docs/onyx/checkpoints/guild-handoff-v1/GUILD_HANDOFF_V1_CHECKPOINT.md",
+      "bytes": 1874,
+      "sha256": "0f57f8d03eba97d81d54036fab10bd807db0ebfa9380268f5ab69fa06853c4d9"
+    },
+    {
+      "path": "docs/onyx/checkpoints/guild-handoff-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 898,
+      "sha256": "c8da71fe2d2bb1803542c4d656651bca20486fd6e6039799d6b1fae9580cb038"
+    },
+    {
+      "path": "docs/onyx/checkpoints/guild-handoff-v1/cumulative-selection.json",
+      "bytes": 4459,
+      "sha256": "7f6bfd6cb700285383c3b41baf10267e0858fe15092b8c5d16dbf79638a155ed"
+    }
+  ],
+  "artifact_root_sha256": "104efcc6762416ea6ffd2055a5368df49f605a9e507cc746d8cf0bbf37be6b79"
+}

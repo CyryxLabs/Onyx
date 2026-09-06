@@ -1,0 +1,31 @@
+{
+  "acceptance_id": "VE-P6-UNIFIED-ROUTER-V1-C002-E6-001",
+  "decision": "accepted",
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "candidate_manifest_path": "docs/onyx/checkpoints/phase6-unified-command-router-v1/manifest.json",
+  "candidate_manifest_sha256": "e78d887f87922290e19e1427fa030e276152b14acb5a72be1c5b53cb645d7abe",
+  "artifact_root_sha256": "3b01eac328b6fd64ad602079adf216d54aa3d56e6997ccff37f3f7db40dabc21",
+  "artifact_count": 5,
+  "component_root_count": 14,
+  "focused": {
+    "passed": 27,
+    "failed": 0
+  },
+  "cumulative": {
+    "passed": 154,
+    "failed": 0
+  },
+  "dependency_reacceptance": "local_mcp_v1_c002_activation_v10_c003_accepted",
+  "network_calls": 0,
+  "process_calls": 0,
+  "provider_calls": 0,
+  "live_calls": 0,
+  "default_off": true,
+  "live_activation": false,
+  "phase6_exit": false
+}

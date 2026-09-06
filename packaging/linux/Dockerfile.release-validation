@@ -1,0 +1,71 @@
+FROM rust:1.89.0-bookworm AS rust-toolchain
+
+FROM python:3.13-bookworm
+
+ENV DEBIAN_FRONTEND=noninteractive \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    CARGO_HOME=/usr/local/cargo \
+    RUSTUP_HOME=/usr/local/rustup \
+    PATH=/usr/local/cargo/bin:$PATH
+
+# primp 1.3.1 declares rust-version 1.89 across its native workspace. The
+# legal-evidence generator calls Cargo metadata even though it does not compile
+# the crate, so the release-validation image must carry the exact minimum
+# toolchain instead of depending on an ambient host installation.
+COPY --from=rust-toolchain /usr/local/cargo /usr/local/cargo
+COPY --from=rust-toolchain /usr/local/rustup /usr/local/rustup
+RUN rustc --version | grep -F 'rustc 1.89.0 ' \
+    && cargo --version
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        build-essential \
+        git \
+        libffi-dev \
+        libsecret-tools \
+        libssl-dev \
+        portaudio19-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.lock /tmp/onyx-requirements.lock
+COPY packaging/linux/com.cyryxlabs.onyx.metainfo.xml /tmp/onyx.metainfo.xml
+RUN python -m pip install --require-hashes -r /tmp/onyx-requirements.lock \
+    && python -m playwright install-deps chromium \
+    && rm -rf /var/lib/apt/lists/* /root/.cache/pip
+
+# Qt's offscreen import still resolves EGL and the XCB cursor library even
+# when no desktop server is present. Keep these release-smoke dependencies
+# explicit instead of relying on a workstation image.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        appstream \
+        libegl1 \
+        libgtk-3-0 \
+        libpulse0 \
+        libxcb-cursor0 \
+        libxcb-icccm4 \
+        libxcb-keysyms1 \
+        libxcb-shape0 \
+        libxcb-xkb1 \
+        libxkbcommon-x11-0 \
+        libxtst6 \
+    && appstreamcli validate --no-net /tmp/onyx.metainfo.xml \
+    && rm -rf /var/lib/apt/lists/* /tmp/onyx.metainfo.xml
+
+# Cache the exact browser selected by requirements.lock so repeated native
+# release gates do not redownload it for every disposable container.
+ENV PLAYWRIGHT_BROWSERS_PATH=0
+RUN python -m playwright install --no-shell chromium
+
+# rustup exposes `cargo` as a symlinked shim. The release legal-evidence
+# boundary intentionally rejects symlinked build tools, so expose the pinned
+# toolchain binaries themselves from a trusted, login-shell-stable location.
+COPY --from=rust-toolchain /usr/local/rustup/toolchains/1.89.0-x86_64-unknown-linux-gnu/bin/cargo /usr/local/bin/cargo
+RUN ln -s /usr/local/cargo/bin/rustup /usr/local/bin/rustc
+ENV PATH=/usr/local/bin:/usr/local/cargo/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin
+RUN test ! -L /usr/local/bin/cargo \
+    && cargo --version \
+    && rustc --version | grep -F 'rustc 1.89.0 '
+
+WORKDIR /src

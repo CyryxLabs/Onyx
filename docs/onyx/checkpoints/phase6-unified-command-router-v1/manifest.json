@@ -1,0 +1,193 @@
+{
+  "schema": "OnyxPhase6UnifiedCommandRouter.v1",
+  "candidate": "phase6-unified-command-router-candidate-002",
+  "status": "candidate-ready-external-gate",
+  "activation": {
+    "flag": "ONYX_PHASE6_UNIFIED_COMMAND_ROUTER_V1",
+    "enabled_value": "true",
+    "exact": "ONYX_PHASE6_UNIFIED_COMMAND_ROUTER_V1=true",
+    "default": "off",
+    "live_wiring": false
+  },
+  "artifact_root_algorithm": "sha256-sorted-path-nul-digest-lf-v1",
+  "artifact_root_sha256": "3b01eac328b6fd64ad602079adf216d54aa3d56e6997ccff37f3f7db40dabc21",
+  "artifacts": [
+    {
+      "path": "core/phase6_unified_command_router_v1.py",
+      "bytes": 46672,
+      "sha256": "5422e0ce3251c57196146c040e79f9baa2b060522678cbc5305c5d2c62f6bead"
+    },
+    {
+      "path": "tests/test_phase6_unified_command_router_v1.py",
+      "bytes": 24612,
+      "sha256": "c9ee4e3589018f51d706423d7a076ab0f42649deb5f450ae287e3367c3087bf4"
+    },
+    {
+      "path": "scripts/verify_phase6_unified_command_router_v1.py",
+      "bytes": 7517,
+      "sha256": "5b3c744d8a30a76409cef93e362d4974ff2309d9d9d75cc239743e486d151a39"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0024-phase6-unified-command-router-v1.md",
+      "bytes": 3163,
+      "sha256": "35841f72535b1effbb377b055a0d4b97d2399e7286a2f1f4283fb8c75b2f2823"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase6-unified-command-router-v1/PHASE6_UNIFIED_COMMAND_ROUTER_V1_CHECKPOINT.md",
+      "bytes": 4597,
+      "sha256": "932b30a299d21763946586e1ac123c2c3f0e4b40031faf19c332ee85a682c898"
+    }
+  ],
+  "component_acceptance_roots": [
+    {
+      "component": "agentic_core_v6",
+      "path": "docs/onyx/checkpoints/phase6-agentic-core-v6/manifest.json",
+      "sha256": "cedea0a3ed3bf0c1ed069c589e2eb78035caa58886ced0c69658ac71d7bb4a15"
+    },
+    {
+      "component": "agentic_core_v6",
+      "path": "docs/onyx/acceptance/VE-P6-AGENTIC-CORE-V6-E6-001.md",
+      "sha256": "5a42068983942c1bf163fc7b8fddaf8ce336cb5a253a228e319943cc04d8d23d"
+    },
+    {
+      "component": "provider_registry_v1",
+      "path": "docs/onyx/checkpoints/phase6-provider-registry-v1/manifest.json",
+      "sha256": "7a3191607037f6210ae145b5477bbaeff5bfdaa7c756257d4775c1f30c0a10c6"
+    },
+    {
+      "component": "provider_registry_v1",
+      "path": "docs/onyx/acceptance/VE-P6-PROVIDER-REGISTRY-V1-E6-001.md",
+      "sha256": "ca7f0760723c4f6ad5d2a8716248c75c695e58cdb3e9b6917a3d027443aefabd"
+    },
+    {
+      "component": "provider_registry_v1",
+      "path": "docs/onyx/acceptance/VE-P6-PROVIDER-REGISTRY-V1-E6-001.manifest.json",
+      "sha256": "4a2c69076a1e6b07f606d30733b357f7c50c08193ff90a250d351637f0c0d070"
+    },
+    {
+      "component": "research_cells_v1",
+      "path": "docs/onyx/checkpoints/phase6-research-cells-v1/manifest.json",
+      "sha256": "216e008c7b77df4b464d187ff39547f77ffc7d2d4c59466db16480081a48c3ab"
+    },
+    {
+      "component": "research_cells_v1",
+      "path": "docs/onyx/acceptance/VE-P6-RESEARCH-CELLS-V1-E6-001.md",
+      "sha256": "83d936789d1c4ce851b95fe71946161ee7bb0ecb5ae23a8b26de54b954284bec"
+    },
+    {
+      "component": "research_cells_v1",
+      "path": "docs/onyx/acceptance/VE-P6-RESEARCH-CELLS-V1-E6-001.manifest.json",
+      "sha256": "e6419ff154499b913e0e2dbb78b1f3918b32cc869cfd3def1b3566bb33cbb32c"
+    },
+    {
+      "component": "local_mcp_v1",
+      "path": "docs/onyx/checkpoints/phase6-local-mcp-v1/manifest.json",
+      "sha256": "9529946b80d4ee8c4434acd2db064afab03bbb049482e82126a57151fc395921"
+    },
+    {
+      "component": "local_mcp_v1",
+      "path": "docs/onyx/acceptance/VE-P6-LOCAL-MCP-V1-E6-001.md",
+      "sha256": "80811aa68a7ea80988f6b3ef08bdd711052c0b34d16a0a17c103f2b1b8a45950"
+    },
+    {
+      "component": "local_mcp_v1",
+      "path": "docs/onyx/acceptance/VE-P6-LOCAL-MCP-V1-E6-001.manifest.json",
+      "sha256": "69cc00d9b440660972b3a9960e5a9cd489d709abdff02e03ded629132f14c519"
+    },
+    {
+      "component": "local_mcp_v1",
+      "path": "docs/onyx/checkpoints/phase6-local-mcp-v1-c002/manifest.json",
+      "sha256": "4535ca73d18aca0bc82bd8544a920874e7f1c27a4403095c634987d991de2a06"
+    },
+    {
+      "component": "live_integration_v2",
+      "path": "docs/onyx/checkpoints/phase6-live-integration-v2/manifest.json",
+      "sha256": "d02b265e5d67c98fb9dd2e868440ead39360187bdd95592fcf89a44f4448833a"
+    },
+    {
+      "component": "live_integration_v2",
+      "path": "docs/onyx/acceptance/VE-P6-LIVE-INTEGRATION-V2-E6-001.md",
+      "sha256": "cfe947b7c81bbf7ad0fb6e75469c473c0d69c8b1b813d89c08ca1c729dd9f687"
+    }
+  ],
+  "contracts": {
+    "factory_only": true,
+    "exact_components": [
+      "AgenticCoreV6",
+      "ProviderRegistryV1",
+      "ResearchVerifierPipelineV1",
+      "LocalMCPIdentityV1",
+      "LocalCatalogMCPRequestV1",
+      "Phase6LiveIntegrationV2"
+    ],
+    "explicit_intents": [
+      "local_catalog",
+      "research_verify",
+      "text_plan"
+    ],
+    "intent_classification": false,
+    "intent_modality_crossing": false,
+    "provider_tool_research_crossing": false,
+    "hard_filter_order": [
+      "cancellation",
+      "identity_and_workspace",
+      "privacy_and_data_class",
+      "deadline_and_budget",
+      "evidence_workspace_and_classification"
+    ],
+    "text_plan": "exact_local_private_structured_RouteRequestV1_to_ordered_metadata_only_ProviderRoutePlanV1",
+    "research_verify": "authenticated_EvidenceBundleV1_to_independent_verifier_ACCEPT_or_explicit_block",
+    "local_catalog": "exact_LocalCatalogMCPRequestV1_projection_for_local_catalog_read",
+    "provider_invocation": false,
+    "mcp_process_open": false,
+    "mcp_stdio_call": false,
+    "live_facade_invocation": false,
+    "prompt_or_content_authority": false,
+    "receipt_authentication": "HMAC-SHA-256",
+    "receipt_key_bytes": 32,
+    "receipts_content_free": true,
+    "rationales_content_free": true,
+    "replay": "same_request_same_digest_returns_exact_prior_plan_and_receipt",
+    "conflict": "same_request_different_command_digest_denied",
+    "component_drift": "deny",
+    "type_drift": "deny",
+    "cross_workspace": "deny",
+    "underclassified_evidence": "deny"
+  },
+  "verification": {
+    "focused": "27 passed",
+    "cumulative": "154 passed",
+    "ruff": "pass",
+    "py_compile": "pass",
+    "ast_no_operational_invocation": true,
+    "network_calls": 0,
+    "process_calls": 0,
+    "provider_calls": 0,
+    "live_calls": 0,
+    "dependency_reacceptance": "local_mcp_v1_c002_activation_v10_c003_accepted",
+    "dependency_e6_reproduced": {
+      "agentic_core_v6": "pass",
+      "provider_registry_v1": "pass",
+      "research_cells_v1": "pass",
+      "local_mcp_v1": "pass_c002_activation_v10_c003",
+      "live_integration_v2": "pass"
+    },
+    "credentials_used": false,
+    "live_activation": false,
+    "e6": "not_performed",
+    "independent_verifier": "P6_UNIFIED_COMMAND_ROUTER_V1_OK"
+  },
+  "frozen_live_anchors": {
+    "main.py": "6b82fed0d7c932a08d2d1f8a31d7650a1b235d55085ee608fdbb7651e5f49712",
+    "ui.py": "e5768626b7eb9d162a54cd67b08b5cb7d9685fb5c0e1b8c951843a1146fc252b",
+    "dashboard/server.py": "4d3142dc9c6a78cfe76f804de2b154334da2d7790484783a993babc92300bae1"
+  },
+  "limitations": [
+    "The candidate is isolated, strict default-off and absent from all live/UI/activation/shortcut surfaces.",
+    "Provider selection is metadata-only and local-private; no provider is invoked.",
+    "Local MCP output is only a call-intent projection; no adapter or process is constructed.",
+    "Research operates only on already-authorized structured evidence and does not acquire sources.",
+    "Local MCP V1 candidate 001 remains immutable and is dependency-reaccepted by C002 against Activation V10 C003.",
+    "Router E6 review and any later live wiring are separate decisions."
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "schema": "onyx.hud.current.v47.acceptance.v1",
+  "candidate": "onyx-hud-transparent-humanoid-001",
+  "decision": "accepted-source",
+  "current_root": "qml/OnyxLiveShellV16.qml",
+  "runtime_inputs": [
+    {
+      "path": "qml/OnyxLiveShellV16.qml",
+      "sha256": "ad4d45cf5e8b52b2e333e93dd128cf3e06a477039dc2b425018bf55e4586e0ea"
+    },
+    {
+      "path": "qml/components/OnyxHumanoidEntityV13.qml",
+      "sha256": "2adda1491630b638d714a055e08346561ae7fd732fb2c6413a6f987721302c89"
+    },
+    {
+      "path": "qml/web/onyx-humanoid-three-v5.html",
+      "sha256": "4f7d9912891af15e139b53c9f19d72b20526d019796c677955ddf4b7dbda3323"
+    },
+    {
+      "path": "qml/web/onyx-humanoid-three-v4.html",
+      "sha256": "70200f01efa8036b9b3cf77cef25aa51a7573b12627a1cf70506e5a4084136e3"
+    },
+    {
+      "path": "core/onyx_hud_orb_v17.py",
+      "sha256": "483e71f117e01dc533bf0fb03d7256b51c41cb59b8c76820a802b03eefe451dc"
+    },
+    {
+      "path": "ui.py",
+      "sha256": "f9348ac74ac805efddc66faf34eafa8e264c1f82f380361e29ee14e31b42a62a"
+    },
+    {
+      "path": "core/live_voice_preference_v1.py",
+      "sha256": "12506cb9540eed38aa4a04e439d9e32c0d76fc7ddfff4ba49b1d0d41bcaaabfe"
+    },
+    {
+      "path": "qml/web/data/onyx-humanoid-pointcloud-v1.js",
+      "sha256": "ffd52a2690c79841202eecd1be5c188a2b0976a8954c89f3f7f0712391c42886"
+    },
+    {
+      "path": "qml/web/vendor/three/three.module.min.js",
+      "sha256": "e2b5ee6bccd38fd6d8a2428546b83c5f2426d84b152ef82be8055556e3b40eb6"
+    },
+    {
+      "path": "qml/web/vendor/three/three.core.min.js",
+      "sha256": "61ba0df005b05991361d040d8ff670e1aadfd0ce7aeebd1fdb0725957a8957de"
+    }
+  ],
+  "semantics": {
+    "primary_layout_changed": false,
+    "setup_surface_changed": false,
+    "palette_changed": false,
+    "humanoid_anatomy_changed": false,
+    "humanoid_runtime_changed": true,
+    "voice_pipeline_changed": false,
+    "voice_preference_contract_changed": false,
+    "setup_callback_deferred": true,
+    "setup_request_coalescing": true,
+    "configured_setup_dismissible": true,
+    "first_boot_setup_mandatory": true,
+    "frozen_shortcut_arguments_empty": true,
+    "live_renderer": "three.js-webgl",
+    "last_real_frame_continuity": true,
+    "double_buffered_qml_backing": true,
+    "validated_presentation_buffer": true,
+    "transparent_compositor_surface": true,
+    "readiness_retry": true,
+    "network_activity": false,
+    "published": false
+  }
+}

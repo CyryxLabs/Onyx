@@ -1,0 +1,39 @@
+{
+  "schema": "onyx.hud.current.v41.acceptance.v1",
+  "candidate": "onyx-hud-v15-temporally-stable-humanoid-001",
+  "decision": "accepted-source",
+  "current_root": "qml/OnyxLiveShellV14.qml",
+  "runtime_inputs": [
+    {"path": "qml/OnyxLiveShellV14.qml", "sha256": "0bb511c27f82253d50228e8925ab88bf1d923c3e3e8302cf1cc85c5fd5996832"},
+    {"path": "qml/components/OnyxHumanoidEntityV11.qml", "sha256": "be7820614bd21e3b4759e010912488f1751f8d7b226abff8906769f26fc031d8"},
+    {"path": "qml/web/onyx-humanoid-three-v2.html", "sha256": "27eaf0ebe3981f28d9ab9c44e176d7e3fd20dba4bd10bd72b45d33873ba35370"},
+    {"path": "core/onyx_hud_orb_v15.py", "sha256": "4350d6b9fa750975f76869d296652f0b9c151fa756e97220e7d4f11e4f29f5ae"},
+    {"path": "ui.py", "sha256": "655c0740b96c521de4f11d25a4eec13b27b2036714419572c58dee56a459c801"},
+    {"path": "scripts/verify_humanoid_temporal_stability_v1.py", "sha256": "5d29cafa95557750aa916e94703f47f4937215bfe274db3da1e03b7d05bb6979"},
+    {"path": "scripts/verify_humanoid_three_temporal_v1.py", "sha256": "cb57a5044e11c3e63518cb66d7aec5f6119cefd13408b430d71a4b3d467a90ac"},
+    {"path": "tests/test_humanoid_temporal_stability_v1.py", "sha256": "869aed8f80db48c2d7dd84bf32548214ade378e6270c107f383cdec14a23ea1c"},
+    {"path": "qml/web/data/onyx-humanoid-pointcloud-v1.js", "sha256": "ffd52a2690c79841202eecd1be5c188a2b0976a8954c89f3f7f0712391c42886"},
+    {"path": "qml/web/vendor/three/three.module.min.js", "sha256": "e2b5ee6bccd38fd6d8a2428546b83c5f2426d84b152ef82be8055556e3b40eb6"},
+    {"path": "qml/web/vendor/three/three.core.min.js", "sha256": "61ba0df005b05991361d040d8ff670e1aadfd0ce7aeebd1fdb0725957a8957de"}
+  ],
+  "semantics": {
+    "layout_changed": false,
+    "palette_changed": false,
+    "humanoid_anatomy_changed": false,
+    "voice_pipeline_changed": false,
+    "capability_surface_changed": false,
+    "single_authoritative_animation_loop": true,
+    "preserved_webgl_drawing_buffer": true,
+    "opaque_hud_matched_surface": true,
+    "webgl_context_recovery": true,
+    "temporal_ready_tested": true,
+    "temporal_listening_tested": true,
+    "temporal_speaking_tested": true,
+    "global_pointer_attention": true,
+    "camera_gesture_attention": true,
+    "camera_frame_retention": false,
+    "reduced_motion_static": true,
+    "network_activity": false,
+    "published": false
+  }
+}

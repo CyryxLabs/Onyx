@@ -1,0 +1,136 @@
+{
+  "schema": "OnyxPhase6ProviderRegistry.v1",
+  "candidate": "phase6-provider-registry-candidate-001",
+  "status": "candidate_default_off_not_live",
+  "activation": {
+    "flag": "ONYX_PHASE6_PROVIDER_REGISTRY_V1",
+    "enabled_value": "true",
+    "exact": "ONYX_PHASE6_PROVIDER_REGISTRY_V1=true",
+    "default": "off",
+    "live_wiring": false
+  },
+  "artifact_root_algorithm": "sha256-sorted-path-nul-digest-lf-v1",
+  "artifact_root_sha256": "98d381711cda0b9f72eadb9a1ae9f81f8bebff70a922b1f7aa42c139baa82baf",
+  "artifacts": [
+    {
+      "path": "core/phase6_provider_registry_v1.py",
+      "bytes": 28864,
+      "sha256": "7b3e6c682ff6ec8a7e3ceade8f245afdf4edbc562dd1872acf54fa241109b6ad"
+    },
+    {
+      "path": "tests/test_phase6_provider_registry_v1.py",
+      "bytes": 13339,
+      "sha256": "034443d484db5b524d42a99721066eff8847c4c4edda6c3c5ecf09edf0c0a9c6"
+    },
+    {
+      "path": "scripts/verify_phase6_provider_registry_v1.py",
+      "bytes": 5619,
+      "sha256": "393970577e86216825b9fe0d611ab0c10cffdf149acc7dce1f6d74e48e8c6557"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0021-phase6-provider-registry-v1.md",
+      "bytes": 2046,
+      "sha256": "2e334685ce522b582729ed4cee105350e3b574fb238b77d3f4e1a3c525037aca"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase6-provider-registry-v1/PHASE6_PROVIDER_REGISTRY_V1_CHECKPOINT.md",
+      "bytes": 2414,
+      "sha256": "a5dc60911634d211482d2eb4828c01fcbd33ec4dc9757fefd9781230df5b6a18"
+    }
+  ],
+  "contracts": {
+    "factory_only": true,
+    "registry_records": "frozen_versioned_unique",
+    "exact_agentic_core_types": [
+      "ModelDescriptorV1",
+      "RouteRequestV1",
+      "ModelRouterV1"
+    ],
+    "provider_metadata": [
+      "provider_id",
+      "api_version",
+      "model_id",
+      "record_version",
+      "prompt_metadata_digest",
+      "evaluation_metadata_digest"
+    ],
+    "descriptor_policy": [
+      "modalities",
+      "maximum_data_class",
+      "workspace_allowlist",
+      "local_private",
+      "network_required",
+      "structured_output",
+      "reliability_milli",
+      "latency_millis",
+      "cost_micro_per_call"
+    ],
+    "health_authentication": "HMAC-SHA-256",
+    "health_key_bytes": 32,
+    "health_key_fingerprint_attested": true,
+    "health_monotonic_sequence": true,
+    "health_previous_digest_chain": true,
+    "health_snapshot_membership_exact": true,
+    "health_strictly_increasing_observed_time": true,
+    "health_freshness_max_ms": 300000,
+    "health_statuses": [
+      "available",
+      "degraded",
+      "rate_limited",
+      "unavailable"
+    ],
+    "health_metadata_content_free": true,
+    "hard_filter_order": [
+      "privacy_and_data_class",
+      "workspace",
+      "modality",
+      "local_private",
+      "structured_output",
+      "budget",
+      "health_freshness_and_availability",
+      "ModelRouterV1_ranking"
+    ],
+    "sensitive_classes": [
+      "confidential",
+      "restricted"
+    ],
+    "sensitive_remote_fallback": false,
+    "ordered_plan_only": true,
+    "provider_invocation": false,
+    "silent_provider_or_modality_crossing": false,
+    "prompt_or_payload_accepted": false,
+    "explicit_blocked_reasons": [
+      "request_cancelled",
+      "budget_hard_filter",
+      "health_unavailable"
+    ],
+    "duplicate_drift_replay_out_of_order_forgery": "deny"
+  },
+  "verification": {
+    "focused": "22 passed",
+    "cumulative": "156 passed",
+    "synthetic_records_only": true,
+    "external_providers": false,
+    "network_calls": 0,
+    "credentials_used": false,
+    "live_activation": false,
+    "e6": "not_performed",
+    "ast_no_provider_invocation": true,
+    "independent_verifier": "P6_PROVIDER_REGISTRY_V1_OK"
+  },
+  "frozen_anchors": {
+    "main.py": "6b82fed0d7c932a08d2d1f8a31d7650a1b235d55085ee608fdbb7651e5f49712",
+    "core/phase6_agentic_core_v1.py": "ab7a6cfec738c31b7beb66ac7a66584f892231ce8a3a2c9e81f30945123cc965",
+    "core/phase6_agentic_core_v6.py": "38f68d7dd8eb04fe7c9caa956db5a52d0a96426bab6a45f07b96e67e45d8001a",
+    "core/phase6_live_integration_v2.py": "e3194a0d8e206d33218bc8291cbd518788e8dfb3931adfd2f067908655d409b5",
+    "core/phase6_gemini_live_compat_v1.py": "3fb18363c237c573c717472bb9b2d6b3891dccc6236be7f698ee0833b9a55df5",
+    "core/phase6_live_wiring_v1.py": "a658f430c10bb992724ad7bbd2ddae94b3c83f8893608fe724b241302b55d55f",
+    "core/onyx_live_activation_v9.py": "deb26314ef3871cb12fc8e3cee936f88e385122fad242c830580421ccb22a9d2"
+  },
+  "limitations": [
+    "The candidate is isolated, default-off and not imported by any live host or frozen Phase 6 anchor.",
+    "Health observations and providers are synthetic; current external availability, cost and latency are not proven.",
+    "The candidate returns metadata-only plans and deliberately cannot invoke providers.",
+    "No network test, live wiring, provider SDK, credential, E6 acceptance or Phase 6 exit is claimed."
+  ]
+}

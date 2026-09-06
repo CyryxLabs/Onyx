@@ -1,0 +1,322 @@
+{
+  "schema": "onyx.release-workflow-transition.v14",
+  "issued_at": "2026-08-04T11:53:00-04:00",
+  "predecessor": {
+    "path": "tests/fixtures/release_workflow_transition_v13.json",
+    "sha256": "bdd798be370188650b0ae3cb99c849afb095345603276462891a848a9accc6bb"
+  },
+  "policy": {
+    "predecessor_is_immutable": true,
+    "historical_hashes_are_rebound": false,
+    "current_release_paths_are_sha256_bound": true,
+    "unsigned_windows_may_be_formal": false,
+    "diagnostic_candidates_may_be_published": false
+  },
+  "current_release_paths": [
+    {
+      "path": ".github/workflows/release-packages.yml",
+      "sha256": "2963eb94e5b96e78b11a46f7b03ccba0f32165167f555091644c19398ea2a2f8"
+    },
+    {
+      "path": "core/advanced_operations_controller_v1.py",
+      "sha256": "ea9f6e563240a68dda9ab6c4df486d5769c7ef6d8fc1881cd6977a65f678ce48"
+    },
+    {
+      "path": "core/advanced_operations_live_v1.py",
+      "sha256": "7dcb12f80c780c0dfe613d3077f9454a4f0a0f72b738b71dc0b0aeff60635c2b"
+    },
+    {
+      "path": "core/context_graph_v1.py",
+      "sha256": "95b1803244aa7aa9d379a8f8487b954a079d49006ae0c746effd8e0b6c15c1b2"
+    },
+    {
+      "path": "core/event_awareness_v1.py",
+      "sha256": "584d69fd0cdd38128e627e8c88ef7b51039435efbc4b43d101df2cf73292eca5"
+    },
+    {
+      "path": "core/governed_automation_v1.py",
+      "sha256": "551ccdf6dbb30dff683782ce4176eea8dfb745b93960d350a42c623ea08e54c5"
+    },
+    {
+      "path": "core/onyx_live_activation_v21.py",
+      "sha256": "38622cc75c4603eb863f4c09c62e618929dfae6ebbc85a324eeb1a01a36d3468"
+    },
+    {
+      "path": "core/shutdown_intent_v1.py",
+      "sha256": "14be8913a8e979d8f8aac067ceb6cd33200d13dd7b0190d79032183b1ff09ade"
+    },
+    {
+      "path": "core/workflow_graph_v1.py",
+      "sha256": "8251e0b02408f5a46541818e5ff897d712a0b94948459af3c1e74945f7736fc2"
+    },
+    {
+      "path": "dashboard/server.py",
+      "sha256": "b855af1a7424660879153f59e5550940b9d4e28aeaff68681068f03dd1d14034"
+    },
+    {
+      "path": "docs/INSTALLATION.md",
+      "sha256": "08ef661bae2f7079960647ff4206ad3a0b69011d94d29bdf22ae9ce3e0813322"
+    },
+    {
+      "path": "docs/onyx/FORMAL_RELEASE_CONTRACT.md",
+      "sha256": "c3f2ffcbdfcc9d62e4f0da7395acfd77577290175d24b30af19dc4af3f5e0ffc"
+    },
+    {
+      "path": "docs/onyx/JARVIS_MAAX_CLEAN_ROOM_GAP_ANALYSIS_2026-08-04.md",
+      "sha256": "8043696c9242f1dc7d6efe3ca719995bfea18ab35a4e98b25efe2be0210d675b"
+    },
+    {
+      "path": "docs/onyx/ONYX_PROJECT_COMPLETION_ROADMAP_2026-08-04.md",
+      "sha256": "9bbb0a92daacdc56770bae9884fefc46ee748a707778b170e003d520a68a6632"
+    },
+    {
+      "path": "docs/onyx/acceptance/VE-ADVANCED-OPS-V21-001.manifest.json",
+      "sha256": "102f1279636bcce791ffa33a5a710ee2bddd4dab7c2dbbbc61bbfc1cb9355606"
+    },
+    {
+      "path": "docs/onyx/acceptance/VE-ONYX-LIVE-ACTIVATION-V15-CURRENT-SOURCE-002.manifest.json",
+      "sha256": "908eca8bc9b38318ec507ad90be5cb9cc5645caa80b98660301f53edf18ef030"
+    },
+    {
+      "path": "docs/onyx/acceptance/VE-ONYX-LIVE-ACTIVATION-V15-CURRENT-SOURCE-002.md",
+      "sha256": "f218b00cb062423406ea9fe8a62d8fc7839212e927a4413b08c490c056b10d92"
+    },
+    {
+      "path": "main.py",
+      "sha256": "d46a5aacd4017ffd3430a75dd4ef23c9ce6f48c6af0f876ccba62df540ce7747"
+    },
+    {
+      "path": "packaging/linux/Dockerfile.release-validation",
+      "sha256": "61393fd79677dc7fd704032d67510b38383f79c444df4b8c2fc8a92315dd3716"
+    },
+    {
+      "path": "packaging/linux/onyx.service",
+      "sha256": "8906b38b0f8af54d0510c12dac94d2bb79efbc0d12f699b3e907cd3d66c474ce"
+    },
+    {
+      "path": "packaging/macos/labs.cyryx.onyx.plist",
+      "sha256": "7a17c4f5f28317bae4fe0af0bc6b0220983a82cac187204f160ce30add15ac79"
+    },
+    {
+      "path": "packaging/onyx.spec",
+      "sha256": "6709514d7de4fb0c637e0ccc7614ab6551cf0b4f48a5db3b20097c040890e3b5"
+    },
+    {
+      "path": "packaging/windows/onyx.iss",
+      "sha256": "4155bf35489c0b064f1090c2f7f297d8aa42efa1f0fef88d0e1075ee8fbc9ebc"
+    },
+    {
+      "path": "scripts/__init__.py",
+      "sha256": "adc737038813c8e12d905c3252b7451bf9b54bfd3cb4e0cb313eaec7599a457f"
+    },
+    {
+      "path": "scripts/build_release.py",
+      "sha256": "b2e0ce2d9b45391eb8ddcbfb07107918ba9af4cfb834b871e0c90f1c22e68b21"
+    },
+    {
+      "path": "scripts/check_release_eligibility.py",
+      "sha256": "5f1389a81ec07ce43e65ec6b6fb15e452142b609d9615a30cc47eec295fc1823"
+    },
+    {
+      "path": "scripts/linux_lifecycle_validation.py",
+      "sha256": "c3f1583601c8b8b864467934ab8b9f0886e85c4eeb5edb36d8663de99ff7223a"
+    },
+    {
+      "path": "scripts/macos_lifecycle_validation.py",
+      "sha256": "adcecbcba49ce7695914690f7b4185a018de5cf379c0c43a2fbd7c04b8fde944"
+    },
+    {
+      "path": "scripts/macos_release.py",
+      "sha256": "cea710c3d41dcda89a06e70c4151c0ba9a812f12e7d17e58e8a92a3c3f1a797a"
+    },
+    {
+      "path": "scripts/missing_distribution_license_bundle.py",
+      "sha256": "771ab3b24484f4eae9447053381c442322cda02d96abd40e6a80549095f26626"
+    },
+    {
+      "path": "scripts/package_hygiene.py",
+      "sha256": "4ebd521cbf1898a99b8dffc5d55ebd22902f55d42c69cb6f3bddbbf2db9dd030"
+    },
+    {
+      "path": "scripts/primp_license_bundle.py",
+      "sha256": "ae5bd1f7c68d8f130feabca1db6e24d760a5788d5a4da060d3f359a9c8e89278"
+    },
+    {
+      "path": "scripts/run_linux_release_validation.sh",
+      "sha256": "6190c8a9ba44b5b9fd9d9a1d0c15aeed8b384d90d5d126d6924bcda7dbc8a3ab"
+    },
+    {
+      "path": "scripts/runtime_distribution_inventory.py",
+      "sha256": "48b587782a63beeed5027cebc3d510f3926ef5b3a56107ef8e776b3eaa519c9a"
+    },
+    {
+      "path": "scripts/verify_onyx_live_activation_v15_current_source.py",
+      "sha256": "8bb396dd14b7d3b49e8f66917577b18e97130d41a20d6c5120aec37827823d55"
+    },
+    {
+      "path": "scripts/windows_lifecycle_validation.py",
+      "sha256": "00b6b4332df8216ccb7e9181e1a8196c77364c5d52462f0fb0b3066db9e38d49"
+    },
+    {
+      "path": "scripts/windows_native_eligibility.py",
+      "sha256": "eb9db2c03d1d6cbb58f55e86298725ceb99df5760a382c488cdf58c24b8b79af"
+    },
+    {
+      "path": "scripts/windows_release.py",
+      "sha256": "399cd3ca2618645de39924e9dee2419136e1501ca7856f89b0a306f65457215c"
+    },
+    {
+      "path": "tests/fixtures/phase5_current_successor_transition_v24.json",
+      "sha256": "69abcde1629a7a62be7021c5085a4c5a40eab2ed4b9c1175f042c7568af71308"
+    },
+    {
+      "path": "tests/fixtures/phase5_current_successor_transition_v25.json",
+      "sha256": "8a3c301980520a89845a65a6933b3e34ea925c4d059f8c15043fe0cf4d3844ae"
+    },
+    {
+      "path": "tests/fixtures/phase5_current_successor_transition_v26.json",
+      "sha256": "a0487e3fd397187a86544da6041c143baa6e79834c330ac0ecc9f05215c3fd30"
+    },
+    {
+      "path": "tests/fixtures/phase5_current_successor_transition_v27.json",
+      "sha256": "b32fad5ab60091e423a42421f15dfa309f7a3cf34e10e5d56b6ebbf816bf859c"
+    },
+    {
+      "path": "tests/test_advanced_operations_controller_v1.py",
+      "sha256": "8350e96c085f7bfae9723201cb7d55dbdb79aebe9056f2c6378ab2fa5eadf282"
+    },
+    {
+      "path": "tests/test_advanced_operations_live_v1.py",
+      "sha256": "6fe4a15102b18dca011e49c8ef95117975c9ee015110337bc83c0aa2d1454ceb"
+    },
+    {
+      "path": "tests/test_advanced_operations_source_acceptance_v1.py",
+      "sha256": "639c118238b6b4643c3ba2395e6543a192423f7f7ab2decd905f88651f9637da"
+    },
+    {
+      "path": "tests/test_advanced_operations_ui_v1.py",
+      "sha256": "02d877ad8e927019e8f93fa8d535eb9040ea5e2cc3a535c0fe15b49180299491"
+    },
+    {
+      "path": "tests/test_context_graph_v1.py",
+      "sha256": "46e9ded7f1905412d92f04da50ed765d8cd71a632cb5b8438edc2d968967f66d"
+    },
+    {
+      "path": "tests/test_cross_platform_autostart_v1.py",
+      "sha256": "77e1a9cc3792faec5cc8b6ce73e7e059445664ee88a18c1d17bf2fb87bb8555a"
+    },
+    {
+      "path": "tests/test_dashboard_shutdown_v1.py",
+      "sha256": "a49efd73bbd2c0e3619f8c43f386655325b43ad4230125c30fdbf70412a50293"
+    },
+    {
+      "path": "tests/test_event_awareness_v1.py",
+      "sha256": "a2f3efc64c7e26ec30a3e6abaff88537981dc8e19804f97d0795d7442041f907"
+    },
+    {
+      "path": "tests/test_formal_release_contract_v1.py",
+      "sha256": "615ebbb5505baca012efc346d8b615d95e1e49dc2c060cbf582fed2f9a3e9439"
+    },
+    {
+      "path": "tests/test_governed_automation_v1.py",
+      "sha256": "0aef300fae1504d694c382d036ae1c30b46ac1eb926c466138ba1a2098d127b7"
+    },
+    {
+      "path": "tests/test_linux_lifecycle_validation_v1.py",
+      "sha256": "fcfdbd382b0806e318e82f92f8dca3314c51fdee4a22a3ad337b9e45ca18f9e5"
+    },
+    {
+      "path": "tests/test_macos_release_pipeline_v1.py",
+      "sha256": "aba27f9f326391a85acfdbc29ccd19e0f32509b3679826abcc1e0cbf099c0f87"
+    },
+    {
+      "path": "tests/test_missing_distribution_license_bundle_v1.py",
+      "sha256": "bd96a902272c910f43c44f8a0e0f572645c6a0a0b45fb60e2d8ac83fa0cffde4"
+    },
+    {
+      "path": "tests/test_native_release_gate_v1.py",
+      "sha256": "938d85e2fb3743645f988da9c8751845aefdba9507398c6da2a0945ac82621de"
+    },
+    {
+      "path": "tests/test_onyx_live_activation_v15_current_source.py",
+      "sha256": "a55c42451d59a8aeab1c90660c47f6def86ad3bb93a8abe6abad4b9b715786d2"
+    },
+    {
+      "path": "tests/test_onyx_live_activation_v21.py",
+      "sha256": "d9421a6fa54c51e05e69424fc9e9c28eeb0ed48930589c11c5f76752f6998eb0"
+    },
+    {
+      "path": "tests/test_package_hygiene_v1.py",
+      "sha256": "8b875e65ddb92c4f0a9583b785fbdcc7d533e679e90b6cee89c6abc85b6e7470"
+    },
+    {
+      "path": "tests/test_phase5_current_successor_transition_v2.py",
+      "sha256": "2057eb02d123ce5928a61c510d682a8c5686efbdbdd45297c880695bba3fad52"
+    },
+    {
+      "path": "tests/test_phase5_current_successor_transition_v24.py",
+      "sha256": "59defcf5b0363acfe53f5f35ac73bc164c142d70017bb7c3ce7c676530ffaf16"
+    },
+    {
+      "path": "tests/test_phase5_current_successor_transition_v25.py",
+      "sha256": "a12b64b335101cbeeab76cbcbef7c33b13a1a579bb6959bfb341a37e13153068"
+    },
+    {
+      "path": "tests/test_phase5_current_successor_transition_v26.py",
+      "sha256": "4ccc6a2cd840d4a86b59e83ac3c31f133a41ca6d2901b7d4a822bcc55200d193"
+    },
+    {
+      "path": "tests/test_phase5_current_successor_transition_v27.py",
+      "sha256": "d944ef444cb16b440732a6b11db230642d053e32b3d2ecf3658dc7723c9e155d"
+    },
+    {
+      "path": "tests/test_primp_license_bundle_v1.py",
+      "sha256": "3badcb75b6f36d594d01e61669cac25e6816caa3d59458aa2424cac2a01ac524"
+    },
+    {
+      "path": "tests/test_release_eligibility.py",
+      "sha256": "ea2590505f6524d3e55764c949b6e4f03efd8d2cb2efea8f336a331c97467ec5"
+    },
+    {
+      "path": "tests/test_release_preparation_v110.py",
+      "sha256": "374c83d27731ef3f8fbbb34857a1d4ed7b486fd53b50f898f8c95abcd6653e0e"
+    },
+    {
+      "path": "tests/test_release_version_v119.py",
+      "sha256": "988bb1f4684b80ab1610b65a89cdb7d8471b96f5466ac4b86a3a260be01ad1dc"
+    },
+    {
+      "path": "tests/test_runtime_distribution_inventory_v1.py",
+      "sha256": "0b0fe2aafc3a3dcf3369a1eb2257b8542439799a1f15daef8de8d19b8e9dcbe7"
+    },
+    {
+      "path": "tests/test_runtime_lifecycle_v1.py",
+      "sha256": "0b1c17a591b2b79f297dff5546cece420253f5f6f6c81c442c1b21ef646f0299"
+    },
+    {
+      "path": "tests/test_runtime_validation_bundle_v1.py",
+      "sha256": "eb6ba2ec77cf7568dd1cd86524378f741180912d3611f8b0bfe5c3fcd946d722"
+    },
+    {
+      "path": "tests/test_shutdown_intent_v1.py",
+      "sha256": "6b5b1f3789bac150d280b7b85197b901ca1e9f0d99f325a313ffc095ba092b4f"
+    },
+    {
+      "path": "tests/test_smoke_credential_cleanup_v1.py",
+      "sha256": "0ae51ed9200ed237f715930c54988deac4a2973b8b11193aab6d7628f8537400"
+    },
+    {
+      "path": "tests/test_windows_lifecycle_validation_v1.py",
+      "sha256": "ba5109fcc74a77d33ec280a686a1b94b5d449972ed5eb08307e05a282da28c14"
+    },
+    {
+      "path": "tests/test_workflow_graph_v1.py",
+      "sha256": "dc8bf2af4fc56f647dfcc41115a8a9039740dc2f28d8bc1eb5654bbb505c0c39"
+    },
+    {
+      "path": "ui.py",
+      "sha256": "11b648ccd997e0a52a96a929f86cad452caf40d2798a6b47e6165ac3dcc791f7"
+    }
+  ],
+  "current_root_sha256": "c76f0e5f88b5ab78cf11f648c114dacf73870128a24af38e978d30751b2a67c5"
+}

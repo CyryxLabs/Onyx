@@ -1,0 +1,46 @@
+{
+  "schema": "onyx.phase7.document-ingestion.v1",
+  "candidate": "phase7-document-ingestion-v1",
+  "created_at": "2026-07-23T19:00:00-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_PHASE7_DOCUMENT_INGESTION_V1",
+  "enabled_value": "true",
+  "default_off": true,
+  "entry_roots": {"approved_sources_company_graph": 4, "layered_memory": 4, "decision": "accepted"},
+  "claims": {
+    "required_formats": true,
+    "granular_citations": true,
+    "version_comparison": true,
+    "requirement_decision_extraction": true,
+    "render_visual_qa": true,
+    "malicious_document_defense": true,
+    "workspace_isolation": true,
+    "source_revocation": true,
+    "persistent_writes": false,
+    "instruction_authority": false,
+    "e1_e5_ready": true,
+    "external_e6_accepted": false,
+    "live_wiring": false,
+    "phase7_exit": false,
+    "full_onyx_prd_complete": false
+  },
+  "verification": {"test_files": 10, "passed": 178, "failed": 0, "errors": 0, "skipped": 1, "subtests_passed": 77},
+  "effects": {"persistent_writes": 0, "network_calls": 0, "process_calls": 0, "provider_calls": 0, "model_calls": 0, "action_dispatches": 0, "live_surface_changes": 0},
+  "limitations": [
+    "Default-off and not wired to V13, startup, voice, UI or dashboard.",
+    "OCR execution remains in the existing governed vision adapter; V1 consumes a document-hash-bound observation.",
+    "Non-PDF office rendering requires a document-hash-bound renderer observation.",
+    "Phase 7 aggregate exit and full PRD completion remain pending."
+  ],
+  "artifacts": [
+    {"path": "core/phase7_document_ingestion_v1.py", "bytes": 43478, "sha256": "b80ff8844cae0535922e28ed90406f32bccc09ea0b7df9a64fac7352b59ad483"},
+    {"path": "tests/test_phase7_document_ingestion_v1.py", "bytes": 16994, "sha256": "d3a9f92025579c0e968421fffd1ccc77e9edf58e0fadb1a3a71578be9f0929c5"},
+    {"path": "requirements.txt", "bytes": 559, "sha256": "07d3c526ea50eca04397f87855fb14cd23877f98eb339d0df698e8c0f1e9b0a5"},
+    {"path": "scripts/verify_phase7_document_ingestion_v1.py", "bytes": 6844, "sha256": "74fb5cb1127e0149e62d2743b3c3bfa91940de700717f5a560ee663fd76812e6"},
+    {"path": "docs/onyx/adrs/ADR-0034-phase7-document-ingestion-v1.md", "bytes": 1825, "sha256": "0b8b9b4afafa4ea373985a5493cc690e40698cf85e8d5c401c55228c7635b0d6"},
+    {"path": "docs/onyx/checkpoints/phase7-document-ingestion-v1/PHASE7_DOCUMENT_INGESTION_V1_CHECKPOINT.md", "bytes": 898, "sha256": "ca6b04b52b4d744b7e661395373d3151ac32965d3d7299f2896971e36809f32b"},
+    {"path": "docs/onyx/checkpoints/phase7-document-ingestion-v1/CAPABILITY_DELTA_SNAPSHOT.md", "bytes": 870, "sha256": "49f72aa1611843678831e3d8cb582879ed77cbd9f9e683fd82d82ba6873dbbfe"},
+    {"path": "docs/onyx/checkpoints/phase7-document-ingestion-v1/cumulative-selection.json", "bytes": 1442, "sha256": "10362142dfe839789b223729d785dc94f384287171c3b45fbc5f37479e06061f"}
+  ],
+  "artifact_root_sha256": "8b7749f3228667eb15e66011129549b569caf9adbdd079a50368ae0967b8a513"
+}

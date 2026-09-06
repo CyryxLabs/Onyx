@@ -1,0 +1,35 @@
+{
+  "schema": "onyx.current-successor-retirement.v26",
+  "issued_at": "2026-08-24T21:45:00-04:00",
+  "predecessor": {
+    "path": "docs/onyx/checkpoints/CURRENT_SUCCESSOR_RETIREMENT_V25.json",
+    "sha256": "0f55926ae65077e77d1fcdace881e82b744ba33ddd48c7b56a14dffb1198a7b5"
+  },
+  "policy": {
+    "historical_tests_are_rewritten": false,
+    "historical_hashes_are_rebound": false,
+    "registered_nodes_must_remain_collected": true,
+    "successor_sources_are_sha256_bound": true,
+    "successor_tests_must_execute": true,
+    "exact_nodeids_only": true,
+    "v26_precedes_v25_on_overlap": true,
+    "successor_timeout_seconds": 900
+  },
+  "additional_claims": [
+    {
+      "id": "release-v66-to-v67-bounded-successor-execution",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_release_workflow_transition_v66.py::test_release_v66_authenticates_complete_current_hud_retirement"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_release_workflow_transition_v67.py",
+          "sha256": "b95685829e85919c3b49d93a80d46e85c4a96187ec54b8845a34cc5712995121"
+        }
+      ],
+      "validated_tests": 1,
+      "reason": "V67 retains fail-closed execution with a 900-second budget for the authenticated additive lineage."
+    }
+  ]
+}

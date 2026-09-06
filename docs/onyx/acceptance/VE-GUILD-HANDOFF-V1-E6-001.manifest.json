@@ -1,0 +1,33 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-GUILD-HANDOFF-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-08-17",
+  "findings": {"P0":0,"P1":0,"P2":0,"P3":0},
+  "candidate_manifest_sha256": "4498cab1dd227ddab8a43b8961cf00bdbdbd8f2a8a61f181b5ed100e41e655e8",
+  "artifact_root_sha256": "104efcc6762416ea6ffd2055a5368df49f605a9e507cc746d8cf0bbf37be6b79",
+  "feature_flag": "ONYX_GUILD_HANDOFF_V1",
+  "accepted_guild_profiles_root_sha256": "818196ac6bd2048bbfe5218d0e576b392b07aa1005816b6f4b867f3ee9bbc09d",
+  "results": {"test_files":29,"passed":717,"failed":0,"errors":0,"skipped":17,"subtests_passed":96},
+  "review_history": {
+    "functional": "PASS (autonomous session): fixed lifecycle over full histories (skips/regressions rejected), constitutional QA authority reuse, bounded QA loop (cap 5, reject-covered loop edges, approve-gated done, blocked-stuck), bounded handoffs (5/10/3 + 4000-byte budget), sealed construction — adversarially tested (43 tests); no execution surface, machine-asserted",
+    "integrity": "PASS (autonomous session): artifact root 104efcc6 and all 8 artifacts recomputed exactly; A9.1 entry-bind byte-exact through the healed current-successor chain; documentation-authority transition advanced additively (V51->V52) per established procedure with no historical rewrite",
+    "quality": "PASS (autonomous session): mirrors accepted slice idioms; verifier machine-checks lifecycle invariants and reject cap, forbids network/process/dispatch tokens, reproduces the 29-file gate with per-file sum check (717/0/0/17/96)"
+  },
+  "scope_exclusions": [
+    "workflow execution / dispatch / sessions / grants / budgets / decommission — later guild slices (A9.3-A9.5)",
+    "stage-operation authority — deferred to the workflow engine by design",
+    "non-engineering squad packs and any live provider or model call — later gated work",
+    "runtime wiring / action authority — none added",
+    "matrix/ledger documentation updates — batched into the next documentation-authority pass"
+  ],
+  "claims": {
+    "guild_handoff_default_off_contract_complete": true,
+    "lifecycle_qa_and_handoff_bounds_enforced": true,
+    "execution_or_dispatch_authority_added": false,
+    "network_or_process_opened": false,
+    "independent_human_review_performed": false,
+    "later_guild_slices_started": false,
+    "full_onyx_prd_complete": false
+  }
+}

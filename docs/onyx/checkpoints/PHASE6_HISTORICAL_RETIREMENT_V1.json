@@ -1,0 +1,315 @@
+{
+  "schema": "onyx.test.phase6-historical-retirement.v1",
+  "issued_at": "2026-07-31T00:00:00-04:00",
+  "disposition": "superseded-point-in-time-tests-not-rebound",
+  "policy": {
+    "current_successor_required": true,
+    "historical_hashes_are_rebound_to_live_bytes": false,
+    "historical_manifests_remain_immutable": true,
+    "registered_nodes_must_remain_exactly_collectable": true
+  },
+  "counts": {
+    "retired_nodes": 45,
+    "phase6_current_successor_nodes": 34,
+    "capability_current_successor_nodes": 11,
+    "source_files": 25
+  },
+  "successors": [
+    {
+      "id": "phase6-current-v1",
+      "contract": "VE-PHASE6-CURRENT-V1-001",
+      "verifier": "scripts.verify_phase6_current_v1",
+      "marker": "PHASE6_CURRENT_V1_ACCEPTANCE_OK"
+    },
+    {
+      "id": "capability-nexus-current-v1",
+      "contract": "VE-CAPABILITY-NEXUS-CURRENT-V1-E6-001",
+      "verifier": "scripts.verify_capability_nexus_current_v1",
+      "marker": "CAPABILITY_NEXUS_CURRENT_V1_ACCEPTANCE_OK"
+    }
+  ],
+  "sources": [
+    {
+      "path": "tests/test_capability_nexus_v15.py",
+      "sha256": "400a5c734b1330a7f1fe79270d1fc0eb8fb40c3e5827946d67b290f83d50aa52"
+    },
+    {
+      "path": "tests/test_capability_nexus_v16.py",
+      "sha256": "9987536d7022d4c99d3080c11752ffcec151c609b80e6c4608b7d5967cc6c695"
+    },
+    {
+      "path": "tests/test_capability_nexus_v17.py",
+      "sha256": "55899f8187631273901e750c1610966920f4dc604efb7396bd6585c5bc25a2dd"
+    },
+    {
+      "path": "tests/test_capability_nexus_v18.py",
+      "sha256": "9a8b992474479b58bfaaf2568d78206ff39f2c08566d5648dc4d44d00313af58"
+    },
+    {
+      "path": "tests/test_capability_nexus_v19.py",
+      "sha256": "5efee050ca7381aad2e89c57b9f91a5233eedc22eac8104b6dc565ed5a80f0c4"
+    },
+    {
+      "path": "tests/test_capability_nexus_v20.py",
+      "sha256": "5c4fd2410e3c815d1e75d885e01aee013cb6d0bddb0af9d700d09ddf9c89d297"
+    },
+    {
+      "path": "tests/test_capability_nexus_v21.py",
+      "sha256": "72596e20060699e4f3a414b9800c68eabc5e2998d3a7bc015579aba829bf455b"
+    },
+    {
+      "path": "tests/test_capability_nexus_v22.py",
+      "sha256": "7e76146aec6b0ab49765535ef99cd779da0def7bdfb8f903814fd19bf8db16d5"
+    },
+    {
+      "path": "tests/test_capability_nexus_v23.py",
+      "sha256": "6d2bc6924f979b50c0b86f1090f489dd9c45d6dfa4623b34fe583d57fefa4f7d"
+    },
+    {
+      "path": "tests/test_capability_nexus_v24.py",
+      "sha256": "d3a144a6bcd0215597f3a4a8a26f03d54cb996e5c31061aa2ab8b4285db9724e"
+    },
+    {
+      "path": "tests/test_capability_nexus_v25.py",
+      "sha256": "7fb273a548778a8bff27d6b7d81f86c13fc67f8ac856d47f9d899958d4f2f3ba"
+    },
+    {
+      "path": "tests/test_phase6_disabled_external_agent_descriptor_v1.py",
+      "sha256": "5934c22d054c31ac8e746f815a4ce96687d48e72836494a7f1f6267dd7d515df"
+    },
+    {
+      "path": "tests/test_phase6_exit_candidate_v1.py",
+      "sha256": "edc0317012dc55e74fb69d09fd43a9c5a3e6adc08b916377c2acd46ac9e943ed"
+    },
+    {
+      "path": "tests/test_phase6_exit_candidate_v1_acceptance.py",
+      "sha256": "042b623dde5bd25f5eb3c8ee5e6ae1406f8d80175acba892c929323f3c089030"
+    },
+    {
+      "path": "tests/test_phase6_gemini_live_compat_c003_acceptance.py",
+      "sha256": "fc2496dce6fdd73790c23ac8294c00c64da188b7f565d7cd1bb5ba292a4239a5"
+    },
+    {
+      "path": "tests/test_phase6_live_integration_v1.py",
+      "sha256": "830c3717737aed95bdf9fea10138c87cca3624201120778d496704e6f7990046"
+    },
+    {
+      "path": "tests/test_phase6_live_integration_v2_acceptance.py",
+      "sha256": "5d11a3eb18f02c7bdd26889763be332b7a50328f331d1b5c55d1e0a72a35f815"
+    },
+    {
+      "path": "tests/test_phase6_live_wiring_v1.py",
+      "sha256": "a252d4b6c1f2b0717572171bf4f2b518d105a9cf966c58d3b63c88b99730e510"
+    },
+    {
+      "path": "tests/test_phase6_live_wiring_v1_acceptance.py",
+      "sha256": "251fdd86a8c449b03a307002bd2f0b57b5aca1ac15a9b408e87f9e2b7a196c46"
+    },
+    {
+      "path": "tests/test_phase6_local_mcp_v1_acceptance.py",
+      "sha256": "9e18a5301f956ded3b2742dbc042ecc6a92a919886a724dadd11aa015bd6478c"
+    },
+    {
+      "path": "tests/test_phase6_local_mcp_v1_c002_reacceptance.py",
+      "sha256": "ccac4c972b9206e2d840aafe4e44a5dbed20b21736401c09609acaa246a90efc"
+    },
+    {
+      "path": "tests/test_phase6_local_text_compat_v1_acceptance.py",
+      "sha256": "19cfe1a3d7b253c995bb3936860bd89aa1c31c0afc72a583daf99c21444e98c6"
+    },
+    {
+      "path": "tests/test_phase6_provider_registry_v1_acceptance.py",
+      "sha256": "4f9506539283425964d990956d06e5ada5e7c099be381a3b6ff85a63cbb1fbfc"
+    },
+    {
+      "path": "tests/test_phase6_research_cells_v1_acceptance.py",
+      "sha256": "5b3fa10e879048b30554b6df906e635ebf83fe82821bd17af51fcc3042a830ef"
+    },
+    {
+      "path": "tests/test_phase7_document_ingestion_v1_acceptance.py",
+      "sha256": "0a910438fd397729c08518d1307e9683a98e01932e1e975b4ccc862fe700a276"
+    }
+  ],
+  "retired_tests": [
+    {
+      "id": "tests/test_phase6_live_integration_v2_acceptance.py::test_external_acceptance_validates_exact_frozen_candidate",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_live_integration_v2_acceptance.py::test_two_v1_p1s_are_reproduced_and_v2_closures_are_exact",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_live_integration_v2_acceptance.py::test_all_bound_verifiers_reproduce_their_markers",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_live_integration_v2_acceptance.py::test_v2_remains_strict_default_off_and_unwired",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_live_wiring_v1_acceptance.py::test_external_acceptance_is_exact_default_off_candidate",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_live_wiring_v1_acceptance.py::test_candidate_manifest_and_root_recompute",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_live_wiring_v1_acceptance.py::test_all_eighteen_frozen_anchors_are_exact",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_live_wiring_v1_acceptance.py::test_lifecycle_and_protected_seams_are_exact",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_live_wiring_v1_acceptance.py::test_phase5_exit_entry_is_external_and_does_not_unlock_phase6",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_live_wiring_v1_acceptance.py::test_v9_chain_remains_exact_and_wiring_is_not_composed",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_live_wiring_v1_acceptance.py::test_bound_verifiers_reproduce_exact_markers",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_local_mcp_v1_acceptance.py::test_external_e6_decision_is_exact",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_local_mcp_v1_acceptance.py::test_candidate_root_and_frozen_anchors_recompute",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_local_mcp_v1_acceptance.py::test_no_live_or_phase6_exit_claim",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_provider_registry_v1_acceptance.py::test_external_acceptance_is_exact_and_default_off",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_provider_registry_v1_acceptance.py::test_candidate_root_recomputes_independently",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_provider_registry_v1_acceptance.py::test_exact_agentic_core_type_file_and_six_live_anchors_are_bound",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_provider_registry_v1_acceptance.py::test_no_live_surface_imports_or_enables_candidate",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_research_cells_v1_acceptance.py::test_external_acceptance_is_exact_default_off_and_provider_free",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_research_cells_v1_acceptance.py::test_candidate_root_recomputes_independently",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_research_cells_v1_acceptance.py::test_exact_agentic_core_and_live_anchors_are_bound",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_research_cells_v1_acceptance.py::test_adversarial_source_contract_and_no_live_surface",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_exit_candidate_v1.py::test_current_e1_e5_closure_is_ready_only_for_external_gate",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_exit_candidate_v1.py::test_every_evidence_root_is_unique_and_rehashes",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_exit_candidate_v1.py::test_candidate_verification_is_read_only",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_exit_candidate_v1_acceptance.py::test_phase6_exit_candidate_v1_external_e6_acceptance",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase7_document_ingestion_v1_acceptance.py::test_phase7_document_ingestion_v1_external_acceptance",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_gemini_live_compat_c003_acceptance.py::test_gemini_live_compat_c003_external_acceptance",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_live_integration_v1.py::test_frozen_dependencies_and_live_surfaces_remain_exact",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_live_wiring_v1.py::test_frozen_v7_v2_core_and_live_host_anchors_remain_exact",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_local_mcp_v1_c002_reacceptance.py::test_dependency_only_reacceptance_is_exact",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_local_mcp_v1_c002_reacceptance.py::test_original_candidate_remains_byte_bound",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_disabled_external_agent_descriptor_v1.py::test_focused_structural_scan_proves_absence_from_live_surfaces",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_phase6_local_text_compat_v1_acceptance.py::test_external_e6_acceptance_is_reproducible",
+      "successor": "phase6-current-v1"
+    },
+    {
+      "id": "tests/test_capability_nexus_v15.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+      "successor": "capability-nexus-current-v1"
+    },
+    {
+      "id": "tests/test_capability_nexus_v16.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+      "successor": "capability-nexus-current-v1"
+    },
+    {
+      "id": "tests/test_capability_nexus_v17.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+      "successor": "capability-nexus-current-v1"
+    },
+    {
+      "id": "tests/test_capability_nexus_v18.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+      "successor": "capability-nexus-current-v1"
+    },
+    {
+      "id": "tests/test_capability_nexus_v19.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+      "successor": "capability-nexus-current-v1"
+    },
+    {
+      "id": "tests/test_capability_nexus_v20.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+      "successor": "capability-nexus-current-v1"
+    },
+    {
+      "id": "tests/test_capability_nexus_v21.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+      "successor": "capability-nexus-current-v1"
+    },
+    {
+      "id": "tests/test_capability_nexus_v22.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+      "successor": "capability-nexus-current-v1"
+    },
+    {
+      "id": "tests/test_capability_nexus_v23.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+      "successor": "capability-nexus-current-v1"
+    },
+    {
+      "id": "tests/test_capability_nexus_v24.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+      "successor": "capability-nexus-current-v1"
+    },
+    {
+      "id": "tests/test_capability_nexus_v25.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+      "successor": "capability-nexus-current-v1"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": 6,
+  "evidence_id": "VE-P4-EXIT-CANDIDATE-R6-001",
+  "captured_at": "2026-07-20T00:43:35.7535381-04:00",
+  "activation": false,
+  "e6_accepted": false,
+  "phase5_unlocked": false,
+  "manifest_dag": {
+    "source_manifest_path": "docs/onyx/VE-SCOPE-P4-E1E5-R6-001.sha256",
+    "artifact_manifest_path": "docs/onyx/VE-ARTIFACTS-P4-E1E5-R6-001.sha256",
+    "external_registration_must_store": "source_manifest_sha256",
+    "external_source_anchor_present": false,
+    "bundle_claims_own_hash": false,
+    "bundle_claims_manifest_hashes": false
+  },
+  "accepted_dependency": {
+    "r12_manifest": "docs/onyx/VE-SCOPE-P44-R12-001.sha256",
+    "r12_files": 80,
+    "r12_manifest_sha256": "6b2203e419910c449af54cac80559bc8e44a014945e3eaf38aa01b745c20f0d4"
+  },
+  "shortcut": {
+    "active_path": "C:/Users/ppetr/OneDrive/Desktop/Onyx.lnk",
+    "active_sha256": "a6390f2dee48e3af7bf26d47f201397c68f8dc5189a04844239b48e02ba53aa8",
+    "legacy_preserved_sha256": "996d828be73f30bdb3919fd06066f5ab4fb53ebcbb88c0b18ff260c7ef3f9a4b",
+    "focused_tests_passed": 4
+  },
+  "source_gate": {
+    "status": "P4_EXIT_CANDIDATE_R6_SOURCE_OK",
+    "exit": 0,
+    "selection_nodes": 34,
+    "selection_sources": 10,
+    "artifact_bytes": 868,
+    "artifact_sha256": "52a685d5c37b85fd9e0eb205b461e997a5db975c126cbc1dade1459ab3965b0e"
+  },
+  "canonical_test_gate": {
+    "exit": 0,
+    "pytest_passed": 72,
+    "subtests_passed": 6,
+    "junit_tests": 78,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "pytest_seconds": 239.24,
+    "raw_runner_seconds": 240.098415,
+    "raw_log_sha256": "16f0a828ceed11f3eed873d0a9fb23ef2746d582dfad05897dfa49a96245c11a",
+    "junit_sha256": "de2d88eb318c1b50ee8d4ae944646ca8bbd14ff5e9ac21a3a5b0a33073b9c0a1"
+  },
+  "static_gate": {
+    "exit": 0,
+    "raw_log_sha256": "2bffc40261e8c4d976ac7e644d404a18dc0a3e5d80533e245fdcb7ec363b3f5c"
+  },
+  "limitations": [
+    "No external source-manifest anchor exists.",
+    "No live restart, flag change, owner/provider write, activation, commit or push occurred.",
+    "E6 is false and Phase 5 remains blocked."
+  ]
+}

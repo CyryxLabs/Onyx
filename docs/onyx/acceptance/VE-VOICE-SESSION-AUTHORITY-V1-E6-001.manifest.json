@@ -1,0 +1,53 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-VOICE-SESSION-AUTHORITY-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-08-19",
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "candidate_manifest_sha256": "c30135dfed6823c5814a66b28c7ca5e079d968c43880f9dc7e99b65eebb02b79",
+  "artifact_root_sha256": "8d16f979db21395e3c3ba8896ca8e8442b2ecedfe548c1ebfb75a88faaf6e7aa",
+  "feature_flag": "ONYX_VOICE_SESSION_AUTHORITY_V1",
+  "accepted_predecessor_root_sha256": "438fe075ca88e31e588b4e04dc087ab9e58fce5c3fabdfa658a1dc199ad60874",
+  "results": {
+    "test_files": 35,
+    "passed": 977,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 17,
+    "subtests_passed": 96
+  },
+  "owner_decisions": {
+    "opening": "voice_alone_no_confirmation",
+    "scope": "read_write_local_development_over_authorized_roots",
+    "decided_on": "2026-08-19",
+    "exposure_shown_before_deciding": true
+  },
+  "review_history": {
+    "functional": "PASS (autonomous session): trigger unambiguity (short/partial/absent rejected), envelope bounds (lifetime, cap, roots), whole-component root containment incl. sibling-prefix C:\\Work2 vs C:\\Work, always-explicit set incl. delete inside an authorized root, expiry, cap exhaustion, kill-switch precedence and blocked reopening, broker-hook adapter never raising \u2014 adversarially tested (67 tests)",
+    "integrity": "PASS (autonomous session): artifact root 8d16f979 and all 8 artifacts recomputed exactly; predecessor entry-bind byte-exact",
+    "quality": "PASS (autonomous session): the verifier opens its own probe envelope and machine-asserts deferral of delete/browser/desktop/message, refusal of a sibling-prefix root, an actual grant for in-scope in-root work, kill-switch denial, the lifetime ceiling and delete's presence in ALWAYS_EXPLICIT; forbids network/process/clock tokens; reproduces the 35-file gate with per-file sum check (977/0/0/17/96)"
+  },
+  "scope_exclusions": [
+    "speaker verification \u2014 does not exist; the accepted exposure is recorded in the record, the module and the ADR",
+    "runtime wiring / hook installation \u2014 not performed by this acceptance",
+    "UI envelope indicator and persistence across restarts \u2014 not built",
+    "approval-inbox coupling and guild runtime dispatch \u2014 separate slices"
+  ],
+  "claims": {
+    "voice_session_authority_default_off_contract_complete": true,
+    "grants_authority_rather_than_shadowing": true,
+    "always_explicit_gates_waived": false,
+    "delete_authorizable_by_envelope": false,
+    "speaker_verification_present": false,
+    "spoofed_opening_prevented": false,
+    "runtime_hook_installed": false,
+    "network_or_process_opened": false,
+    "independent_human_review_performed": false,
+    "full_onyx_prd_complete": false
+  }
+}

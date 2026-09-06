@@ -1,0 +1,27 @@
+{
+  "schema": "onyx.test.phase5-exit-retirement.v2",
+  "disposition": "additive-successor-retirement-not-rebound",
+  "predecessor": {
+    "path": "tests/fixtures/phase5_exit_retirement_v1.json",
+    "sha256": "23562c773b5e1acceadc6ba873b802eebc1d48bafd61ae40d4a9a23aa0635997"
+  },
+  "policy": {
+    "historical_bindings_are_rewritten": false,
+    "historical_hashes_are_rebound": false,
+    "named_successor_must_be_authenticated": true
+  },
+  "additional_bindings": [
+    {
+      "path": "packaging/macos/entitlements.plist",
+      "historical_sha256": "3c70bd8a436460de7e999674c5c924231cbfb4f7d142ff7b1a94f9ee772144b4",
+      "state": "recoverable-exact",
+      "successor": "scripts/package_hygiene.py"
+    },
+    {
+      "path": "packaging/linux/onyx.desktop",
+      "historical_sha256": "0fc6da87140a3f5455eab5995ab5736edf998fd63f98d860359da850efe61724",
+      "state": "unavailable-tombstoned",
+      "successor": "scripts/package_hygiene.py"
+    }
+  ]
+}

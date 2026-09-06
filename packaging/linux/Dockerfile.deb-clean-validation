@@ -1,0 +1,24 @@
+FROM debian:12-slim
+
+ARG ONYX_DEB
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+COPY ${ONYX_DEB} /tmp/onyx.deb
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends /tmp/onyx.deb \
+    && rm -f /tmp/onyx.deb \
+    && rm -rf /var/lib/apt/lists/* \
+    && useradd --create-home --shell /bin/sh onyx-smoke
+
+COPY packaging/linux/verify_deb_clean_install.sh /usr/local/bin/verify-deb-clean-install
+RUN chmod 0755 /usr/local/bin/verify-deb-clean-install
+
+USER onyx-smoke
+ENV HOME=/home/onyx-smoke \
+    LANG=C.UTF-8 \
+    QT_QPA_PLATFORM=offscreen \
+    ONYX_DATA_DIR=/home/onyx-smoke/.local/share/cyryx-labs/onyx
+
+ENTRYPOINT ["/usr/local/bin/verify-deb-clean-install"]

@@ -1,0 +1,72 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-HUD-ORB-V8-C001-E6-001",
+  "decision": "accepted",
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "candidate_manifest": "docs/onyx/checkpoints/hud-orb-v8-candidate/manifest.json",
+  "candidate_manifest_sha256": "b3ea35bea9a160803ae01c3ddfc8e4e5811d5547095f7dc21b0ca8f2adbf4152",
+  "evidence_root_sha256": "7d32ac55daeb3bb01dcdb18ea112c4d6d71453ff28cf1aed7fb07d9ae803a967",
+  "binding_count": 13,
+  "scope": "windows-d3d11-default-off-no-live-activation",
+  "results": {
+    "candidate": 7,
+    "external": 8,
+    "v7_regression": 19,
+    "quick_widgets": 1,
+    "voice_layer_fps": [
+      12,
+      0,
+      0
+    ]
+  },
+  "visual": {
+    "speaking_a_sha256": "3f0ff3854952fd28b659e7a28c4cebe6087936a297b29c9c10b9c9cfc8f92f55",
+    "speaking_b_sha256": "f13068adaa7b9354d8fdf1ee5328c7b1350c21ea7f4b43bfc54f2765777bd1ef",
+    "idle_sha256": "a56db41cb93575f0ab802bd66820b63b9dfebf909cb0d04d5023b95c14ce1afd",
+    "review": "accepted-internal-speaking-particles-no-external-orbit-tracks",
+    "command_keel": "preserved"
+  },
+  "performance": {
+    "speaking_host_cpu_percent": 0.40444254814901454,
+    "idle_host_cpu_percent": 0.08276795419324762,
+    "hidden_host_cpu_percent": 0.0,
+    "voice_layer_fps": [
+      12,
+      0,
+      0
+    ]
+  },
+  "new_artifacts": [
+    {
+      "path": "docs/onyx/acceptance/VE-HUD-ORB-V8-C001-E6-001.md",
+      "sha256": "cc7241c02ce14a78929e5bd19e34ca5e5972fac49f4794cef5bcb3b377b6761c"
+    },
+    {
+      "path": "docs/onyx/VE-SOURCE-HUD-ORB-V8-C001-E6-001.sha256",
+      "sha256": "65ddf2e547bd0fd563d12488e9084ca77db25b89baffd059658e0821d0785ddc"
+    },
+    {
+      "path": "docs/onyx/VE-ACCEPTANCE-HUD-ORB-V8-C001-E6-001.sha256",
+      "sha256": "37bed4edf2b5f4266c72ae450ab4977e700e473e14fe814d1645d37bb90dc7e4"
+    },
+    {
+      "path": "scripts/verify_hud_orb_v8_c001_acceptance.py",
+      "sha256": "778e2c30509310469a731ed7b020199fd392eb256052263b37687137e975c480"
+    },
+    {
+      "path": "tests/test_hud_orb_v8_c001_acceptance.py",
+      "sha256": "06f0134067265d6b550bc675237ea4cd99137142cd9547189ec60af2b2b6b83d"
+    }
+  ],
+  "activation": {
+    "flag": "ONYX_HUD_V8_LIVE=1",
+    "default_off": true,
+    "live_activated": false,
+    "v10_shortcuts_modified": false
+  }
+}

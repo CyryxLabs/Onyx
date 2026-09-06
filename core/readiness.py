@@ -1,0 +1,864 @@
+"""Bounded operational readiness checks for Onyx.
+
+The default command is offline and does not sample microphone/camera input.
+Live and hardware checks require explicit flags. Every potentially blocking
+third-party operation runs in a killable child process.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import math
+import os
+import platform
+import shutil
+import signal
+import secrets
+import subprocess
+import sys
+import tempfile
+import ctypes
+from dataclasses import asdict, dataclass
+from pathlib import Path
+from typing import Iterable
+
+from core.readiness_probe import READINESS_GO_TOKEN_ENV, SENTINEL
+from core.live_model import resolve_live_model
+from core.audio_contract import MAX_VOICE_ACCEPTANCE_MIC_BYTES
+from core.credentials import get as get_gemini_credential, status as credential_status
+from core.ffmpeg_runtime_v1 import ffmpeg_command
+from core.paths import config_file, data_root, resource_root
+
+
+ROOT = resource_root()
+DATA_ROOT = data_root()
+CONFIG_PATH = config_file()
+STATUSES = {"PASS", "WARN", "FAIL", "SKIP"}
+PROBE_NAMES = {
+    "runtime_import",
+    "audio_devices",
+    "microphone",
+    "camera",
+    "chromium",
+    "dashboard",
+    "live_api",
+    "integrated_voice",
+    "voice_transport",
+}
+
+
+@dataclass(frozen=True)
+class Result:
+    check: str
+    status: str
+    summary: str
+    required: bool = False
+    selected: bool = False
+    facts: dict[str, object] | None = None
+
+    def __post_init__(self) -> None:
+        if self.status not in STATUSES:
+            raise ValueError(f"Unknown readiness status: {self.status}")
+
+
+def _result(
+    check: str,
+    status: str,
+    summary: str,
+    *,
+    required: bool = False,
+    selected: bool = False,
+    facts: dict[str, object] | None = None,
+) -> Result:
+    return Result(check, status, summary, required, selected, facts)
+
+
+def _close_process_pipes(process: subprocess.Popen[str]) -> None:
+    """Close inherited pipe handles so descendants cannot hold the parent open."""
+    for name in ("stdout", "stderr", "stdin"):
+        stream = getattr(process, name, None)
+        if stream is not None:
+            try:
+                stream.close()
+            except (OSError, ValueError):
+                pass
+
+
+def _bounded_reap(process: subprocess.Popen[str], timeout: float = 1.0) -> None:
+    try:
+        process.wait(timeout=timeout)
+    except (subprocess.TimeoutExpired, OSError):
+        try:
+            process.kill()
+        except OSError:
+            pass
+        try:
+            process.wait(timeout=timeout)
+        except (subprocess.TimeoutExpired, OSError):
+            pass
+
+
+def _capture_process_tree_identity(process: subprocess.Popen[str]) -> object | None:
+    """Retain an OS identity that remains valid after the leader exits."""
+    if os.name != "nt":
+        try:
+            return ("process_group", os.getpgid(process.pid))
+        except OSError:
+            return None
+
+    from ctypes import wintypes
+
+    class _BasicLimits(ctypes.Structure):
+        _fields_ = [
+            ("PerProcessUserTimeLimit", ctypes.c_longlong),
+            ("PerJobUserTimeLimit", ctypes.c_longlong),
+            ("LimitFlags", wintypes.DWORD),
+            ("MinimumWorkingSetSize", ctypes.c_size_t),
+            ("MaximumWorkingSetSize", ctypes.c_size_t),
+            ("ActiveProcessLimit", wintypes.DWORD),
+            ("Affinity", ctypes.c_size_t),
+            ("PriorityClass", wintypes.DWORD),
+            ("SchedulingClass", wintypes.DWORD),
+        ]
+
+    class _IoCounters(ctypes.Structure):
+        _fields_ = [(name, ctypes.c_ulonglong) for name in (
+            "ReadOperationCount", "WriteOperationCount", "OtherOperationCount",
+            "ReadTransferCount", "WriteTransferCount", "OtherTransferCount",
+        )]
+
+    class _ExtendedLimits(ctypes.Structure):
+        _fields_ = [
+            ("BasicLimitInformation", _BasicLimits),
+            ("IoInfo", _IoCounters),
+            ("ProcessMemoryLimit", ctypes.c_size_t),
+            ("JobMemoryLimit", ctypes.c_size_t),
+            ("PeakProcessMemoryUsed", ctypes.c_size_t),
+            ("PeakJobMemoryUsed", ctypes.c_size_t),
+        ]
+
+    kernel32 = ctypes.WinDLL("kernel32", use_last_error=True)
+    kernel32.CreateJobObjectW.restype = wintypes.HANDLE
+    kernel32.CreateJobObjectW.argtypes = [wintypes.LPVOID, wintypes.LPCWSTR]
+    kernel32.SetInformationJobObject.restype = wintypes.BOOL
+    kernel32.SetInformationJobObject.argtypes = [
+        wintypes.HANDLE, ctypes.c_int, wintypes.LPVOID, wintypes.DWORD
+    ]
+    kernel32.AssignProcessToJobObject.restype = wintypes.BOOL
+    kernel32.AssignProcessToJobObject.argtypes = [wintypes.HANDLE, wintypes.HANDLE]
+    kernel32.CloseHandle.argtypes = [wintypes.HANDLE]
+    job = kernel32.CreateJobObjectW(None, None)
+    if not job:
+        return None
+    limits = _ExtendedLimits()
+    limits.BasicLimitInformation.LimitFlags = 0x00002000  # KILL_ON_JOB_CLOSE
+    configured = kernel32.SetInformationJobObject(
+        job, 9, ctypes.byref(limits), ctypes.sizeof(limits)
+    )
+    assigned = configured and kernel32.AssignProcessToJobObject(
+        job, int(process._handle)  # type: ignore[attr-defined]
+    )
+    if not assigned:
+        kernel32.CloseHandle(job)
+        return None
+    return ("job", job)
+
+
+def _terminate_retained_tree(identity: object | None) -> bool:
+    if (
+        not isinstance(identity, tuple)
+        or len(identity) != 2
+        or identity[0] not in {"job", "process_group"}
+    ):
+        return False
+    kind, value = identity
+    if os.name == "nt":
+        if kind != "job":
+            return False
+        try:
+            from ctypes import wintypes
+
+            kernel32 = ctypes.WinDLL("kernel32", use_last_error=True)
+            kernel32.CloseHandle.restype = wintypes.BOOL
+            kernel32.CloseHandle.argtypes = [wintypes.HANDLE]
+            # Closing a KILL_ON_JOB_CLOSE handle targets the retained job object,
+            # never a potentially reused PID.
+            return bool(kernel32.CloseHandle(value))
+        except OSError:
+            return False
+    if kind != "process_group":
+        return False
+    try:
+        os.killpg(int(value), signal.SIGKILL)
+        return True
+    except OSError:
+        return False
+
+
+def _terminate_process_tree(process: subprocess.Popen[str]) -> None:
+    """Boundedly terminate/reap a probe even when descendants inherit pipes."""
+    try:
+        identity = getattr(process, "_onyx_tree_identity", None)
+        tree_signalled = _terminate_retained_tree(identity)
+        process._onyx_tree_identity = None  # type: ignore[attr-defined]
+        if process.poll() is None:
+            if os.name == "nt":
+                if not tree_signalled:
+                    subprocess.run(
+                        ["taskkill", "/PID", str(process.pid), "/T", "/F"],
+                        capture_output=True,
+                        text=True,
+                        timeout=2,
+                        check=False,
+                    )
+            else:
+                if not tree_signalled:
+                    os.killpg(process.pid, signal.SIGKILL)
+    except Exception:
+        try:
+            process.kill()
+        except Exception:
+            pass
+    finally:
+        _close_process_pipes(process)
+        _bounded_reap(process)
+
+
+def _run_isolated_probe(
+    probe: str, timeout: float, *, config_path: Path = CONFIG_PATH
+) -> dict[str, object]:
+    """Run one fixed probe and parse only its sentinel record."""
+    if probe not in PROBE_NAMES:
+        raise ValueError("Unknown readiness probe")
+    allowed_environment = {
+        "PATH",
+        "SystemRoot",
+        "WINDIR",
+        "TEMP",
+        "TMP",
+        "HOME",
+        "USERPROFILE",
+        # CPython locates Windows user-site dependencies through APPDATA;
+        # browser/native libraries also need the current user's local cache.
+        "APPDATA",
+        "LOCALAPPDATA",
+        "LANG",
+        "LC_ALL",
+        "LC_CTYPE",
+        "PYTHONIOENCODING",
+        "PYTHONUTF8",
+    }
+    if probe == "chromium":
+        allowed_environment.add("PLAYWRIGHT_BROWSERS_PATH")
+    child_environment = {
+        key: value for key, value in os.environ.items()
+        if (
+            key.upper() in {name.upper() for name in allowed_environment}
+            if os.name == "nt" else key in allowed_environment
+        )
+    }
+    if os.name == "nt" and "SystemRoot" not in child_environment:
+        system_root = os.environ.get("SystemRoot") or os.environ.get("WINDIR")
+        if system_root:
+            child_environment["SystemRoot"] = system_root
+    # Make probe output deterministic even on legacy Windows consoles.
+    child_environment.setdefault("PYTHONIOENCODING", "utf-8")
+    child_environment.setdefault("PYTHONUTF8", "1")
+    parent_payload: dict[str, str] = {}
+    if probe in {"live_api", "integrated_voice", "voice_transport"}:
+        config = json.loads(config_path.read_text(encoding="utf-8"))
+        if not isinstance(config, dict):
+            raise ValueError("Readiness config root must be an object")
+        key = get_gemini_credential(required=False)
+        if not key:
+            raise ValueError("Gemini API key absent")
+        parent_payload = {
+            "api_key": key,
+            "model": resolve_live_model(config=config),
+        }
+    options: dict[str, object] = {
+        "stdin": subprocess.PIPE,
+        "stdout": subprocess.PIPE,
+        "stderr": subprocess.PIPE,
+        "text": True,
+        "cwd": str(ROOT),
+        "env": child_environment,
+    }
+    if os.name == "nt":
+        options["creationflags"] = subprocess.CREATE_NEW_PROCESS_GROUP
+    else:
+        options["start_new_session"] = True
+    gate_token = secrets.token_urlsafe(32)
+    options["env"][READINESS_GO_TOKEN_ENV] = gate_token  # type: ignore[index]
+    process = subprocess.Popen(
+        [sys.executable, "-m", "core.readiness_probe", probe], **options
+    )
+    identity = _capture_process_tree_identity(process)
+    process._onyx_tree_identity = identity  # type: ignore[attr-defined]
+    if identity is None:
+        _terminate_process_tree(process)
+        raise RuntimeError("Unable to retain readiness process-tree identity")
+    try:
+        assert process.stdin is not None
+        process.stdin.write(gate_token + "\n")
+        process.stdin.write(json.dumps(parent_payload, separators=(",", ":")) + "\n")
+        process.stdin.flush()
+        process.stdin.close()
+        process.stdin = None
+    except (OSError, ValueError):
+        _terminate_process_tree(process)
+        raise RuntimeError("Unable to release readiness start gate") from None
+    try:
+        stdout, _stderr = process.communicate(timeout=timeout)
+    except subprocess.TimeoutExpired:
+        _terminate_process_tree(process)
+        raise
+    finally:
+        retained = getattr(process, "_onyx_tree_identity", None)
+        _terminate_retained_tree(retained)
+        process._onyx_tree_identity = None  # type: ignore[attr-defined]
+    if process.returncode != 0:
+        return {
+            "ok": False,
+            "kind": "process_exit",
+            "summary": f"Probe {probe} exited with code {process.returncode}",
+        }
+    for line in reversed(stdout.splitlines()):
+        if line.startswith(SENTINEL):
+            payload = json.loads(line.removeprefix(SENTINEL))
+            if isinstance(payload, dict) and isinstance(payload.get("ok"), bool):
+                return payload
+            break
+    raise RuntimeError("Probe returned no valid result")
+
+
+def _probe_result(
+    check: str,
+    probe: str,
+    timeout: float,
+    *,
+    required: bool,
+    selected: bool = False,
+    false_status: str = "FAIL",
+) -> Result:
+    try:
+        payload = _run_isolated_probe(probe, timeout)
+    except subprocess.TimeoutExpired:
+        return _result(
+            check,
+            "FAIL",
+            "Probe timed out and its process tree was terminated",
+            required=required,
+            selected=selected,
+        )
+    except PermissionError:
+        return _result(
+            check,
+            "WARN",
+            "Process sandbox prevented this probe",
+            required=required,
+            selected=selected,
+        )
+    except (OSError, RuntimeError, ValueError, json.JSONDecodeError) as exc:
+        return _result(
+            check,
+            "FAIL",
+            f"Probe infrastructure failed ({type(exc).__name__})",
+            required=required,
+            selected=selected,
+        )
+    ok = bool(payload["ok"])
+    kind = str(payload.get("kind", ""))
+    status = "PASS" if ok else ("WARN" if kind == "permission" else false_status)
+    summary = str(payload.get("summary", "Probe completed"))
+    facts = payload.get("facts") if isinstance(payload.get("facts"), dict) else None
+    return _result(
+        check, status, summary, required=required, selected=selected, facts=facts
+    )
+
+
+def check_python() -> Result:
+    supported = (3, 11) <= sys.version_info[:2] <= (3, 13)
+    return _result(
+        "python",
+        "PASS" if supported else "FAIL",
+        f"Python {platform.python_version()} ({platform.python_implementation()}); supported 3.11-3.13",
+        required=True,
+    )
+
+
+def check_platform() -> Result:
+    name = platform.system() or "Unknown"
+    supported = name in {"Windows", "Linux", "Darwin"}
+    return _result(
+        "platform",
+        "PASS" if supported else "FAIL",
+        f"{name} {platform.machine() or 'unknown architecture'}",
+        required=True,
+    )
+
+
+def check_runtime_import(timeout: float) -> Result:
+    return _probe_result(
+        "runtime_import", "runtime_import", timeout, required=True
+    )
+
+
+def _load_config_shape(path: Path = CONFIG_PATH) -> tuple[dict[str, object] | None, Result]:
+    if not path.exists():
+        return None, _result(
+            "config", "WARN", "Config is absent; first-run setup is required"
+        )
+    try:
+        config = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        return None, _result(
+            "config",
+            "FAIL",
+            f"Config is unreadable ({type(exc).__name__})",
+            required=True,
+        )
+    if not isinstance(config, dict):
+        return None, _result(
+            "config", "FAIL", "Config root must be a JSON object", required=True
+        )
+    os_present = isinstance(config.get("os_system"), str) and bool(
+        str(config.get("os_system", "")).strip()
+    )
+    return config, _result(
+        "config",
+        "PASS" if os_present else "WARN",
+        "Non-secret config shape valid; os_system="
+        + ("present" if os_present else "absent"),
+    )
+
+
+def check_credential() -> Result:
+    info = credential_status()
+    configured = bool(info.get("configured"))
+    source = str(info.get("source", "unavailable"))
+    backend = str(info.get("backend", "OS vault"))
+    return _result(
+        "credential",
+        "PASS" if configured else "WARN",
+        f"Gemini credential {('configured' if configured else 'absent')} via {source}; backend={backend}",
+    )
+
+
+def check_model(config: dict[str, object] | None) -> Result:
+    try:
+        resolve_live_model(config=config or {})
+    except ValueError:
+        return _result(
+            "gemini_model",
+            "FAIL",
+            "Configured Gemini Live model name is malformed",
+            required=True,
+        )
+    return _result(
+        "gemini_model",
+        "PASS",
+        "Runtime Gemini Live model identifier syntax and call-site parity validated; availability requires --live-api",
+        required=True,
+    )
+
+
+def check_audio_devices(timeout: float, *, selected: bool) -> Result:
+    return _probe_result(
+        "audio_devices",
+        "audio_devices",
+        timeout,
+        required=selected,
+        selected=selected,
+        false_status="WARN" if not selected else "FAIL",
+    )
+
+
+def check_microphone(enabled: bool, timeout: float) -> Result:
+    if not enabled:
+        return _result(
+            "microphone_probe", "SKIP", "Use --hardware to sample microphone input"
+        )
+    return _probe_result(
+        "microphone_probe",
+        "microphone",
+        timeout,
+        required=True,
+        selected=True,
+    )
+
+
+def check_camera(enabled: bool, timeout: float) -> Result:
+    if not enabled:
+        return _result("camera_probe", "SKIP", "Use --camera to read one camera frame")
+    return _probe_result(
+        "camera_probe", "camera", timeout, required=True, selected=True
+    )
+
+
+def check_playwright(timeout: float) -> Result:
+    return _probe_result("chromium", "chromium", timeout, required=True)
+
+
+def check_dashboard(timeout: float) -> Result:
+    return _probe_result("dashboard", "dashboard", timeout, required=True)
+
+
+def check_runtime_dirs() -> Result:
+    """Use transient files only and never leave missing runtime directories behind."""
+    failed: list[str] = []
+    try:
+        DATA_ROOT.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(prefix=".onyx-readiness-", dir=DATA_ROOT) as tmp:
+            workspace = Path(tmp)
+            for relative in ("config", "memory", "uploads"):
+                directory = DATA_ROOT / relative
+                target = directory if directory.is_dir() else workspace / relative
+                try:
+                    target.mkdir(parents=True, exist_ok=True)
+                    with tempfile.NamedTemporaryFile(prefix=".probe-", dir=target):
+                        pass
+                except OSError:
+                    failed.append(relative)
+    except OSError:
+        failed = ["workspace"]
+    if failed:
+        return _result(
+            "runtime_dirs",
+            "FAIL",
+            "Transient write unavailable: " + ", ".join(failed),
+            required=True,
+        )
+    return _result(
+        "runtime_dirs",
+        "PASS",
+        "Transient config, memory, and upload writes succeeded and were removed",
+        required=True,
+    )
+
+
+def check_optional_tools() -> Result:
+    tools = {"ffmpeg": ffmpeg_command()}
+    system = platform.system()
+    if system == "Windows":
+        tools["PowerShell"] = shutil.which("pwsh") or shutil.which("powershell")
+    elif system == "Darwin":
+        tools["osascript"] = shutil.which("osascript")
+    else:
+        tools.update(
+            {
+                "xdotool": shutil.which("xdotool"),
+                "wmctrl": shutil.which("wmctrl"),
+                "xrandr": shutil.which("xrandr"),
+            }
+        )
+    missing = [name for name, path in tools.items() if not path]
+    if missing:
+        return _result(
+            "optional_tools", "WARN", "Optional tools unavailable: " + ", ".join(missing)
+        )
+    return _result(
+        "optional_tools", "PASS", "Optional tools available: " + ", ".join(tools)
+    )
+
+
+def check_live_api(enabled: bool, timeout: float) -> Result:
+    if not enabled:
+        return _result("live_api", "SKIP", "Use --live-api for a Gemini Live handshake")
+    return _probe_result(
+        "live_api", "live_api", timeout, required=True, selected=True
+    )
+
+
+def check_integrated_voice(enabled: bool, timeout: float) -> Result:
+    if not enabled:
+        return _result("integrated_voice", "SKIP", "Use --integrated-voice for the real microphone to Gemini Live to speaker acceptance test")
+    print("Speak exactly: Onyx readiness check after the tone, then stay silent for at least two seconds.",file=sys.stderr)
+    return _probe_result("integrated_voice","integrated_voice",timeout,required=True,selected=True)
+
+
+def check_voice_transport(enabled: bool, timeout: float) -> Result:
+    if not enabled:
+        return _result("voice_transport", "SKIP", "Use --voice-transport for the manual-VAD physical voice transport diagnostic")
+    print("Speak exactly: Onyx readiness check (after the tone).", file=sys.stderr)
+    return _probe_result("voice_transport", "voice_transport", timeout, required=True, selected=True)
+
+
+def run_checks(
+    *,
+    live_api: bool = False,
+    hardware: bool = False,
+    camera: bool = False,
+    integrated_voice: bool = False,
+    voice_transport: bool = False,
+    timeout: float = 30.0,
+) -> list[Result]:
+    config, config_result = _load_config_shape()
+    return [
+        check_python(),
+        check_platform(),
+        check_runtime_import(timeout),
+        config_result,
+        check_credential(),
+        check_model(config),
+        check_audio_devices(timeout, selected=hardware),
+        check_microphone(hardware, timeout),
+        check_camera(camera, timeout),
+        check_playwright(timeout),
+        check_dashboard(timeout),
+        check_runtime_dirs(),
+        check_optional_tools(),
+        check_live_api(live_api, timeout),
+        check_integrated_voice(integrated_voice, timeout),
+        check_voice_transport(voice_transport, timeout),
+    ]
+
+
+def readiness_state(results: Iterable[Result]) -> dict[str, object]:
+    items = list(results)
+    install = [item for item in items if item.required and not item.selected]
+    selected = [item for item in items if item.selected]
+    install_ready = all(item.status == "PASS" for item in install)
+    by_name = {item.check: item for item in items}
+
+    def passed_selected(check: str) -> bool:
+        item = by_name.get(check)
+        return bool(item and item.selected and item.status == "PASS")
+
+    config_ready = bool(
+        (config := by_name.get("config")) and config.status == "PASS"
+    )
+    integrated_item = by_name.get("integrated_voice")
+    facts = integrated_item.facts if integrated_item else None
+    integrated_facts_valid = bool(
+        isinstance(facts, dict)
+        and facts.get("transcript_matched") is True
+        and facts.get("turn_complete") is True
+        and facts.get("cue_played") is True
+        and facts.get("vad_mode") == "automatic"
+        and facts.get("activity_markers_sent") is False
+        and facts.get("turn_complete_before_stream_end") is True
+        and isinstance(facts.get("mic_bytes_sent"), int)
+        and 0 < facts["mic_bytes_sent"] <= MAX_VOICE_ACCEPTANCE_MIC_BYTES
+        and isinstance(facts.get("mic_bytes_accepted"), int)
+        and facts["mic_bytes_sent"] <= facts["mic_bytes_accepted"] <= MAX_VOICE_ACCEPTANCE_MIC_BYTES
+        and isinstance(facts.get("model_audio_bytes_received"), int)
+        and 0 < facts["model_audio_bytes_received"] <= 144_000
+        and isinstance(facts.get("speaker_frames_written"), int)
+        and 0 < facts["speaker_frames_written"] <= 72_000
+    )
+    integrated_voice_loop_verified = bool(
+        install_ready and passed_selected("integrated_voice") and integrated_facts_valid
+    )
+    transport_item = by_name.get("voice_transport")
+    transport_facts = transport_item.facts if transport_item else None
+    voice_transport_verified = bool(
+        install_ready and transport_item and transport_item.selected
+        and transport_item.status == "PASS" and isinstance(transport_facts, dict)
+        and transport_facts.get("transcript_matched") is True
+        and transport_facts.get("turn_complete") is True
+        and transport_facts.get("cue_played") is True
+        and transport_facts.get("vad_mode") == "manual"
+        and transport_facts.get("activity_markers_sent") is True
+        and isinstance(transport_facts.get("mic_bytes_sent"), int) and transport_facts["mic_bytes_sent"] > 0
+        and isinstance(transport_facts.get("model_audio_bytes_received"), int) and transport_facts["model_audio_bytes_received"] > 0
+        and isinstance(transport_facts.get("speaker_frames_written"), int) and transport_facts["speaker_frames_written"] > 0
+    )
+    selected_probes_verified = (
+        all(
+            item.status == "PASS"
+            and (item.check != "integrated_voice" or integrated_facts_valid)
+            for item in selected
+        )
+        if selected
+        else None
+    )
+    voice_prerequisites_verified = bool(
+        integrated_voice_loop_verified
+        or (
+            install_ready
+            and config_ready
+            and passed_selected("live_api")
+            and passed_selected("audio_devices")
+            and passed_selected("microphone_probe")
+        )
+    )
+    camera_item = by_name.get("camera_probe")
+    camera_verified = bool(
+        camera_item
+        and camera_item.selected
+        and camera_item.status == "PASS"
+    )
+    dashboard_ready = bool(
+        (dashboard := by_name.get("dashboard"))
+        and dashboard.status == "PASS"
+        and install_ready
+    )
+    # Independent probes establish prerequisites only. They do not exercise
+    # Onyx's integrated microphone -> Live API -> speaker loop.
+    operational = bool(integrated_voice_loop_verified and selected_probes_verified is True)
+    ready = operational
+    return {
+        "ready": ready,
+        "install_ready": install_ready,
+        # Keep the old key for readers of schema v2 while exposing the precise name.
+        "selected_ready": selected_probes_verified,
+        "selected_probes_verified": selected_probes_verified,
+        "operationally_verified": operational,
+        "capabilities": {
+            "voice_prerequisites_verified": voice_prerequisites_verified,
+            "core_voice_components_verified": voice_prerequisites_verified,
+            "integrated_voice_loop_verified": integrated_voice_loop_verified,
+            "voice_transport_verified": voice_transport_verified,
+            "camera_verified": camera_verified,
+            "dashboard_ready": dashboard_ready,
+        },
+    }
+
+
+def exit_code(results: Iterable[Result]) -> int:
+    state = readiness_state(results)
+    if state["selected_probes_verified"] is None:
+        return int(not bool(state["install_ready"]))
+    return int(
+        not (
+            bool(state["install_ready"])
+            and bool(state["selected_probes_verified"])
+        )
+    )
+
+
+def render_human(results: list[Result]) -> str:
+    width = max((len(result.check) for result in results), default=0)
+    lines = ["Onyx operational readiness (offline checks are best-effort)"]
+    for result in results:
+        flags = []
+        if result.required:
+            flags.append("required")
+        if result.selected:
+            flags.append("selected")
+        suffix = " " + ",".join(flags) if flags else ""
+        lines.append(
+            f"[{result.status:4}] {result.check:<{width}}  {result.summary}{suffix}"
+        )
+    counts = {
+        status: sum(result.status == status for result in results)
+        for status in STATUSES
+    }
+    state = readiness_state(results)
+    lines.append(
+        "Summary: "
+        + ", ".join(
+            f"{status}={counts[status]}" for status in ("PASS", "WARN", "FAIL", "SKIP")
+        )
+    )
+    lines.append(
+        "Install verdict: " + ("READY" if state["install_ready"] else "NOT READY")
+    )
+    selected_verdict = (
+        "NOT REQUESTED"
+        if state["selected_probes_verified"] is None
+        else ("VERIFIED" if state["selected_probes_verified"] else "NOT VERIFIED")
+    )
+    lines.append("Selected probe verdict: " + selected_verdict)
+    capabilities = state["capabilities"]
+    assert isinstance(capabilities, dict)
+    lines.append(
+        "Capabilities: voice prerequisites="
+        + ("VERIFIED" if capabilities["voice_prerequisites_verified"] else "NOT VERIFIED")
+        + ", camera="
+        + ("VERIFIED" if capabilities["camera_verified"] else "NOT VERIFIED")
+        + ", dashboard="
+        + ("READY" if capabilities["dashboard_ready"] else "NOT READY")
+    )
+    lines.append(
+        "Voice evidence: "
+        + (
+            "INTEGRATED MICROPHONE / LIVE / SPEAKER LOOP VERIFIED"
+            if capabilities["integrated_voice_loop_verified"]
+            else (
+            "COMPONENTS VERIFIED / INTEGRATED VOICE NOT VERIFIED"
+            if capabilities["voice_prerequisites_verified"]
+            else "COMPONENTS NOT VERIFIED / INTEGRATED VOICE NOT VERIFIED"
+            )
+        )
+    )
+    lines.append(
+        "Full voice operational verdict: "
+        + ("VERIFIED" if state["operationally_verified"] else "NOT VERIFIED")
+    )
+    if not state["install_ready"]:
+        overall = "NOT READY; INSTALL BASELINE FAILED"
+        scope = (
+            "installation and selected probes"
+            if state["selected_ready"] is not None
+            else "installation"
+        )
+    elif state["selected_ready"] is None:
+        overall = "INSTALL READY; OPERATION NOT VERIFIED"
+        scope = "installation"
+    elif capabilities["integrated_voice_loop_verified"] and state["selected_ready"] is False:
+        overall = "NOT READY; INTEGRATED VOICE VERIFIED BUT SELECTED SCOPE FAILED"
+        scope = "installation and selected probes"
+    elif state["operationally_verified"]:
+        overall = "READY; INTEGRATED VOICE LOOP VERIFIED"
+        scope = "installation and integrated voice"
+    elif state["selected_ready"]:
+        overall = "INSTALL READY; SELECTED PROBES VERIFIED; OPERATION NOT VERIFIED"
+        scope = "installation and selected probes"
+    else:
+        overall = "NOT READY; SELECTED PROBES FAILED"
+        scope = "installation and selected probes"
+    lines.append(f"Overall verdict ({scope} scope): " + overall)
+    return "\n".join(lines)
+
+
+def render_json(results: list[Result]) -> str:
+    payload = {
+        "schema_version": 4,
+        **readiness_state(results),
+        "results": [asdict(result) for result in results],
+    }
+    return json.dumps(payload, indent=2, sort_keys=True)
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--live-api", action="store_true", help="opt in to a Gemini Live handshake"
+    )
+    parser.add_argument(
+        "--hardware", action="store_true", help="opt in to audio-device and microphone sampling"
+    )
+    parser.add_argument(
+        "--camera", action="store_true", help="opt in to reading one camera frame"
+    )
+    parser.add_argument("--integrated-voice",action="store_true",help="production auto-VAD acceptance: speak promptly during six-second capture, then leave two seconds of silence")
+    parser.add_argument("--voice-transport",action="store_true",help="manual-VAD microphone/API/transcription/speaker diagnostic; never marks operational readiness")
+    parser.add_argument("--json", action="store_true", help="emit machine-readable JSON")
+    parser.add_argument(
+        "--timeout", type=float, default=30.0, help="per-probe timeout in seconds"
+    )
+    return parser
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = build_parser()
+    args = parser.parse_args(argv)
+    if not math.isfinite(args.timeout) or args.timeout <= 0:
+        parser.error("--timeout must be finite and greater than zero")
+    results = run_checks(
+        live_api=args.live_api,
+        hardware=args.hardware,
+        camera=args.camera,
+        integrated_voice=args.integrated_voice,
+        voice_transport=args.voice_transport,
+        timeout=args.timeout,
+    )
+    print(render_json(results) if args.json else render_human(results))
+    return exit_code(results)
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

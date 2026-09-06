@@ -1,0 +1,99 @@
+{
+  "schema": "onyx.phase9.opportunity-scoring.v1",
+  "candidate": "phase9-opportunity-scoring-v1",
+  "created_at": "2026-07-24T23:00:00-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_PHASE9_OPPORTUNITY_SCORING_V1",
+  "enabled_value": "true",
+  "default_off": true,
+  "entry_roots": {
+    "phase9_ingestion_v1_artifact_root_sha256": "977132cea3f9316bb1b7a62ecc4c8368da6f2a12a7e65a62b9d5511a833cbb6a",
+    "decision": "accepted"
+  },
+  "claims": {
+    "transparent_weighted_scoring": true,
+    "fixed_published_weights": true,
+    "cost_dimension_inversion": true,
+    "deterministic_integer_rounding": true,
+    "per_dimension_breakdown": true,
+    "band_ladder_and_low_confidence_flag": true,
+    "batch_ranking": true,
+    "model_assisted_or_learned_weighting": false,
+    "live_source_fetch": false,
+    "autonomous_action_on_score": false,
+    "world_monitor_connector": false,
+    "network_or_model_or_action": false,
+    "live_wiring": false,
+    "phase9_exit": false,
+    "full_onyx_prd_complete": false,
+    "e1_e5_ready": true,
+    "external_e6_accepted": false
+  },
+  "verification": {
+    "test_files": 22,
+    "passed": 454,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "subtests_passed": 80
+  },
+  "effects": {
+    "default_off_import_persistent_writes": 0,
+    "default_off_import_network_calls": 0,
+    "default_off_import_process_calls": 0,
+    "default_off_import_model_calls": 0,
+    "action_dispatches": 0,
+    "live_surface_changes": 0
+  },
+  "limitations": [
+    "Default-off and not wired to V13, startup, voice, UI or dashboard.",
+    "Pure deterministic weighted scorer; performs no network call, model call, persistence or action.",
+    "A score is advisory data only and can never trigger a trade or other side effect.",
+    "Fixed published weights; no model-assisted or learned weighting and no opportunity clustering.",
+    "World Monitor connector remains BLOCKED_BY_LICENSE and is not implemented.",
+    "Phase 9 exit and full Onyx PRD completion remain pending."
+  ],
+  "artifacts": [
+    {
+      "path": "core/phase9_opportunity_scoring_v1.py",
+      "bytes": 9608,
+      "sha256": "7810187a3c75e1a0995c38eb89ea8eb4d5cdb37447b6cedee99549165a3ce287"
+    },
+    {
+      "path": "tests/test_phase9_opportunity_scoring_v1.py",
+      "bytes": 11994,
+      "sha256": "5e91533bb58ee488a68814d66a96201c086564b17522b39d62f584f80d553777"
+    },
+    {
+      "path": "scripts/verify_phase9_opportunity_scoring_v1.py",
+      "bytes": 7682,
+      "sha256": "11926f90009e6b611c3f4a0194d8b77cbd3eca38f479bdfc3c8624c7fe5224ec"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0046-phase9-opportunity-scoring-v1.md",
+      "bytes": 3351,
+      "sha256": "8b835cc9417ad878a7d541e83a3a8163190d5733f2fd6047034f6fe388e6a0e6"
+    },
+    {
+      "path": "docs/onyx/research/PHASE9_OPPORTUNITY_SCORING_V1_SOURCES.md",
+      "bytes": 2289,
+      "sha256": "f452a2bed8a5ea458da1d766bcd1cb1baf4e5028c435325d7ae5717c77601cbd"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase9-opportunity-scoring-v1/PHASE9_OPPORTUNITY_SCORING_V1_CHECKPOINT.md",
+      "bytes": 2667,
+      "sha256": "9ffd51c723aba7c5c7ed8b5306746ffe8aa5dc00fe248274800b1fec7d4bee78"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase9-opportunity-scoring-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 1088,
+      "sha256": "f34d01d2c145b97e575fa1b31c267e28cee87e2aade18d480e5acf2c1f36b4ea"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase9-opportunity-scoring-v1/cumulative-selection.json",
+      "bytes": 2674,
+      "sha256": "cca7ef7e5ae666cddbf8cf7d23139ddb9aad0172f46cd7ed7547d6f4c2e3158e"
+    }
+  ],
+  "artifact_root_sha256": "519d1e40710210dbc4527954964dc9551efc977911b9c9eec03f8b2c38b6c097"
+}

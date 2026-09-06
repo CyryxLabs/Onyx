@@ -1,0 +1,67 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-ONYX-LIVE-ACTIVATION-V10-C002-E6-001",
+  "decision": "accepted",
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "candidate_manifest": "docs/onyx/checkpoints/onyx-live-activation-v10/manifest.json",
+  "candidate_manifest_sha256": "208897c07a24d6fe9e22636cfa42ce5772b17e95fac18e86d9fdbc993b34720e",
+  "evidence_root_sha256": "f42994deaea77f64f4a8870fb397f09790effbb24195ee8dcd7b074ac8e7dcc1",
+  "binding_count": 25,
+  "scope": "windows-default-off-no-live-or-shortcut-write",
+  "results": {
+    "candidate": 29,
+    "external": 8,
+    "files": 25,
+    "seams": 34,
+    "network_calls": 0,
+    "shortcut_writes": 0
+  },
+  "composition": {
+    "predecessor": "accepted-v9-e6-exact",
+    "hud": "accepted-hud-orb-v7-c003-e6-exact",
+    "wiring": "accepted-phase6-live-wiring-v1-e6-exact",
+    "phase5_entry": "accepted-phase5-exit-c2-e6-historical-envelope",
+    "rollback_state": "exact-installed-v9",
+    "non_windows": "delegate-exact-v9"
+  },
+  "concurrency": {
+    "candidate_verifier_parallel_runs": 2,
+    "candidate_verifier_parallel_passed": 2,
+    "pytest_roots": "isolated-per-run"
+  },
+  "new_artifacts": [
+    {
+      "path": "docs/onyx/acceptance/VE-ONYX-LIVE-ACTIVATION-V10-C002-E6-001.md",
+      "sha256": "7a6a927247e082878364931e0a0fc6e7a780bc1bdfffd488692835a12e4d9382"
+    },
+    {
+      "path": "docs/onyx/VE-SOURCE-ONYX-LIVE-ACTIVATION-V10-C002-E6-001.sha256",
+      "sha256": "64cf9a980f1a2fccdfcd83035b7c4f5548a97d30b30fe1bf3eafbaf238458ba8"
+    },
+    {
+      "path": "docs/onyx/VE-ACCEPTANCE-ONYX-LIVE-ACTIVATION-V10-C002-E6-001.sha256",
+      "sha256": "a69eff024ff076a8504f32206ca3f7659d698b9c8023424da360da39eead58c1"
+    },
+    {
+      "path": "scripts/verify_onyx_live_activation_v10_c002_acceptance.py",
+      "sha256": "6517c1ba16c4d8ab02d4b14319e1dc626aee656ea1d8afe22f0519fc396c226b"
+    },
+    {
+      "path": "tests/test_onyx_live_activation_v10_c002_acceptance.py",
+      "sha256": "b0c8eddf0ff0ad2ebcdbb794a9437e7d9a849dadd137bbd39331d7ce4da7956c"
+    }
+  ],
+  "activation": {
+    "master_flag": "ONYX_LIVE_ACTIVATION_V10=1",
+    "wiring_flag": "ONYX_PHASE6_LIVE_WIRING_V1=true",
+    "hud_flag": "ONYX_HUD_V7_LIVE=1",
+    "default_off": true,
+    "live_activated": false,
+    "shortcut_write_performed": false
+  }
+}

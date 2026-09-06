@@ -1,0 +1,34 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-GUILD-EXECUTION-INTENT-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-08-19",
+  "findings": {"P0":0,"P1":0,"P2":0,"P3":0},
+  "candidate_manifest_sha256": "be439c4df9b960128b875298844d1b6eb69d2b01703f2b4346e23ed5f8c67b98",
+  "artifact_root_sha256": "68a4fc775dbdccb0741c0bf69aa5ff786966f4f828f2220ac35ec21efde64e83",
+  "feature_flag": "ONYX_GUILD_EXECUTION_INTENT_V1",
+  "accepted_guild_workflow_root_sha256": "48043deead60aecc926925a191926f785896229026097e1e2048e46916dabfdc",
+  "autopilot_module_sha256": "a5dc26eb034748045a7a69c826a56615f176561006cefd60518d79e4ff8b8430",
+  "results": {"test_files":31,"passed":796,"failed":0,"errors":0,"skipped":17,"subtests_passed":96},
+  "review_history": {
+    "functional": "PASS (autonomous session): autopilot byte-pin denial, forward-only next-stage binding (completed/reordered/unknown rejected), story-run coupling, authority coupling with exclusive owner sets, closed patch-scope grammar (traversal/absolute/backslash/dot rejected), owner-approval mandatory, single open intent per stage — adversarially tested (44 tests); is_dispatchable structurally False, machine-asserted",
+    "integrity": "PASS (autonomous session): artifact root 68a4fc77 and all 8 artifacts recomputed exactly; A9.3 entry-bind byte-exact; autopilot module pin verified at 185,305 bytes",
+    "quality": "PASS (autonomous session): mirrors accepted slice idioms; verifier forbids network/process/dispatch tokens, asserts the autopilot pin and structural non-dispatchability, reproduces the 31-file gate with per-file sum check (796/0/0/17/96)"
+  },
+  "scope_exclusions": [
+    "dispatch / MissionStore coupling — later slice under grants, approval inbox, budgets and kill switch",
+    "sessions, grants, budgets, decommission — A9.5, separately gated",
+    "non-engineering squad packs and any live provider or model call — later gated work",
+    "runtime wiring / action authority — none added",
+    "matrix/ledger documentation updates — batched into the next documentation-authority pass"
+  ],
+  "claims": {
+    "guild_execution_intent_default_off_contract_complete": true,
+    "autopilot_pin_and_forward_only_binding_enforced": true,
+    "dispatch_authority_added": false,
+    "network_or_process_opened": false,
+    "independent_human_review_performed": false,
+    "later_guild_slices_started": false,
+    "full_onyx_prd_complete": false
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P9-LIVE-INGESTION-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-07-25",
+  "findings": {"P0": 0, "P1": 0, "P2": 0, "P3": 1},
+  "candidate_manifest_path": "docs/onyx/checkpoints/phase9-live-ingestion-v1/manifest.json",
+  "candidate_manifest_sha256": "0def1781c9e98c50d6728bfdec54b3866fdd5bb392a89af9ef068ff20bb7ae29",
+  "artifact_root_sha256": "fc1611e4ac1c896a637bab525df0d066e2eecf7f860f8f0766f4312c6f920d6a",
+  "artifacts": 8,
+  "results": {"test_files": 23, "passed": 472, "failed": 0, "errors": 0, "skipped": 8, "explained_platform_skips": 8, "subtests_passed": 80},
+  "review_history": {
+    "functional": "PASS-WITH-CONCERNS remediated: no P1; P2 origin-grammar userinfo escape + P3 path/response/category all fixed and re-verified",
+    "integrity": "PASS: artifact root fc1611e4 recomputed exactly; hermetic (no real network); scoring entry-bind genuine; no predecessor modified",
+    "quality": "PASS-WITH-CONCERNS remediated: 2 P2 mutation-proven gaps (redirect-disable behavioural, real-transport parse/error) + P3 item-cap/response validation closed"
+  },
+  "remediation": {
+    "code": [
+      "strict bare-lowercase-ASCII-host origin grammar (rejects userinfo/port/unicode/empty labels)",
+      "absolute ASCII dot-segment-free path grammar",
+      "route pin also checks hostname==origin, no port, no userinfo",
+      "LiveJsonResponseV1 validates status and payload on construction",
+      "item category attributed from the trusted source, never the feed",
+      "verifier authority scan also forbids named POST / while True idioms"
+    ],
+    "tests": [
+      "opener suppresses redirects (unwiring the no-redirect handler now fails)",
+      "real client success/oversize/HTTPError/URLError decode via a fake opener",
+      "_strict_json size/duplicate-key/non-object/invalid enforcement",
+      "item-cap accepting boundary at exactly MAX",
+      "response-dataclass status/payload validation",
+      "feed category is ignored (source authoritative)",
+      "hardened origin/path grammar rejections"
+    ],
+    "focused_tests_before": 12,
+    "focused_tests_after": 18
+  },
+  "residual_advisory": "Feed-field oversize and missing-value _text branches are exercised only indirectly (empty/NUL cases); the registry >512-entry cap is untested (trivial).",
+  "claims": {
+    "live_ingestion_connector_v1_accepted": true,
+    "route_pinned_https_client": true,
+    "redirects_disabled": true,
+    "hardened_origin_and_path_grammar": true,
+    "source_health_and_category_attributed_from_registry": true,
+    "bounded_response_and_item_count": true,
+    "no_auto_retry": true,
+    "feeds_accepted_ingestion_contract": true,
+    "real_live_fetch_exercised": false,
+    "claim_typing_or_dedup_or_corroboration": false,
+    "opportunity_scoring": false,
+    "world_monitor_connector": false,
+    "mutation_or_action_or_model_or_persistence": false,
+    "live_wiring": false,
+    "phase9_exit": false,
+    "full_onyx_prd_complete": false
+  }
+}

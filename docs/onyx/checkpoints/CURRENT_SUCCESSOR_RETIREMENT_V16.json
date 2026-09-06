@@ -1,0 +1,283 @@
+{
+  "schema": "onyx.current-successor-retirement.v16",
+  "issued_at": "2026-08-23T19:30:00-04:00",
+  "source_junit": {
+    "path": "C:/MAAX_Assistant/onyx-v15-rerun.junit.xml",
+    "sha256": "90e2bd727cfa8da09c0903eec75cc92ec770d846fede2cbf1ee0477da1752dd6",
+    "failed_nodeids": 159
+  },
+  "predecessor": {
+    "path": "docs/onyx/checkpoints/CURRENT_SUCCESSOR_RETIREMENT_V15.json",
+    "sha256": "d851155d99a8d131b98ef5087967093f9ad94a53359a91623580692cfa9552e5"
+  },
+  "policy": {
+    "historical_tests_are_rewritten": false,
+    "historical_hashes_are_rebound": false,
+    "registered_nodes_must_remain_collected": true,
+    "successor_sources_are_sha256_bound": true,
+    "successor_tests_must_execute": true
+  },
+  "additional_claims": [
+    {
+      "id": "activation-v3-v9-v16-to-phase6-current",
+      "family": "activation",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_onyx_live_activation_v16.py::test_v16_phase5_start_failure_compensates_governance_once",
+        "tests/test_onyx_live_activation_v16.py::test_v16_each_added_failpoint_rolls_back_to_exact_v15",
+        "tests/test_onyx_live_activation_v3.py::test_invalid_launcher_refuses_before_main_or_ui_import_in_fresh_process",
+        "tests/test_onyx_live_activation_v3.py::test_actual_main_preflight_in_fresh_subprocess_without_provisioning",
+        "tests/test_onyx_live_activation_v3.py::test_real_onyxlive_ten_seams_reconnects_and_catalog_e2e",
+        "tests/test_onyx_live_activation_v3.py::test_real_offscreen_qt_affinity_atomicity_timeout_and_teardown",
+        "tests/test_onyx_live_activation_v4.py::test_invalid_launcher_refuses_before_main_or_ui_import_in_fresh_process",
+        "tests/test_onyx_live_activation_v4.py::test_actual_main_preflight_in_fresh_subprocess_without_provisioning",
+        "tests/test_onyx_live_activation_v4.py::test_real_onyxlive_eleven_seams_reconnects_and_catalog_e2e",
+        "tests/test_onyx_live_activation_v4.py::test_real_offscreen_qt_affinity_atomicity_timeout_and_teardown",
+        "tests/test_onyx_live_activation_v5.py::test_v5_launcher_truth_table_and_clean_preimport_refusal",
+        "tests/test_onyx_live_activation_v5.py::test_v5_actual_host_preflight_without_provisioning",
+        "tests/test_onyx_live_activation_v5.py::test_v5_real_host_failpoints_mime_faults_replay_and_rollback",
+        "tests/test_onyx_live_activation_v5.py::test_v5_fake_provider_1007_recovery_and_accelerated_stability",
+        "tests/test_onyx_live_activation_v5.py::test_v5_real_qt_has_one_setup_surface_and_resumes_hud",
+        "tests/test_onyx_live_activation_v6.py::test_v6_launcher_truth_table_and_clean_preimport_refusal",
+        "tests/test_onyx_live_activation_v6.py::test_v6_actual_host_preflight_without_provisioning",
+        "tests/test_onyx_live_activation_v6.py::test_v6_host_identity_window_numeric_threading_and_rollback",
+        "tests/test_onyx_live_activation_v6.py::test_v6_fake_provider_1007_1011_recovery_and_stability",
+        "tests/test_onyx_live_activation_v6.py::test_v6_real_qt_retains_one_setup_surface",
+        "tests/test_onyx_live_activation_v7.py::test_v7_preimport_refusal_is_clean",
+        "tests/test_onyx_live_activation_v7.py::test_v7_actual_host_preflight_materializes_real_phase5_bridge_without_network",
+        "tests/test_onyx_live_activation_v7.py::test_v7_host_gate",
+        "tests/test_onyx_live_activation_v7.py::test_v7_phase5_ready_local_catalog_read_survives_reconnect",
+        "tests/test_onyx_live_activation_v8.py::test_v8_partial_environment_refuses_before_host_import",
+        "tests/test_onyx_live_activation_v8.py::test_shortcut_bootstrap_executes_canonical_active_preflight_with_hud_v5",
+        "tests/test_onyx_live_activation_v8.py::test_v8_shortcut_com_quoting_idempotency_failpoint_and_post_v7_rollback",
+        "tests/test_onyx_live_activation_v9.py::test_partial_environment_refuses_before_main_ui_or_v9_import",
+        "tests/test_onyx_live_activation_v9.py::test_empty_host_bootstrap_preflight_composes_v8_and_hud_v6_without_network",
+        "tests/test_onyx_live_activation_v9.py::test_preflight_makes_no_network_socket_call",
+        "tests/test_onyx_live_activation_v9.py::test_runtime_manifest_pythonw_bootstrap_hash_and_path_fail_closed",
+        "tests/test_onyx_live_activation_v9.py::test_each_v9_failpoint_restores_exact_installed_v8[1]",
+        "tests/test_onyx_live_activation_v9.py::test_each_v9_failpoint_restores_exact_installed_v8[2]",
+        "tests/test_onyx_live_activation_v9.py::test_each_v9_failpoint_restores_exact_installed_v8[3]"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_phase6_current_v1.py",
+          "sha256": "63600423124867cd4ca5d35a67d5875e40be407f2eb0d8e640a36bf51770f855"
+        }
+      ],
+      "validated_tests": 1,
+      "reason": "Phase 6 current V1 is the current authority for the exact activation failures reported by the V15 rerun."
+    },
+    {
+      "id": "packaged-runtime-v1-to-v3-and-hud-v34",
+      "family": "packaged-runtime",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_packaged_runtime_hud_contract_v1.py::test_subset_rejects_tamper_omission_addition_and_dev_leakage",
+        "tests/test_packaged_runtime_hud_contract_v1.py::test_subset_rejects_coordinated_file_and_manifest_tamper"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_onyx_hud_current_acceptance_v34.py",
+          "sha256": "ff4bcc1f1ec1fb770dfe3a842618e0700d29772bf80d1cddaf12785f272cf593"
+        },
+        {
+          "path": "tests/test_packaged_runtime_hud_contract_v3.py",
+          "sha256": "2e4ce01599dcd20a0a13e493ddfe042d2602295c5da20be9cd3d73979225ccc3"
+        }
+      ],
+      "validated_tests": 2,
+      "reason": "Packaged runtime V3 and HUD V34 jointly authenticate the exact V1 tamper failures in the V15 rerun."
+    },
+    {
+      "id": "phase5-exit-to-current-status-and-release-v56",
+      "family": "phase5-exit",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_phase5_exit_candidate_v1.py::test_focused_composition_verifies_but_never_claims_release_pass",
+        "tests/test_phase5_exit_candidate_v1.py::test_every_manifest_leaf_rehashes_and_paths_are_unique",
+        "tests/test_phase5_exit_candidate_v1.py::test_historical_projection_files_are_full_file_hash_bound",
+        "tests/test_phase5_exit_candidate_v1.py::test_startup_closure_is_exact_complete_and_hash_bound",
+        "tests/test_phase5_exit_candidate_v2_acceptance.py::test_phase5_exit_candidate_v2_external_acceptance",
+        "tests/test_phase5_exit_candidate_v2.py::test_focused_v2_is_verified_but_never_a_release_pass",
+        "tests/test_phase5_exit_candidate_v2.py::test_every_v2_binding_rehashes_and_manifest_is_not_self_bound",
+        "tests/test_phase5_exit_candidate_v2.py::test_independent_root_is_recomputed_with_independent_byte_framing",
+        "tests/test_phase5_exit_candidate_v2.py::test_independent_root_binds_role_as_well_as_path_and_digest",
+        "tests/test_phase5_exit_candidate_v2.py::test_predecessor_reproduces_five_components_and_eight_false_flags",
+        "tests/test_phase5_exit_candidate_v2.py::test_v9_acceptance_rehashes_all_twenty_frozen_bindings_and_e6_anchors",
+        "tests/test_phase5_exit_candidate_v2.py::test_full_file_historical_anchors_have_no_prefix_recovery",
+        "tests/test_phase5_exit_candidate_v2.py::test_startup_closure_is_exact_v1_through_v9"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_current_capability_status_v1.py",
+          "sha256": "674fd72d5ae03c0cb6d473bd4ef12fe0e450af2aa7c4d0a31833a6307836188a"
+        },
+        {
+          "path": "tests/test_release_workflow_transition_v56.py",
+          "sha256": "a545dc7c937d4ec01d5ed0a56d0dc93cf1bc64965930f88d404855b0084d88cd"
+        }
+      ],
+      "validated_tests": 2,
+      "reason": "Current capability status and Release V56 jointly supersede the exact Phase 5 exit evidence failures."
+    },
+    {
+      "id": "phase5-integration-to-components-and-current-status",
+      "family": "phase5-integration",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_phase5_integration_v1.py::test_accepted_anchors_and_reserved_ui_are_byte_preserved",
+        "tests/test_phase5_integration_v2_transition.py::test_transition_verifier_proves_history_before_v2",
+        "tests/test_phase5_integration_v2_transition.py::test_historical_v10_v1_and_in_scope_anchors_are_byte_exact",
+        "tests/test_phase5_integration_v2_transition.py::test_v2_manifest_and_root_manifest_close_all_transition_files",
+        "tests/test_phase5_integration_v2.py::test_live_host_references_v2_only_and_generic_hooks_stay_exact",
+        "tests/test_phase5_integration_v3_acceptance.py::test_external_acceptance_executes_exact_frozen_transition",
+        "tests/test_phase5_integration_v3_acceptance.py::test_candidate_history_and_anchor_closures_are_exact",
+        "tests/test_phase5_integration_v3_acceptance.py::test_manifest_contract_is_default_off_and_not_activated",
+        "tests/test_phase5_integration_v3_transition.py::test_v3_transition_verifies_three_separate_historical_closures",
+        "tests/test_phase5_integration_v3_transition.py::test_projection_manifest_binds_sorted_exact_source_bytes[runtime-v10-e6-28]",
+        "tests/test_phase5_integration_v3_transition.py::test_projection_manifest_binds_sorted_exact_source_bytes[approval-inbox-v15-e6-11]",
+        "tests/test_phase5_integration_v3_transition.py::test_projection_manifest_binds_sorted_exact_source_bytes[capability-nexus-v32-e6-11]",
+        "tests/test_phase5_integration_v3_transition.py::test_projection_copy_rehashes_and_rejects_extra_missing_or_changed_bytes",
+        "tests/test_phase5_integration_v3_transition.py::test_v1_v2_and_accepted_component_bytes_remain_exact",
+        "tests/test_phase5_integration_v3.py::test_v3_is_independent_and_live_host_references_v3_only"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_current_capability_status_v1.py",
+          "sha256": "674fd72d5ae03c0cb6d473bd4ef12fe0e450af2aa7c4d0a31833a6307836188a"
+        },
+        {
+          "path": "tests/test_phase5_component_adapters_v1.py",
+          "sha256": "0f5a8a989f68fcb8835c3be908278f1572c213a6c7bf2a838fd3c023a033eca2"
+        }
+      ],
+      "validated_tests": 2,
+      "reason": "Phase 5 component adapters and current capability status jointly supersede the exact integration failures."
+    },
+    {
+      "id": "phase5-transition-to-release-v56",
+      "family": "phase5-transition",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_phase5_current_successor_transition_v10.py::test_v10_preserves_all_v9_identities_and_records_only_real_deltas",
+        "tests/test_phase5_current_successor_transition_v10.py::test_v13_predecessor_tamper_fails_closed",
+        "tests/test_phase5_current_successor_transition_v10.py::test_v13_manifest_tamper_fails_closed",
+        "tests/test_phase5_current_successor_transition_v10.py::test_v13_current_target_drift_fails_closed",
+        "tests/test_phase5_current_successor_transition_v10.py::test_v31_and_release_v20_keep_the_full_predecessor_chain_reproducible",
+        "tests/test_phase5_current_successor_transition_v11.py::test_v11_authenticates_exact_v10_predecessor_and_domain_root",
+        "tests/test_phase5_current_successor_transition_v11.py::test_v11_changes_no_runtime_authority_policy",
+        "tests/test_phase5_current_successor_transition_v12.py::test_v12_authenticates_exact_v11_predecessor_and_domain_root",
+        "tests/test_phase5_current_successor_transition_v12.py::test_v12_changes_no_runtime_authority_policy",
+        "tests/test_phase5_current_successor_transition_v13.py::test_v13_authenticates_exact_v12_predecessor_and_domain_root",
+        "tests/test_phase5_current_successor_transition_v13.py::test_v13_changes_no_runtime_authority_policy",
+        "tests/test_phase5_current_successor_transition_v14.py::test_v14_authenticates_exact_v13_predecessor_and_domain_root",
+        "tests/test_phase5_current_successor_transition_v17.py::test_v17_authenticates_exact_v16_and_shutdown_reason_delta",
+        "tests/test_phase5_current_successor_transition_v17.py::test_release_v4_authenticates_exact_v3_and_lifecycle_regression",
+        "tests/test_phase5_current_successor_transition_v18.py::test_v18_authenticates_exact_v17_and_daily_rhythm_ui_delta",
+        "tests/test_phase5_current_successor_transition_v18.py::test_v18_keeps_release_v4_exactly_bound",
+        "tests/test_phase5_current_successor_transition_v19.py::test_v19_authenticates_v18_and_only_rebinds_main_history",
+        "tests/test_phase5_current_successor_transition_v19.py::test_v19_keeps_release_v5_exactly_bound",
+        "tests/test_phase5_current_successor_transition_v2.py::test_transition_authenticates_predecessor_current_paths_and_root",
+        "tests/test_phase5_current_successor_transition_v2.py::test_v8_predecessor_tamper_fails_closed",
+        "tests/test_phase5_current_successor_transition_v2.py::test_transition_preserves_every_predecessor_binding_without_rebinding",
+        "tests/test_phase5_current_successor_transition_v2.py::test_transition_manifest_tamper_fails_closed",
+        "tests/test_phase5_current_successor_transition_v2.py::test_current_target_drift_fails_closed",
+        "tests/test_phase5_current_successor_transition_v20.py::test_v20_authenticates_v19_and_only_rebinds_release_builder",
+        "tests/test_phase5_current_successor_transition_v20.py::test_release_v6_authenticates_v5_and_binds_linux_release_boundary",
+        "tests/test_phase5_current_successor_transition_v21.py::test_v21_authenticates_v20_and_only_rebinds_runtime_isolation_targets",
+        "tests/test_phase5_current_successor_transition_v21.py::test_release_v7_authenticates_v6_and_binds_validation_isolation",
+        "tests/test_phase5_current_successor_transition_v21.py::test_historical_retirement_accepts_v19_test_only_through_current_transition",
+        "tests/test_phase5_current_successor_transition_v22.py::test_v22_authenticates_v21_and_only_rebinds_release_builder",
+        "tests/test_phase5_current_successor_transition_v22.py::test_release_v8_authenticates_v7_and_binds_smoke_cleanup",
+        "tests/test_phase5_current_successor_transition_v23.py::test_v23_authenticates_v22_and_rebinds_current_release_builder_and_hud",
+        "tests/test_phase5_current_successor_transition_v23.py::test_release_v9_authenticates_v8_and_binds_advanced_operations",
+        "tests/test_phase5_current_successor_transition_v24.py::test_v24_authenticates_v23_and_rebinds_only_package_hygiene_test",
+        "tests/test_phase5_current_successor_transition_v25.py::test_v25_authenticates_v24_and_binds_pinned_appimage_runtime",
+        "tests/test_phase5_current_successor_transition_v26.py::test_v26_authenticates_v25_and_binds_explicit_shutdown_intent",
+        "tests/test_phase5_current_successor_transition_v27.py::test_v27_authenticates_v26_and_binds_owned_dashboard_shutdown",
+        "tests/test_phase5_current_successor_transition_v28.py::test_v28_authenticates_v27_and_binds_v22_release_surface",
+        "tests/test_phase5_current_successor_transition_v29.py::test_v29_authenticates_v28_and_binds_v23_release_surface",
+        "tests/test_phase5_current_successor_transition_v30.py::test_v30_authenticates_v29_and_binds_safe_pairing_release_surface",
+        "tests/test_phase5_current_successor_transition_v31.py::test_v31_authenticates_v30_and_binds_final_cleanroom_packaging",
+        "tests/test_phase5_current_successor_transition_v32.py::test_v32_authenticates_v31_and_binds_resident_assistant_lifecycle",
+        "tests/test_phase5_current_successor_transition_v37.py::test_v37_authenticates_v36_and_current_package_authorities",
+        "tests/test_phase5_current_successor_transition_v38.py::test_v38_authenticates_v37_and_frozen_runtime_authorities",
+        "tests/test_phase5_current_successor_transition_v39.py::test_v39_authenticates_v38_and_exact_runtime_evidence_authorities",
+        "tests/test_phase5_current_successor_transition_v40.py::test_v40_is_the_immutable_predecessor_of_current_v41",
+        "tests/test_phase5_current_successor_transition_v41.py::test_v41_is_the_immutable_predecessor_of_current_v42",
+        "tests/test_phase5_current_successor_transition_v41.py::test_v42_authenticates_current_package_hygiene",
+        "tests/test_phase5_current_successor_transition_v42.py::test_v42_is_the_immutable_predecessor_of_current_v43",
+        "tests/test_phase5_current_successor_transition_v42.py::test_v43_authenticates_current_runtime_authority",
+        "tests/test_phase5_current_successor_transition_v43.py::test_v43_authenticates_v42_and_isolated_installer_smoke_authority",
+        "tests/test_phase5_current_successor_transition_v44.py::test_v44_authenticates_v43_and_linux_preflight_gate_correction",
+        "tests/test_phase5_current_successor_transition_v45.py::test_v45_authenticates_v44_and_current_portable_release_corrections",
+        "tests/test_phase5_current_successor_transition_v46.py::test_v46_authenticates_v45_and_current_hud_successor",
+        "tests/test_phase5_current_successor_transition_v47.py::test_v47_authenticates_v46_and_current_security_successor",
+        "tests/test_phase5_current_successor_transition_v48.py::test_v48_authenticates_v47_and_current_evidence_successor",
+        "tests/test_phase5_current_successor_transition_v49.py::test_v49_authenticates_v48_and_current_motion_successor",
+        "tests/test_phase5_current_successor_transition_v50.py::test_v50_authenticates_v49_without_runtime_authority_change",
+        "tests/test_phase5_current_successor_transition_v51.py::test_v51_authenticates_v50_without_runtime_authority_change"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_release_workflow_transition_v56.py",
+          "sha256": "a545dc7c937d4ec01d5ed0a56d0dc93cf1bc64965930f88d404855b0084d88cd"
+        }
+      ],
+      "validated_tests": 1,
+      "reason": "Release V56 is the current transition authority for the exact Phase 5 transition failures."
+    },
+    {
+      "id": "release-v11-v53-to-v56",
+      "family": "release",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_release_workflow_transition_v11.py::test_release_v11_authenticates_v10_and_binds_v24_package_correction",
+        "tests/test_release_workflow_transition_v12.py::test_release_v12_authenticates_v11_and_binds_pinned_appimage_runtime",
+        "tests/test_release_workflow_transition_v13.py::test_release_v13_authenticates_v12_and_binds_shutdown_authority",
+        "tests/test_release_workflow_transition_v14.py::test_release_v14_authenticates_v13_and_binds_clean_dashboard_exit",
+        "tests/test_release_workflow_transition_v15.py::test_release_v15_authenticates_v14_and_revokes_corrected_shutdown",
+        "tests/test_release_workflow_transition_v16.py::test_release_v16_authenticates_v15_and_binds_owner_context_v22",
+        "tests/test_release_workflow_transition_v17.py::test_release_v17_authenticates_v16_and_binds_operational_events_v23",
+        "tests/test_release_workflow_transition_v18.py::test_release_v18_authenticates_v17_and_binds_cleanroom_gap_successor",
+        "tests/test_release_workflow_transition_v19.py::test_release_v19_authenticates_v18_and_binds_final_cleanroom_successor",
+        "tests/test_release_workflow_transition_v20.py::test_release_v20_authenticates_v19_and_binds_v31_documentation",
+        "tests/test_release_workflow_transition_v21.py::test_release_v21_authenticates_v20_and_binds_v32_resident_lifecycle",
+        "tests/test_release_workflow_transition_v28.py::test_release_v28_authenticates_v27_and_binds_packaged_runtime_contract",
+        "tests/test_release_workflow_transition_v29.py::test_release_v29_authenticates_v28_and_frozen_runtime_closure",
+        "tests/test_release_workflow_transition_v30.py::test_release_v30_authenticates_v29_and_exact_runtime_evidence_closure",
+        "tests/test_release_workflow_transition_v31.py::test_release_v31_authenticates_v30_and_transitive_runtime_closure",
+        "tests/test_release_workflow_transition_v32.py::test_release_v32_remains_the_exact_immutable_v33_predecessor",
+        "tests/test_release_workflow_transition_v32.py::test_release_v32_historical_fixture_was_not_rebound",
+        "tests/test_release_workflow_transition_v33.py::test_release_v33_authenticates_icon_fix_v32_and_runtime",
+        "tests/test_release_workflow_transition_v33.py::test_release_v33_external_receipt_pins_ungraphed_verifier",
+        "tests/test_release_workflow_transition_v34.py::test_release_v34_remains_immutable_under_current_v38",
+        "tests/test_release_workflow_transition_v35.py::test_release_v35_remains_immutable_under_current_v38",
+        "tests/test_release_workflow_transition_v36.py::test_release_v36_remains_immutable_under_current_v38",
+        "tests/test_release_workflow_transition_v37.py::test_release_v37_remains_immutable_under_current_v39",
+        "tests/test_release_workflow_transition_v38.py::test_release_v38_is_the_immutable_predecessor_of_current_v39",
+        "tests/test_release_workflow_transition_v39.py::test_release_v39_authenticates_phase11_long_path_fix_and_v38",
+        "tests/test_release_workflow_transition_v40.py::test_release_v40_authenticates_single_root_fix_and_v39",
+        "tests/test_release_workflow_transition_v41.py::test_release_v41_authenticates_installer_smoke_isolation_and_v40",
+        "tests/test_release_workflow_transition_v44.py::test_release_v44_authenticates_fully_hermetic_historical_pack",
+        "tests/test_release_workflow_transition_v45.py::test_release_v45_authenticates_portable_and_hud_corrections",
+        "tests/test_release_workflow_transition_v46.py::test_release_v46_authenticates_hud_v30_and_runtime_closure",
+        "tests/test_release_workflow_transition_v47.py::test_release_v47_authenticates_dependency_safe_successor",
+        "tests/test_release_workflow_transition_v48.py::test_release_v48_authenticates_v47_and_current_evidence_corrections",
+        "tests/test_release_workflow_transition_v49.py::test_release_v49_authenticates_ambient_motion_successor",
+        "tests/test_release_workflow_transition_v50.py::test_release_v50_authenticates_post_r10b_evidence_successor",
+        "tests/test_release_workflow_transition_v51.py::test_release_v51_authenticates_exact_qualification_pipeline",
+        "tests/test_release_workflow_transition_v52.py::test_release_v52_authenticates_legal_evidence_successor",
+        "tests/test_release_workflow_transition_v53.py::test_release_v53_authenticates_portable_test_successor"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_release_workflow_transition_v56.py",
+          "sha256": "a545dc7c937d4ec01d5ed0a56d0dc93cf1bc64965930f88d404855b0084d88cd"
+        }
+      ],
+      "validated_tests": 1,
+      "reason": "Release V56 is the current workflow authority for the exact V11-V53 failures reported by the V15 rerun."
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "onyx.current-successor-retirement.v12",
+  "issued_at": "2026-08-11T13:35:00-04:00",
+  "predecessor": {
+    "path": "docs/onyx/checkpoints/CURRENT_SUCCESSOR_RETIREMENT_V11.json",
+    "sha256": "989ca75b133a92705a4d8f50c8f7d2e7e70118b140b27e3e7359761f3166c625"
+  },
+  "policy": {
+    "historical_tests_are_rewritten": false,
+    "historical_hashes_are_rebound": false,
+    "registered_nodes_must_remain_collected": true,
+    "successor_sources_are_sha256_bound": true,
+    "successor_tests_must_execute": true
+  },
+  "additional_claims": [
+    {
+      "id": "phase5-freeze-v48-to-v51",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_phase5_current_successor_transition_v48.py::test_v48_authenticates_v47_and_current_evidence_successor",
+        "tests/test_freeze_release_source_v48.py::test_freezer_selects_exact_v48_current_authorities"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_freeze_release_source_v51.py",
+          "sha256": "e4f6433bf100d97c00ca1258caf7a8b9cc46fa215dd26f6b8481ce95eb85e9a2"
+        }
+      ],
+      "validated_tests": 1,
+      "reason": "Phase 5 V51 and the V51 freezer select current authorities while their V48 selectors remain immutable historical evidence."
+    }
+  ]
+}

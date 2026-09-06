@@ -1,0 +1,4 @@
+focused: 1916 passed, 0 failed, 0 skipped, 0 errors
+combined V1-V21: 20056 passed, 0 failed, 0 skipped, 0 errors
+regressions: 102 base tests passed; 221 subtests passed
+parent verifier: 23.838 seconds; POSIX immediate ownership and direct fallback bound

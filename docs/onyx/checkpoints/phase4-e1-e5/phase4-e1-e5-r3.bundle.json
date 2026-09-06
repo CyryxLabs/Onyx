@@ -1,0 +1,107 @@
+{
+  "schema_version": 3,
+  "evidence_id": "VE-P4-EXIT-CANDIDATE-R3-001",
+  "captured_at": "2026-07-19T23:15:09.9772162-04:00",
+  "activation": false,
+  "e6_accepted": false,
+  "phase5_unlocked": false,
+  "repository": "C:/MAAX_Assistant/Mark-XLVIII",
+  "git": {
+    "branch": "codex/sealed-jarvis-baseline",
+    "base_head": "b2dc0b21f487013cebec34bb148ffb1aeb02611a",
+    "dirty": true,
+    "tracked_status_porcelain_v1_count": 37,
+    "tracked_status_porcelain_v1_lf_sha256": "639de8290414eed05edcec1dc7cfab353eae8bf6a364769bfd159ab321de247f"
+  },
+  "environment": {
+    "interpreter": ".venv/Scripts/python.exe",
+    "python": "CPython 3.13.7 MSC v.1944 64 bit AMD64",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "pip_freeze_all_count": 127,
+    "pip_freeze_all_canonical_lf_sha256": "a0705b4ef6f637779d2bd7de91627fc3995016bf25c49474e4ab0d45a2b3813c",
+    "dependency_limit": "Installed observation, not a release lock."
+  },
+  "manifest_dag": {
+    "source_manifest_path": "docs/onyx/VE-SCOPE-P4-E1E5-R3-001.sha256",
+    "evidence_artifact_manifest_path": "docs/onyx/VE-ARTIFACTS-P4-E1E5-R3-001.sha256",
+    "bundle_claims_own_hash": false,
+    "bundle_claims_evidence_manifest_hash": false,
+    "bundle_claims_source_manifest_hash": false,
+    "external_source_anchor": false,
+    "rule": "A later E6 record, not this bundle, may externally anchor the source-manifest SHA."
+  },
+  "accepted_dependency": {
+    "r10_manifest": "docs/onyx/VE-SCOPE-P44-R10-001.sha256",
+    "r10_files": 77,
+    "r10_manifest_sha256": "7745fd80ef2f8dda06fffee3a497097cc6c89cae7a1cbc89f514dc07cf88ef4d"
+  },
+  "source_gate": {
+    "invocation": ".venv\\Scripts\\python.exe scripts\\verify_phase4_exit_candidate_r3.py --gate source --output docs\\onyx\\checkpoints\\phase4-e1-e5\\phase4-r3-source.json",
+    "exit": 0,
+    "status": "P4_EXIT_CANDIDATE_R3_SOURCE_OK",
+    "static_closure_files": 44,
+    "static_closure_modules_sha256": "77ff4828ddba925c3a64ef3d6907ee8e63d43d7f59d8e207f32bc0bda3817c1f",
+    "native_vault_present_and_allowed": true,
+    "fresh_subprocess_loaded": ["main", "ui", "dashboard.server", "dashboard.security"],
+    "fresh_subprocess_authority_modules": [],
+    "fresh_subprocess_offline_guarded": true,
+    "selection_nodes": 17,
+    "selection_sources": 8,
+    "artifact": "docs/onyx/checkpoints/phase4-e1-e5/phase4-r3-source.json",
+    "artifact_bytes": 756,
+    "artifact_sha256": "ef568efee65750709ca78d4e28c68726a78bbb9c27c02700c2b1f7261c4686b8"
+  },
+  "proportional_gate": {
+    "invocation": ".venv\\Scripts\\python.exe scripts\\verify_phase4_exit_candidate_r3.py --gate test --junitxml docs\\onyx\\checkpoints\\phase4-e1-e5\\phase4-r3-safety.junit.xml --basetemp .phase4-e1e5-r3-proportional-a --raw-log docs\\onyx\\checkpoints\\phase4-e1-e5\\phase4-r3-pytest.log",
+    "literal_pytest_command": "C:\\MAAX_Assistant\\Mark-XLVIII\\.venv\\Scripts\\python.exe -m pytest -q -p no:cacheprovider --basetemp .phase4-e1e5-r3-proportional-a --junitxml docs\\onyx\\checkpoints\\phase4-e1-e5\\phase4-r3-safety.junit.xml tests/test_phase4_exit_candidate_r3.py tests/test_control_plane.py::ControlPlaneM1aTests::test_corrupt_database_fails_without_replacement tests/test_control_plane.py::ControlPlaneM1aTests::test_existing_mission_memory_and_config_are_never_opened tests/test_workspace_registry.py::WorkspaceRegistryM1bTests::test_flags_off_and_workspace_identity_fail_closed tests/test_mission_context_v4.py::test_corruption_and_unknown_version_fail_closed_without_mission_write tests/test_mission_context_v4.py::test_missing_inactive_unknown_mission_and_explicit_legacy_only tests/test_mission_context_v4.py::test_reopen_restart_and_exact_replay_have_one_revision_event tests/test_mission_context_v4.py::test_reconcile_flag_off_has_no_missionstore_side_effect tests/test_control_plane_v5.py::test_initialize_reopen_and_missing_vault_fail_closed tests/test_control_plane_v5.py::test_action_unknown_requires_explicit_reconciliation tests/test_control_plane_v5.py::test_workspace_mission_isolation_and_bounded_events tests/test_control_plane_v5_adversarial.py::test_unknown_extra_or_missing_schema_object_fails_without_repair tests/test_control_plane_v5_adversarial.py::test_reader_close_failure_preserves_cancellation_identity_and_releases_lock tests/test_mission_evidence_v5.py::test_unknown_outcome_never_blindly_reexecutes tests/test_mission_evidence_v5.py::test_default_off_has_no_audit_tool_or_artifact_side_effect tests/test_mission_evidence_v5_artifacts.py::test_pipeline_cleanup_failure_preserves_primary_cancellation_identity tests/test_mission_evidence_v5_artifacts.py::test_restart_after_pipeline_crash_never_second_dispatch",
+    "result": {
+      "exit": 0,
+      "pytest_passed": 59,
+      "subtests_passed": 6,
+      "junit_tests": 65,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "pytest_seconds": 66.32,
+      "junit_seconds": 66.242,
+      "raw_runner_seconds": 67.189351
+    },
+    "raw_log": "docs/onyx/checkpoints/phase4-e1-e5/phase4-r3-pytest.log",
+    "raw_log_bytes": 1999,
+    "raw_log_sha256": "454857ef1e6699a83039eebb89049408b0f94b9e103cf77c11d78dd130839ab9",
+    "junit": "docs/onyx/checkpoints/phase4-e1-e5/phase4-r3-safety.junit.xml",
+    "junit_bytes": 9546,
+    "junit_sha256": "c8770bbce6dcc9f9cc487cce453b9b3470f8a592db0fe1fcc7077cc86d13398d"
+  },
+  "static_gate": {
+    "invocation": ".venv\\Scripts\\python.exe scripts\\verify_phase4_exit_candidate_r3.py --gate static --raw-log docs\\onyx\\checkpoints\\phase4-e1-e5\\phase4-r3-static.log",
+    "expanded_commands": [
+      ".venv\\Scripts\\python.exe -m ruff check scripts/verify_phase4_exit_candidate_r3.py tests/test_phase4_exit_candidate_r3.py --select F,E9",
+      ".venv\\Scripts\\python.exe -m py_compile scripts/verify_phase4_exit_candidate_r3.py tests/test_phase4_exit_candidate_r3.py",
+      "git diff --check"
+    ],
+    "exit": 0,
+    "duration_seconds": 0.293735,
+    "ruff_seconds": 0.109410,
+    "py_compile_seconds": 0.091935,
+    "diff_check_seconds": 0.092372,
+    "raw_log": "docs/onyx/checkpoints/phase4-e1-e5/phase4-r3-static.log",
+    "raw_log_bytes": 550,
+    "raw_log_sha256": "b172ace6464c6e55eee9a0c551376afe046265c857b68a5f93d1a663eb80d07d"
+  },
+  "verified_claims": [
+    "Exact AUTHORITY_BEARING static closure and guarded current import probe contain no authority module.",
+    "core.native_vault is observed in the closure but is intentionally not authority-bearing.",
+    "Literal authority leaf/module/path tokens deny across aliases, containers, getattr, subscript, Path/open and subprocess cases.",
+    "Every selected test source is in R10 union R3; R3 adds test_control_plane.py and test_workspace_registry.py.",
+    "Synthetic two-manifest DAG and tamper/canonical-format tests pass for every evidence artifact, bundle and both manifests.",
+    "Eight flag readers restore environment; V1 isolated disable preserves raw bytes and reopen preserves logical state."
+  ],
+  "limitations": [
+    "Arbitrarily obfuscated future code is controlled by source-manifest change rejection, not claimed solved by general static analysis.",
+    "No activation, restart, owner write, provider/device/browser/package execution, commit or push occurred.",
+    "The operational UI shutdown/no-traceback observation is separate from this package; root will relaunch before E6 review.",
+    "E6 is false and Phase 5 remains blocked."
+  ],
+  "skips": []
+}

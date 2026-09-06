@@ -1,0 +1,66 @@
+{
+  "schema": "onyx.packaged-runtime-hud-contract.v16",
+  "runtime_inputs": [
+    {
+      "path": "qml/OnyxLiveShellV16.qml",
+      "sha256": "ad4d45cf5e8b52b2e333e93dd128cf3e06a477039dc2b425018bf55e4586e0ea"
+    },
+    {
+      "path": "qml/components/OnyxHumanoidEntityV13.qml",
+      "sha256": "2adda1491630b638d714a055e08346561ae7fd732fb2c6413a6f987721302c89"
+    },
+    {
+      "path": "qml/web/onyx-humanoid-three-v5.html",
+      "sha256": "4f7d9912891af15e139b53c9f19d72b20526d019796c677955ddf4b7dbda3323"
+    },
+    {
+      "path": "qml/web/onyx-humanoid-three-v4.html",
+      "sha256": "70200f01efa8036b9b3cf77cef25aa51a7573b12627a1cf70506e5a4084136e3"
+    },
+    {
+      "path": "ui.py",
+      "sha256": "f9348ac74ac805efddc66faf34eafa8e264c1f82f380361e29ee14e31b42a62a"
+    },
+    {
+      "path": "core/live_voice_preference_v1.py",
+      "sha256": "12506cb9540eed38aa4a04e439d9e32c0d76fc7ddfff4ba49b1d0d41bcaaabfe"
+    },
+    {
+      "path": "core/onyx_hud_current_acceptance_v47.py",
+      "sha256": "9801e50b08f98bbda9b44605e8328bf6c2cf1c99c7df95344bbb5cbcc67e6bc8"
+    },
+    {
+      "path": "docs/onyx/acceptance/VE-HUD-CURRENT-V47-E6-001.manifest.json",
+      "sha256": "6f7f593eff55461b645d9037ce39ee12a597c3088597783fc04a162c7df3aa9b"
+    },
+    {
+      "path": "core/onyx_hud_orb_v17.py",
+      "sha256": "483e71f117e01dc533bf0fb03d7256b51c41cb59b8c76820a802b03eefe451dc"
+    },
+    {
+      "path": "qml/web/data/onyx-humanoid-pointcloud-v1.js",
+      "sha256": "ffd52a2690c79841202eecd1be5c188a2b0976a8954c89f3f7f0712391c42886"
+    }
+  ],
+  "semantics": {
+    "current_presence": "humanoid-presence-v13-transparent",
+    "live_renderer": "three.js-webgl",
+    "primary_layout_changed": false,
+    "setup_surface_changed": false,
+    "palette_changed": false,
+    "humanoid_runtime_changed": true,
+    "voice_pipeline_changed": false,
+    "voice_preference_contract_changed": false,
+    "setup_callback_deferred": true,
+    "setup_request_coalescing": true,
+    "configured_setup_dismissible": true,
+    "first_boot_setup_mandatory": true,
+    "frozen_shortcut_arguments_empty": true,
+    "last_real_frame_continuity": true,
+    "double_buffered_qml_backing": true,
+    "validated_presentation_buffer": true,
+    "transparent_compositor_surface": true,
+    "provider_independent": true,
+    "formal_release_ready": false
+  }
+}

@@ -1,0 +1,295 @@
+{
+  "schema": "onyx.test.r11-projection-retirement.v1",
+  "issued_at": "2026-07-31T00:00:00-04:00",
+  "disposition": "superseded-unreproducible-not-rebound",
+  "policy": {
+    "current_tamper_coverage_required": true,
+    "historical_hashes_are_rebound_to_live_bytes": false,
+    "historical_manifests_remain_immutable": true,
+    "live_mutable_targets_are_historical_authority": false,
+    "missing_historical_bytes_may_be_fabricated": false
+  },
+  "lineage": {
+    "acceptance_manifest": {
+      "path": "docs/onyx/VE-ACCEPTANCE-P51-GRANTS-R11-E6-001.sha256",
+      "sha256": "36fb198e27ebb7e8e8bb97885d8a823d2a291ed573da3d5513d950715b113bb0"
+    },
+    "acceptance_record": {
+      "path": "docs/onyx/acceptance/VE-P51-GRANTS-R11-E6-001.md",
+      "sha256": "ff703416675653b4f1611e7f9ee633fac974c3bdf4225a16d84f302233b824d4"
+    },
+    "artifact_manifest": {
+      "path": "docs/onyx/VE-ARTIFACTS-P51-GRANTS-R11-001.sha256",
+      "sha256": "0253aba6b0fed67bbac6b1eda55ea32a9928f44b036b2fbc0c5daec78e0b33d7"
+    },
+    "source_manifest": {
+      "path": "docs/onyx/VE-SOURCE-P51-GRANTS-R11-001.sha256",
+      "sha256": "b4759d8840611e2affbd322831ae8dc88ff84ac09701a24b4a6f56df66463071"
+    }
+  },
+  "witness": {
+    "path": "docs/onyx/checkpoints/phase5-approval-inbox-v15/phase5-approval-inbox-v15.bundle.json",
+    "sha256": "7334f3abb8345754eb1c027af5139023f3a624d4f4bfe52ad45f004442540734",
+    "field": "materialized_tree.files"
+  },
+  "counts": {
+    "total": 35,
+    "recoverable_exact": 23,
+    "unavailable_tombstoned": 12
+  },
+  "successor": {
+    "authority": false,
+    "contract": "ApprovalInboxProjectionV15",
+    "module": "core/approval_inbox_v15.py",
+    "sha256": "f9627e6b9e840dbca8e098a047e56da4647d24ef80f201c5585a41d405d52061",
+    "use": "current-test-only-integrity-target"
+  },
+  "implementation_successors": [
+    {
+      "path": "scripts/phase5_approval_inbox_v13_historical_projection.py",
+      "historical_sha256": "780170df1a5e7b5147abdcdf66e1d7498bb242d04d548cd75d784584d1b04af0",
+      "git_blob_oid": "388f031d1fbf55eaa3f2a1cc718d68b917d62dc8",
+      "current_sha256": "f916fe8b7481fa6cc807f575d02fe4a22e98f44d3c0f2175b3e9c5da671cc59a",
+      "original_claim": "Approval Inbox V13 projected the live R11 evidence tree as historical authority",
+      "successor_contract": "R11ProjectionRetirement.v1 materialize_r11 and verify_r11"
+    },
+    {
+      "path": "scripts/phase5_approval_inbox_v14_historical_projection.py",
+      "historical_sha256": "e89c7e5dd40ae3c9de0be1de4394caec9b4b8fcdfa6399f110902a1872111a31",
+      "git_blob_oid": "fd4eee71fbe509009f650db9fc35de8dc6b1015a",
+      "current_sha256": "835603214e3f4b8e68890ce30731fe29b5b3ce266e07916af308e7a0d582bcfd",
+      "original_claim": "Approval Inbox V14 projected the live R11 evidence tree as historical authority",
+      "successor_contract": "R11ProjectionRetirement.v1 materialize_r11 and verify_r11"
+    },
+    {
+      "path": "scripts/phase5_approval_inbox_v15_historical_projection.py",
+      "historical_sha256": "e53348cd4fe914a8c22104039c9f568e8db060cfa26246cfc87daed3c8f4783b",
+      "git_blob_oid": "cd206c85490d72cf5a489d1536da994a02b97d5b",
+      "current_sha256": "ed0afa75f1888c371ded1a6e46c6a5e601d01ea4d362fe7a1cb78fac6839dd53",
+      "original_claim": "Approval Inbox V15 projected the live R11 evidence tree as historical authority",
+      "successor_contract": "R11ProjectionRetirement.v1 materialize_r11 and verify_r11"
+    }
+  ],
+  "retired_tests": [
+    "tests/test_approval_inbox_v2.py::test_r11_transitive_tamper_fixture_rejects_v10_before_recursive_execution",
+    "tests/test_approval_inbox_v3.py::test_r11_transitive_tamper_fixture_rejects_v10_before_recursive_execution",
+    "tests/test_approval_inbox_v4.py::test_r11_transitive_tamper_fixture_rejects_v10_before_recursive_execution",
+    "tests/test_approval_inbox_v5.py::test_r11_transitive_tamper_fixture_rejects_v10_before_recursive_execution",
+    "tests/test_approval_inbox_v6.py::test_r11_transitive_tamper_fixture_rejects_v10_before_recursive_execution",
+    "tests/test_approval_inbox_v7.py::test_r11_transitive_tamper_fixture_rejects_v10_before_recursive_execution",
+    "tests/test_approval_inbox_v11.py::test_historical_projection_binds_exactly_two_direct_v9_snapshots",
+    "tests/test_approval_inbox_v11.py::test_unrelated_historical_drift_still_fails_closed"
+  ],
+  "projections": [
+    {
+      "path": "actions/browser_control.py",
+      "historical_sha256": "b1683a2c53b88834d90a28b65183956e62d73df5a7fde815434d56e9cd0d3960",
+      "state": "recoverable-exact",
+      "git_blob_oid": "0efe7525f52897d8c779b8c58b5c23c5396378d6"
+    },
+    {
+      "path": "actions/dev_agent.py",
+      "historical_sha256": "3c322e056c1168b4d2d0b78c8f37f0c4ff1ca9e67363ff3a987a4101094c54c3",
+      "state": "recoverable-exact",
+      "git_blob_oid": "5effd2e013eb4b6d0e194285347a1051e86654df"
+    },
+    {
+      "path": "actions/game_updater.py",
+      "historical_sha256": "ddad8daccb0e34cd734db5bc59ec900912fd23dd73316cf4a86142a5c38fb243",
+      "state": "recoverable-exact",
+      "git_blob_oid": "0de02247f170a642d3f3c04b6e472ef2ce29f362"
+    },
+    {
+      "path": "actions/youtube_video.py",
+      "historical_sha256": "f5eb511d6ca01a36dc5fb2c6dc570743f7adc541999385dd35936cb036d34394",
+      "state": "recoverable-exact",
+      "git_blob_oid": "8d452aca2f345f8ecf7aeeea143c45a0f280f006"
+    },
+    {
+      "path": "core/artifact_service.py",
+      "historical_sha256": "a2b052ae7b4d12883cbe118e011d602bb5af1ba4d9b81711b5869f73d7fc3f76",
+      "state": "recoverable-exact",
+      "git_blob_oid": "429a5cc9acf1902e9b0b9dfba52c5f87f0b4a584"
+    },
+    {
+      "path": "core/control_plane.py",
+      "historical_sha256": "a20f7da96f38444207f38c5f4790f88a473d2656019a4bc9a757820d845dae57",
+      "state": "recoverable-exact",
+      "git_blob_oid": "a269032d80c9ce722a9bca8220f99d522aa5c174"
+    },
+    {
+      "path": "core/installer.py",
+      "historical_sha256": "473607045001f5086a6c205a08ee7e12c2ae64cd7b3abd337cf1050feeaeb953",
+      "state": "recoverable-exact",
+      "git_blob_oid": "043e75dd2c5823bc66b985bbef8a4e8084eb416e"
+    },
+    {
+      "path": "core/ledger_anchor.py",
+      "historical_sha256": "1bb0237dcce478613445fcb5f0dca1d9bc36a60cbe74798d776bd1fae9fb1b8c",
+      "state": "recoverable-exact",
+      "git_blob_oid": "b4822dabe0b120b3cbd8b403136801f83d5397bd"
+    },
+    {
+      "path": "core/live_model.py",
+      "historical_sha256": "57e9b99a31d82a7ed157968a78669b148c877de3cc803616219c6e8406647b72",
+      "state": "recoverable-exact",
+      "git_blob_oid": "601edda7f47df6db06a51a5f65d45cac5ece0a1f"
+    },
+    {
+      "path": "core/missions.py",
+      "historical_sha256": "b8b10acd3f66a1b51e673e664701eb1a6e6f2421254a213df52730225a9765d9",
+      "state": "unavailable-tombstoned",
+      "git_blob_oid": null
+    },
+    {
+      "path": "core/native_vault.py",
+      "historical_sha256": "eed412f59c38d755c15e5db72b415b113b68becebde88ca18bd9fb3bdca9d293",
+      "state": "recoverable-exact",
+      "git_blob_oid": "2b9a754d1b48ae101c7e03b34cfca90788d8a574"
+    },
+    {
+      "path": "core/orb_state.py",
+      "historical_sha256": "89b8c11d6feaa05e1e307fdc6a9f343eb815c8c5234c45af6af9bf4bc438ffbb",
+      "state": "recoverable-exact",
+      "git_blob_oid": "0f1b4dc02cddeba0f3a01a95bebdacbcc8b1351e"
+    },
+    {
+      "path": "core/permission_broker.py",
+      "historical_sha256": "8358ba39d7ff2d965eae7af7c24007f64f4670bef349447737c72e88776cbffc",
+      "state": "unavailable-tombstoned",
+      "git_blob_oid": null
+    },
+    {
+      "path": "core/readiness_probe.py",
+      "historical_sha256": "40039dedef80ad7b55e295cf83c40fd6194e862bdb8e227bdd8ecbfb066d0a66",
+      "state": "recoverable-exact",
+      "git_blob_oid": "e542bb4b25a92a59b9ae20b69952ab92fdbe8677"
+    },
+    {
+      "path": "dashboard/security.py",
+      "historical_sha256": "ac1c71c345295ca774dd92aaff0c90643674713b5cf29cd94d45ebfea66d8dcc",
+      "state": "recoverable-exact",
+      "git_blob_oid": "23b495d2d1085c82ef8647803164e0c56c20d2f1"
+    },
+    {
+      "path": "dashboard/server.py",
+      "historical_sha256": "40543e36af46f0f14533f8f3ca2f6c807f212c5532266ea2a9982e694fe9a712",
+      "state": "unavailable-tombstoned",
+      "git_blob_oid": null
+    },
+    {
+      "path": "dashboard/static/app.html",
+      "historical_sha256": "01a54b6a350afbb4cf0920cd5f20caffa9b050edf82facb56d4621d0029ebe46",
+      "state": "unavailable-tombstoned",
+      "git_blob_oid": null
+    },
+    {
+      "path": "dashboard/static/login.html",
+      "historical_sha256": "59ff3dcd2f4bcd2a1ee10ca23c8621526cc526a26032c41a626d2afb44a48c12",
+      "state": "unavailable-tombstoned",
+      "git_blob_oid": null
+    },
+    {
+      "path": "docs/INSTALLATION.md",
+      "historical_sha256": "978053b1e3fe6e581ee283f97d49e81e7969aa7c2673ff9ccab8ad2ac74358b1",
+      "state": "recoverable-exact",
+      "git_blob_oid": "37c079940712923b2239244c094cd43fe27ab720"
+    },
+    {
+      "path": "docs/onyx/CAPABILITY_MATRIX.md",
+      "historical_sha256": "5a7c9f2c71d770b7a3fb49a511a9d94e59e985dd96d45f40b9ed6b7505ce3e8b",
+      "state": "recoverable-exact",
+      "git_blob_oid": "dc041d12686e6321cfabe1945393a5949f987dee"
+    },
+    {
+      "path": "docs/onyx/CURRENT_STATE_AUDIT.md",
+      "historical_sha256": "3f250eeb7f55315291a37a34d70295bc2f95df59f3f1a3c6d6e9da9fa24848af",
+      "state": "recoverable-exact",
+      "git_blob_oid": "024f79bc4c3ec60b12e1141edfdeffd6457a4d3b"
+    },
+    {
+      "path": "docs/onyx/GAP_ANALYSIS.md",
+      "historical_sha256": "b8ee3538acaad08fff0f4cc8945c9e1eb980c0474ae2a84ae700cc8b053e6275",
+      "state": "recoverable-exact",
+      "git_blob_oid": "9f2d93a283182df7be93154cf7ac108b6a8aa039"
+    },
+    {
+      "path": "docs/onyx/IMPLEMENTATION_ROADMAP.md",
+      "historical_sha256": "8aa91856bd4a726b6a3ce5e34196bfbad23521343330c5d44442ec4e2a5b4174",
+      "state": "recoverable-exact",
+      "git_blob_oid": "c692ccb95a202d9ed7db7f43fc5c3298480d7bab"
+    },
+    {
+      "path": "docs/onyx/OPEN_SOURCE_AND_API_LICENSE_REVIEW.md",
+      "historical_sha256": "d7dc102449f3d7c6a04d6f8a993f3d3b24900c5d2ea72ab9e665d89fb825d640",
+      "state": "unavailable-tombstoned",
+      "git_blob_oid": null
+    },
+    {
+      "path": "docs/onyx/TARGET_ARCHITECTURE.md",
+      "historical_sha256": "88bafced7ae07f2b349128486de4f25fa50f3d6815e7177674f1b8c0fca4595d",
+      "state": "recoverable-exact",
+      "git_blob_oid": "6b20882b5f8e0831415102c3e67e020b4a083ed5"
+    },
+    {
+      "path": "docs/onyx/THREAT_MODEL.md",
+      "historical_sha256": "e1930f324723830eb30c498bdbdc0f75ce4ee32b94abe518c836263880c6625e",
+      "state": "unavailable-tombstoned",
+      "git_blob_oid": null
+    },
+    {
+      "path": "docs/onyx/VERIFICATION_EVIDENCE.md",
+      "historical_sha256": "e8ab4895f1c8c6b61b2a3c97acbeac3149b966003e8a63f2eebe5f954c65ad79",
+      "state": "recoverable-exact",
+      "git_blob_oid": "8d08fe80e362e30104a102d243350e076d627bad"
+    },
+    {
+      "path": "main.py",
+      "historical_sha256": "8ca34d65b368549531a3b2aa9f1bd49d46a8ea651e7d6035edc55b505f705a80",
+      "state": "unavailable-tombstoned",
+      "git_blob_oid": null
+    },
+    {
+      "path": "packaging/onyx.spec",
+      "historical_sha256": "2ab5ade541b6cd8b9c6edcd52320535d7cad912d150169156810330c577506b3",
+      "state": "recoverable-exact",
+      "git_blob_oid": "d8197561595d0a1e685558533a32a8974e72e332"
+    },
+    {
+      "path": "packaging/windows/onyx.iss",
+      "historical_sha256": "b3326de599c2ebf13f0ba79452e68e6c373fecb1d94cc318626de9c0a0fd4392",
+      "state": "recoverable-exact",
+      "git_blob_oid": "fd21ed6f540d92cdbf373d7ded082623bb3c22c2"
+    },
+    {
+      "path": "plans/onyx-advanced-entity-redesign.md",
+      "historical_sha256": "4d71f07483173d501562e68561eb43da66092c576110491345f6f12fb4569af2",
+      "state": "unavailable-tombstoned",
+      "git_blob_oid": null
+    },
+    {
+      "path": "readme.md",
+      "historical_sha256": "c49f17a6870a342bbc94215b5753af7d26744d6832b7c6e40c8639ebf327bf5a",
+      "state": "unavailable-tombstoned",
+      "git_blob_oid": null
+    },
+    {
+      "path": "scripts/build_release.py",
+      "historical_sha256": "1d06830f743c818fb89fc6571efa971a35a9a46f005661b4d9cb6c6e6ab2c5e3",
+      "state": "recoverable-exact",
+      "git_blob_oid": "9d866956e3a940fa221fdd6cff6af40bec53e8bc"
+    },
+    {
+      "path": "scripts/generate_icons.py",
+      "historical_sha256": "a79769767c23d1a258f437640520b88f4c58d2365a23735d271b734cf55e1b95",
+      "state": "unavailable-tombstoned",
+      "git_blob_oid": null
+    },
+    {
+      "path": "ui.py",
+      "historical_sha256": "60bea0ac313efa7c77dfbc1e3bffec885a0dad010b6f3e9e332761d6cd0de043",
+      "state": "unavailable-tombstoned",
+      "git_blob_oid": null
+    }
+  ]
+}

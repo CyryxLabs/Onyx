@@ -1,0 +1,18 @@
+EXIT 0
+DURATION_SECONDS 0.318743
+COMMAND C:\MAAX_Assistant\Mark-XLVIII\.venv\Scripts\python.exe -m ruff check scripts/verify_p44_scope_r11.py scripts/verify_phase4_exit_candidate_r4.py tests/test_desktop_shortcut.py tests/test_phase4_exit_candidate_r4.py --select F,E9
+EXIT 0
+DURATION_SECONDS 0.126034
+STDOUT
+All checks passed!
+STDERR
+COMMAND C:\MAAX_Assistant\Mark-XLVIII\.venv\Scripts\python.exe -m py_compile scripts/verify_p44_scope_r11.py scripts/verify_phase4_exit_candidate_r4.py tests/test_desktop_shortcut.py tests/test_phase4_exit_candidate_r4.py
+EXIT 0
+DURATION_SECONDS 0.103613
+STDOUT
+STDERR
+COMMAND git diff --check
+EXIT 0
+DURATION_SECONDS 0.089079
+STDOUT
+STDERR

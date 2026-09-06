@@ -1,0 +1,60 @@
+{
+  "schema": "onyx.owner-profile-candidate-bundle.v3",
+  "candidate": "owner-profile-v3",
+  "created_at": "2026-07-22",
+  "bundle_root": "docs/onyx/checkpoints/owner-profile-v3",
+  "isolated": true,
+  "default_off": true,
+  "live_wired": false,
+  "files": [
+    {
+      "path": "core/owner_profile_v3.py",
+      "sha256": "abf5e990b875a4ed04e9e9fed15eb550f972facf02b060683aa1e3abe88e4d16"
+    },
+    {
+      "path": "tests/test_owner_profile_v3.py",
+      "sha256": "f327a01f7d82a5df2d5e05d2bde70e3b89f06c6c4f69011e0ee257521033fe38"
+    }
+  ],
+  "historical_rejected": [
+    {
+      "candidate": "owner-profile-v1",
+      "core_sha256": "b2296227bb165f32117978e234519430af15838ad757104eeba08b8b7751b754",
+      "tests_sha256": "fafdf46a0a716f09aca81668ffda0b566af369be4d89095dc1be0a02209ee035"
+    },
+    {
+      "candidate": "owner-profile-v2",
+      "core_sha256": "12c459c1d34376a121e7a837d6dbeca365967c69affdc12b7d3e18ea1c76cd73",
+      "tests_sha256": "76f0481f91b82b650ece00d86ad0bfffe21fa4020e46d8e3dcaaaf7e36832714"
+    }
+  ],
+  "verification": {
+    "focused_v3": {
+      "passed": 10,
+      "failed": 0
+    },
+    "cumulative_v1_v2_v3_memory_store": {
+      "passed": 68,
+      "subtests_passed": 15,
+      "failed": 0
+    },
+    "ruff": "pass",
+    "py_compile": "pass",
+    "live_surface_imports": 0
+  },
+  "rejection_closure": {
+    "durable_pre_config_recovery_marker": true,
+    "compensation_required_before_config_write": true,
+    "post_commit_config_set_and_forget_recovered": true,
+    "both_stores_compensated_and_read_back": true,
+    "restart_recovery_prevents_failed_operation_adoption": true,
+    "structured_rollback_stage_and_root_type": true,
+    "incomplete_compensation_remains_degraded": true
+  },
+  "limitations": [
+    "candidate-only; no live wiring",
+    "durable recovery protocol, not a native distributed transaction",
+    "recovery waits fail-closed for preference memory availability",
+    "independent functional, integrity, and quality review pending"
+  ]
+}

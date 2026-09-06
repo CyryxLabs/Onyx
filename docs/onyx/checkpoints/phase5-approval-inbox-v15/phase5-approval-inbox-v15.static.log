@@ -1,0 +1,9 @@
+V15 deterministic internal static gate
+OK compile+ast+whitespace core/approval_inbox_v15.py
+OK compile+ast+whitespace tests/test_approval_inbox_v15.py
+OK compile+ast+whitespace scripts/build_phase5_approval_inbox_v15_evidence.py
+OK compile+ast+whitespace scripts/phase5_approval_inbox_v15_child.py
+OK compile+ast+whitespace scripts/phase5_approval_inbox_v15_historical_projection.py
+OK compile+ast+whitespace scripts/verify_phase5_approval_inbox_v15.py
+OK compile+ast+whitespace scripts/verify_phase5_approval_inbox_v15_worker.py
+OK compile+ast+whitespace scripts/check_phase5_approval_inbox_v15_whitespace.py

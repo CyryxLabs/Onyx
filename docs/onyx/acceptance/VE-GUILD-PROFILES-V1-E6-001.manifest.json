@@ -1,0 +1,32 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-GUILD-PROFILES-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-08-17",
+  "findings": {"P0":0,"P1":0,"P2":0,"P3":0},
+  "candidate_manifest_sha256": "59987cbf6ce2c3ed27ffac0e40288b8df9f3c29a66f64e9ecccd39aff3bb132a",
+  "artifact_root_sha256": "818196ac6bd2048bbfe5218d0e576b392b07aa1005816b6f4b867f3ee9bbc09d",
+  "feature_flag": "ONYX_GUILD_PROFILES_V1",
+  "accepted_content_draft_root_sha256": "59308ada89f691443238644bdb18b7bc29aa66a61365b95908bc5631d8b8d449",
+  "results": {"test_files":28,"passed":674,"failed":0,"errors":0,"skipped":17,"subtests_passed":96},
+  "review_history": {
+    "functional": "PASS (autonomous session): constitutional Article II floor (exact owner sets, under/over-claim rejected), one-claim exclusivity with leak rejection, closed delegation graph (unknown/self/unheld rejected), byte-pinned provenance (tamper rejected) and sealed construction enforced + adversarially tested (48 tests); no orchestration surface, machine-asserted",
+    "integrity": "PASS (autonomous session): artifact root 818196ac and all 8 candidate artifacts recomputed exactly; content-draft entry-bind byte-exact; predecessor chain reproduced through the documented provider-connector current successor; two predecessor findings discovered en route were remediated forward-only with no accepted byte rewritten",
+    "quality": "PASS (autonomous session): mirrors accepted Phase 9/10 slice idioms (sealed factory, entry-bind, frozen dataclasses, byte-bounded text contract); verifier forbids network/process/dispatch authority tokens, checks the constitutional floor constant, and reproduces the 28-file gate with per-file sum check (674/0/0/17/96)"
+  },
+  "scope_exclusions": [
+    "orchestration / workflow execution / dispatch — no such surface exists; later guild slices (A9.2-A9.5)",
+    "sessions, grants, budgets, decommission mechanism — later gated slices",
+    "non-engineering squad packs and any live provider or model call — later gated work",
+    "runtime wiring / action authority — none added"
+  ],
+  "claims": {
+    "guild_profiles_default_off_contract_complete": true,
+    "constitutional_floor_and_exclusivity_enforced": true,
+    "orchestration_or_dispatch_authority_added": false,
+    "network_or_process_opened": false,
+    "independent_human_review_performed": false,
+    "later_guild_slices_started": false,
+    "full_onyx_prd_complete": false
+  }
+}

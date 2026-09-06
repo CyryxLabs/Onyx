@@ -1,0 +1,16 @@
+{
+  "active_host_cpu_percent": 0.5851777783254598,
+  "active_target_fps": 16,
+  "graphics_api": "GraphicsApi.Direct3D11Rhi",
+  "hidden_host_cpu_percent": 0.04171934978724512,
+  "hidden_target_fps": 0,
+  "idle_host_cpu_percent": 0.09581097375918032,
+  "idle_target_fps": 0,
+  "quick_widgets": 1,
+  "renderer_mode": "qml-v7-cinematic",
+  "resolution": [
+    1440,
+    900
+  ],
+  "root_object": "onyxLiveShellV7Root"
+}

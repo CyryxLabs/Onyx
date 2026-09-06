@@ -1,0 +1,36 @@
+{
+  "schema": "onyx.current-successor-retirement.v29",
+  "issued_at": "2026-08-25T03:30:00-04:00",
+  "predecessor": {
+    "path": "docs/onyx/checkpoints/CURRENT_SUCCESSOR_RETIREMENT_V28.json",
+    "sha256": "040af71d581b060d3421ef83dcd8d3ceb44b2e3815dd4c27b15dda1b0690b1e5"
+  },
+  "policy": {
+    "historical_tests_are_rewritten": false,
+    "historical_hashes_are_rebound": false,
+    "registered_nodes_must_remain_collected": true,
+    "successor_sources_are_sha256_bound": true,
+    "successor_tests_must_execute": true,
+    "exact_nodeids_only": true,
+    "v29_precedes_v28_on_overlap": true,
+    "recursive_successor_chains_are_converged": true
+  },
+  "additional_claims": [
+    {
+      "id": "phase5-freeze-v48-and-release-v69-to-v70",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_release_workflow_transition_v69.py::test_release_v69_authenticates_converged_phase5_authority",
+        "tests/test_freeze_release_source_v48.py::test_freezer_selects_exact_v48_current_authorities"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_release_workflow_transition_v70.py",
+          "sha256": "5a9b354b3f10a8a1c277c1fdd2ec9fbd897150ea637cda6434d43108217f6e9a"
+        }
+      ],
+      "validated_tests": 2,
+      "reason": "V70 converges the exact recursive V48 freezer node directly to current authority while the historical node remains collected."
+    }
+  ]
+}

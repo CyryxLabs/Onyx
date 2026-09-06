@@ -1,0 +1,29 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Reviewed V101 historical synthetic checkpoint receipts"
+paths = [
+  '''docs/onyx/checkpoints/phase5-(?:approval-inbox|capability-nexus|grants-)''',
+]
+
+[[allowlists]]
+description = "Reviewed V101 synthetic security canaries and immutable reconstruction blob"
+paths = [
+  '''tests/test_(?:capability_nexus_v1|continuous_learning_v1|control_plane_v5_adversarial|official_messaging_v1|phase11_project_autopilot_v1|phase5_runtime_v(?:4|5|6|9|10)|phase6_agentic_core_v6|phase7_approved_sources_v1)\.py$''',
+  '''tests/fixtures/r11_historical_blobs_v1\.zip''',
+]
+
+[[allowlists]]
+description = "Reviewed non-secret identifiers, hashes, examples and encoded humanoid geometry"
+paths = [
+  '''core/dayops_profile_v19\.py$''',
+  '''docs/onyx/GAP_ANALYSIS\.md$''',
+  '''docs/stories/ONYX-REL-1\.1\.9-P0-LAZY-EXTERNAL-AGENT-STARTUP\.md$''',
+  '''qml/web/data/onyx-humanoid-pointcloud-v1\.js$''',
+  '''vendor/aexos-engine-5\.3\.0/engine/docs/framework/coding-standards\.md$''',
+  '''vendor/aexos-engine-5\.3\.0/engine/docs/guides/(?:llm-routing|security-hardening)\.md$''',
+  '''vendor/aexos-engine-5\.3\.0/engine/packages/installer/tests/unit/config-validator\.test\.js$''',
+  '''vendor/aexos-engine-5\.3\.0/engine/squads/apex/tasks/apex-discover-security\.md$''',
+  '''vendor/aexos-engine-5\.3\.0/engine/squads/squad-creator/(?:data/squad-kb|checklists/squad-checklist)\.md$''',
+]

@@ -1,0 +1,101 @@
+{
+  "schema": "onyx.phase7.workspace-memory.v1",
+  "candidate": "phase7-workspace-memory-v1",
+  "created_at": "2026-07-23T15:43:03-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_PHASE7_WORKSPACE_MEMORY_V1",
+  "enabled_value": "true",
+  "default_off": true,
+  "phase6_entry_root": {
+    "acceptance_id": "VE-P6-EXIT-CANDIDATE-V1-E6-001",
+    "candidate_manifest_sha256": "6c32277bcbf17130eb60103538de6b58966a43dcd6b30a12c2aaf1e2e4b6493d",
+    "acceptance_record_sha256": "6e3fa587a55be54dc9da3db03e56d01fa0ad8197284b9c1f012e2d4c80e75d21",
+    "acceptance_metadata_sha256": "148505d6f49cf297aa6cc55b5eee0a2ac2bde5a2d9ac81051d865de470c4501d",
+    "acceptance_anchor_sha256": "2da850020ec9ac60ebfb2bdc652bb1cd4d14b61cbd19a6214291d10bba760877"
+  },
+  "claims": {
+    "workspace_memory_v1_implemented": true,
+    "pre_ranking_hard_filters": true,
+    "read_only": true,
+    "e1_e5_ready": true,
+    "external_e6_accepted": false,
+    "live_wiring": false,
+    "phase7_exit": false,
+    "company_graph_implemented": false,
+    "founder_brief_implemented": false,
+    "full_onyx_prd_complete": false
+  },
+  "verification": {
+    "test_files": 5,
+    "passed": 77,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 1,
+    "explained_platform_skips": 1,
+    "subtests_passed": 73,
+    "ruff_lint": "passed",
+    "ruff_format": "passed",
+    "py_compile": "passed"
+  },
+  "effects": {
+    "persistent_writes": 0,
+    "network_calls": 0,
+    "provider_calls": 0,
+    "process_calls": 0,
+    "live_calls": 0,
+    "legacy_search_calls": 0,
+    "legacy_list_calls": 0
+  },
+  "rollback": {
+    "kind": "default-off-additive-read-only",
+    "application_restart_required": false,
+    "migration_required": false,
+    "legacy_store_changed": false,
+    "control_plane_schema_changed": false
+  },
+  "limitations": [
+    "The candidate is default-off, not wired into startup, voice, UI, dashboard, or V13.",
+    "V1 retrieves approved existing MemoryStore rows only when exact signed sidecar metadata authorizes them.",
+    "Restricted content, cross-workspace union, metadata writes, candidate promotion, supersession, contradiction, graph, and Founder Brief are excluded.",
+    "One Windows FIFO security test is skipped because the platform does not provide POSIX FIFO creation; all Windows-relevant checks pass.",
+    "Phase 7 exit and full Onyx PRD completion are not claimed."
+  ],
+  "artifacts": [
+    {
+      "path": "core/phase7_workspace_memory_v1.py",
+      "bytes": 37289,
+      "sha256": "290e8f1b4d1d71fb30f98b5d5da928962cfa4ab69e273fe4dbdeaebbd851a66e"
+    },
+    {
+      "path": "tests/test_phase7_workspace_memory_v1.py",
+      "bytes": 16960,
+      "sha256": "d814a0743e17934ef0e2dc65d4f1505d7a576aaab9c6a20073f6858fcdf4cbd4"
+    },
+    {
+      "path": "scripts/verify_phase7_workspace_memory_v1.py",
+      "bytes": 11866,
+      "sha256": "da2260d17dc5d17457201e1f674aee72d4f66ef2ea626f513d9514360effcb09"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0029-phase7-workspace-memory-v1.md",
+      "bytes": 3253,
+      "sha256": "69df955f488dd4d773052df24b81aa77fba6dc9a9e09b80614e7e35ccac3ff24"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase7-workspace-memory-v1/PHASE7_WORKSPACE_MEMORY_V1_CHECKPOINT.md",
+      "bytes": 3320,
+      "sha256": "eaa2e3057a422db2265f9ac4a260e975666df949e4ec47c70926151f26f60e3e"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase7-workspace-memory-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 819,
+      "sha256": "6c923a3ee9be30a0f14856b01f1fdbdadaf5c3776bf3aef12b55c8e001a2b4ac"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase7-workspace-memory-v1/cumulative-selection.json",
+      "bytes": 1199,
+      "sha256": "e24fb38c5d5bf009ddc5e05b02d4c5c84e48c26fa35b37127ec86df67642c038"
+    }
+  ],
+  "artifact_root_sha256": "fafe2c2fb2c0d0f55f0ce6fc6824b71a93c42f3527565449986e90ba1fb09f95"
+}

@@ -1,0 +1,37 @@
+{
+  "schema": "onyx.hud.current.v44.acceptance.v1",
+  "candidate": "onyx-hud-v18-setup-event-loop-stability-001",
+  "decision": "accepted-source",
+  "current_root": "qml/OnyxLiveShellV15.qml",
+  "runtime_inputs": [
+    {"path": "qml/OnyxLiveShellV15.qml", "sha256": "f8b914e93a3438f8a7f94052a1ad85aad40b7f963b6acc88dc17a6be69edae02"},
+    {"path": "qml/components/OnyxHumanoidEntityV12.qml", "sha256": "3fdd312fe2e606c1e296d08c8c34747e0814d02fa12a713615b4333e8058116e"},
+    {"path": "qml/web/onyx-humanoid-three-v3.html", "sha256": "0a4e603097b5a54e33e28675896d0618c792877e983d1c4c7cd923f290c43ae0"},
+    {"path": "qml/web/onyx-humanoid-three-v2.html", "sha256": "27eaf0ebe3981f28d9ab9c44e176d7e3fd20dba4bd10bd72b45d33873ba35370"},
+    {"path": "core/onyx_hud_orb_v16.py", "sha256": "40388959bf7d43e7b8efd7a6c3e4beaf5dd2eb0f4d39015da869928f70363c06"},
+    {"path": "ui.py", "sha256": "adeefd50b13ca5a4331a4fc46d34c74a447a6b1fbb8617fb33ec2459a8d2ec9c"},
+    {"path": "core/live_voice_preference_v1.py", "sha256": "12506cb9540eed38aa4a04e439d9e32c0d76fc7ddfff4ba49b1d0d41bcaaabfe"},
+    {"path": "qml/web/data/onyx-humanoid-pointcloud-v1.js", "sha256": "ffd52a2690c79841202eecd1be5c188a2b0976a8954c89f3f7f0712391c42886"},
+    {"path": "qml/web/vendor/three/three.module.min.js", "sha256": "e2b5ee6bccd38fd6d8a2428546b83c5f2426d84b152ef82be8055556e3b40eb6"},
+    {"path": "qml/web/vendor/three/three.core.min.js", "sha256": "61ba0df005b05991361d040d8ff670e1aadfd0ce7aeebd1fdb0725957a8957de"}
+  ],
+  "semantics": {
+    "primary_layout_changed": false,
+    "setup_surface_changed": false,
+    "palette_changed": false,
+    "humanoid_anatomy_changed": false,
+    "humanoid_runtime_changed": false,
+    "voice_pipeline_changed": false,
+    "voice_preference_contract_changed": false,
+    "setup_callback_deferred": true,
+    "setup_request_coalescing": true,
+    "live_renderer": "three.js-webgl",
+    "last_real_frame_continuity": true,
+    "double_buffered_qml_backing": true,
+    "validated_presentation_buffer": true,
+    "transparent_compositor_surface": true,
+    "readiness_retry": true,
+    "network_activity": false,
+    "published": false
+  }
+}

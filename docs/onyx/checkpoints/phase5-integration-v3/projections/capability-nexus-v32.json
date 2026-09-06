@@ -1,0 +1,54 @@
+{
+  "schema": "onyx.phase5.historical-execution-closure.v1",
+  "closure": "capability-nexus-v32-e6",
+  "entrypoint": "scripts/verify_phase5_capability_nexus_v32_acceptance.py",
+  "execution_mode": "verify-run_parent-false",
+  "files": [
+    {
+      "path": "docs/onyx/CAPABILITY_MATRIX.md",
+      "sha256": "2ba2507ccbf4ff5cae4a38609366f2c547bf47446527cf14ded3636806c10a87"
+    },
+    {
+      "path": "docs/onyx/VE-ACCEPTANCE-P53-CAPABILITY-NEXUS-V32-E6-001.sha256",
+      "sha256": "b1e181bf76d8d88b8428bb912bfaabdbdf6ec54c27d9fbc05d998b195a253d51"
+    },
+    {
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V31-001.sha256",
+      "sha256": "e332c904fac7fe9f53cd976210637fbb1a3b8aa74d55e828c95aa9ca448bc3ed"
+    },
+    {
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V32-001.sha256",
+      "sha256": "3d32ebf989f198534377d35c0ffc8c1f3abf10c8aa001f24406c355bafff0249"
+    },
+    {
+      "path": "docs/onyx/VE-SOURCE-P53-CAPABILITY-NEXUS-V31-001.sha256",
+      "sha256": "1fe65cb6c5e238c7b1066c72dbcab9d5967e3c8fc9d9055aa56cc30d0e4b888d"
+    },
+    {
+      "path": "docs/onyx/VE-SOURCE-P53-CAPABILITY-NEXUS-V32-001.sha256",
+      "sha256": "86cc174fb212f51c56b59cb9043c8cb59e765307eea2c32a7a44857f6112bfa3"
+    },
+    {
+      "path": "docs/onyx/VERIFICATION_EVIDENCE.md",
+      "sha256": "7f1d216fc8fb5e9b02f40b1bab21c80c79746c2dcc1171df4829708494e4a2ad"
+    },
+    {
+      "path": "docs/onyx/acceptance/VE-P53-CAPABILITY-NEXUS-V32-E6-001.md",
+      "sha256": "b75ccb2b4bc58a4c4d72445d46eb66e550636cbb0deb02ecef304c8327f9d1dc"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase5-capability-nexus-v32/phase5-capability-nexus-v32.bundle.json",
+      "sha256": "84ffc850a14782ae3f4182973acc50a2765df7f6143977a81daf5423c6706c6f"
+    },
+    {
+      "path": "scripts/verify_phase5_capability_nexus_v32_acceptance.py",
+      "sha256": "cd12e0aa97b97b39f7f8724b7df5ef3d6d561a77a5eba3d718833591a22a2f95"
+    },
+    {
+      "path": "tests/test_capability_nexus_v32_acceptance.py",
+      "sha256": "bad2a161bd684a313e0b999a7c57dd9d30d485a04eab9d6a9f94089862821e2c"
+    }
+  ],
+  "closure_root_sha256": "17946d71960d5f08ae2b6979e3ab23ee255ccca2e6bf6e22153d07acffe65bb1"
+}
+

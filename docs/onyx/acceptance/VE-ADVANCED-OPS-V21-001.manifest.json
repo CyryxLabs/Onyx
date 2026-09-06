@@ -1,0 +1,55 @@
+{
+  "schema": "onyx.advanced-operations-source-acceptance.v3",
+  "evidence_id": "VE-ADVANCED-OPS-V21-001",
+  "status": "source_candidate",
+  "predecessor": {
+    "path": "docs/onyx/acceptance/VE-ADVANCED-OPS-V20-001.manifest.json",
+    "sha256": "b3e0a1c930d51f8e6b0b8badb0c4f859ce5c1bf683483c9c1cf851a04aab1034"
+  },
+  "domain": "ONYX-ADVANCED-OPS-SOURCE-V21",
+  "root_sha256": "c86edde8f76a35d7ac23c8586c0769152af45aa1f7413a5bacbde254e3355dff",
+  "policy": {
+    "accepted_runtime_engine_replaced": false,
+    "phase6_authority_replaced": false,
+    "voice_provider_or_voice_changed": false,
+    "mutable_state_inside_application_tree": false,
+    "owner_private_runtime_required": true,
+    "historical_v10_function_restored_after_activation": true,
+    "diagnostic_credentials_are_ephemeral": true,
+    "smoke_cleanup_runs_on_failure": true,
+    "reference_source_or_branding_copied": false,
+    "idle_screen_or_clipboard_polling_added": false
+  },
+  "validation": {
+    "focused_command": ".venv-release-v16/Scripts/python.exe -m pytest -q --noconftest tests/test_smoke_credential_cleanup_v1.py tests/test_context_graph_v1.py tests/test_event_awareness_v1.py tests/test_workflow_graph_v1.py tests/test_governed_automation_v1.py tests/test_automation_adapters_v1.py tests/test_native_workspace_events_v1.py tests/test_advanced_operations_live_v1.py tests/test_advanced_operations_controller_v1.py tests/test_advanced_operations_ui_v1.py tests/test_onyx_live_activation_v21.py tests/test_live_voice_continuity_v1.py tests/test_live_audio_stream_ownership_v1.py",
+    "focused_passed": 91,
+    "focused_failed": 0,
+    "ruff_failed": 0,
+    "installed_validation": "pending_clean_successor_build"
+  },
+  "reference": {
+    "repository": "petruff/jarvis_MAAX.git",
+    "commit": "564c97b2cf8ad29983b3ad40411441dbc9e22af3",
+    "method": "clean_room_behavioral_comparison"
+  },
+  "files": [
+    {"path": "core/advanced_operations_controller_v1.py", "sha256": "ea9f6e563240a68dda9ab6c4df486d5769c7ef6d8fc1881cd6977a65f678ce48"},
+    {"path": "core/advanced_operations_live_v1.py", "sha256": "7dcb12f80c780c0dfe613d3077f9454a4f0a0f72b738b71dc0b0aeff60635c2b"},
+    {"path": "core/context_graph_v1.py", "sha256": "95b1803244aa7aa9d379a8f8487b954a079d49006ae0c746effd8e0b6c15c1b2"},
+    {"path": "core/event_awareness_v1.py", "sha256": "584d69fd0cdd38128e627e8c88ef7b51039435efbc4b43d101df2cf73292eca5"},
+    {"path": "core/governed_automation_v1.py", "sha256": "551ccdf6dbb30dff683782ce4176eea8dfb745b93960d350a42c623ea08e54c5"},
+    {"path": "core/onyx_live_activation_v21.py", "sha256": "38622cc75c4603eb863f4c09c62e618929dfae6ebbc85a324eeb1a01a36d3468"},
+    {"path": "core/workflow_graph_v1.py", "sha256": "8251e0b02408f5a46541818e5ff897d712a0b94948459af3c1e74945f7736fc2"},
+    {"path": "docs/onyx/JARVIS_MAAX_CLEAN_ROOM_GAP_ANALYSIS_2026-08-04.md", "sha256": "8043696c9242f1dc7d6efe3ca719995bfea18ab35a4e98b25efe2be0210d675b"},
+    {"path": "docs/onyx/ONYX_PROJECT_COMPLETION_ROADMAP_2026-08-04.md", "sha256": "9bbb0a92daacdc56770bae9884fefc46ee748a707778b170e003d520a68a6632"},
+    {"path": "tests/test_advanced_operations_controller_v1.py", "sha256": "8350e96c085f7bfae9723201cb7d55dbdb79aebe9056f2c6378ab2fa5eadf282"},
+    {"path": "tests/test_advanced_operations_live_v1.py", "sha256": "6fe4a15102b18dca011e49c8ef95117975c9ee015110337bc83c0aa2d1454ceb"},
+    {"path": "tests/test_advanced_operations_ui_v1.py", "sha256": "02d877ad8e927019e8f93fa8d535eb9040ea5e2cc3a535c0fe15b49180299491"},
+    {"path": "tests/test_context_graph_v1.py", "sha256": "46e9ded7f1905412d92f04da50ed765d8cd71a632cb5b8438edc2d968967f66d"},
+    {"path": "tests/test_event_awareness_v1.py", "sha256": "a2f3efc64c7e26ec30a3e6abaff88537981dc8e19804f97d0795d7442041f907"},
+    {"path": "tests/test_governed_automation_v1.py", "sha256": "0aef300fae1504d694c382d036ae1c30b46ac1eb926c466138ba1a2098d127b7"},
+    {"path": "tests/test_onyx_live_activation_v21.py", "sha256": "d9421a6fa54c51e05e69424fc9e9c28eeb0ed48930589c11c5f76752f6998eb0"},
+    {"path": "tests/test_workflow_graph_v1.py", "sha256": "dc8bf2af4fc56f647dfcc41115a8a9039740dc2f28d8bc1eb5654bbb505c0c39"},
+    {"path": "ui.py", "sha256": "11b648ccd997e0a52a96a929f86cad452caf40d2798a6b47e6165ac3dcc791f7"}
+  ]
+}

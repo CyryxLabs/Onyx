@@ -1,0 +1,198 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# AEXOS Squad Manifest — seo
+# Conforms to .aexos-core/schemas/squad-schema.json (task-first architecture).
+# components/ is derived from disk by scripts/normalize-squad-manifests.js.
+# ═══════════════════════════════════════════════════════════════════════════════
+
+name: seo
+version: 1.0.0
+short-title: seo
+description: >-
+  Post-design SEO optimization squad. Evaluates websites (0-100 score), optimizes all SEO factors,
+  and shows before/after improvement. Works like Yoast/RankMath but as intelligent agents.
+author: Cyryx Labs LLC
+license: UNLICENSED
+slashPrefix: seo
+tags: []
+cyryx:
+  minVersion: 2.1.0
+  type: squad
+components:
+  tasks:
+    - evaluate-seo.md
+    - generate-seo-report.md
+    - optimize-seo.md
+  agents:
+    - ai-visibility-optimizer.md
+    - content-quality-assessor.md
+    - on-page-optimizer.md
+    - performance-engineer.md
+    - schema-architect.md
+    - seo-chief.md
+    - site-architect.md
+    - technical-auditor.md
+  workflows:
+    - wf-seo-full-cycle.yaml
+  checklists:
+    - optimization-quality-gate.md
+    - seo-score-checklist.md
+  templates: []
+  tools: []
+  scripts: []
+config:
+  extends: extend
+dependencies:
+  node: []
+  squads: []
+display_name: SEO Expert Squad
+domain: seo
+keywords:
+  - seo
+  - search engine optimization
+  - meta tags
+  - structured data
+  - schema markup
+  - core web vitals
+  - on-page seo
+  - technical seo
+  - e-e-a-t
+  - generative engine optimization
+tier_structure:
+  tier_0:
+    role: Diagnosis & Orchestration
+    agents:
+      - seo-chief
+  tier_1:
+    role: Core Specialists
+    agents:
+      - on-page-optimizer
+      - technical-auditor
+      - schema-architect
+  tier_2:
+    role: Advanced Specialists
+    agents:
+      - content-quality-assessor
+      - performance-engineer
+      - ai-visibility-optimizer
+      - site-architect
+scoring_system:
+  total: 100
+  categories:
+    on_page_seo:
+      weight: 25
+      agent: on-page-optimizer
+      checks: Meta tags, titles, headings, keyword placement, readability, content length
+    technical_seo:
+      weight: 20
+      agent: technical-auditor
+      checks: Crawlability, indexability, broken links, canonicals, redirects, sitemaps, robots.txt
+    schema_structured_data:
+      weight: 15
+      agent: schema-architect
+      checks: JSON-LD presence, validation, rich result eligibility, entity linking
+    content_quality:
+      weight: 15
+      agent: content-quality-assessor
+      checks: E-E-A-T signals, trust markers, content depth, topical authority
+    performance:
+      weight: 10
+      agent: performance-engineer
+      checks: LCP, INP, CLS, Lighthouse score, image optimization
+    ai_visibility:
+      weight: 10
+      agent: ai-visibility-optimizer
+      checks: Machine readability, GEO signals, llms.txt, citation worthiness
+    site_architecture:
+      weight: 5
+      agent: site-architect
+      checks: URL structure, internal linking, navigation hierarchy, content siloing
+  grade_scale:
+    excellent:
+      min: 90
+      label: A+
+    great:
+      min: 80
+      label: A
+    good:
+      min: 70
+      label: B
+    needs_work:
+      min: 50
+      label: C
+    poor:
+      min: 30
+      label: D
+    critical:
+      min: 0
+      label: F
+workflow:
+  primary: wf-seo-full-cycle.yaml
+  phases:
+    - 'Phase 1: AUDIT - Evaluate current SEO, score 0-100'
+    - 'Phase 2: OPTIMIZE - Apply all fixes and improvements'
+    - 'Phase 3: REPORT - Re-evaluate, show before/after improvement'
+entry_points:
+  full_cycle: '*seo-audit-optimize'
+  audit_only: '*seo-evaluate'
+  optimize_only: '*seo-optimize'
+  report_only: '*seo-report'
+entry_agent: seo-chief
+agents:
+  ai-visibility-optimizer:
+    file: agents/ai-visibility-optimizer.md
+    persona: AI Visibility Optimizer
+    title: Generative Engine Optimization (GEO) Specialist
+    icon: ◈SE01
+    based_on: >-
+      Mike King (Relevance Engineering + AI Search Manual) + GEO Research (Princeton/Georgia Tech —
+      arxiv:2311.09735)
+  content-quality-assessor:
+    file: agents/content-quality-assessor.md
+    persona: Content Quality Assessor
+    title: E-E-A-T & Content Quality Specialist
+    icon: ◈SE02
+    based_on: >-
+      Marie Haynes (88-Page E-E-A-T Assessment Workbook) + Koray Tugberk GUBUR (Topical Authority
+      2.0 + Semantic SEO)
+  on-page-optimizer:
+    file: agents/on-page-optimizer.md
+    persona: On-Page Optimizer
+    title: On-Page SEO Specialist
+    icon: ◈SE03
+    based_on: Joost de Valk (Yoast SEO Analysis Engine) + Bhanu Ahluwalia (RankMath 100-Point System)
+  performance-engineer:
+    file: agents/performance-engineer.md
+    persona: Performance Engineer
+    title: Core Web Vitals & Page Speed Specialist
+    icon: ◈SE04
+    based_on: Google Core Web Vitals Framework (web.dev) + Lighthouse audit methodology
+  schema-architect:
+    file: agents/schema-architect.md
+    persona: Schema Architect
+    title: Structured Data & Entity SEO Specialist
+    icon: ◈SE05
+    based_on: >-
+      Jason Barnard — Kalicube Process (Understandability > Credibility > Deliverability) + Entity
+      SEO methodology
+  seo-chief:
+    file: agents/seo-chief.md
+    persona: SEO Chief
+    title: SEO Orchestrator & Audit Director
+    icon: ◈SE06
+    based_on: Aleyda Solis — LearningSEO.io Roadmap + SEO QA Framework + AI Search Optimization Checklist
+  site-architect:
+    file: agents/site-architect.md
+    persona: Site Architect
+    title: Site Architecture & Internal Linking Specialist
+    icon: ◈SE07
+    based_on: >-
+      Bruce Clay — SEO Silo Architecture (Physical + Virtual Siloing, 17+ years documented
+      methodology)
+  technical-auditor:
+    file: agents/technical-auditor.md
+    persona: Technical SEO Auditor
+    title: Technical SEO Specialist
+    icon: ◈SE08
+    based_on: >-
+      Dan Sharp (Screaming Frog audit methodology) + Cyrus Shepard (Page Quality Scorecard + 7
+      Internal Linking Rules)

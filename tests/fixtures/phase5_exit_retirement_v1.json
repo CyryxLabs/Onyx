@@ -1,0 +1,39 @@
+{
+  "schema": "onyx.test.phase5-exit-retirement.v1",
+  "disposition": "superseded-historical-bindings-not-rebound",
+  "policy": {
+    "current_bytes_may_satisfy_historical_hash": false,
+    "historical_manifests_remain_immutable": true,
+    "missing_historical_bytes_may_be_fabricated": false,
+    "named_successor_must_be_authenticated": true
+  },
+  "bindings": [
+    {"path": ".github/workflows/release-packages.yml", "historical_sha256": "84409f0bc2a24ce7c0a6db11419b07d680674df7e77836b51b7cd5509aa03cab", "state": "recoverable-exact", "successor": "scripts/package_hygiene.py"},
+    {"path": "dashboard/server.py", "historical_sha256": "4d3142dc9c6a78cfe76f804de2b154334da2d7790484783a993babc92300bae1", "state": "unavailable-tombstoned", "successor": "tests/test_onyx_live_activation_v19.py"},
+    {"path": "docs/onyx/CAPABILITY_MATRIX.md", "historical_sha256": "2ba2507ccbf4ff5cae4a38609366f2c547bf47446527cf14ded3636806c10a87", "state": "unavailable-tombstoned", "successor": "scripts/verify_capability_nexus_current_v1.py"},
+    {"path": "docs/onyx/VERIFICATION_EVIDENCE.md", "historical_sha256": "7f1d216fc8fb5e9b02f40b1bab21c80c79746c2dcc1171df4829708494e4a2ad", "state": "unavailable-tombstoned", "successor": "scripts/verify_capability_nexus_current_v1.py"},
+    {"path": "main.py", "historical_sha256": "6b82fed0d7c932a08d2d1f8a31d7650a1b235d55085ee608fdbb7651e5f49712", "state": "unavailable-tombstoned", "successor": "core/onyx_live_activation_v19.py"},
+    {"path": "packaging/onyx.spec", "historical_sha256": "2ab5ade541b6cd8b9c6edcd52320535d7cad912d150169156810330c577506b3", "state": "recoverable-exact", "successor": "scripts/package_hygiene.py"},
+    {"path": "packaging/windows/onyx.iss", "historical_sha256": "b3326de599c2ebf13f0ba79452e68e6c373fecb1d94cc318626de9c0a0fd4392", "state": "recoverable-exact", "successor": "scripts/package_hygiene.py"},
+    {"path": "scripts/build_release.py", "historical_sha256": "1d06830f743c818fb89fc6571efa971a35a9a46f005661b4d9cb6c6e6ab2c5e3", "state": "recoverable-exact", "successor": "scripts/package_hygiene.py"},
+    {"path": "scripts/check_release_eligibility.py", "historical_sha256": "8a762c3e679f108f3c1a166f3820c4aafe0f774a8bd9d37e319ae47e576917a7", "state": "recoverable-exact", "successor": "scripts/package_hygiene.py"},
+    {"path": "scripts/verify_phase5_integration_v3_acceptance.py", "historical_sha256": "9bc529d2434a83c4cdacc6e1f89240bb82235c996c3c606df902f921c6489056", "state": "recoverable-exact", "successor": "scripts/verify_legacy_evidence_retirement_v1.py"},
+    {"path": "scripts/verify_phase5_exit_candidate_v1.py", "historical_sha256": "a49f23a28c304c6ee62125636c3b30d1af35619716d00e8d33147b002a29f01c", "state": "recoverable-exact", "successor": "scripts/verify_legacy_evidence_retirement_v1.py"},
+    {"path": "scripts/verify_phase5_exit_candidate_v2.py", "historical_sha256": "aa84896bb967faa10ccaae3ed6d47758c7123baef17df11e92a340700d314e6c", "state": "recoverable-exact", "successor": "scripts/verify_legacy_evidence_retirement_v1.py"},
+    {"path": "setup.py", "historical_sha256": "2c21a273cb2a05fb587176e5a0231150dcd31ec114ed6c144173c60d69a4d8e5", "state": "recoverable-exact", "successor": "tests/test_package_hygiene_v1.py"},
+    {"path": "tests/test_onyx_live_activation_v9.py", "historical_sha256": "0cdcde2cfb7e2892e0df2a7623ca0ad1340983307dd6c2f6cf8cdcda4d74d624", "state": "recoverable-exact", "successor": "tests/test_onyx_live_activation_v19.py"},
+    {"path": "tests/test_phase5_exit_candidate_v1.py", "historical_sha256": "e7700a8450f82fc77ef32719b3cbe0e0299e865435e83db746c3a77a88ce7c73", "state": "recoverable-exact", "successor": "tests/test_legacy_evidence_retirement_v1.py"},
+    {"path": "tests/test_phase5_exit_candidate_v2.py", "historical_sha256": "7cefa97b42ce409b8ccfdd013eaca0640efa50093667f320fe11b96abed4763e", "state": "recoverable-exact", "successor": "tests/test_legacy_evidence_retirement_v1.py"},
+    {"path": "tests/test_phase5_integration_v3_transition.py", "historical_sha256": "11c448200591b5038ca77afedb633f8712294eeff86fa2357924a16bba789b47", "state": "recoverable-exact", "successor": "tests/test_legacy_evidence_retirement_v1.py"},
+    {"path": "ui.py", "historical_sha256": "e5768626b7eb9d162a54cd67b08b5cb7d9685fb5c0e1b8c951843a1146fc252b", "state": "unavailable-tombstoned", "successor": "tests/test_onyx_live_activation_v19.py"}
+  ],
+  "successors": {
+    "core/onyx_live_activation_v19.py": "a75966dfa4aa77bb12268cdde766a6e5a543e99629a81933c36368a23c24de69",
+    "scripts/package_hygiene.py": "3049c3c10309c24d25193394661ffa303fa5a8d3a9b49b3bcbc8190aacdec244",
+    "scripts/verify_capability_nexus_current_v1.py": "3bfd5da003bab2b93d33ed4df4f60a0ee6c70d22e33fd5c71001bca44e8ad649",
+    "scripts/verify_legacy_evidence_retirement_v1.py": "342bdad75f5dbb90cfa05b8b661ae0090252a6171e8cb564f1a70b0692c68432",
+    "tests/test_legacy_evidence_retirement_v1.py": "49e5b17b7c0248ed6b9f2a9824962dc0860badd11a29d81d5897b5dcbfbcccfe",
+    "tests/test_onyx_live_activation_v19.py": "e2538899a792e25d1aa9411a5e5750457344eeeef199913af1c841b740bb46b3",
+    "tests/test_package_hygiene_v1.py": "bdedfb08ebf84028af7c25329db3d108145d44a0a0b2da1a688b648ce8af269e"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "schema": "onyx.phase8.microsoft-graph-mail.v1",
+  "candidate": "phase8-microsoft-graph-mail-v1",
+  "created_at": "2026-07-24T09:41:21-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_PHASE8_MICROSOFT_GRAPH_MAIL_V1",
+  "enabled_value": "true",
+  "default_off": true,
+  "entry_roots": {
+    "phase8_calendar_v1_artifact_root_sha256": "4f0e1e3ae48a77f3c113a5ade1bb6e7e5f770bcbe9617ca8389edfce85029c3a",
+    "decision": "accepted"
+  },
+  "claims": {
+    "exact_recipient_grant": true,
+    "draft_and_audience_bound_grant": true,
+    "reconcilable_two_step_send": true,
+    "sent_items_reconciliation": true,
+    "uncertain_outcome_reconcile_before_resend": true,
+    "no_send_auto_retry_on_429": true,
+    "best_effort_refresh_rotation": true,
+    "route_pinned_mail_transport": true,
+    "send_scope_exact_validation": true,
+    "attachments_denied": true,
+    "reply_forward_delete_authority": false,
+    "live_send_e2e": false,
+    "live_wiring": false,
+    "phase8_exit": false,
+    "full_onyx_prd_complete": false,
+    "e1_e5_ready": true,
+    "external_e6_accepted": false
+  },
+  "verification": {
+    "test_files": 18,
+    "passed": 381,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "subtests_passed": 80
+  },
+  "effects": {
+    "default_off_import_persistent_writes": 0,
+    "default_off_import_network_calls": 0,
+    "default_off_import_process_calls": 0,
+    "default_off_import_provider_calls": 0,
+    "model_calls": 0,
+    "action_dispatches": 0,
+    "live_surface_changes": 0
+  },
+  "limitations": [
+    "Default-off and not wired to V13, startup, voice, UI or dashboard.",
+    "Live send E2E requires delegated Mail.ReadWrite + Mail.Send consent on the Entra app and an explicitly confirmed run; until then this is contract evidence only.",
+    "Plain-text send to an exact audience only; no attachments, reply, reply-all, forward, delete, folder move or shared mailbox.",
+    "Refresh-token rotation is best-effort in-module to tolerate the frozen vault byte cap.",
+    "No calendar mutation beyond accepted Calendar V1, tasks, notifications or Drive/Office authority.",
+    "Phase 8 aggregate exit and full Onyx PRD completion remain pending."
+  ],
+  "artifacts": [
+    {
+      "path": "core/phase8_microsoft_graph_mail_v1.py",
+      "bytes": 33111,
+      "sha256": "5fdb9892a1c9a8453b3145667e9e1e4edbd934960f2ea69a7cdd9224c4e0509d"
+    },
+    {
+      "path": "tests/test_phase8_microsoft_graph_mail_v1.py",
+      "bytes": 18312,
+      "sha256": "da6ffeafa6224a66bfefd4d3a0a9bf286795621cf2d1aa1b2114a377ef7d40f6"
+    },
+    {
+      "path": "scripts/verify_phase8_microsoft_graph_mail_v1.py",
+      "bytes": 7711,
+      "sha256": "47796c7125acbbb0755d51fc5527f40915ed034eee125631853fb15e80bb7149"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0041-phase8-microsoft-graph-mail-v1.md",
+      "bytes": 3871,
+      "sha256": "91229475fbad45f42377ec00d9a8c2b679b11e5f0f5136024ae7e17584ab1972"
+    },
+    {
+      "path": "docs/onyx/research/PHASE8_MICROSOFT_GRAPH_MAIL_V1_SOURCES.md",
+      "bytes": 2674,
+      "sha256": "807c85e02d90cee36a03908c6fb84172eae9d587607593be883ab4812afdbba9"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase8-microsoft-graph-mail-v1/PHASE8_MICROSOFT_GRAPH_MAIL_V1_CHECKPOINT.md",
+      "bytes": 1979,
+      "sha256": "66f8f6518c895f0cce7870a04c4f3c62f0d435cba852e62656d7be503cbe0ea4"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase8-microsoft-graph-mail-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 1799,
+      "sha256": "ad8066cff3d0ecf301839d8ccb7415c94d83b5bebe27336d5d706bb502fb57b6"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase8-microsoft-graph-mail-v1/cumulative-selection.json",
+      "bytes": 2224,
+      "sha256": "fe5b9502f0d56059aa98270774e254f586bc7854a0cdb9b7b1290b09033491c8"
+    }
+  ],
+  "artifact_root_sha256": "73875e708fbd9684cddec51fb34cb327b958c7e851f5035f37cbce9540cf30f0"
+}

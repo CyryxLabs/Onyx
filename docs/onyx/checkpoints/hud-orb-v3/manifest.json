@@ -1,0 +1,107 @@
+{
+  "schema": "onyx.hud-orb-candidate-bundle.v1",
+  "candidate": "hud-orb-v3",
+  "created_at": "2026-07-22",
+  "bundle_root": "docs/onyx/checkpoints/hud-orb-v3",
+  "isolated": true,
+  "default_off": true,
+  "live_wired": false,
+  "supersedes_rejected_candidate": "hud-orb-v2",
+  "files": [
+    {
+      "path": "core/render_governor_v3.py",
+      "sha256": "ee1f2145eb90e930e1663287bc0e71ff6f0809b9b4bce18e445c2f47e80d1de8"
+    },
+    {
+      "path": "core/ui_projection_v3.py",
+      "sha256": "cfbcc566dbcb5bd423b31571ef914bb24f389621c781d1edf05a02fd0792b7d2"
+    },
+    {
+      "path": "qml/OnyxShellV3.qml",
+      "sha256": "4f450c9ff7b2a9926925273a29fb8cc77533576073f2015be3f87b450c180eac"
+    },
+    {
+      "path": "qml/components/ActionButtonV3.qml",
+      "sha256": "a30e45dea796faa9a3ccf69ccb99085106a0de1f019d43c0b12125a35052f4eb"
+    },
+    {
+      "path": "tests/test_render_governor_v3.py",
+      "sha256": "15704af20c1859d1b61b3a30c645dcc26b625fce49b0fd581ff993830023a3e4"
+    },
+    {
+      "path": "tests/test_onyx_hud_v3.py",
+      "sha256": "928e92c25be8218ef83d2dbf035330c0017eef9bb03bfd2a737cbb82e39b5b9f"
+    }
+  ],
+  "frozen_dependencies": [
+    {
+      "path": "core/render_governor.py",
+      "sha256": "923b659373d6194749ab5e9e803b6b0cd995f82c5410528cacea2d6fa2188461"
+    },
+    {
+      "path": "core/ui_projection.py",
+      "sha256": "b5bce8a27271ab0306fb21e61f3d90738490b946d987606ee104b2018d44cb19"
+    },
+    {
+      "path": "qml/OnyxShell.qml",
+      "sha256": "6fc614464c3015d724b11a5647a33fe0de5d980343451fc72dba27cb7e8ec98a"
+    },
+    {
+      "path": "qml/components/OnyxOrbV2.qml",
+      "sha256": "78fac811adb07de99f1e95baae94956ba41b189890224877a2441f0365e21311"
+    },
+    {
+      "path": "qml/components/HoloPanel.qml",
+      "sha256": "72959332c71b1dad12656e881177d0f75f4d8f4f9be41036cb5628a945e9cfcd"
+    },
+    {
+      "path": "qml/components/StatusPill.qml",
+      "sha256": "2637d1dd4cf3ab61d510c90a055d9063419c7dd05dc6275fb368a8dc6f64d038"
+    },
+    {
+      "path": "qml/components/TelemetryBar.qml",
+      "sha256": "d19be61a5e99145fb80afbf6fb6810cfad58bfce8720ca28357d5a30e51e3ff5"
+    }
+  ],
+  "rejected_v2_anchors": {
+    "manifest_sha256": "74f07faa1a5114e2f6eb24e7ee8ab568c7a36d21eb85a0d58a9b98d7b57a15af",
+    "checkpoint_sha256": "b164160f5525baade704ddfabe9d9a60e7c3bb0a256269aa6c0225f8e1bb7051"
+  },
+  "verification": {
+    "focused_and_regression": {
+      "passed": 51,
+      "failed": 0
+    },
+    "ruff": "pass",
+    "py_compile": "pass",
+    "qml_qquickview": "ready_zero_errors",
+    "keyboard_focus": "pass",
+    "v2_byte_preservation": "pass_9_of_9_plus_anchors",
+    "performance": {
+      "snapshot_iterations": 20000,
+      "snapshot_p50_ms": 0.003200,
+      "snapshot_p95_ms": 0.003700,
+      "snapshot_max_ms": 2.950900,
+      "accepted_command_iterations": 10000,
+      "accepted_command_p50_ms": 0.004000,
+      "accepted_command_p95_ms": 0.004500,
+      "accepted_command_max_ms": 4.313400
+    }
+  },
+  "limits": {
+    "fps_tiers": [12, 24, 30],
+    "audio_hz_max": 20,
+    "node_count_max": 160,
+    "idle_after_settle": true,
+    "hidden_or_minimized_fps": 0,
+    "renderer_count": 1
+  },
+  "limitations": [
+    "candidate-only; no startup, live UI, dashboard, or permission wiring",
+    "depends on byte-frozen V2 visual and governor components",
+    "procedural 2.5D Canvas rather than ray-traced rendering",
+    "physical GPU, idle CPU/RSS delta, real-platform typography and motion pending",
+    "native macOS and Linux execution pending",
+    "external acceptance review pending"
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "schema": "onyx.phase8.microsoft-graph-calendar.v1",
+  "candidate": "phase8-microsoft-graph-calendar-v1",
+  "created_at": "2026-07-24T00:14:43-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_PHASE8_MICROSOFT_GRAPH_CALENDAR_V1",
+  "enabled_value": "true",
+  "default_off": true,
+  "entry_roots": {
+    "phase8_live_read_e2e_v1_artifact_root_sha256": "30bdd9e3bf1bde4effa1acb7147fcd714d763c6fcc017e6b23fe189fcfabef6b",
+    "decision": "accepted"
+  },
+  "claims": {
+    "deterministic_conflict_availability": true,
+    "exact_grant_one_shot_mutation": true,
+    "draft_digest_bound_grant": true,
+    "receipt_and_readback_reconciliation": true,
+    "uncertain_outcome_reconcile_before_retry": true,
+    "no_mutation_auto_retry_on_429": true,
+    "attendee_invitations_denied": true,
+    "route_pinned_mutation_transport": true,
+    "write_scope_exact_validation": true,
+    "provider_mutation_authority_beyond_single_event_create": false,
+    "live_mutation_e2e": false,
+    "live_wiring": false,
+    "phase8_exit": false,
+    "full_onyx_prd_complete": false,
+    "e1_e5_ready": true,
+    "external_e6_accepted": false
+  },
+  "verification": {
+    "test_files": 17,
+    "passed": 363,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "subtests_passed": 80
+  },
+  "effects": {
+    "default_off_import_persistent_writes": 0,
+    "default_off_import_network_calls": 0,
+    "default_off_import_process_calls": 0,
+    "default_off_import_provider_calls": 0,
+    "model_calls": 0,
+    "action_dispatches": 0,
+    "graph_mutation_routes_beyond_events_post": 0,
+    "live_surface_changes": 0
+  },
+  "limitations": [
+    "Default-off and not wired to V13, startup, voice, UI or dashboard.",
+    "Live mutation E2E requires delegated Calendars.ReadWrite consent on the Entra app and an explicitly confirmed run; until then this is contract evidence only.",
+    "Attendee drafts are denied: invitations are external sends for a later, stricter successor.",
+    "UTC-only availability computation; no recurring events, update, delete, cancellation or shared calendars.",
+    "No mail send, tasks, notifications, Drive/OneDrive/Office authority.",
+    "Phase 8 aggregate exit and full Onyx PRD completion remain pending."
+  ],
+  "artifacts": [
+    {
+      "path": "core/phase8_microsoft_graph_calendar_v1.py",
+      "bytes": 33343,
+      "sha256": "b9eddea9b06ed3ff7f403a1bd9ed5476ae920a543422f31155ba36e40a97ef59"
+    },
+    {
+      "path": "tests/test_phase8_microsoft_graph_calendar_v1.py",
+      "bytes": 22496,
+      "sha256": "a269585bca9e522039897dd90870049d15c7e3f288c19d5458bad6559cedb2d7"
+    },
+    {
+      "path": "scripts/verify_phase8_microsoft_graph_calendar_v1.py",
+      "bytes": 7724,
+      "sha256": "c9c1f6cd4911bb358bd3d42756f919f505e1859c9e593629738aa2643dcc9755"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0040-phase8-microsoft-graph-calendar-v1.md",
+      "bytes": 4030,
+      "sha256": "cfe2a043dbc7e931f19c578ea661f8fa25d1f1688a237df0f2260eb808404220"
+    },
+    {
+      "path": "docs/onyx/research/PHASE8_MICROSOFT_GRAPH_CALENDAR_V1_SOURCES.md",
+      "bytes": 2487,
+      "sha256": "f35c7c6830e5ca086fc67952dc3e411f1a26e4c1fb6b20d6c2ea6ebe0ed4cd05"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase8-microsoft-graph-calendar-v1/PHASE8_MICROSOFT_GRAPH_CALENDAR_V1_CHECKPOINT.md",
+      "bytes": 1866,
+      "sha256": "7ab51155ab8a998be3eef4ff08d4e90d98333f720f64ae28259154e7c44b3155"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase8-microsoft-graph-calendar-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 1381,
+      "sha256": "6f5627380e6ab4ee76f27e1c140abc477ccc6d6da57f5d1e1e68bc9f6480f871"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase8-microsoft-graph-calendar-v1/cumulative-selection.json",
+      "bytes": 2116,
+      "sha256": "ae8a1d4657d2537b5eb38af098ae98f562c5ac1e9fd3b4194d40d0ecb3fcb4bf"
+    }
+  ],
+  "artifact_root_sha256": "4f0e1e3ae48a77f3c113a5ade1bb6e7e5f770bcbe9617ca8389edfce85029c3a"
+}

@@ -1,0 +1,29 @@
+# Cyryx Labs LLC Software License Agreement
+
+Copyright (c) 2026 Cyryx Labs LLC. All rights reserved.
+
+## 1. Ownership and Intellectual Property
+The original Cyryx Labs source code, documentation, logos, trademarks, and
+associated proprietary assets ("Software") are the sole and exclusive
+intellectual property of Cyryx Labs LLC. All rights, titles, and interests in
+and to those proprietary portions remain with Cyryx Labs LLC.
+
+Third-party components bundled with or used by the Software are excluded from
+this ownership claim. They remain the property of their respective owners and
+are governed by their own licenses and notices. In particular, the CPython
+virtual-environment compatibility launcher is distributed under the Python
+Software Foundation License included with that packaged component.
+
+## 2. Commercial License & Restrictions
+COMMERCIAL USE IS STRICTLY PROHIBITED WITHOUT A PAID LICENSE FROM CYRYX LABS LLC.
+No individual, organization, business, or entity may use, copy, modify, merge, publish, distribute, sublicense, sell, host, rent, lease, or otherwise commercially exploit this Software, in whole or in part, or any derivative works thereof, without obtaining an explicit, executed written commercial license from Cyryx Labs LLC and paying all required licensing fees to Cyryx Labs LLC.
+
+## 3. Non-Transferable & No Resale Rights
+Third-party commercialization, SaaS hosting, integration into monetized products, sublicensing, or resale of this Software without prior written authorization and direct payment to Cyryx Labs LLC is strictly prohibited and constitutes copyright infringement under applicable laws.
+
+## 4. Inquiries & Licensing Requests
+To request commercial licensing terms, enterprise contracts, or written authorization for commercial deployment, please contact:
+
+**Cyryx Labs LLC**
+Email: contact@cyryxlabs.com
+Website: https://cyryxlabs.com

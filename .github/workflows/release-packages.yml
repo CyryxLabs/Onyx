@@ -1,0 +1,591 @@
+name: Release packages
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Release version without the v prefix
+        required: true
+        default: 1.1.9
+      formal_release:
+        description: Require production publisher trust gates (macOS fails closed without Apple secrets)
+        required: true
+        type: boolean
+        default: false
+      publish_qualified:
+        description: Publish only bytes from a separately completed qualification run
+        required: true
+        type: boolean
+        default: false
+      qualified_build_run_id:
+        description: Exact successful build run retained by final qualification
+        required: false
+      qualification_run_id:
+        description: Exact successful Final release qualification run
+        required: false
+      release_tag:
+        description: Release tag; required in publish-qualified mode
+        required: false
+        default: v1.1.9
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  build:
+    if: github.event_name == 'push' || inputs.publish_qualified != true
+    name: ${{ matrix.label }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: windows-latest
+            label: Windows x64
+          - runner: macos-15
+            label: macOS arm64
+          - runner: ubuntu-24.04
+            label: Linux x64
+          - runner: ubuntu-24.04-arm
+            label: Linux arm64
+    runs-on: ${{ matrix.runner }}
+    env:
+      ONYX_FORMAL_RELEASE: ${{ startsWith(github.ref, 'refs/tags/v') || inputs.formal_release == true }}
+      MACOSX_DEPLOYMENT_TARGET: "15.0"
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: requirements.lock
+      - name: Install runtime and build dependencies
+        if: runner.os != 'macOS'
+        run: python -m pip install --require-hashes -r requirements.lock
+      - name: Install macOS dependencies with cryptography wheel-only
+        if: runner.os == 'macOS'
+        run: "python -m pip install --only-binary=cryptography --require-hashes -r requirements.lock"
+      - name: Install Linux browser system dependencies
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          candidate="$(apt-cache policy libsecret-tools | awk '/Candidate:/ {print $2}')"
+          test -n "$candidate" && test "$candidate" != "(none)"
+          sudo apt-get install --yes --no-install-recommends \
+            "libsecret-tools=$candidate" \
+            appstream \
+            libgtk-3-0t64 \
+            libpulse0 \
+            libxcb-icccm4 \
+            libxcb-keysyms1 \
+            libxcb-shape0 \
+            libxcb-xkb1 \
+            libxkbcommon-x11-0 \
+            libxtst6
+          appstreamcli validate --no-net \
+            packaging/linux/com.cyryxlabs.onyx.metainfo.xml
+          python -c 'from core.native_vault import _linux_secret_tool; print(_linux_secret_tool())'
+          python -m playwright install-deps chromium
+      - name: Install Inno Setup
+        if: runner.os == 'Windows'
+        run: choco install innosetup --version=6.7.1 --no-progress -y
+      - name: Require and import trusted Windows publisher certificate
+        if: runner.os == 'Windows' && (startsWith(github.ref, 'refs/tags/v') || inputs.formal_release == true)
+        shell: pwsh
+        env:
+          WINDOWS_CODE_SIGNING_PFX_BASE64: ${{ secrets.WINDOWS_CODE_SIGNING_PFX_BASE64 }}
+          WINDOWS_CODE_SIGNING_PFX_PASSWORD: ${{ secrets.WINDOWS_CODE_SIGNING_PFX_PASSWORD }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if ([string]::IsNullOrWhiteSpace($env:WINDOWS_CODE_SIGNING_PFX_BASE64) -or
+              [string]::IsNullOrWhiteSpace($env:WINDOWS_CODE_SIGNING_PFX_PASSWORD)) {
+            throw 'Formal Windows release requires the public-trust code-signing PFX secrets'
+          }
+          $pfx = Join-Path $env:RUNNER_TEMP 'onyx-code-signing.pfx'
+          [IO.File]::WriteAllBytes($pfx, [Convert]::FromBase64String($env:WINDOWS_CODE_SIGNING_PFX_BASE64))
+          $secure = ConvertTo-SecureString $env:WINDOWS_CODE_SIGNING_PFX_PASSWORD -AsPlainText -Force
+          $cert = Import-PfxCertificate -FilePath $pfx -CertStoreLocation Cert:\CurrentUser\My -Password $secure -Exportable:$false
+          if ($null -eq $cert -or $cert.Count -ne 1) { throw 'Expected exactly one Windows code-signing certificate' }
+          if ($cert.Subject -notmatch 'Cyryx Labs') { throw 'Windows publisher certificate is not a Cyryx Labs identity' }
+          if ((Get-Date) -lt $cert.NotBefore -or (Get-Date) -gt $cert.NotAfter) { throw 'Windows publisher certificate is outside its validity period' }
+          $codeSigningOid = '1.3.6.1.5.5.7.3.3'
+          if (-not ($cert.EnhancedKeyUsageList.ObjectId.Value -contains $codeSigningOid)) { throw 'Certificate lacks Code Signing EKU' }
+          "ONYX_WINDOWS_SIGN_CERT_THUMBPRINT=$($cert.Thumbprint.ToUpperInvariant())" | Out-File $env:GITHUB_ENV -Encoding utf8 -Append
+          "ONYX_WINDOWS_SIGN_EXPECTED_SUBJECT=$($cert.Subject)" | Out-File $env:GITHUB_ENV -Encoding utf8 -Append
+          "ONYX_WINDOWS_TIMESTAMP_URL=https://timestamp.digicert.com" | Out-File $env:GITHUB_ENV -Encoding utf8 -Append
+          "ONYX_WINDOWS_PFX_PATH=$pfx" | Out-File $env:GITHUB_ENV -Encoding utf8 -Append
+      - name: Install AppImage tool
+        if: runner.os == 'Linux'
+        shell: bash
+        env:
+          APPIMAGETOOL_RELEASE_TAG: "1.9.1"
+          APPIMAGETOOL_X86_64_SHA256: ed4ce84f0d9caff66f50bcca6ff6f35aae54ce8135408b3fa33abfc3cb384eb0
+          APPIMAGETOOL_AARCH64_SHA256: f0837e7448a0c1e4e650a93bb3e85802546e60654ef287576f46c71c126a9158
+          APPIMAGE_RUNTIME_X86_64_SHA256: 1cc49bcf1e2ccd593c379adb17c9f85a36d619088296504de95b1d06215aebbf
+          APPIMAGE_RUNTIME_AARCH64_SHA256: 7d5d772b7c32f0c84caf0a452a3072a5709027d7eac5856feb89a7a7a8881372
+        run: |
+          arch="$(uname -m)"
+          case "$arch" in
+            x86_64)
+              APPIMAGETOOL_SHA256="$APPIMAGETOOL_X86_64_SHA256"
+              APPIMAGE_RUNTIME_SHA256="$APPIMAGE_RUNTIME_X86_64_SHA256"
+              ;;
+            aarch64)
+              APPIMAGETOOL_SHA256="$APPIMAGETOOL_AARCH64_SHA256"
+              APPIMAGE_RUNTIME_SHA256="$APPIMAGE_RUNTIME_AARCH64_SHA256"
+              ;;
+            *)
+              echo "Unsupported appimagetool architecture: ${arch}" >&2
+              exit 1
+              ;;
+          esac
+          [[ "$APPIMAGETOOL_SHA256" =~ ^[0-9a-fA-F]{64}$ ]] || {
+            echo "Trusted appimagetool SHA-256 is missing or malformed for ${arch}" >&2
+            exit 1
+          }
+          [[ "$APPIMAGE_RUNTIME_SHA256" =~ ^[0-9a-fA-F]{64}$ ]] || {
+            echo "Trusted AppImage runtime SHA-256 is missing or malformed for ${arch}" >&2
+            exit 1
+          }
+          APPIMAGETOOL_URL="https://github.com/AppImage/appimagetool/releases/download/${APPIMAGETOOL_RELEASE_TAG}/appimagetool-${arch}.AppImage"
+          APPIMAGE_RUNTIME_URL="https://github.com/AppImage/type2-runtime/releases/download/continuous/runtime-${arch}"
+          curl --proto '=https' --tlsv1.2 -fL --retry 3 \
+            "$APPIMAGETOOL_URL" -o "$RUNNER_TEMP/appimagetool"
+          printf '%s  %s\n' "$APPIMAGETOOL_SHA256" "$RUNNER_TEMP/appimagetool" \
+            | sha256sum --check --strict
+          curl --proto '=https' --tlsv1.2 -fL --retry 3 \
+            "$APPIMAGE_RUNTIME_URL" -o "$RUNNER_TEMP/appimage-runtime"
+          printf '%s  %s\n' "$APPIMAGE_RUNTIME_SHA256" "$RUNNER_TEMP/appimage-runtime" \
+            | sha256sum --check --strict
+          chmod +x "$RUNNER_TEMP/appimagetool"
+          echo "APPIMAGETOOL=$RUNNER_TEMP/appimagetool" >> "$GITHUB_ENV"
+          echo "APPIMAGE_RUNTIME_FILE=$RUNNER_TEMP/appimage-runtime" >> "$GITHUB_ENV"
+          echo "APPIMAGE_EXTRACT_AND_RUN=1" >> "$GITHUB_ENV"
+      - name: Prove V19 pytest collection is nonzero
+        run: python scripts/verify_v19_pytest_collection.py
+      - name: Test source runtime with pytest
+        run: python -m pytest tests
+      - name: Require Apple release secrets and import Developer ID temporarily
+        if: runner.os == 'macOS' && (startsWith(github.ref, 'refs/tags/v') || inputs.formal_release == true)
+        shell: bash
+        env:
+          APPLE_TEAM_ID_INPUT: ${{ secrets.APPLE_TEAM_ID }}
+          APPLE_DEVELOPER_ID_P12_BASE64: ${{ secrets.APPLE_DEVELOPER_ID_P12_BASE64 }}
+          APPLE_DEVELOPER_ID_P12_PASSWORD: ${{ secrets.APPLE_DEVELOPER_ID_P12_PASSWORD }}
+          APPLE_NOTARY_KEY_P8_BASE64: ${{ secrets.APPLE_NOTARY_KEY_P8_BASE64 }}
+          APPLE_NOTARY_KEY_ID_INPUT: ${{ secrets.APPLE_NOTARY_KEY_ID }}
+          APPLE_NOTARY_ISSUER_ID_INPUT: ${{ secrets.APPLE_NOTARY_ISSUER_ID }}
+        run: |
+          set -euo pipefail
+          for name in \
+            APPLE_TEAM_ID_INPUT \
+            APPLE_DEVELOPER_ID_P12_BASE64 \
+            APPLE_DEVELOPER_ID_P12_PASSWORD \
+            APPLE_NOTARY_KEY_P8_BASE64 \
+            APPLE_NOTARY_KEY_ID_INPUT \
+            APPLE_NOTARY_ISSUER_ID_INPUT
+          do
+            test -n "${!name:-}" || {
+              echo "Formal macOS release secret is missing: ${name}" >&2
+              exit 1
+            }
+          done
+          [[ "$APPLE_TEAM_ID_INPUT" =~ ^[A-Z0-9]{10}$ ]] || {
+            echo "APPLE_TEAM_ID is malformed" >&2
+            exit 1
+          }
+          keychain="$RUNNER_TEMP/onyx-build.keychain-db"
+          p12="$RUNNER_TEMP/developer-id-application.p12"
+          p8="$RUNNER_TEMP/AuthKey_${APPLE_NOTARY_KEY_ID_INPUT}.p8"
+          keychain_password="$(openssl rand -hex 32)"
+          {
+            echo "ONYX_KEYCHAIN_PATH=$keychain"
+            echo "ONYX_P12_PATH=$p12"
+            echo "ONYX_P8_PATH=$p8"
+          } >> "$GITHUB_ENV"
+          printf '%s' "$APPLE_DEVELOPER_ID_P12_BASE64" | /usr/bin/base64 -D > "$p12"
+          printf '%s' "$APPLE_NOTARY_KEY_P8_BASE64" | /usr/bin/base64 -D > "$p8"
+          chmod 600 "$p12" "$p8"
+          security create-keychain -p "$keychain_password" "$keychain"
+          security set-keychain-settings -lut 21600 "$keychain"
+          security unlock-keychain -p "$keychain_password" "$keychain"
+          security import "$p12" -k "$keychain" \
+            -P "$APPLE_DEVELOPER_ID_P12_PASSWORD" \
+            -T /usr/bin/codesign -T /usr/bin/security
+          security set-key-partition-list \
+            -S apple-tool:,apple:,codesign: \
+            -s -k "$keychain_password" "$keychain"
+          security list-keychains -d user -s "$keychain"
+          identities="$RUNNER_TEMP/onyx-code-signing-identities.txt"
+          security find-identity -v -p codesigning "$keychain" > "$identities"
+          identity="$(sed -n \
+            "s/.*\"\(Developer ID Application: .* (${APPLE_TEAM_ID_INPUT})\)\".*/\1/p" \
+            "$identities")"
+          test "$(printf '%s\n' "$identity" | sed '/^$/d' | wc -l | tr -d ' ')" = 1 || {
+            echo "Expected exactly one Developer ID Application identity for team" >&2
+            exit 1
+          }
+          {
+            echo "APPLE_TEAM_ID=$APPLE_TEAM_ID_INPUT"
+            echo "APPLE_SIGNING_IDENTITY=$identity"
+            echo "APPLE_KEYCHAIN_PATH=$keychain"
+            echo "APPLE_NOTARY_KEY_PATH=$p8"
+            echo "APPLE_NOTARY_KEY_ID=$APPLE_NOTARY_KEY_ID_INPUT"
+            echo "APPLE_NOTARY_ISSUER_ID=$APPLE_NOTARY_ISSUER_ID_INPUT"
+          } >> "$GITHUB_ENV"
+      - name: Build native package and prove portable safe-unavailability boundary
+        shell: bash
+        env:
+          RELEASE_VERSION: ${{ inputs.version }}
+          TAG_NAME: ${{ github.ref_name }}
+          LINUX_UNSIGNED_APPROVAL: ${{ vars.ONYX_LINUX_UNSIGNED_RELEASE_APPROVED }}
+        run: |
+          version="$RELEASE_VERSION"
+          if [ -z "$version" ]; then version="${TAG_NAME#v}"; fi
+          gate_args=()
+          if [ "${{ runner.os }}" != "Windows" ]; then
+            gate_args+=(--portable-current-negative-boundary-gate)
+          fi
+          if [ "$ONYX_FORMAL_RELEASE" = "true" ]; then
+            gate_args+=(--formal-release)
+          fi
+          if [ "${{ runner.os }}" = "Linux" ] && [ "$ONYX_FORMAL_RELEASE" = "true" ]; then
+            [ "$LINUX_UNSIGNED_APPROVAL" = "true" ] || {
+              echo "Formal unsigned Linux packages require ONYX_LINUX_UNSIGNED_RELEASE_APPROVED=true" >&2
+              exit 1
+            }
+            python -c 'from core.native_vault import _linux_secret_tool; print(_linux_secret_tool())'
+            gate_args+=(
+              --require-linux-secure-backend-probe
+              --linux-signing-policy unsigned-approved
+            )
+          fi
+          python scripts/build_release.py --version "$version" "${gate_args[@]}"
+      - name: Generate architecture-bound technical SPDX inventory
+        shell: bash
+        env:
+          RELEASE_VERSION: ${{ inputs.version }}
+          TAG_NAME: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          version="$RELEASE_VERSION"
+          if [ -z "$version" ]; then version="${TAG_NAME#v}"; fi
+          source_date_epoch="$(git show -s --format=%ct "$GITHUB_SHA")"
+          python scripts/generate_release_sbom.py \
+            --version "$version" \
+            --source-date-epoch "$source_date_epoch"
+          arch="$(python -c 'from scripts.build_release import architecture; print(architecture())')"
+          case "${{ runner.os }}" in
+            Windows) platform=Windows ;;
+            macOS) platform=macOS ;;
+            Linux) platform=Linux ;;
+            *) echo "Unsupported SBOM platform: ${{ runner.os }}" >&2; exit 1 ;;
+          esac
+          name="SBOM-${platform}-${arch}.spdx.json"
+          mv release/SBOM.spdx.json "release/$name"
+          python - "$name" <<'PY'
+          import hashlib
+          import pathlib
+          import sys
+          path = pathlib.Path("release") / sys.argv[1]
+          digest = hashlib.sha256(path.read_bytes()).hexdigest()
+          (path.parent / f"{path.name}.sha256").write_text(
+              f"{digest}  {path.name}\n", encoding="utf-8", newline="\n"
+          )
+          PY
+          rm release/SBOM.spdx.json.sha256
+      - name: Install DEB and prove native startup in clean Debian 12
+        if: runner.os == 'Linux'
+        shell: bash
+        env:
+          RELEASE_VERSION: ${{ inputs.version }}
+          TAG_NAME: ${{ github.ref_name }}
+        run: |
+          version="$RELEASE_VERSION"
+          if [ -z "$version" ]; then version="${TAG_NAME#v}"; fi
+          bash scripts/run_linux_deb_clean_install_validation.sh \
+            "release/Onyx-${version}-Linux-$(python -c 'from scripts.build_release import architecture; print(architecture())').deb"
+      - name: Upload native artifacts
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: onyx-${{ matrix.runner }}
+          path: release/*
+          if-no-files-found: error
+          retention-days: 30
+      - name: Destroy temporary Apple signing material
+        if: always() && runner.os == 'macOS'
+        shell: bash
+        run: |
+          set +e
+          if [ -n "${ONYX_KEYCHAIN_PATH:-}" ]; then
+            security delete-keychain "$ONYX_KEYCHAIN_PATH"
+            rm -f -- "$ONYX_KEYCHAIN_PATH"
+          fi
+          for path in "${ONYX_P12_PATH:-}" "${ONYX_P8_PATH:-}"; do
+            if [ -n "$path" ] && [ -f "$path" ]; then
+              rm -f -- "$path"
+            fi
+          done
+      - name: Destroy temporary Windows signing material
+        if: always() && runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Continue'
+          if (-not [string]::IsNullOrWhiteSpace($env:ONYX_WINDOWS_SIGN_CERT_THUMBPRINT)) {
+            Remove-Item -LiteralPath "Cert:\CurrentUser\My\$env:ONYX_WINDOWS_SIGN_CERT_THUMBPRINT" -Force
+          }
+          if (-not [string]::IsNullOrWhiteSpace($env:ONYX_WINDOWS_PFX_PATH) -and (Test-Path -LiteralPath $env:ONYX_WINDOWS_PFX_PATH)) {
+            Remove-Item -LiteralPath $env:ONYX_WINDOWS_PFX_PATH -Force
+          }
+
+  windows-formal-eligibility:
+    name: Windows native formal eligibility
+    if: (github.event_name == 'push' || inputs.publish_qualified != true) && (startsWith(github.ref, 'refs/tags/v') || inputs.formal_release == true)
+    needs: build
+    runs-on: windows-latest
+    outputs:
+      receipt_sha256: ${{ steps.native.outputs.receipt_sha256 }}
+      setup_sha256: ${{ steps.native.outputs.setup_sha256 }}
+      portable_sha256: ${{ steps.native.outputs.portable_sha256 }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: onyx-windows-latest
+          path: release
+      - name: Load exact trusted Windows publisher constraints
+        shell: pwsh
+        env:
+          WINDOWS_CODE_SIGNING_PFX_BASE64: ${{ secrets.WINDOWS_CODE_SIGNING_PFX_BASE64 }}
+          WINDOWS_CODE_SIGNING_PFX_PASSWORD: ${{ secrets.WINDOWS_CODE_SIGNING_PFX_PASSWORD }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if ([string]::IsNullOrWhiteSpace($env:WINDOWS_CODE_SIGNING_PFX_BASE64) -or
+              [string]::IsNullOrWhiteSpace($env:WINDOWS_CODE_SIGNING_PFX_PASSWORD)) {
+            throw 'Native Windows eligibility requires the exact publisher PFX secrets'
+          }
+          $pfx = Join-Path $env:RUNNER_TEMP 'onyx-eligibility-identity.pfx'
+          [IO.File]::WriteAllBytes($pfx, [Convert]::FromBase64String($env:WINDOWS_CODE_SIGNING_PFX_BASE64))
+          $secure = ConvertTo-SecureString $env:WINDOWS_CODE_SIGNING_PFX_PASSWORD -AsPlainText -Force
+          $cert = Import-PfxCertificate -FilePath $pfx -CertStoreLocation Cert:\CurrentUser\My -Password $secure -Exportable:$false
+          if ($null -eq $cert -or $cert.Count -ne 1) { throw 'Expected exactly one Windows publisher certificate' }
+          if ($cert.Subject -notmatch 'Cyryx Labs') { throw 'Windows publisher certificate is not a Cyryx Labs identity' }
+          "ONYX_WINDOWS_SIGN_CERT_THUMBPRINT=$($cert.Thumbprint.ToUpperInvariant())" | Out-File $env:GITHUB_ENV -Encoding utf8 -Append
+          "ONYX_WINDOWS_SIGN_EXPECTED_SUBJECT=$($cert.Subject)" | Out-File $env:GITHUB_ENV -Encoding utf8 -Append
+          "ONYX_WINDOWS_TIMESTAMP_URL=https://timestamp.digicert.com" | Out-File $env:GITHUB_ENV -Encoding utf8 -Append
+          "ONYX_WINDOWS_ELIGIBILITY_PFX=$pfx" | Out-File $env:GITHUB_ENV -Encoding utf8 -Append
+      - name: Verify exact Setup and every portable PE natively
+        id: native
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $version = "${{ inputs.version }}"
+          if ([string]::IsNullOrWhiteSpace($version)) {
+            $version = "${{ github.ref_name }}".TrimStart('v')
+          }
+          python -m scripts.windows_native_eligibility `
+            --release-dir release `
+            --version $version `
+            --architecture x64
+      - name: Upload hash-bound native receipt
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: onyx-windows-native-eligibility
+          path: release/windows-native-eligibility-receipt-x64.json
+          if-no-files-found: error
+          retention-days: 30
+      - name: Destroy temporary Windows eligibility identity
+        if: always()
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Continue'
+          if (-not [string]::IsNullOrWhiteSpace($env:ONYX_WINDOWS_SIGN_CERT_THUMBPRINT)) {
+            Remove-Item -LiteralPath "Cert:\CurrentUser\My\$env:ONYX_WINDOWS_SIGN_CERT_THUMBPRINT" -Force
+          }
+          if (-not [string]::IsNullOrWhiteSpace($env:ONYX_WINDOWS_ELIGIBILITY_PFX) -and (Test-Path -LiteralPath $env:ONYX_WINDOWS_ELIGIBILITY_PFX)) {
+            Remove-Item -LiteralPath $env:ONYX_WINDOWS_ELIGIBILITY_PFX -Force
+          }
+
+  formal-sbom:
+    name: Exact aggregate formal SBOM
+    if: (github.event_name == 'push' || inputs.publish_qualified != true) && (startsWith(github.ref, 'refs/tags/v') || inputs.formal_release == true)
+    needs:
+      - build
+      - windows-formal-eligibility
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.13"
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          pattern: onyx-*
+          path: release
+          merge-multiple: true
+      - name: Generate exact aggregate technical SPDX inventory once
+        shell: bash
+        env:
+          RELEASE_VERSION: ${{ inputs.version }}
+          TAG_NAME: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          version="$RELEASE_VERSION"
+          if [ -z "$version" ]; then version="${TAG_NAME#v}"; fi
+          source_date_epoch="$(git show -s --format=%ct "$GITHUB_SHA")"
+          python scripts/generate_release_sbom.py \
+            --version "$version" \
+            --source-date-epoch "$source_date_epoch"
+          test -f release/SBOM.spdx.json
+          test -f release/SBOM.spdx.json.sha256
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: onyx-formal-sbom
+          path: |
+            release/SBOM.spdx.json
+            release/SBOM.spdx.json.sha256
+          if-no-files-found: error
+          retention-days: 30
+
+  publish:
+    if: github.event_name == 'workflow_dispatch' && inputs.publish_qualified == true
+    runs-on: ubuntu-latest
+    environment:
+      name: onyx-public-release
+      url: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    permissions:
+      actions: read
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      BUILD_RUN_ID: ${{ inputs.qualified_build_run_id }}
+      QUALIFICATION_RUN_ID: ${{ inputs.qualification_run_id }}
+      RELEASE_TAG: ${{ inputs.release_tag }}
+      RELEASE_VERSION: ${{ inputs.version }}
+      ONYX_PUBLIC_RELEASE_APPROVED: ${{ vars.ONYX_PUBLIC_RELEASE_APPROVED }}
+      ONYX_LEGAL_RELEASE_APPROVED: ${{ vars.ONYX_LEGAL_RELEASE_APPROVED }}
+      ONYX_INDEPENDENT_REVIEW_APPROVED: ${{ vars.ONYX_INDEPENDENT_REVIEW_APPROVED }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.13"
+      - name: Attest exact build and qualification runs
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$BUILD_RUN_ID" =~ ^[0-9]+$ ]]
+          [[ "$QUALIFICATION_RUN_ID" =~ ^[0-9]+$ ]]
+          test "$BUILD_RUN_ID" != "$QUALIFICATION_RUN_ID"
+          test "$RELEASE_TAG" = "v$RELEASE_VERSION"
+          build_json="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$BUILD_RUN_ID")"
+          qualification_json="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$QUALIFICATION_RUN_ID")"
+          test "$(jq -r .conclusion <<<"$build_json")" = success
+          test "$(jq -r .path <<<"$build_json")" = ".github/workflows/release-packages.yml"
+          test "$(jq -r .conclusion <<<"$qualification_json")" = success
+          test "$(jq -r .path <<<"$qualification_json")" = ".github/workflows/release-qualification.yml"
+          build_sha="$(jq -r .head_sha <<<"$build_json")"
+          qualification_sha="$(jq -r .head_sha <<<"$qualification_json")"
+          test "$build_sha" = "$GITHUB_SHA"
+          test "$qualification_sha" = "$GITHUB_SHA"
+          mapfile -t build_artifacts < <(
+            gh api --paginate \
+              "repos/$GITHUB_REPOSITORY/actions/runs/$BUILD_RUN_ID/artifacts" \
+              --jq '.artifacts[] | select(.expired == false) | .name' | sort
+          )
+          required_build_artifacts=(
+            onyx-formal-sbom
+            onyx-macos-15
+            onyx-ubuntu-24.04
+            onyx-ubuntu-24.04-arm
+            onyx-windows-latest
+            onyx-windows-native-eligibility
+          )
+          if ! diff -u \
+            <(printf '%s\n' "${required_build_artifacts[@]}" | sort) \
+            <(printf '%s\n' "${build_artifacts[@]}" | sort); then
+            echo "qualified build contains an unexpected artifact set" >&2
+            exit 1
+          fi
+          mapfile -t qualification_artifacts < <(
+            gh api --paginate \
+              "repos/$GITHUB_REPOSITORY/actions/runs/$QUALIFICATION_RUN_ID/artifacts" \
+              --jq '.artifacts[] | select(.expired == false) | .name' | sort
+          )
+          test "${#qualification_artifacts[@]}" = 1
+          test "${qualification_artifacts[0]}" = onyx-final-qualification-evidence
+          {
+            echo "BUILD_SHA=$build_sha"
+            echo "QUALIFICATION_SHA=$qualification_sha"
+          } >> "$GITHUB_ENV"
+      - name: Download exact qualified build artifacts
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          pattern: onyx-*
+          path: release
+          merge-multiple: true
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.qualified_build_run_id }}
+      - name: Download exact final qualification evidence
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: onyx-final-qualification-evidence
+          path: release
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.qualification_run_id }}
+      - name: Bind trusted Windows eligibility receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          receipt=release/windows-native-eligibility-receipt-x64.json
+          test -f "$receipt" && test ! -L "$receipt"
+          echo "WINDOWS_RECEIPT_SHA=$(sha256sum "$receipt" | cut -d' ' -f1)" >> "$GITHUB_ENV"
+      - name: Enforce public release eligibility
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m scripts.check_release_eligibility \
+            --version "$RELEASE_VERSION" \
+            --repository-approval "$ONYX_PUBLIC_RELEASE_APPROVED" \
+            --legal-approval "$ONYX_LEGAL_RELEASE_APPROVED" \
+            --required-target Windows-x64 \
+            --required-target Darwin-arm64 \
+            --required-target Linux-x64 \
+            --required-target Linux-arm64 \
+            --trusted-windows-receipt-sha256 "$WINDOWS_RECEIPT_SHA" \
+            --workflow-run-id "$BUILD_RUN_ID" \
+            --workflow-sha "$BUILD_SHA"
+      - name: Enforce lifecycle, soak and independent-review qualification
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m scripts.verify_final_release_qualification_v1 \
+            --release-dir release \
+            --version "$RELEASE_VERSION" \
+            --required-target Windows-x64 \
+            --required-target Darwin-arm64 \
+            --required-target Linux-x64 \
+            --required-target Linux-arm64 \
+            --build-run-id "$BUILD_RUN_ID" \
+            --build-sha "$BUILD_SHA" \
+            --qualification-run-id "$QUALIFICATION_RUN_ID" \
+            --qualification-sha "$QUALIFICATION_SHA" \
+            --independent-review-approval "$ONYX_INDEPENDENT_REVIEW_APPROVED" \
+            --independent-review-reference \
+              "https://github.com/${GITHUB_REPOSITORY}/actions/runs/${QUALIFICATION_RUN_ID}" \
+            --output release/publish-reverification-receipt.json
+      - name: Publish GitHub release
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh release view "$RELEASE_TAG" >/dev/null 2>&1 || \
+            gh release create "$RELEASE_TAG" \
+              --title "Onyx $RELEASE_VERSION" \
+              --generate-notes \
+              --target "$BUILD_SHA"
+          gh release upload "$RELEASE_TAG" release/* --clobber

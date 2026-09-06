@@ -1,0 +1,46 @@
+{
+  "schema": "onyx.phase5.runtime-candidate-bundle.v1",
+  "candidate": "phase5-runtime-v9",
+  "created_at": "2026-07-22",
+  "bundle_root": "docs/onyx/checkpoints/phase5-runtime-v9",
+  "isolated": true,
+  "default_off": true,
+  "live_wired": false,
+  "files": [
+    {
+      "path": "core/phase5_runtime_v9.py",
+      "sha256": "55130494afe02bbbd52acad4d9b4e12cf09e69aeba51592b0bd97c93ccdf0da1"
+    },
+    {
+      "path": "tests/test_phase5_runtime_v9.py",
+      "sha256": "99de4fc6cf1bcefa32de48be6d76f0753980582cb461ebd203f44a6c6cd1406c"
+    }
+  ],
+  "verification": {
+    "focused": {
+      "passed": 80,
+      "failed": 0
+    },
+    "cumulative": {
+      "passed": 1008,
+      "subtests_passed": 221,
+      "failed": 0
+    },
+    "ruff": "pass",
+    "py_compile": "pass",
+    "performance": {
+      "evaluate_consume_iterations": 2000,
+      "p50_ms": 3.731250,
+      "p95_ms": 6.447300,
+      "max_ms": 25.818100,
+      "termination_iterations": 256,
+      "termination_mean_ms": 1.103727,
+      "worker_thread_delta": 0
+    }
+  },
+  "limitations": [
+    "candidate-only; no startup, UI, dashboard, or live wiring",
+    "host executes and acknowledges cleanup actions",
+    "external functional, integrity, and quality review pending"
+  ]
+}

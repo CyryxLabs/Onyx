@@ -1,0 +1,122 @@
+{
+  "schema": "OnyxPhase6DisabledExternalAgentDescriptor.v1",
+  "candidate": "phase6-disabled-external-agent-descriptor-candidate-001",
+  "status": "candidate_default_off_not_live",
+  "activation": {
+    "flag": "ONYX_PHASE6_DISABLED_EXTERNAL_AGENT_DESCRIPTOR_V1",
+    "enabled_value": "true",
+    "exact": "ONYX_PHASE6_DISABLED_EXTERNAL_AGENT_DESCRIPTOR_V1=true",
+    "default": "off",
+    "factory_only": true,
+    "live_wiring": false
+  },
+  "artifact_root_algorithm": "sha256-sorted-path-nul-digest-lf-v1",
+  "artifact_root_sha256": "d48984d1c568eaa1fcecb3ad906049905e62f138143b9d958b7ee7b3048ffab4",
+  "artifacts": [
+    {
+      "path": "core/phase6_disabled_external_agent_descriptor_v1.py",
+      "bytes": 34498,
+      "sha256": "9a90725ac89e33c3e3abe1851ced1d2a335f4f1b28e7fe26fb8add6875532e5d"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0026-phase6-disabled-external-agent-descriptor-v1.md",
+      "bytes": 3915,
+      "sha256": "5ff8798c78efd69f6a4a2b2500d1aafb224b6f0503cecb7f5ea276b5f9b5a8a0"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase6-disabled-external-agent-descriptor-v1/PHASE6_DISABLED_EXTERNAL_AGENT_DESCRIPTOR_V1_CHECKPOINT.md",
+      "bytes": 3046,
+      "sha256": "4071dc75403f704efb3878343d7b7734092c3bd4c2628ad8a1df5503ad203187"
+    },
+    {
+      "path": "scripts/verify_phase6_disabled_external_agent_descriptor_v1.py",
+      "bytes": 9376,
+      "sha256": "b8fbabc6c40ed3aed01d0aaa29a24e7fcf443db181d1d1fa91dc3747515959cd"
+    },
+    {
+      "path": "tests/test_phase6_disabled_external_agent_descriptor_v1.py",
+      "bytes": 16368,
+      "sha256": "5934c22d054c31ac8e746f815a4ce96687d48e72836494a7f1f6267dd7d515df"
+    }
+  ],
+  "component_acceptance_roots": [
+    {
+      "component": "capability_nexus_v32",
+      "path": "docs/onyx/checkpoints/phase5-capability-nexus-v32/phase5-capability-nexus-v32.bundle.json",
+      "sha256": "84ffc850a14782ae3f4182973acc50a2765df7f6143977a81daf5423c6706c6f"
+    },
+    {
+      "component": "capability_nexus_v32",
+      "path": "docs/onyx/acceptance/VE-P53-CAPABILITY-NEXUS-V32-E6-001.md",
+      "sha256": "b75ccb2b4bc58a4c4d72445d46eb66e550636cbb0deb02ecef304c8327f9d1dc"
+    },
+    {
+      "component": "provider_registry_v1",
+      "path": "docs/onyx/checkpoints/phase6-provider-registry-v1/manifest.json",
+      "sha256": "7a3191607037f6210ae145b5477bbaeff5bfdaa7c756257d4775c1f30c0a10c6"
+    },
+    {
+      "component": "provider_registry_v1",
+      "path": "docs/onyx/acceptance/VE-P6-PROVIDER-REGISTRY-V1-E6-001.md",
+      "sha256": "ca7f0760723c4f6ad5d2a8716248c75c695e58cdb3e9b6917a3d027443aefabd"
+    },
+    {
+      "component": "provider_registry_v1",
+      "path": "docs/onyx/acceptance/VE-P6-PROVIDER-REGISTRY-V1-E6-001.manifest.json",
+      "sha256": "4a2c69076a1e6b07f606d30733b357f7c50c08193ff90a250d351637f0c0d070"
+    }
+  ],
+  "contracts": {
+    "identity": [
+      "adapter_id",
+      "provider_id",
+      "workspace_id",
+      "account_id",
+      "profile_id",
+      "principal_id"
+    ],
+    "descriptor_version": "v1",
+    "health": "blocked_by_access",
+    "access_reason": "no_accepted_installed_authenticated_adapter",
+    "required_scopes": [],
+    "granted_scopes": [],
+    "authentication": "absent",
+    "cancellation": "no_session_cancel_is_final",
+    "receipt_semantics": "authenticated_blocked_projection",
+    "credential_alias": null,
+    "public_executable_fields": [],
+    "secret_privacy_metadata_denial": true,
+    "component_byte_bound": true,
+    "exact_replay": true,
+    "authenticated_receipts": true,
+    "runtime_available": false,
+    "authority_granted": false,
+    "provider_calls": 0,
+    "process_calls": 0,
+    "network_calls": 0,
+    "live_calls": 0
+  },
+  "verification": {
+    "focused": "40 passed",
+    "cumulative": "74 passed",
+    "cumulative_scope": "provider_registry_v1_source_and_acceptance_plus_candidate",
+    "ruff": "passed",
+    "py_compile": "passed",
+    "live_structural_scan": true,
+    "real_provider_calls": 0,
+    "process_calls": 0,
+    "network_calls": 0,
+    "credentials_used": false,
+    "live_activation": false,
+    "e6": "not_performed",
+    "independent_verifier": "P6_DISABLED_EXTERNAL_AGENT_DESCRIPTOR_V1_OK"
+  },
+  "mutable_live_anchors": [],
+  "limitations": [
+    "This candidate describes absence of accepted external-agent access; it does not make an external agent available.",
+    "No provider, process, network, browser, runtime, activation, HUD, Router or live wiring was invoked or modified.",
+    "No mutable Activation V10 artifact is frozen.",
+    "The five component acceptance roots are byte-verified but not rewritten.",
+    "Independent E6 acceptance remains required before any activation decision."
+  ]
+}

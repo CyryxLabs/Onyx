@@ -1,0 +1,31 @@
+{
+  "schema": "onyx.hud.current.v38.acceptance.v1",
+  "candidate": "onyx-hud-v14-multimodal-attention-001",
+  "decision": "accepted-source",
+  "current_root": "qml/OnyxLiveShellV13.qml",
+  "runtime_inputs": [
+    {"path": "core/camera_gesture_attention_v1.py", "sha256": "b22003d6a48a781a6f1aedd5e22f43a74f3a24c880e0924566b0324085e1e535"},
+    {"path": "qml/components/OnyxHumanoidEntityV10.qml", "sha256": "ad938115fae8c94328ea2b346a8113cced2f1f7280e00a4e5a6f04b6057657fb"},
+    {"path": "qml/assets/onyx-humanoid-cyryx-v11.png", "sha256": "e5d5796d843094945b6ca7aacfbac2daa9e701b49fee1e71e07af4c233bb7e43"},
+    {"path": "qml/web/onyx-humanoid-three-v1.html", "sha256": "f54a2ad8dd5c407fbf5430b8f6b7b1631519249e8b72df684fef685f21f9b29d"},
+    {"path": "qml/web/data/onyx-humanoid-pointcloud-v1.js", "sha256": "ffd52a2690c79841202eecd1be5c188a2b0976a8954c89f3f7f0712391c42886"},
+    {"path": "qml/web/vendor/three/three.module.min.js", "sha256": "e2b5ee6bccd38fd6d8a2428546b83c5f2426d84b152ef82be8055556e3b40eb6"},
+    {"path": "qml/web/vendor/three/three.core.min.js", "sha256": "61ba0df005b05991361d040d8ff670e1aadfd0ce7aeebd1fdb0725957a8957de"},
+    {"path": "ui.py", "sha256": "69da3444cafbe08cd2933042c52759f402e82f645bd18c94c7872474c569b60c"},
+    {"path": "qml/OnyxLiveShellV13.qml", "sha256": "3853981ac7efd90d5301448d20bb32967f3d6ac3b549f94a9e3800eafa8c132c"},
+    {"path": "core/onyx_hud_orb_v14.py", "sha256": "d5b8e2ff9dd7e49a7676777149f31286212942d7193982ad3ace0fc2c73a2a32"},
+    {"path": "tests/test_camera_gesture_attention_v1.py", "sha256": "60b0345b5de8be9855dfd38c73e557b2102939836fee34640d23bfbe1ab818bf"}
+  ],
+  "semantics": {
+    "palette_changed": false,
+    "abstract_humanoid": true,
+    "global_pointer_attention": true,
+    "camera_gesture_attention": true,
+    "camera_identity_processing": false,
+    "second_camera_capture": false,
+    "audio_pipeline_changed": false,
+    "reduced_motion_static": true,
+    "network_activity": false,
+    "published": false
+  }
+}

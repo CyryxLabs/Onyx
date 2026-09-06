@@ -1,0 +1,102 @@
+{
+  "schema": "onyx.phase8.microsoft-graph-oauth.v1",
+  "candidate": "phase8-microsoft-graph-oauth-v1",
+  "created_at": "2026-07-23T20:02:11-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_PHASE8_MICROSOFT_GRAPH_OAUTH_V1",
+  "enabled_value": "true",
+  "default_off": true,
+  "entry_roots": {
+    "phase8_microsoft_graph_read_v1_artifact_root_sha256": "abb152e611e1b58adc55b88207497d64188ad9485d2b6a32ada5f8c364528291",
+    "decision": "accepted"
+  },
+  "claims": {
+    "device_authorization_contract": true,
+    "read_only_delegated_scopes": true,
+    "signed_in_account_verification": true,
+    "refresh_token_native_vault": true,
+    "refresh_token_rotation": true,
+    "access_token_process_local_only": true,
+    "device_session_one_shot": true,
+    "get_only_graph_transport": true,
+    "provider_mutation_authority": false,
+    "real_app_registration": false,
+    "live_identity_e2e": false,
+    "live_graph_e2e": false,
+    "live_wiring": false,
+    "phase8_exit": false,
+    "full_onyx_prd_complete": false,
+    "e1_e5_ready": true,
+    "external_e6_accepted": false
+  },
+  "verification": {
+    "test_files": 14,
+    "passed": 304,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "subtests_passed": 80
+  },
+  "effects": {
+    "default_off_import_persistent_writes": 0,
+    "default_off_import_network_calls": 0,
+    "default_off_import_process_calls": 0,
+    "default_off_import_provider_calls": 0,
+    "model_calls": 0,
+    "action_dispatches": 0,
+    "graph_mutation_routes": 0,
+    "live_surface_changes": 0
+  },
+  "limitations": [
+    "Default-off and not wired to V13, startup, voice, UI or dashboard.",
+    "No authorized Entra app registration/client ID, tenant consent or test account is introduced.",
+    "Identity and Graph transports are injected/contract-tested; live provider E2E is not claimed.",
+    "Refresh tokens use the native-vault abstraction; cross-platform host vault behavior remains to be proven.",
+    "Access tokens are process-local, but immutable Python strings cannot be guaranteed to be wiped in place.",
+    "No provider draft, calendar or mail mutation, task, notification, Drive, OneDrive or Office authority is added.",
+    "Phase 8 aggregate exit and full Onyx PRD completion remain pending."
+  ],
+  "artifacts": [
+    {
+      "path": "core/phase8_microsoft_graph_oauth_v1.py",
+      "bytes": 37252,
+      "sha256": "0347247adf42bdbf7893ee117206605f9a0bb2155ab7779a91df55ba3ea034d0"
+    },
+    {
+      "path": "tests/test_phase8_microsoft_graph_oauth_v1.py",
+      "bytes": 27948,
+      "sha256": "9c5c840f70ed402c8736778dd61e62c20629ced80b2522bf5d2476f41fd6d72d"
+    },
+    {
+      "path": "scripts/verify_phase8_microsoft_graph_oauth_v1.py",
+      "bytes": 7772,
+      "sha256": "7b8626235a1e1e225c09680afed334a657a58a773b5f6360fdbbeff8d151594f"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0037-phase8-microsoft-graph-oauth-v1.md",
+      "bytes": 2628,
+      "sha256": "5f52bbb94e0650f6436fb994201b534dc6937f2f018a9ace750cc8e80a22e83b"
+    },
+    {
+      "path": "docs/onyx/research/PHASE8_MICROSOFT_GRAPH_OAUTH_V1_SOURCES.md",
+      "bytes": 3680,
+      "sha256": "3dd5099ea2499417c72953dee6fa8698d249fc8035b89dbb426bd242b28d8fe5"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase8-microsoft-graph-oauth-v1/PHASE8_MICROSOFT_GRAPH_OAUTH_V1_CHECKPOINT.md",
+      "bytes": 1062,
+      "sha256": "65ae3b9a716f52194e97348961da35c15e321be5dd8d66a46515f36695a75daf"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase8-microsoft-graph-oauth-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 961,
+      "sha256": "c02c9edf224029b0343639c6976c4e6005e8be98e29a04a2edc52d5b5ca2706e"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase8-microsoft-graph-oauth-v1/cumulative-selection.json",
+      "bytes": 1754,
+      "sha256": "2cfded34b95e261fdb54eb497aeced42efc231a769bd696efcaca3ba7c59ade2"
+    }
+  ],
+  "artifact_root_sha256": "9ae6f034f530a6e8353dfccbcf675760d2746684cf1a840da94adab326bf824d"
+}

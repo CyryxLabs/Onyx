@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Onyx Humanoid Continuity Surface</title>
+<style>
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:transparent;border:0}
+#present{position:absolute;inset:0;width:100%;height:100%;display:block;background:transparent;z-index:1}
+#live{position:absolute;inset:0;width:100%;height:100%;display:block;border:0;opacity:.001;pointer-events:none;z-index:0}
+</style>
+</head>
+<body>
+<canvas id="present" aria-label="Onyx Three.js humanoid"></canvas>
+<iframe id="live" title="Onyx Three.js render worker" src="onyx-humanoid-three-v6.html"></iframe>
+<script>
+'use strict';
+const live=document.getElementById('live');
+const presentation=document.getElementById('present');
+const presentationContext=presentation.getContext('2d',{alpha:true});
+const queued={state:null,attention:null};
+let childApi=null;
+let captureCanvas=null;
+let healthCanvas=null;
+let presentedFrames=0;
+let rejectedFrames=0;
+let lastPresentedFrame=-1;
+
+function applyQueuedState(){
+  if(!childApi)return;
+  if(queued.state)childApi.setState(...queued.state);
+  if(queued.attention)childApi.setAttention(...queued.attention);
+}
+
+function bindRenderer(){
+  try{
+    const child=live.contentWindow;
+    if(!child||child.__ONYX_THREE_READY__!==true||!child.OnyxEntity)return false;
+    childApi=child.OnyxEntity;
+    applyQueuedState();
+    window.__ONYX_THREE_READY__=true;
+    return true;
+  }catch(_error){return false;}
+}
+
+function captureFrame(){
+  if(!childApi&&!bindRenderer())return '';
+  try{
+    const source=presentation;
+    if(!source||source.width<2||source.height<2)return '';
+    const width=Math.min(640,source.width);
+    const height=Math.max(2,Math.round(width*source.height/source.width));
+    if(!captureCanvas)captureCanvas=document.createElement('canvas');
+    if(captureCanvas.width!==width||captureCanvas.height!==height){
+      captureCanvas.width=width;captureCanvas.height=height;
+    }
+    const context=captureCanvas.getContext('2d',{alpha:true});
+    context.clearRect(0,0,width,height);
+    context.drawImage(source,0,0,width,height);
+    return captureCanvas.toDataURL('image/png');
+  }catch(_error){return '';}
+}
+
+function frameIsComplete(source){
+  if(!healthCanvas){healthCanvas=document.createElement('canvas');healthCanvas.width=80;healthCanvas.height=45;}
+  const context=healthCanvas.getContext('2d',{alpha:false,willReadFrequently:true});
+  context.clearRect(0,0,80,45);
+  context.drawImage(source,0,0,80,45);
+  const pixels=context.getImageData(0,0,80,45).data;
+  const bands=[0,0,0,0];
+  let active=0;
+  for(let index=0;index<3600;index+=1){
+    const offset=index*4;
+    if(Math.max(pixels[offset],pixels[offset+1],pixels[offset+2])<14)continue;
+    active+=1;
+    bands[Math.min(3,Math.floor(Math.floor(index/80)/11.25))]+=1;
+  }
+  return active>=100&&bands.every(value=>value>=12);
+}
+
+function presentFrame(){
+  requestAnimationFrame(presentFrame);
+  if(!childApi&&!bindRenderer())return;
+  try{
+    const frameNumber=live.contentWindow.__ONYX_RENDER_INFO__().renderedFrames;
+    if(frameNumber===lastPresentedFrame)return;
+    const source=live.contentWindow.document.querySelector('canvas');
+    if(!source||source.width<2||source.height<2||!frameIsComplete(source)){
+      rejectedFrames+=1;return;
+    }
+    if(presentation.width!==source.width||presentation.height!==source.height){
+      presentation.width=source.width;presentation.height=source.height;
+    }
+    presentationContext.clearRect(0,0,presentation.width,presentation.height);
+    presentationContext.drawImage(source,0,0,presentation.width,presentation.height);
+    lastPresentedFrame=frameNumber;
+    presentedFrames+=1;
+  }catch(_error){rejectedFrames+=1;}
+}
+
+window.OnyxEntity={
+  setState(...args){queued.state=args;if(childApi)childApi.setState(...args);},
+  setAttention(...args){queued.attention=args;if(childApi)childApi.setAttention(...args);},
+  reset(){if(childApi)childApi.reset();},
+  captureFrame,
+};
+window.__ONYX_THREE_READY__=false;
+window.__ONYX_RENDER_INFO__=()=>{
+  if(!bindRenderer())return {renderer:'three-webgl-humanoid-pointcloud-v7',ready:false};
+  const info=live.contentWindow.__ONYX_RENDER_INFO__();
+  return {...info,renderer:'three-webgl-humanoid-pointcloud-v7',continuityFrame:true,
+    transparentPresentation:true,presentationBuffer:true,presentedFrames,rejectedFrames};
+};
+
+live.addEventListener('load',()=>{
+  if(bindRenderer())return;
+  const probe=setInterval(()=>{if(bindRenderer())clearInterval(probe);},50);
+  setTimeout(()=>clearInterval(probe),10000);
+});
+presentation.width=2;presentation.height=2;
+presentationContext.clearRect(0,0,2,2);
+requestAnimationFrame(presentFrame);
+</script>
+</body>
+</html>

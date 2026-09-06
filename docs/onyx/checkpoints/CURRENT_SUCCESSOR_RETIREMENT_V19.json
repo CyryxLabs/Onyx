@@ -1,0 +1,46 @@
+{
+  "schema": "onyx.current-successor-retirement.v19",
+  "issued_at": "2026-08-23T21:00:00-04:00",
+  "predecessor": {
+    "path": "docs/onyx/checkpoints/CURRENT_SUCCESSOR_RETIREMENT_V18.json",
+    "sha256": "5eb69ec483bbb978ffeadb676717e948accc62042a0f877fd6a169f2c4f6f517"
+  },
+  "policy": {
+    "historical_tests_are_rewritten": false,
+    "historical_hashes_are_rebound": false,
+    "registered_nodes_must_remain_collected": true,
+    "successor_sources_are_sha256_bound": true,
+    "successor_tests_must_execute": true,
+    "exact_nodeids_only": true,
+    "v19_precedes_v18_on_overlap": true
+  },
+  "additional_claims": [
+    {
+      "id": "hud-v58-to-v59-current-authority",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_native_release_gate_v1.py::test_pyinstaller_input_discovery_covers_entrypoints_and_resources",
+        "tests/test_onyx_hud_orb_v7_candidate.py::test_v7_one_widget_projection_and_exact_v6_rollback",
+        "tests/test_onyx_hud_orb_v8_candidate.py::test_module_does_not_enable_itself_or_edit_v7",
+        "tests/test_onyx_hud_orb_v8_candidate.py::test_v8_one_widget_projection_and_exact_v7_rollback",
+        "tests/test_onyx_hud_orb_v8_candidate.py::test_voice_layer_has_speaking_only_governed_motion"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_onyx_hud_current_acceptance_v35.py",
+          "sha256": "eef2f276912f9184b7e450088f6d6e260bfdc449239db0e72ce5c00f6fdfc8cc"
+        },
+        {
+          "path": "tests/test_packaged_runtime_hud_contract_v4.py",
+          "sha256": "068dea5272f5f00305dbd5f0a8c1cf778f0289a2fd20f370c8f80e8374a627bd"
+        },
+        {
+          "path": "tests/test_release_workflow_transition_v59.py",
+          "sha256": "b644336c38937b3d95dc1d191ccce2e0ecd6cfbc2813b3228a3fdb8f677eb678"
+        }
+      ],
+      "validated_tests": 5,
+      "reason": "Release V59 re-authenticates the unchanged HUD V35 and packaged runtime V4 successors after the accessibility teardown correction; V18 and V58 remain immutable predecessors."
+    }
+  ]
+}

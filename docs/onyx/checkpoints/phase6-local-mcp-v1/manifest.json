@@ -1,0 +1,112 @@
+{
+  "schema": "OnyxPhase6LocalMCP.v1",
+  "candidate": "phase6-local-mcp-candidate-001",
+  "status": "candidate_default_off_not_live",
+  "protocol_version": "2025-11-25",
+  "activation": {
+    "flag": "ONYX_PHASE6_LOCAL_MCP_V1",
+    "enabled_value": "true",
+    "exact": "ONYX_PHASE6_LOCAL_MCP_V1=true",
+    "default": "off",
+    "live_wiring": false
+  },
+  "artifact_root_algorithm": "sha256-sorted-path-nul-digest-lf-v1",
+  "artifact_root_sha256": "c0efe67f8e28fb6444456d535f482c5af783d20508fcb48a618dd3b3ce693f6f",
+  "artifacts": [
+    {
+      "path": "core/phase6_local_mcp_v1.py",
+      "bytes": 39057,
+      "sha256": "4c083516438c6ef620db11f91996a56d0fec4cd2538cb603d8c5c0e5872f6975"
+    },
+    {
+      "path": "tests/test_phase6_local_mcp_v1.py",
+      "bytes": 12809,
+      "sha256": "50e287a44a9d54b7156a8eb844353b917c413150378c9d110983c1b740e83e23"
+    },
+    {
+      "path": "tests/fixtures/phase6_local_mcp_server.py",
+      "bytes": 9382,
+      "sha256": "1f92545f11d91840c588fdb9f7384aded6f8906a2ea5bb30f1e1d36af762910a"
+    },
+    {
+      "path": "scripts/verify_phase6_local_mcp_v1.py",
+      "bytes": 5490,
+      "sha256": "037c3acd9e6f9aa9bd0294aa22a5bf7984924ddf696c8a3da72b6dccfbccd0cc"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0022-phase6-local-read-only-mcp-v1.md",
+      "bytes": 2359,
+      "sha256": "607c6fe6ae95ed26685bf37fc1d0c82547811153c029317f3465b1af91ecfd70"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase6-local-mcp-v1/PHASE6_LOCAL_MCP_V1_CHECKPOINT.md",
+      "bytes": 3642,
+      "sha256": "036477b4783530c4a488e45292658827278cd9b4f90f83fb28837b2d9a569d45"
+    }
+  ],
+  "contracts": {
+    "transport": "stdio",
+    "encoding": "UTF-8",
+    "framing": "newline-delimited JSON-RPC 2.0",
+    "lifecycle": [
+      "initialize",
+      "notifications/initialized",
+      "tools/list",
+      "tools/call"
+    ],
+    "factory_only": true,
+    "pinned_executable_sha256": true,
+    "pinned_server_artifact_sha256": true,
+    "shell": false,
+    "single_flight": true,
+    "strict_duplicate_key_rejection": true,
+    "response_id_exact_integer": true,
+    "bounded_paginated_tool_discovery": true,
+    "request_timeout": true,
+    "cancellation_notification": true,
+    "initialize_cancellation_forbidden": true,
+    "late_cancelled_response_ignored": true,
+    "bounded_shutdown": true,
+    "maximum_message_bytes": 1048576,
+    "maximum_result_bytes": 262144,
+    "credential_transport": "minimal child environment only",
+    "credential_reflection": "denied",
+    "projected_tools": [
+      "local_catalog_read"
+    ],
+    "server_descriptions_annotations_instructions": "untrusted_not_authority",
+    "server_extra_tools": "not_projected_not_invokable",
+    "server_initiated_requests": "denied",
+    "arguments": [
+      "page_size",
+      "cursor"
+    ],
+    "structured_result_validation": "exact_locally_authored_bounded_schema",
+    "receipt": "identity_and_input_bound_sha256",
+    "egress": "none",
+    "mutation": "none",
+    "provider_calls": 0
+  },
+  "verification": {
+    "focused": "27 passed",
+    "cumulative": "59 passed",
+    "network_calls": 0,
+    "provider_calls": 0,
+    "live_activation": false,
+    "e6": "not_performed",
+    "independent_verifier": "P6_LOCAL_MCP_V1_OK"
+  },
+  "frozen_anchors": {
+    "main.py": "6b82fed0d7c932a08d2d1f8a31d7650a1b235d55085ee608fdbb7651e5f49712",
+    "core/phase5_integration_v3.py": "52d48c121da485c024811e6cd3fafbabaed971175d7cb41ad23358c5c2879b0d",
+    "core/phase6_agentic_core_v6.py": "38f68d7dd8eb04fe7c9caa956db5a52d0a96426bab6a45f07b96e67e45d8001a",
+    "core/phase6_live_integration_v2.py": "e3194a0d8e206d33218bc8291cbd518788e8dfb3931adfd2f067908655d409b5",
+    "core/onyx_live_activation_v10.py": "608d38456cdd4ac1f4b2c7e1128fce9feec1725422f204370fed58b27db79cc8"
+  },
+  "limitations": [
+    "The candidate is a protocol-real MCP client boundary but is isolated, default-off and not imported by any live host.",
+    "The deterministic server is an offline adversarial fixture, not a production Phase 5 catalog server.",
+    "Receipts are idempotent only for the lifetime of this adapter instance; durable cross-restart receipts remain a live-composition requirement.",
+    "No Streamable HTTP, external server, provider, network, live wiring, E6 acceptance or Phase 6 exit is claimed."
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "schema": "onyx.phase7.founder-command.v1.cumulative-selection",
+  "execution": "one-test-file-per-fresh-python-process",
+  "expected": {
+    "test_files": 8,
+    "passed": 168,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "subtests_passed": 65
+  },
+  "explained_skips": [
+    {
+      "path": "tests/test_control_plane.py",
+      "count": 1,
+      "reason": "POSIX mode assertions are unavailable on Windows"
+    },
+    {
+      "path": "tests/test_artifact_service.py",
+      "count": 7,
+      "reason": "POSIX FIFO, link-count, quarantine, restart and crash contracts are unavailable on Windows"
+    }
+  ],
+  "tests": [
+    {
+      "path": "tests/test_phase7_founder_command_v1.py",
+      "passed": 14,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_phase7_company_graph_v1.py",
+      "passed": 16,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_phase7_approved_sources_v1.py",
+      "passed": 13,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_domain_ledger.py",
+      "passed": 11,
+      "skipped": 0,
+      "subtests_passed": 3
+    },
+    {
+      "path": "tests/test_phase7_workspace_aliases_v1.py",
+      "passed": 22,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_control_plane.py",
+      "passed": 31,
+      "skipped": 1,
+      "subtests_passed": 52
+    },
+    {
+      "path": "tests/test_workspace_registry.py",
+      "passed": 10,
+      "skipped": 0,
+      "subtests_passed": 10
+    },
+    {
+      "path": "tests/test_artifact_service.py",
+      "passed": 51,
+      "skipped": 7,
+      "subtests_passed": 0
+    }
+  ]
+}

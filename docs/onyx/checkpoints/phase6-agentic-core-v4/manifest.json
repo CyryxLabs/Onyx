@@ -1,0 +1,114 @@
+{
+  "schema": "OnyxPhase6AgenticCoreCheckpoint.v4",
+  "status": "candidate_default_off_unaccepted",
+  "generated_at": "2026-07-22T23:55:00-04:00",
+  "environment": {
+    "platform": "Windows 11 10.0.26200",
+    "python": "3.13.7 x64"
+  },
+  "activation": {
+    "feature_flag": "ONYX_PHASE6_AGENTIC_CORE_V4",
+    "enabled_value": "true",
+    "default": "off",
+    "live_wiring": false
+  },
+  "artifact_root_algorithm": {
+    "name": "onyx-artifact-root-v2",
+    "manifest_self_included": false,
+    "record": "UTF-8(canonical relative POSIX path + NUL + lowercase SHA-256)",
+    "ordering": "ascending complete record string",
+    "separator": "LF",
+    "trailing_separator": false,
+    "digest": "SHA-256"
+  },
+  "artifacts": [
+    {
+      "path": "core/phase6_agentic_core_v4.py",
+      "bytes": 72643,
+      "sha256": "cfa738a42c02a5134344e2ac6364af93b63249fc1ab929d691dfeab2596daf57"
+    },
+    {
+      "path": "tests/test_phase6_agentic_core_v4.py",
+      "bytes": 18086,
+      "sha256": "1d2b5f39b426614ccdb7d977628cd9f3b384cdfe458b2f93e34f49a805b8b401"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0013-phase6-agentic-core-v4-authenticated-state-and-process-isolation.md",
+      "bytes": 5456,
+      "sha256": "2666c3af3c27e5612aae7232d055f7d9da49e8a30db928d587dcb72df894c208"
+    },
+    {
+      "path": "docs/onyx/rejections/PHASE6_AGENTIC_CORE_V3_REJECTION.md",
+      "bytes": 1727,
+      "sha256": "07958248641645d74fc7b87f9f6d8bf944179cc72694d10a80e7b21cd4aa370d"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase6-agentic-core-v4/PHASE6_AGENTIC_CORE_V4_CHECKPOINT.md",
+      "bytes": 4997,
+      "sha256": "eb436958a09dff135ee1349365baeab8342582439a16dc7d6bd2d0c0ce45a6bc"
+    }
+  ],
+  "artifact_root_sha256": "bdcdee76e4209c071705d4ad76a69515efd4dd6fe395005d3fa653da9c51b0cd",
+  "frozen_v3": {
+    "core_sha256": "406215c8031d48aba5fb189a8f14160e539391f9c48a3b9ba24a00d4f9d89484",
+    "tests_sha256": "8329b1e7cc1be66d34555d5c5f08c9c2a3fcb13a91bc7ddfa635ccfa303ff14b",
+    "mission_store_sha256": "fe2074eb132c09beecb9f13c5151659e745cf888676c4244c037e0a7ed7f2fe5",
+    "adr_sha256": "f67066fdb4e34c049e830f89f68be49e2b989b8ad312125a2e676ddc35eac9ac",
+    "checkpoint_sha256": "af2411905da6a27c695014d85c3c403fc8792b154907689f4dc920aa69cf1bf2",
+    "manifest_sha256": "3d77e96c6561445adb8b2cdb61e400d4ba896d6556ed0c357bb270c501d98288",
+    "artifact_root_sha256": "9f0f710373441a86d6d77bf908cfc7cf81b7f06faab9b293dcba5d23dd33bf27",
+    "status": "rejected_preserved_not_live"
+  },
+  "verification": {
+    "focused_before_manifest": "16 passed, 1 deselected",
+    "cumulative_before_manifest": "75 passed, 3 deselected",
+    "stable_before_manifest": "187 passed, 44 subtests passed, 3 deselected",
+    "cumulative_with_manifest": "78 passed, no deselection",
+    "stable_with_manifest": "190 passed, 44 subtests passed, no deselection",
+    "two_process_forced_expiry": "stale-before-create and stale-after-create passed",
+    "schema_authentication": "same-name table, index and trigger tamper fail closed",
+    "sqlite_query_plans": "declared recovery and compaction indexes used; no temporary B-tree",
+    "executor_lifecycle": "12 create invoke close cycles; zero thread and child delta",
+    "ruff_lint": "passed",
+    "ruff_format": "passed",
+    "py_compile": "passed",
+    "performance": {
+      "compute_snapshot": {
+        "samples": 500,
+        "median_ms": 1.239,
+        "p95_ms": 1.870,
+        "max_ms": 2.230
+      },
+      "indexed_recovery_empty": {
+        "samples": 500,
+        "median_ms": 0.978,
+        "p95_ms": 1.321,
+        "max_ms": 2.123
+      },
+      "warm_process_ipc": {
+        "samples": 100,
+        "median_ms": 0.073,
+        "p95_ms": 0.130,
+        "max_ms": 0.827
+      }
+    }
+  },
+  "scope_guards": {
+    "network_calls": false,
+    "provider_calls": false,
+    "external_tool_subprocess_calls": false,
+    "multiprocessing_isolation": true,
+    "process_restart": false,
+    "live_config_change": false,
+    "main_py_modified_by_v4": false,
+    "frozen_mission_store_modified_by_v4": false,
+    "commit_or_push": false
+  },
+  "limitations": [
+    "Admitted callbacks must be spawn-pickleable and return-only.",
+    "Providers that mutate external state directly require an explicit provider cancellation contract.",
+    "Natural-language provider planning and Gemini or llm_client parity remain separate slices.",
+    "Accepted Phase 5 catalog binding, planner memory and installed external agents remain separate slices.",
+    "No Phase 6 exit or live activation is claimed."
+  ]
+}

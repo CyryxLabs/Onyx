@@ -1,0 +1,55 @@
+{
+  "schema": "onyx.operational-acceptance.v1",
+  "acceptance_id": "VE-ONYX-LIVE-ACTIVATION-V19-C001-E6-001",
+  "decision": "accepted_bounded_windows_owner_host",
+  "decision_date": "2026-08-01",
+  "scope": "windows-owner-host-v19-build-install-provider-free-startup-and-manual-command-observation",
+  "runtime_changed": false,
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 4
+  },
+  "accepted": {
+    "build": true,
+    "install": true,
+    "preflight": true,
+    "native_startup_smoke": true,
+    "responsive_process": true,
+    "command_response": "owner_observed_manual"
+  },
+  "pending": {
+    "microsoft_graph_live": true,
+    "clean_machine": true,
+    "authenticode_signing": true,
+    "macos_linux_current_parity": true
+  },
+  "new_artifacts": [
+    {
+      "path": "docs/onyx/acceptance/VE-ONYX-LIVE-ACTIVATION-V19-C001-E6-001.md",
+      "size": 2464,
+      "sha256": "88cf844afe91c0936035207d20eb44671b9c21eb725750eef64d778774406d49"
+    },
+    {
+      "path": "docs/onyx/checkpoints/onyx-live-activation-v19-c001/installed-host-observation.json",
+      "size": 3768,
+      "sha256": "1d2b841021b74c48851d2cc5e1c43a9fb45121193287d362f06a7bbf0877fd1a"
+    },
+    {
+      "path": "docs/onyx/operations/ONYX_V19_1_OPERATIONAL_CLOSURE_2026-08-01.md",
+      "size": 4264,
+      "sha256": "ec6857d2b831ece3ef762cf622767af1ce48f81db6131199ec0d29bf116db127"
+    },
+    {
+      "path": "scripts/verify_onyx_live_activation_v19_c001_acceptance.py",
+      "size": 7215,
+      "sha256": "acd5f1fe58f856269c0d969c7bad4a495608509e8ad75e942b309cbde8a66914"
+    },
+    {
+      "path": "tests/test_onyx_live_activation_v19_c001_acceptance.py",
+      "size": 3283,
+      "sha256": "19017476ea08e74780ffe50f5c48ac852f719cc4f5335296b93d73a4937007b8"
+    }
+  ]
+}

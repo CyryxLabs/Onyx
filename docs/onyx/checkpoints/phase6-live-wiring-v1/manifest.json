@@ -1,0 +1,126 @@
+{
+  "schema": "OnyxPhase6LiveWiringCheckpoint.v1",
+  "status": "candidate_default_off_not_live",
+  "generated_at": "2026-07-23T03:35:00-04:00",
+  "environment": {
+    "platform": "Windows 11 10.0.26200",
+    "python": "3.13.7 x64"
+  },
+  "activation": {
+    "feature_flag": "ONYX_PHASE6_LIVE_WIRING_V1",
+    "enabled_value": "true",
+    "default": "off",
+    "live_wiring": false,
+    "auto_install": false
+  },
+  "artifacts": [
+    {
+      "path": "core/phase6_live_wiring_v1.py",
+      "bytes": 24529,
+      "sha256": "a658f430c10bb992724ad7bbd2ddae94b3c83f8893608fe724b241302b55d55f"
+    },
+    {
+      "path": "tests/test_phase6_live_wiring_v1.py",
+      "bytes": 16916,
+      "sha256": "a252d4b6c1f2b0717572171bf4f2b518d105a9cf966c58d3b63c88b99730e510"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0019-phase6-live-wiring-v1.md",
+      "bytes": 5683,
+      "sha256": "e75e2f76bbaafcb4a00841d6f487116df25a594c4ead49e175e90b720f3b70d8"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase6-live-wiring-v1/PHASE6_LIVE_WIRING_V1_CHECKPOINT.md",
+      "bytes": 7889,
+      "sha256": "ace81a864b00be6ec3e51c7a7f238fc3b268b2edefd41e521cea2e8b8e2efbda"
+    },
+    {
+      "path": "scripts/verify_phase6_live_wiring_v1.py",
+      "bytes": 12413,
+      "sha256": "69f1bbf465c76b6398c7cdc44f236b01b1cddb91b69103be8b4bd2d8a7985489"
+    }
+  ],
+  "artifact_root_sha256": "272143e6419ca5ef242916569aee8e1c18e01317ba638c10dc336e99283c0dc8",
+  "accepted_dependencies": {
+    "phase6_live_integration_v2_acceptance": "VE-P6-LIVE-INTEGRATION-V2-E6-001",
+    "phase6_live_integration_v2_manifest_sha256": "d02b265e5d67c98fb9dd2e868440ead39360187bdd95592fcf89a44f4448833a",
+    "phase6_live_integration_v2_artifact_root_sha256": "0b58365a0c43ea9b7133de1c0a51e77aa6bd855852849dab2bd9c433f733a334",
+    "phase6_agentic_core_v6_acceptance": "VE-P6-AGENTIC-CORE-V6-E6-001",
+    "phase6_agentic_core_v6_manifest_sha256": "cedea0a3ed3bf0c1ed069c589e2eb78035caa58886ced0c69658ac71d7bb4a15",
+    "phase5_integration_v3_acceptance": "VE-P5-INTEGRATION-V3-E6-001",
+    "phase5_integration_v3_manifest_sha256": "9ee4b34fc87a6be5e123c83c7dd244804498891eb175b5201cf074475ff0d167",
+    "onyx_live_activation_v7_acceptance": "VE-ONYX-LIVE-ACTIVATION-V7-E6-001",
+    "onyx_live_activation_v7_manifest_sha256": "312d6654f3423f16f4b36f435638920836994bd56c3e9a8766a086e2c6d647da",
+    "onyx_live_activation_v7_independent_root_sha256": "c6c52ca0d9a7725b543989c7586fc9fe9ab535282223b7fa0e1b0d1b8f5807cc"
+  },
+  "identity_binding": {
+    "fields": [
+      "workspace_id",
+      "account_id",
+      "profile_id",
+      "principal_id"
+    ],
+    "immutable": true,
+    "derived_from_exact_v7": true,
+    "runtime_phase5_reattestation": true,
+    "caller_supplied_identity": false
+  },
+  "lifecycle": {
+    "patched_seams": [
+      "__init__",
+      "_start_phase5_session",
+      "_stop_phase5_session"
+    ],
+    "protected_seams": [
+      "_execute_tool",
+      "_run_live_loop",
+      "_send_realtime"
+    ],
+    "construction_auto_installs": false,
+    "teardown_order": "live-integration-v2-before-phase5",
+    "rollback_state": "exact-post-v7",
+    "reconnect_state": "session-scoped-collision-resistant"
+  },
+  "scope": {
+    "main_modified": false,
+    "ui_modified": false,
+    "dashboard_modified": false,
+    "qml_modified": false,
+    "runtime_modified": false,
+    "packaging_modified": false,
+    "launcher_modified": false,
+    "command_route_added": false,
+    "provider_call_performed": false,
+    "network_call_performed": false,
+    "live_activation": false,
+    "phase6_exit_claimed": false
+  },
+  "verification_before_manifest": {
+    "focused": "16 passed, 1 manifest test deselected, in 6.10s",
+    "activation_v7_combined": "22 passed, 1 manifest test deselected, in 18.78s",
+    "cumulative": "263 passed, 1 manifest test deselected, in 69.70s",
+    "ruff_lint": "passed",
+    "ruff_format": "passed",
+    "py_compile": "passed"
+  },
+  "verification_after_manifest": {
+    "focused": "17 passed in 6.12s",
+    "activation_v7_combined": "23 passed in 20.47s",
+    "cumulative": "264 passed in 74.26s",
+    "cumulative_transient_dependency": "258 passed, 6 external Phase 5 matrix-drift failures",
+    "candidate_verifier": "P6_LIVE_WIRING_V1_OK",
+    "phase5_v3_acceptance_verifier": "P5_INTEGRATION_V3_ACCEPTANCE_OK",
+    "phase6_v6_acceptance_verifier": "P6_AGENTIC_CORE_V6_ACCEPTANCE_OK",
+    "live_integration_v2_acceptance_verifier": "P6_LIVE_INTEGRATION_V2_ACCEPTANCE_OK",
+    "activation_v7_acceptance_verifier": "ONYX_LIVE_ACTIVATION_V7_ACCEPTANCE_OK",
+    "ruff_lint": "passed",
+    "ruff_format": "passed",
+    "py_compile": "passed"
+  },
+  "limitations": [
+    "The candidate is not imported or configured by any live surface.",
+    "No UI, voice, command, tool or planner route exposes the V2 facade.",
+    "Existing symlink and reparse checks do not claim strong cross-process TOCTOU protection.",
+    "No provider availability, installed external agent, Phase 6 exit or Onyx completion is claimed."
+  ]
+}

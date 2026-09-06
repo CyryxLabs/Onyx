@@ -1,0 +1,58 @@
+{
+  "schema": "onyx.current-successor-retirement.v25",
+  "issued_at": "2026-08-24T19:00:00-04:00",
+  "predecessor": {
+    "path": "docs/onyx/checkpoints/CURRENT_SUCCESSOR_RETIREMENT_V24.json",
+    "sha256": "4ad07cca8347a05e37eb87682f436133069270e6603a61763a8895de3dd72a01"
+  },
+  "policy": {
+    "historical_tests_are_rewritten": false,
+    "historical_hashes_are_rebound": false,
+    "registered_nodes_must_remain_collected": true,
+    "successor_sources_are_sha256_bound": true,
+    "successor_tests_must_execute": true,
+    "exact_nodeids_only": true,
+    "v25_precedes_v24_on_overlap": true
+  },
+  "additional_claims": [
+    {
+      "id": "release-v65-to-v66-complete-hud-retirement",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_release_workflow_transition_v65.py::test_release_v65_authenticates_current_hud_accessibility_authority"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_release_workflow_transition_v66.py",
+          "sha256": "8fc746747e02c5866185d0c5032ed39d7a025d745bf81f62cb2131e79a419164"
+        }
+      ],
+      "validated_tests": 1,
+      "reason": "V66 binds the complete current HUD retirement while V65 remains immutable."
+    },
+    {
+      "id": "hud-v34-v35-to-v36-complete-current-acceptance",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_onyx_hud_current_acceptance_v34.py::test_v34_authenticates_exact_current_capabilities_and_package_hygiene",
+        "tests/test_onyx_hud_current_acceptance_v34.py::test_v34_rejects_current_or_predecessor_tamper[relative0]",
+        "tests/test_onyx_hud_current_acceptance_v34.py::test_v34_rejects_current_or_predecessor_tamper[relative1]",
+        "tests/test_onyx_hud_current_acceptance_v34.py::test_v34_rejects_current_or_predecessor_tamper[relative2]",
+        "tests/test_onyx_hud_current_acceptance_v34.py::test_v34_rejects_linked_capability_input",
+        "tests/test_onyx_hud_current_acceptance_v35.py::test_v35_authenticates_v4_current_runtime",
+        "tests/test_onyx_hud_current_acceptance_v35.py::test_v35_rejects_current_or_predecessor_tamper[relative0]",
+        "tests/test_onyx_hud_current_acceptance_v35.py::test_v35_rejects_current_or_predecessor_tamper[relative1]",
+        "tests/test_onyx_hud_current_acceptance_v35.py::test_v35_rejects_current_or_predecessor_tamper[relative2]",
+        "tests/test_onyx_hud_current_acceptance_v35.py::test_v35_rejects_linked_v4_input"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_onyx_hud_current_acceptance_v36.py",
+          "sha256": "9ab510c0c1ddd9ead120764e9cd8f8a90d7079f000c6f6c7f2fdf298d009534b"
+        }
+      ],
+      "validated_tests": 10,
+      "reason": "Frozen V34/V35 source checks are superseded by authenticated living liquid-metal HUD V36."
+    }
+  ]
+}

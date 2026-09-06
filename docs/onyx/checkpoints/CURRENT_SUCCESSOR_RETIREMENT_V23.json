@@ -1,0 +1,34 @@
+{
+  "schema": "onyx.current-successor-retirement.v23",
+  "issued_at": "2026-08-24T17:15:00-04:00",
+  "predecessor": {
+    "path": "docs/onyx/checkpoints/CURRENT_SUCCESSOR_RETIREMENT_V22.json",
+    "sha256": "15d1e39712673d846b6d57ce8629b07e31fcbb4f0b87269bf92eb8ca019e3af9"
+  },
+  "policy": {
+    "historical_tests_are_rewritten": false,
+    "historical_hashes_are_rebound": false,
+    "registered_nodes_must_remain_collected": true,
+    "successor_sources_are_sha256_bound": true,
+    "successor_tests_must_execute": true,
+    "exact_nodeids_only": true,
+    "v23_precedes_v22_on_overlap": true
+  },
+  "additional_claims": [
+    {
+      "id": "release-v63-to-v64-corrected-current-authority",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_release_workflow_transition_v63.py::test_release_v63_authenticates_converged_current_authority"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_release_workflow_transition_v64.py",
+          "sha256": "6f2c4c9295268fe4dd8ab1bc6400c42d86f009788c113bae6882990bab1783c2"
+        }
+      ],
+      "validated_tests": 1,
+      "reason": "V64 authenticates the corrected macOS release classification while V63 remains immutable."
+    }
+  ]
+}

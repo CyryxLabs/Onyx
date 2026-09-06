@@ -1,0 +1,115 @@
+{
+  "schema": "OnyxPhase6ResearchCells.v1",
+  "candidate": "phase6-research-cells-candidate-001",
+  "status": "candidate_default_off_not_live",
+  "activation": {
+    "flag": "ONYX_PHASE6_RESEARCH_CELLS_V1",
+    "enabled_value": "true",
+    "exact": "ONYX_PHASE6_RESEARCH_CELLS_V1=true",
+    "default": "off",
+    "factory_only": true,
+    "live_wiring": false
+  },
+  "artifact_root_algorithm": "sha256-sorted-path-nul-digest-lf-v1",
+  "artifact_root_sha256": "8cbf4837eec80a560885cf000b8ba3856f595057c2dbddfa58592c2dda593e4d",
+  "artifacts": [
+    {
+      "path": "core/phase6_research_cells_v1.py",
+      "bytes": 54496,
+      "sha256": "e5eb0c05998aa07c8b63824f93842a602e5fe93f82d566b668bd7afd11ee7013"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0023-phase6-research-cells-v1.md",
+      "bytes": 3471,
+      "sha256": "edae93cce8ed2649c858c972e69b4e548bb28937068d8708feabe6d3012b59ae"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase6-research-cells-v1/PHASE6_RESEARCH_CELLS_V1_CHECKPOINT.md",
+      "bytes": 3848,
+      "sha256": "c631a83f2fb6496ccf7986fb02e7693d3e5c6c54b7e4eebf832fff0fca050c0b"
+    },
+    {
+      "path": "scripts/verify_phase6_research_cells_v1.py",
+      "bytes": 8563,
+      "sha256": "21fd7fcb928bf56a53df166a2a3c7e8e3a3da93e26f172e67454d18aedf1d479"
+    },
+    {
+      "path": "tests/test_phase6_research_cells_v1.py",
+      "bytes": 23512,
+      "sha256": "f75d7410150c89f3478d81a3ed2fae193100180c93e98f7e699a9081de9e5dc7"
+    }
+  ],
+  "contracts": {
+    "exact_agentic_core": [
+      "AgenticCoreV6",
+      "AgenticStateStoreV6",
+      "WorkspaceScopeV1",
+      "RESEARCH_OPERATOR_V1",
+      "VERIFIER_OPERATOR_V1"
+    ],
+    "distinct_cell_identities": true,
+    "distinct_instruction_profile_digests": true,
+    "authorized_evidence_only": true,
+    "source_and_bundle_hmac": true,
+    "content_addressed_sources_spans_bundle": true,
+    "research_claims_citations_contradictions_freshness": true,
+    "research_self_certifies": false,
+    "verifier_input": "canonical_candidate_plus_evidence_only",
+    "verifier_content_instructions": false,
+    "verifier_validates_every_citation": true,
+    "exact_claim_citation_projection": true,
+    "verifier_decisions": [
+      "accept",
+      "revise",
+      "reject"
+    ],
+    "verifier_generates_facts": false,
+    "finalize_requires_independent_accept": true,
+    "receipt_authentication": "HMAC-SHA-256",
+    "receipt_input_bound": true,
+    "receipt_map_key_binding": true,
+    "replay": "idempotent_same_input_deny_conflict",
+    "atomic_replay_conflict": true,
+    "forge_drift_cross_workspace": "deny",
+    "bounds": {
+      "sources": 32,
+      "spans_per_source": 64,
+      "total_spans": 512,
+      "bytes": 1048576,
+      "freshness_ms": 31536000000,
+      "deadline": true,
+      "cancellation": true
+    },
+    "candidate_item_byte_bounds": true,
+    "provider_invocation": false,
+    "network_calls": 0
+  },
+  "verification": {
+    "focused": "22 passed",
+    "cumulative": "178 passed",
+    "synthetic_authorized_evidence_only": true,
+    "network_calls": 0,
+    "credentials_used": false,
+    "live_activation": false,
+    "e6": "not_performed",
+    "independent_verifier": "P6_RESEARCH_CELLS_V1_OK"
+  },
+  "frozen_anchors": {
+    "core/phase6_agentic_core_v1.py": "ab7a6cfec738c31b7beb66ac7a66584f892231ce8a3a2c9e81f30945123cc965",
+    "core/phase6_agentic_core_v6.py": "38f68d7dd8eb04fe7c9caa956db5a52d0a96426bab6a45f07b96e67e45d8001a",
+    "docs/onyx/checkpoints/phase6-agentic-core-v6/manifest.json": "cedea0a3ed3bf0c1ed069c589e2eb78035caa58886ced0c69658ac71d7bb4a15",
+    "docs/onyx/acceptance/VE-P6-AGENTIC-CORE-V6-E6-001.md": "5a42068983942c1bf163fc7b8fddaf8ce336cb5a253a228e319943cc04d8d23d",
+    "main.py": "6b82fed0d7c932a08d2d1f8a31d7650a1b235d55085ee608fdbb7651e5f49712",
+    "ui.py": "e5768626b7eb9d162a54cd67b08b5cb7d9685fb5c0e1b8c951843a1146fc252b",
+    "dashboard/server.py": "4d3142dc9c6a78cfe76f804de2b154334da2d7790484783a993babc92300bae1",
+    "core/phase6_live_wiring_v1.py": "a658f430c10bb992724ad7bbd2ddae94b3c83f8893608fe724b241302b55d55f",
+    "core/onyx_live_activation_v9.py": "deb26314ef3871cb12fc8e3cee936f88e385122fad242c830580421ccb22a9d2"
+  },
+  "limitations": [
+    "No source acquisition, browsing, provider invocation or semantic extraction.",
+    "Structured source claims are authorized inputs; source text remains opaque data.",
+    "The verifier proves exact support against the authorized bundle, not external real-world truth.",
+    "The candidate is isolated and default-off with no main, UI, runtime, packaging, QML or launcher wiring.",
+    "External E6 review remains required before any future activation decision."
+  ]
+}

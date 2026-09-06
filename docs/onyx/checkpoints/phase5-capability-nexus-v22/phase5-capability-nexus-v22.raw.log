@@ -1,0 +1,4 @@
+focused: 1927 passed, 0 failed, 0 skipped, 0 errors
+combined V1-V22: 21983 passed, 0 failed, 0 skipped, 0 errors
+regressions: 102 base tests passed; 221 subtests passed
+parent verifier: 23.629 seconds; flat structured cleanup failure aggregation

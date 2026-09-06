@@ -1,0 +1,72 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-ONYX-LIVE-ACTIVATION-V10-C003-E6-001",
+  "decision": "accepted",
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "candidate_manifest": "docs/onyx/checkpoints/onyx-live-activation-v10/manifest.json",
+  "candidate_manifest_sha256": "b22459a5315370f179089cf67d501a687305c2147d2c68ef132575326d47e236",
+  "evidence_root_sha256": "5f1b32f01fe7a481f27062b90e5cbbf9816a7b6306547b7a0fe7ddf2a26a56c4",
+  "binding_count": 26,
+  "scope": "windows-c003-default-off-no-live-or-shortcut-write",
+  "results": {
+    "candidate": 33,
+    "external": 8,
+    "files": 26,
+    "seams": 35,
+    "physical_smoke": 1,
+    "network_calls": 0,
+    "shortcut_writes": 0
+  },
+  "onboarding": {
+    "secure_unknown_owner_ready": true,
+    "fallback_address": "Sir",
+    "contact_question": "Before we continue, what name should I use for you?",
+    "set_owner_name_flow": "preserved",
+    "missing_credential": "setup",
+    "missing_or_invalid_os": "setup",
+    "unreadable_config": "setup",
+    "guessed_or_persisted_name": false
+  },
+  "composition": {
+    "predecessor": "accepted-v9-e6-exact",
+    "hud": "accepted-hud-orb-v7-c003-e6-exact",
+    "wiring": "accepted-phase6-live-wiring-v1-e6-exact",
+    "phase5_entry": "accepted-phase5-exit-c2-e6-historical-envelope",
+    "c002_integrity_fixes": "preserved",
+    "rollback_state": "exact-installed-v9",
+    "non_windows": "delegate-exact-v9"
+  },
+  "new_artifacts": [
+    {
+      "path": "docs/onyx/acceptance/VE-ONYX-LIVE-ACTIVATION-V10-C003-E6-001.md",
+      "sha256": "4134d37498ccefe9044782c5c4edace53f14c29396117eac7a1181006cc38154"
+    },
+    {
+      "path": "docs/onyx/VE-SOURCE-ONYX-LIVE-ACTIVATION-V10-C003-E6-001.sha256",
+      "sha256": "1dc1fd1cbb01f2554f9ebc301767cd9d17518a51ea23728cca7a964e9233d9bf"
+    },
+    {
+      "path": "docs/onyx/VE-ACCEPTANCE-ONYX-LIVE-ACTIVATION-V10-C003-E6-001.sha256",
+      "sha256": "cfda450fbf3c91497b2ba053abc518eb273981736673446befb3198e741455b1"
+    },
+    {
+      "path": "scripts/verify_onyx_live_activation_v10_c003_acceptance.py",
+      "sha256": "f52d0befe3aed08ba400523eeb14c5ba85087b0fabee4aae21da680b909d78d8"
+    },
+    {
+      "path": "tests/test_onyx_live_activation_v10_c003_acceptance.py",
+      "sha256": "6ffd8d4e7a3419fa8af5bd65355d45ac6722984b044f5433f76a3954a63184a5"
+    }
+  ],
+  "activation": {
+    "master_flag": "ONYX_LIVE_ACTIVATION_V10=1",
+    "default_off": true,
+    "live_activated": false,
+    "shortcut_write_performed": false
+  }
+}

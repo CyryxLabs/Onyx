@@ -1,0 +1,60 @@
+{
+  "schema": "onyx.phase10.content-draft.v1",
+  "candidate": "phase10-content-draft-v1",
+  "created_at": "2026-07-25T16:30:00-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_PHASE10_CONTENT_DRAFT_V1",
+  "default_off": true,
+  "accepted_provider_connector_root_sha256": "7aba66ad246c75b1660c70c00dbf012526de72e1592892bee0fd1ea363a35711",
+  "verification": {
+    "test_files": 27,
+    "passed": 607,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "subtests_passed": 80
+  },
+  "artifacts": [
+    {
+      "path": "core/phase10_content_draft_v1.py",
+      "bytes": 15332,
+      "sha256": "6ca1acac9871b6623fb8585c760c63afeb7d193a963cc6776dbcda6c30e46d35"
+    },
+    {
+      "path": "tests/test_phase10_content_draft_v1.py",
+      "bytes": 9787,
+      "sha256": "4e88748b89d4b98284011815df9c2a2bf67f4c32c77539bcf1e02e80496443d9"
+    },
+    {
+      "path": "scripts/verify_phase10_content_draft_v1.py",
+      "bytes": 7970,
+      "sha256": "e40eaa6caaceea494c00228a4cb5c4d5ebe462ad2eba27f3f51db46151643495"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0052-phase10-content-draft-v1.md",
+      "bytes": 2904,
+      "sha256": "8dbcd94869634babf78e28a4f74cabd844007b15741d100b872a3a6531beb974"
+    },
+    {
+      "path": "docs/onyx/research/PHASE10_CONTENT_DRAFT_V1_SOURCES.md",
+      "bytes": 2151,
+      "sha256": "9baa72e73264bb8c4d103bef7b7947116a56b2f38b8a44e267fe0333c4a5c6f6"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase10-content-draft-v1/PHASE10_CONTENT_DRAFT_V1_CHECKPOINT.md",
+      "bytes": 1843,
+      "sha256": "a14ad80aa8f0bd01daab89c48b44bbfbb36e122f09b32427955d94e54b1d4410"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase10-content-draft-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 1029,
+      "sha256": "4ef3864d21463734544dc60cb6abde36f33c5936f1f6796c6ce379fdf0a46887"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase10-content-draft-v1/cumulative-selection.json",
+      "bytes": 4196,
+      "sha256": "616601dd8d42b95987ebf77709048329191fe52426f5d9301bdeb45e00ed0323"
+    }
+  ],
+  "artifact_root_sha256": "59308ada89f691443238644bdb18b7bc29aa66a61365b95908bc5631d8b8d449"
+}

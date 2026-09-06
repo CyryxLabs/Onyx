@@ -1,0 +1,53 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-ONYX-LIVE-ACTIVATION-V11-C001-E6-001",
+  "decision": "accepted",
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "candidate_manifest": "docs/onyx/checkpoints/onyx-live-activation-v11/manifest.json",
+  "candidate_manifest_sha256": "95aa2e7430db568abda4835ee88648a47a4848b2170649898be39f35ddd8fe8e",
+  "evidence_root_sha256": "3c196ad5a9483675264ae3f04380cd037761c04c77c2fa523fc4867a09d9d935",
+  "scope": "windows-c001-default-off-no-live-or-shortcut-write",
+  "results": {
+    "candidate": 18,
+    "external": 8,
+    "v10_regression": 33,
+    "hud_v8": 7,
+    "files": 19,
+    "seams": 37,
+    "physical_smoke": 1,
+    "network_calls": 0,
+    "shortcut_writes": 0
+  },
+  "new_artifacts": [
+    {
+      "path": "docs/onyx/acceptance/VE-ONYX-LIVE-ACTIVATION-V11-C001-E6-001.md",
+      "sha256": "c60e47f2e6e20404f3d35aa17131b23e0a0e298e3c70fd465580468c07849772"
+    },
+    {
+      "path": "docs/onyx/VE-SOURCE-ONYX-LIVE-ACTIVATION-V11-C001-E6-001.sha256",
+      "sha256": "07daed07ef548aeae5f41d9f4575411db8dd6ad98e9598e1632da6443fb9de53"
+    },
+    {
+      "path": "docs/onyx/VE-ACCEPTANCE-ONYX-LIVE-ACTIVATION-V11-C001-E6-001.sha256",
+      "sha256": "7d35c3cd479b16784b3c126566aef3a71de4e7694cc8c28a89b1cb9f920946d9"
+    },
+    {
+      "path": "scripts/verify_onyx_live_activation_v11_c001_acceptance.py",
+      "sha256": "a83edee4a0e7dfb6f47d3f2f32e8d3d35d853cf61a8ef1697f709513106e80ae"
+    },
+    {
+      "path": "tests/test_onyx_live_activation_v11_c001_acceptance.py",
+      "sha256": "39cc55953877184b442ab4a9bd8987f8cfba4f34be6ab48bf4ea3b9d48e21b8a"
+    }
+  ],
+  "activation": {
+    "default_off": true,
+    "live_activated": false,
+    "shortcut_write_performed": false
+  }
+}

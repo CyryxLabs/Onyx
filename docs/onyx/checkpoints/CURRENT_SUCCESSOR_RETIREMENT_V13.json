@@ -1,0 +1,37 @@
+{
+  "schema": "onyx.current-successor-retirement.v13",
+  "issued_at": "2026-08-11T15:10:00-04:00",
+  "predecessor": {
+    "path": "docs/onyx/checkpoints/CURRENT_SUCCESSOR_RETIREMENT_V12.json",
+    "sha256": "c7e9c1b548e7085ec8644beb77bc545426c85c7e4f92dfe21f4634f3d3239fd4"
+  },
+  "policy": {
+    "historical_tests_are_rewritten": false,
+    "historical_hashes_are_rebound": false,
+    "registered_nodes_must_remain_collected": true,
+    "successor_sources_are_sha256_bound": true,
+    "successor_tests_must_execute": true
+  },
+  "additional_claims": [
+    {
+      "id": "release-v51-to-v52-legal-evidence",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_freeze_release_source_v51.py::test_freezer_selects_exact_v51_current_authorities",
+        "tests/test_release_workflow_transition_v51.py::test_release_v51_authenticates_exact_qualification_pipeline"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_freeze_release_source_v52.py",
+          "sha256": "37c63eed1a04cfa3412e7d57a021dcd383fa3dede6283eef1eacb5cad17399c2"
+        },
+        {
+          "path": "tests/test_release_workflow_transition_v52.py",
+          "sha256": "fb7345dd02d42b380553770b18bdc3d651f537dd2736514246d7571e51c6ad48"
+        }
+      ],
+      "validated_tests": 2,
+      "reason": "Release V52 preserves the immutable V51 record while rebinding the corrected odfpy legal evidence, notices and current source-freeze selector."
+    }
+  ]
+}

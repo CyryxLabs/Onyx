@@ -1,0 +1,133 @@
+# These exceptions preserve byte-authenticated legacy evidence. Every path and
+# code is checked by tests/test_ruff_historical_immutable_ignores.py against the
+# accepted SHA manifests or the fail-closed legacy retirement ledger.
+extend-exclude = [
+    # Local fail-closed/tamper certification copies; never release sources.
+    ".audit-temp-*",
+    ".cert-final-*",
+    # Repository-local pytest scratch trees; generated fixtures are linted at
+    # their canonical test sources instead of stale transient copies.
+    ".pytest-*",
+]
+
+[lint.per-file-ignores]
+# Exact byte-authenticated historical sources retained for reconstruction.
+"actions/computer_settings.py" = ["E701"]
+"actions/file_controller.py" = ["E401", "E701", "E702"]
+"actions/file_processor.py" = ["E401", "E701"]
+"actions/web_search.py" = ["E701"]
+"config/__init__.py" = ["E401"]
+"core/control_plane_v5.py" = ["E701", "E702"]
+"core/mission_tools.py" = ["E401", "E701", "E702", "E703"]
+"core/phase5_runtime_v3.py" = ["E701", "E702"]
+"core/voice_session_authority_v1.py" = ["F401"]
+"scripts/verify_phase4_exit_candidate_r3.py" = ["E701", "E702"]
+"scripts/verify_phase4_exit_candidate_r5.py" = ["E402"]
+"scripts/verify_phase4_exit_candidate_r6.py" = ["E701", "E702"]
+"scripts/verify_phase5_exit_retirement_v1.py" = ["F811"]
+"tests/test_mission_tools.py" = ["E701", "E702"]
+"tests/test_phase5_runtime_v3.py" = ["E701", "E702"]
+"tests/test_phase10_content_draft_v1.py" = ["E702"]
+"tests/test_phase10_provider_connector_v1.py" = ["E702"]
+
+# Current authenticated loaders/transports execute only digest-bound local
+# source or exact HTTPS requests constrained by typed origin allowlists.
+"core/google_workspace_connector_v1.py" = ["S310"]
+"core/onyx_live_activation_google_workspace_v1.py" = ["S102"]
+"core/onyx_live_activation_v24.py" = ["S102"]
+
+"scripts/build_phase5_approval_inbox_v8_evidence.py" = ["S314"]
+"scripts/build_phase5_approval_inbox_v9_evidence.py" = ["S314"]
+"scripts/build_phase5_approval_inbox_v10_evidence.py" = ["S314"]
+"scripts/build_phase5_approval_inbox_v11_evidence.py" = ["S314"]
+"scripts/build_phase5_approval_inbox_v12_evidence.py" = ["S314"]
+"scripts/build_phase5_approval_inbox_v13_evidence.py" = ["S314"]
+"scripts/build_phase5_approval_inbox_v14_evidence.py" = ["S314"]
+"scripts/build_phase5_approval_inbox_v15_evidence.py" = ["F401", "S314"]
+
+# Exact plugin/historical loaders execute only manifest-bound source bytes.
+"scripts/phase5_approval_inbox_v13_child.py" = ["S102"]
+"scripts/phase5_approval_inbox_v13_historical_projection.py" = ["S102"]
+"scripts/phase5_approval_inbox_v14_child.py" = ["S102"]
+"scripts/phase5_approval_inbox_v14_historical_projection.py" = ["S102"]
+"scripts/phase5_approval_inbox_v15_child.py" = ["S102"]
+"scripts/phase5_approval_inbox_v15_historical_projection.py" = ["S102"]
+"scripts/verify_phase5_exit_candidate_v1.py" = ["S102"]
+"scripts/verify_phase5_exit_candidate_v2.py" = ["S102"]
+# This verifier is explicitly superseded-not-rebound by the authenticated ledger.
+"scripts/verify_phase5_integration_v3_transition.py" = ["S102"]
+
+# Approval Inbox evidence is immutable and parses only digest-bound stored JUnit.
+"scripts/verify_phase5_approval_inbox_v1.py" = ["S314"]
+"scripts/verify_phase5_approval_inbox_v2.py" = ["S314"]
+"scripts/verify_phase5_approval_inbox_v3.py" = ["S314"]
+"scripts/verify_phase5_approval_inbox_v4.py" = ["S314"]
+"scripts/verify_phase5_approval_inbox_v5.py" = ["S314"]
+"scripts/verify_phase5_approval_inbox_v6.py" = ["S314"]
+"scripts/verify_phase5_approval_inbox_v7.py" = ["S314"]
+"scripts/verify_phase5_approval_inbox_v15_acceptance.py" = ["F401"]
+"scripts/verify_phase5_approval_inbox_v15_worker.py" = ["F401"]
+
+# Capability Nexus V1-V32 verifiers are immutable historical evidence parsers.
+"scripts/verify_phase5_capability_nexus_v1.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v2.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v3.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v4.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v5.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v6.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v7.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v8.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v9.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v10.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v11.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v12.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v13.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v14.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v15.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v16_worker.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v17_worker.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v18_worker.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v19_worker.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v20_worker.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v21_worker.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v22_worker.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v23_worker.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v24_worker.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v25_worker.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v26_worker.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v27_worker.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v28_worker.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v29_worker.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v30_worker.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v31_worker.py" = ["S314"]
+"scripts/verify_phase5_capability_nexus_v32_worker.py" = ["S314"]
+
+# Session Grant evidence parses only authenticated stored JUnit reports.
+"scripts/verify_phase5_grants_r3.py" = ["S314"]
+"scripts/verify_phase5_grants_r4.py" = ["S314"]
+"scripts/verify_phase5_grants_r5.py" = ["E402", "S314"]
+"scripts/verify_phase5_grants_r6.py" = ["E402", "S314"]
+"scripts/verify_phase5_grants_r7.py" = ["E402", "S314"]
+"scripts/verify_phase5_grants_r8.py" = ["E402", "S314"]
+"scripts/verify_phase5_grants_r9.py" = ["E402", "S314"]
+"scripts/verify_phase5_grants_r10.py" = ["E402", "S314"]
+"scripts/verify_phase5_grants_r11.py" = ["E402", "S314"]
+
+# These current-catalog tests are SHA-bound by the current Capability successor.
+"tests/test_capability_nexus_v16.py" = ["S314"]
+"tests/test_capability_nexus_v17.py" = ["S314"]
+"tests/test_capability_nexus_v18.py" = ["S314"]
+"tests/test_capability_nexus_v19.py" = ["S314"]
+"tests/test_capability_nexus_v20.py" = ["S314"]
+"tests/test_capability_nexus_v21.py" = ["S314"]
+"tests/test_capability_nexus_v22.py" = ["S314"]
+"tests/test_capability_nexus_v23.py" = ["S314"]
+"tests/test_capability_nexus_v24.py" = ["S314"]
+"tests/test_capability_nexus_v25.py" = ["S314"]
+"tests/test_capability_nexus_v26.py" = ["S314"]
+"tests/test_capability_nexus_v27.py" = ["S314"]
+"tests/test_capability_nexus_v28.py" = ["S314"]
+"tests/test_capability_nexus_v29.py" = ["S314"]
+"tests/test_capability_nexus_v30.py" = ["S314"]
+"tests/test_capability_nexus_v31.py" = ["S314"]
+"tests/test_capability_nexus_v32.py" = ["S314"]

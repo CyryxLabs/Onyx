@@ -1,0 +1,30 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P10-EDITORIAL-CALENDAR-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-07-25",
+  "findings": {"P0":0,"P1":0,"P2":0,"P3":0},
+  "candidate_manifest_sha256": "4b2fcce6cab138dbc788e7f5ba16214adf894b6cf37566229ffc91b3f8de683a",
+  "artifact_root_sha256": "415bbc4de20811c3d7caac47dacb8a01cf50a4ed1660f9670ee5278136411939",
+  "feature_flag": "ONYX_PHASE10_EDITORIAL_CALENDAR_V1",
+  "accepted_brand_passport_root_sha256": "6f218e78ca1be45218ae8bd25448666482714edd2cd5a087d4eace45654f2483",
+  "results": {"test_files":25,"passed":538,"failed":0,"errors":0,"skipped":8,"subtests_passed":80},
+  "review_history": {
+    "functional": "PASS: approval gate enforced (approved/scheduled require positive approval); published structurally unrepresentable; scheduled-without-disclosure considered and kept (disclosure is a publish-readiness requirement via is_ready_to_publish, not a scheduling one); no P1/P2",
+    "integrity": "PASS: artifact root 415bbc4d and all 8 candidate artifacts recomputed exactly; accepted brand-passport entry-bind genuine; no predecessor modified",
+    "quality": "PASS: mirrors accepted Phase 10 brand-passport idioms (sealed factory, entry-bind, frozen dataclasses, injected clock); verifier checks source invariants, forbids network/process/publish authority, asserts published is not a status, reproduces the 25-file gate with per-file sum check"
+  },
+  "scope_exclusions": [
+    "publishing — no publish method; 'published' is not a representable status; first real publish per account is a later owner-approved, access-gated slice",
+    "live provider connection / analytics / audience data — later gated Phase 10 slices",
+    "runtime wiring / action authority — none added"
+  ],
+  "claims": {
+    "phase10_editorial_calendar_default_off_contract_complete": true,
+    "first_publish_approval_gate_enforced": true,
+    "publish_authority_added": false,
+    "network_or_process_opened": false,
+    "phase10_further_slices_started": false,
+    "full_onyx_prd_complete": false
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "schema": "onyx.hud-orb.v8.candidate",
+  "candidate": "hud-orb-v8-voice-reactive-candidate-001",
+  "supersedes": "hud-orb-v7-cinematic-candidate-003",
+  "status": "candidate-default-off-e6-pending",
+  "flag": "ONYX_HUD_V8_LIVE=1",
+  "default_off": true,
+  "live_activated": false,
+  "quick_widgets": 1,
+  "rollback": "exact-installed-hud-v7",
+  "artifact_root_algorithm": "sha256-sorted-path-nul-digest-lf-v1",
+  "artifact_root_sha256": "7d32ac55daeb3bb01dcdb18ea112c4d6d71453ff28cf1aed7fb07d9ae803a967",
+  "performance": {
+    "speaking_cpu_max_percent": 0.8,
+    "idle_cpu_max_percent": 0.15,
+    "hidden_cpu_max_percent": 0.15,
+    "projection_target_fps_max": 16,
+    "voice_layer_fps_max": 12,
+    "idle_hidden_voice_layer_fps": 0
+  },
+  "artifacts": [
+    {
+      "path": "core/onyx_hud_orb_v8.py",
+      "sha256": "f30c4d7433780082bb0ed87170e3e173b4bbc662c729ca83d075114f2775cd86"
+    },
+    {
+      "path": "docs/onyx/checkpoints/hud-orb-v8-candidate/HUD_ORB_V8_CHECKPOINT.md",
+      "sha256": "0d4a814c2931e84cd8ddc3e22ad3d521f86ceccefc04c1dfdbf84e7a60b61c68"
+    },
+    {
+      "path": "docs/onyx/checkpoints/hud-orb-v8-candidate/hud-orb-v8-idle-1440x900.png",
+      "sha256": "a56db41cb93575f0ab802bd66820b63b9dfebf909cb0d04d5023b95c14ce1afd"
+    },
+    {
+      "path": "docs/onyx/checkpoints/hud-orb-v8-candidate/hud-orb-v8-speaking-a-1440x900.png",
+      "sha256": "3f0ff3854952fd28b659e7a28c4cebe6087936a297b29c9c10b9c9cfc8f92f55"
+    },
+    {
+      "path": "docs/onyx/checkpoints/hud-orb-v8-candidate/hud-orb-v8-speaking-b-1440x900.png",
+      "sha256": "f13068adaa7b9354d8fdf1ee5328c7b1350c21ea7f4b43bfc54f2765777bd1ef"
+    },
+    {
+      "path": "docs/onyx/checkpoints/hud-orb-v8-candidate/hud-orb-v8.metrics.json",
+      "sha256": "dbc494e3c38d83d718ac61acc46c839b86c5436d440698cc23a2923b7812e910"
+    },
+    {
+      "path": "qml/components/OnyxOrbVoiceLayerV8.qml",
+      "sha256": "585a56b343e72e41571755b05778b1f502573c48d41ac302c154b292bbd649a9"
+    },
+    {
+      "path": "qml/OnyxLiveShellV8.qml",
+      "sha256": "20c60f4305da7adef80fe9e7e064ebd5c4ea554b8d17bc36a0b5558f9899a86a"
+    },
+    {
+      "path": "scripts/capture_hud_orb_v8_evidence.py",
+      "sha256": "da2e84c4b8fb588bb74285bb13dceeb06ba30629c91f2d0b2e85f538895fa5f6"
+    },
+    {
+      "path": "scripts/verify_hud_orb_v8_candidate.py",
+      "sha256": "55a71f83d28cdd27a36d4ed60ae4cc2ec3a4ce1caa0e6385797deb2bae0642e7"
+    },
+    {
+      "path": "tests/test_onyx_hud_orb_v8_candidate.py",
+      "sha256": "24264915dcf2077210423711c0884aabfc0fcabbdb4b28764493b6aac76bad61"
+    }
+  ],
+  "frozen_anchors": {
+    "core/onyx_hud_orb_v7.py": "31fd7d0df7413ac9dbba3db463de28390bdfaa75e2173dae54c04dfd82a6c150",
+    "docs/onyx/checkpoints/hud-orb-v7-candidate/manifest.json": "38f77492b6b72eeb8bff8c1bddbe129081bbe79e67b7f8679054d86dff781f03"
+  },
+  "verification": {
+    "focused": "7 passed",
+    "physical_capture": "three-1440x900-d3d11",
+    "motion_qa": "speaking-phase-advanced-idle-phase-zero",
+    "visual_qa": "internal-particles-only-no-external-orbit-tracks",
+    "external_e6": "pending"
+  },
+  "limitations": [
+    "One local Windows D3D11 capture is not cross-platform visual proof.",
+    "Performance values are a single settled host-process sample.",
+    "The candidate is default-off and has not been activated in runtime V10."
+  ]
+}

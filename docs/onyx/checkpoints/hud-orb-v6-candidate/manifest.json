@@ -1,0 +1,129 @@
+{
+  "candidate": "ONYX-HUD-ORB-V6-CANDIDATE-003",
+  "status": "candidate-default-off",
+  "activation": "ONYX_HUD_V6_CANDIDATE=1",
+  "activation_semantics": "byte-for-byte exact value; no stripping, aliases or truthy forms",
+  "live_activated": false,
+  "accepted": false,
+  "design_system": {
+    "path": "C:\\Users\\ppetr\\OneDrive\\Desktop\\Cyryx Labs\\Brandboard\\Cyryx_Labs_Design_System_v1.md",
+    "size": 9910,
+    "sha256": "d7f34abe6fe22f03cec4b06ee67f175513bdba4db044c4d3e82f11227322513e"
+  },
+  "files": [
+    {
+      "path": "core/onyx_hud_orb_v6.py",
+      "size": 4505,
+      "sha256": "ee5f5f62ab0c799313e7b9ffcf7b3f5364af8b1d80d2d126a63fa4b2290b4233"
+    },
+    {
+      "path": "qml/OnyxLiveShellV6.qml",
+      "size": 17467,
+      "sha256": "b796d5f1a96e3f35aa45146c7a365837cd9e72169f170de8815ef4979ecfddb8"
+    },
+    {
+      "path": "qml/components/OnyxOrbParticleV6.qml",
+      "size": 5548,
+      "sha256": "693e80c50374eef96737e078b43886533288edde8ddbde8920dd6e08e3a96cd7"
+    },
+    {
+      "path": "qml/assets/onyx-orb-particle-v6.png",
+      "size": 2364893,
+      "sha256": "9582f4df844cbf03df45a97d6a7c351e9ad9dd291f097b53326f6d1597e44582"
+    },
+    {
+      "path": "tests/test_onyx_hud_orb_v6_candidate.py",
+      "size": 8896,
+      "sha256": "1621ba237acd697dd902c54158e4fa0bdb6d9e0bbc4d9928ad0cd7274684b76c"
+    },
+    {
+      "path": "scripts/capture_hud_orb_v6_evidence.py",
+      "size": 5416,
+      "sha256": "7c821ae1a5904d48bd8b9a18f90db45fc93b0aa66fc5dfbd2ff5210007670a8f"
+    },
+    {
+      "path": "docs/onyx/checkpoints/hud-orb-v6-candidate/onyx-hud-v6-d3d11.png",
+      "size": 720958,
+      "sha256": "07e567524b7e30e4a2db74cf326f4fb50870e5ce1e907ad94e91aa8c97dfbfcf"
+    },
+    {
+      "path": "docs/onyx/checkpoints/hud-orb-v6-candidate/physical-metrics.json",
+      "size": 519,
+      "sha256": "11d12ddb0de13b9f86a765d46421bf31d17829acb4dc2e1aac27a485a687ba69"
+    }
+  ],
+  "preserved_anchors": [
+    {
+      "path": "ui.py",
+      "size": 164744,
+      "sha256": "e5768626b7eb9d162a54cd67b08b5cb7d9685fb5c0e1b8c951843a1146fc252b"
+    },
+    {
+      "path": "main.py",
+      "size": 83135,
+      "sha256": "6b82fed0d7c932a08d2d1f8a31d7650a1b235d55085ee608fdbb7651e5f49712"
+    },
+    {
+      "path": "core/onyx_live_activation_v8.py",
+      "size": 11706,
+      "sha256": "a088d0c49851699c5486a59a4db6734b8ec81ed7c01ad821bf8a1ea1966486f4"
+    },
+    {
+      "path": "qml/OnyxLiveShellV5.qml",
+      "size": 13647,
+      "sha256": "9ff4d3d5d3771d1bbf2c2f8fe68793fd05e8cc80fd0c0644d700596d7cd39e47"
+    },
+    {
+      "path": "qml/components/OnyxOrbCinematicV5.qml",
+      "size": 6357,
+      "sha256": "adff9ee062fff1c735bd28d4a77591581b6e4ce131067b1724699da5055e2622"
+    },
+    {
+      "path": "core/render_governor_v3.py",
+      "size": 672,
+      "sha256": "ee1f2145eb90e930e1663287bc0e71ff6f0809b9b4bce18e445c2f47e80d1de8"
+    },
+    {
+      "path": "core/ui_projection_v3.py",
+      "size": 3775,
+      "sha256": "cfbcc566dbcb5bd423b31571ef914bb24f389621c781d1edf05a02fd0792b7d2"
+    }
+  ],
+  "physical_validation": {
+    "evidence_provenance": "exact byte-for-byte reuse of Candidate 002 physical capture and metrics; Python formatting and candidate identity only",
+    "platform": "win32",
+    "graphics_api": "GraphicsApi.Direct3D11Rhi",
+    "resolution": [
+      1440,
+      900
+    ],
+    "logical_cpus": 28,
+    "active_host_cpu_percent": 0.4041008117367935,
+    "idle_host_cpu_percent": 0.04183719880810842,
+    "hidden_host_cpu_percent": 0.013937180413798446,
+    "active_target_fps": 16,
+    "idle_target_fps": 0,
+    "hidden_target_fps": 0,
+    "rss_mib": 198.8359375,
+    "quick_widgets": 1,
+    "root_object": "onyxLiveShellV6Root",
+    "renderer_mode": "qml-v6-candidate",
+    "settled_measurement": true
+  },
+  "visual_validation": {
+    "inspection": "physical screenshot inspected at original resolution",
+    "orb": "dominant floating neural particle entity",
+    "source_plate": "removed by circular GPU mask; original asset remains byte-exact",
+    "layout": "typographic rails and open radial field; no Orb frame, corner brackets or closed information cards",
+    "controls": "wide command input, RUN, nine primary controls, HISTORY and ACCESS visible"
+  },
+  "gate_results": {
+    "focused_v6": "25 passed",
+    "accepted_v5_regression": "15 passed",
+    "representative_runtime": "28 passed",
+    "physical_renderer": "pass",
+    "cpu": "pass",
+    "visual": "Candidate 002 physical evidence reused byte-exact; Candidate 003 requires independent regate",
+    "external_acceptance": "not requested"
+  }
+}

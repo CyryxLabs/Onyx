@@ -1,0 +1,255 @@
+{
+  "schema": "onyx.source-test-succession.v1",
+  "release": 99,
+  "disposition": "superseded-not-rebound",
+  "routes": [
+    {
+      "node": "tests/test_current_capability_status_v1.py::test_current_version_claims_agree_across_runtime_and_current_docs",
+      "successor": "tests/test_current_capability_status_v2.py",
+      "kind": "documentation"
+    },
+    {
+      "node": "tests/test_humanoid_promotion_v47.py::test_current_source_and_package_accept_transparent_successor",
+      "successor": "tests/test_hud_conversation_successor_v48.py",
+      "kind": "hud"
+    },
+    {
+      "node": "tests/test_humanoid_promotion_v47.py::test_package_rejects_changed_transparent_renderer",
+      "successor": "tests/test_hud_conversation_successor_v48.py",
+      "kind": "hud"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v71.py::test_release_v71_authenticates_converged_release_documentation_authority",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v72.py::test_release_v72_authenticates_humanoid_presence_authority",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v73.py::test_release_v73_authenticates_stable_calibrated_humanoid",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v74.py::test_release_v74_authenticates_packaged_parity_successor",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v75.py::test_release_v75_authenticates_live_qualification_successor",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v76.py::test_release_v76_authenticates_lifecycle_identity_successor",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v77.py::test_release_v77_authenticates_humanoid_render_stability",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v78.py::test_release_v78_authenticates_compositor_continuity",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v79.py::test_release_v79_authenticates_startup_trust_boundary",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v80.py::test_release_v80_authenticates_governed_shutdown_recovery",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v81.py::test_release_v81_authenticates_mobile_humanoid_and_current_tests",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v82.py::test_release_v82_authenticates_mark_lii_operational_parity",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v83.py::test_release_workflow_transition_v83_is_exact_and_non_publishable",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v84.py::test_release_workflow_transition_v84_is_exact_and_non_publishable",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v85.py::test_release_workflow_transition_v85_is_exact_and_non_publishable",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v86.py::test_release_workflow_transition_v86_is_exact_and_non_publishable",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v87.py::test_release_workflow_transition_v87_is_exact_and_non_publishable",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v88.py::test_release_workflow_transition_v88_is_exact_and_non_publishable",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v89.py::test_release_workflow_transition_v89_is_exact_and_non_publishable",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v90.py::test_release_workflow_transition_v90_is_exact_and_non_publishable",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v91.py::test_release_workflow_transition_v91_is_exact_and_non_publishable",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v92.py::test_release_workflow_transition_v92_is_exact_and_non_publishable",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v93.py::test_release_workflow_transition_v93_is_exact_and_non_publishable",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v94.py::test_release_workflow_transition_v94_is_exact_and_non_publishable",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v95.py::test_release_workflow_transition_v95_is_exact_and_non_publishable",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v96.py::test_release_v96_keeps_public_release_unapproved",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v97.py::test_current_source_is_not_public_or_live_certification",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v97.py::test_rejects_tampered_predecessor_manifest_and_runtime[changed0]",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v97.py::test_rejects_tampered_predecessor_manifest_and_runtime[changed1]",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v97.py::test_rejects_tampered_predecessor_manifest_and_runtime[changed2]",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v98.py::test_current_source_is_not_public_or_live_certification",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v98.py::test_rejects_tampered_predecessor_manifest_and_runtime[changed0]",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v98.py::test_rejects_tampered_predecessor_manifest_and_runtime[changed1]",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v98.py::test_rejects_tampered_predecessor_manifest_and_runtime[changed2]",
+      "successor": "tests/test_release_workflow_transition_v99.py",
+      "kind": "release"
+    }
+  ],
+  "bindings": {
+    "docs/onyx/CURRENT_CAPABILITY_STATUS_V1.md": "79a799d9fffd208c9e982ccafe0abd398bdc75a32a31c84c7985ac14ff5d295c",
+    "tests/fixtures/release_workflow_transition_v71.json": "cb368372543f2ddb07735a472c3d81dd5cdc87150f07d50a247ef944c326fe38",
+    "tests/fixtures/release_workflow_transition_v72.json": "b8519c0263f609adeb4cba032cf088b6e424cb5cb9a6709ed76ec36b42224137",
+    "tests/fixtures/release_workflow_transition_v73.json": "fb22c460f153782af60a300cf3973507b54f04946351e5142826c3a98132a7a0",
+    "tests/fixtures/release_workflow_transition_v74.json": "28ee9c94ac978506c1fc0a67bf187188bf51a991208bb7921f184b4588213634",
+    "tests/fixtures/release_workflow_transition_v75.json": "829cb6957786d699aa84f55caf76aed573912e5cde325d8969d5358447d397c6",
+    "tests/fixtures/release_workflow_transition_v76.json": "e36d919cd05671ce537d1774a33e8293f5678ed50be189fc209c48375a5388f5",
+    "tests/fixtures/release_workflow_transition_v77.json": "97fdd81b2a81c6cfe150a503b52e1dd3008521141252e0601d9d3d38871ef055",
+    "tests/fixtures/release_workflow_transition_v78.json": "a8b9a4a0e1b9fd4d9361a8f0c18fe42f7852b5b69247c4f7a764593266bd7bc0",
+    "tests/fixtures/release_workflow_transition_v79.json": "7d576995c3a33ed731b6eb5c532b5d52d0fb77fee9c495f48ebb36fb5482f546",
+    "tests/fixtures/release_workflow_transition_v80.json": "35bdfed6a1999291897b63a921c6653991da9e3dee75efc73b51ee4ae48e96ce",
+    "tests/fixtures/release_workflow_transition_v81.json": "35fcaf2743ed7144ea9bfed5b013230f2815b17d1d8bb361f1d13bcf92437d9e",
+    "tests/fixtures/release_workflow_transition_v82.json": "0a34cd398d0af9db6cfbf66af8feb59aa306a2b12aaa34595f0466572cef4c34",
+    "tests/fixtures/release_workflow_transition_v83.json": "cc7f807130d73b0e4a90dfe357e553f9fa959e6fae1939fa64b22577aa30df5e",
+    "tests/fixtures/release_workflow_transition_v84.json": "40e32d1a77f547e6f98aa398bf57a05497d7ecbf18b7b9336e24135fa48d8532",
+    "tests/fixtures/release_workflow_transition_v85.json": "891e63d0872eb033d620c9f5447ed863f6393995f37a5799c8b2d1c04296ed11",
+    "tests/fixtures/release_workflow_transition_v86.json": "18bf445b1e40d213efaa46f82a16d48f8838c7b6702fc2efbbc0284ef6a2c5ed",
+    "tests/fixtures/release_workflow_transition_v87.json": "10b5c27e5c214cd962caff58db8469f2b92000f1fc5a0223f477c19a81290376",
+    "tests/fixtures/release_workflow_transition_v88.json": "cedda687e8f5eee6a6cb355f5f3975afe8f44035751bb5203aba0f8ce36b353f",
+    "tests/fixtures/release_workflow_transition_v89.json": "6b1a836ace325a19a2dee7f3b35f5a46120ca4633edba6dc4e65bd868bbd1d1e",
+    "tests/fixtures/release_workflow_transition_v90.json": "d0abf73f16ff8e960a3bd6eb868e03877d9d21d2143f0182b6ef5b9041a24df8",
+    "tests/fixtures/release_workflow_transition_v91.json": "a34fa6a0198182701c0cb06d6e09547ee60f9712160f9de85d8a6e15aa30f0b3",
+    "tests/fixtures/release_workflow_transition_v92.json": "cfa4abefee544c09fd5308c5e3f7478a8d3f937b4d50a41c3f99810952deb8b0",
+    "tests/fixtures/release_workflow_transition_v93.json": "6f8883f724c574e4f1a47266bd905a7a35383db17b81b6cfe22b53ae3e0fe813",
+    "tests/fixtures/release_workflow_transition_v94.json": "2fa11978b0b19228603b6593928e94d7daf5e5bd31634bcd1d90d5c790ad8b6b",
+    "tests/fixtures/release_workflow_transition_v95.json": "63d84c702535998084554d9647dd06178663b60ca5c21fb858ab8058ae3b4b3e",
+    "tests/fixtures/release_workflow_transition_v96.json": "b2bcc08c2638a034144a71516f375b1f537ac992b406d0522fd45ee60ad48966",
+    "tests/fixtures/release_workflow_transition_v97.json": "97230b1beeecd0359b3ea43c874df77687eb3c435dd4616bfa8568d19a7deefc",
+    "tests/fixtures/release_workflow_transition_v98.json": "9d6e3e005cc5d626461e7c54725d2b2825fac42eeff89feef42fb6508d08dba1",
+    "tests/test_current_capability_status_v1.py": "674fd72d5ae03c0cb6d473bd4ef12fe0e450af2aa7c4d0a31833a6307836188a",
+    "tests/test_current_capability_status_v2.py": "a3f625d1c4298160d855f84cda995342d350196c87868b59b37d191f75e52be0",
+    "tests/test_hud_conversation_successor_v48.py": "7bd6a7e628a2a32bc0f43070748d93462ebd62da00959f72d6c062a245e54a70",
+    "tests/test_humanoid_promotion_v47.py": "baa1bd65808fb611436b2b2d10a0fa2d3cc26d5a4e157497d0a45be83692a6e8",
+    "tests/test_release_workflow_transition_v71.py": "efbd8b95c656d06b82236ef677fa4774e909362ac4d05b3bbc99caaf448435ea",
+    "tests/test_release_workflow_transition_v72.py": "4649f0ac27936af7c6f4bb196249c136709847fa0737e53f30cc6a5eca3740e6",
+    "tests/test_release_workflow_transition_v73.py": "222d2843ccc8d69ea7309215e3c852add9ab2631e3aba2322a97e79f67473539",
+    "tests/test_release_workflow_transition_v74.py": "c02fbd7d031a1f9baa56778795043d0fcaeb5cc5804b2b77630f155227bb6c6c",
+    "tests/test_release_workflow_transition_v75.py": "138e21e8200262851ed903f5ffb4ed22851a68fbf71aa23d9973ad8b1bd3cdbe",
+    "tests/test_release_workflow_transition_v76.py": "7edd1884e876836ce71389808fe02ea7cb128c96cdc30c0f2e7e98964a5e8f8d",
+    "tests/test_release_workflow_transition_v77.py": "87d2ee2647cbaeeeeaa0b1ecc8b7bb8a2fc81264d41ac98ffa7d33ef01ab8af2",
+    "tests/test_release_workflow_transition_v78.py": "474104db7d832e2d474ae3f49d7824a3afecd4edbdb2ecb16fc621066035bbd4",
+    "tests/test_release_workflow_transition_v79.py": "89e318738a5d2b09bcc76fc7d8eb2f1f5f09bd1520440840f9890b2d463b2584",
+    "tests/test_release_workflow_transition_v80.py": "3e921a6a1894f9f8f3bbd17568a19e77e6ac61695a972a9dc31f729f6793c980",
+    "tests/test_release_workflow_transition_v81.py": "52d9ac94288739a3e3c0a5ad06565f1a67a9c538a7ccaf594b0bbc3b66a4be9d",
+    "tests/test_release_workflow_transition_v82.py": "9f74dad6c52841fe5958c9065f8e78fb4fccd6cf44c85fef4c7b562981bc9f6b",
+    "tests/test_release_workflow_transition_v83.py": "d219c8a46a650ec2bfef92e481340f7616f6e7f9fc1194af6f6c014921124fb6",
+    "tests/test_release_workflow_transition_v84.py": "21a512f562bfed2340d96603160815567e278d95be22e5883ec37fda127a9064",
+    "tests/test_release_workflow_transition_v85.py": "362589345c2d6177d66ca87cca70a6fb20d7668c3e4de2bd0482342deb7b8511",
+    "tests/test_release_workflow_transition_v86.py": "f265ef50b745cd41750f9570c22b0edc97719030d7e0e0c36a349bd8bd593faf",
+    "tests/test_release_workflow_transition_v87.py": "f7771ce9c4cc2ba7ba4a0227fdbe012a87cfe68ab4995c8a5c73f9b0ce829d90",
+    "tests/test_release_workflow_transition_v88.py": "c8528060fdc2936a110a7107ae4210c6adfdeec59add4dcd8ee00d5b975d4538",
+    "tests/test_release_workflow_transition_v89.py": "179ecc1c12acc1fc9457b04eb085b6ac1115089c101d73cfa5ad8b9eaab5adb1",
+    "tests/test_release_workflow_transition_v90.py": "9744262aa847623ed9132ce1b5ccd2ba3a231e17ac664d3b6e94be4010ef4959",
+    "tests/test_release_workflow_transition_v91.py": "16176d4b208f15034274cadf1cc4452255242041bf3c09e0110708bb390fecc0",
+    "tests/test_release_workflow_transition_v92.py": "795d2fe1a30502fe3e563dd63390302d62dd7a30826f068426f0640b73215900",
+    "tests/test_release_workflow_transition_v93.py": "933472cff4fdb02c0d3e81a0ebc8a73b7e1027a0778b3d777726b5a9f924ebfd",
+    "tests/test_release_workflow_transition_v94.py": "79ca5b1de42a9e1395cb7559f9becb9636bea5a71d71206e5f1c4a4433a4d6d6",
+    "tests/test_release_workflow_transition_v95.py": "3ddf2b8ced71050eb4dadcef58fa5a0c087b0d4183d2ab6a56ada9a2de1e80e6",
+    "tests/test_release_workflow_transition_v96.py": "4c64746ed6480e66e20a19ee2252d185591fcba597cccb02a9c0d8b147fef6c8",
+    "tests/test_release_workflow_transition_v97.py": "fe95c84c7b05f527e2a2cff12351850e758d2597ea583747a57dc8a3cfe1bccd",
+    "tests/test_release_workflow_transition_v98.py": "d696b3421ac838cf364ee548851e081e6c48d7580bcddd635ff067c899912fea"
+  }
+}

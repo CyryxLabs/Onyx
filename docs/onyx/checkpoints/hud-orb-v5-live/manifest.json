@@ -1,0 +1,50 @@
+{
+  "candidate": "ONYX-HUD-ORB-V5-LIVE-INTEGRATION-003",
+  "status": "candidate-default-off",
+  "activation": "ONYX_HUD_V5_LIVE=1",
+  "files": [
+    {"path": "ui.py", "size": 164744, "sha256": "e5768626b7eb9d162a54cd67b08b5cb7d9685fb5c0e1b8c951843a1146fc252b"},
+    {"path": "dashboard/static/app.html", "size": 34050, "sha256": "c9c25ff774b81a3a32c9897c1307ebec74cd09e08cb92db834fbb02017669fd0"},
+    {"path": "dashboard/static/login.html", "size": 9197, "sha256": "d05d3440bf9bee917dd794cbd4dfda3f19e44227fc86c59040f366a052184968"},
+    {"path": "qml/OnyxLiveShellV5.qml", "size": 13647, "sha256": "9ff4d3d5d3771d1bbf2c2f8fe68793fd05e8cc80fd0c0644d700596d7cd39e47"},
+    {"path": "qml/components/OnyxOrbCinematicV5.qml", "size": 6357, "sha256": "adff9ee062fff1c735bd28d4a77591581b6e4ce131067b1724699da5055e2622"},
+    {"path": "qml/assets/onyx-orb-cinematic-v3.png", "size": 1333775, "sha256": "44668e57df10b4b47516cf7b35238ced7803523c76ea264a2045bdb35b174de1"},
+    {"path": "tests/test_onyx_hud_v3_live_integration.py", "size": 1584, "sha256": "7d06410745d34561b6fc309c6ff6ebdc6056962e68240667f69f3eaba9592e00"},
+    {"path": "tests/test_onyx_hud_v4_live_integration.py", "size": 1615, "sha256": "1270150def53c32661d8b9daa212a40cf8b8fe60221bf5b643fa8d7a734693ec"},
+    {"path": "tests/test_onyx_hud_v5_live_integration.py", "size": 14095, "sha256": "93c3854d866d739adb261cfb241a40d20d34f25a22747f89b049a5c21caf5cfc"},
+    {"path": "packaging/onyx.spec", "size": 3034, "sha256": "2ab5ade541b6cd8b9c6edcd52320535d7cad912d150169156810330c577506b3"},
+    {"path": "scripts/build_release.py", "size": 11733, "sha256": "1d06830f743c818fb89fc6571efa971a35a9a46f005661b4d9cb6c6e6ab2c5e3"},
+    {"path": "docs/onyx/checkpoints/hud-orb-v4-live/REJECTED.md", "size": 526, "sha256": "efff92bcecfc04770db135a19edc8c6846f5d8e0a3be34ac201e6e0d26e8fc92"},
+    {"path": "docs/onyx/checkpoints/hud-orb-v4-live/candidate-002-snapshot/docs/onyx/checkpoints/hud-orb-v4-live/onyx-hud-v4-d3d11.png", "size": 501346, "sha256": "03b99d56a542d48680c5baa42ffd818e20c6e87043dc82333d098be662ee57a1"}
+  ],
+  "rejected_candidate_snapshot": {
+    "path": "docs/onyx/checkpoints/hud-orb-v4-live/candidate-002-snapshot",
+    "files": 13,
+    "bytes": 2095770,
+    "manifest_sha256": "8daf7a43fd08ee6d7548992f4a8ef2da48c4271142dabae4e8fb0ee76c50d495",
+    "checkpoint_sha256": "42148552f863791979812f19b1019921ce9b785153f511f80803e40d127126d5"
+  },
+  "visual_evidence": {
+    "visual_qml_changed_since_candidate_002": false,
+    "comparison": "Candidate 002 QML with V4 identifiers normalized to V5 is byte-identical to Candidate 003 QML",
+    "screenshot_capture": "inherited physical Windows D3D11 capture from frozen Candidate 002",
+    "screenshot_sha256": "03b99d56a542d48680c5baa42ffd818e20c6e87043dc82333d098be662ee57a1"
+  },
+  "physical_validation": {
+    "platform": "Windows",
+    "graphics_api": "Direct3D11Rhi",
+    "resolution": [1440, 900],
+    "logical_cpus": 28,
+    "active_host_cpu_percent": 0.5285714285714286,
+    "idle_host_cpu_percent": 0.075,
+    "hidden_host_cpu_percent": 0.06785714285714285,
+    "active_target_fps": 16,
+    "settled_measurement": true
+  },
+  "accepted_v3_anchors": [
+    {"path": "core/render_governor_v3.py", "size": 672, "sha256": "ee1f2145eb90e930e1663287bc0e71ff6f0809b9b4bce18e445c2f47e80d1de8"},
+    {"path": "core/ui_projection_v3.py", "size": 3775, "sha256": "cfbcc566dbcb5bd423b31571ef914bb24f389621c781d1edf05a02fd0792b7d2"},
+    {"path": "qml/OnyxShellV3.qml", "size": 4878, "sha256": "4f450c9ff7b2a9926925273a29fb8cc77533576073f2015be3f87b450c180eac"},
+    {"path": "tests/test_onyx_hud_v3.py", "size": 8188, "sha256": "928e92c25be8218ef83d2dbf035330c0017eef9bb03bfd2a737cbb82e39b5b9f"}
+  ]
+}

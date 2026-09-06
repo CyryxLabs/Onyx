@@ -1,0 +1,171 @@
+{
+  "schema": "onyx.legacy-evidence-retirement.v1",
+  "issued_at": "2026-07-31T00:00:00-04:00",
+  "policy": {
+    "historical_hashes_are_rebound_to_successor_bytes": false,
+    "historical_manifests_remain_immutable": true,
+    "successor_drift_requires_an_exact_record": true
+  },
+  "claims": [
+    {
+      "id": "phase4-r3-authority-free-startup",
+      "disposition": "superseded-not-rebound",
+      "historical_claim": "The startup static and fresh-import closures contain no Phase 4 authority modules.",
+      "historical_evidence": [
+        {
+          "path": "docs/onyx/VE-SCOPE-P4-E1E5-R3-001.sha256",
+          "sha256": "8a5372d207211dec706784aa0a5840af1aacb91a69fc20aa674dea8784c3e6bb"
+        },
+        {
+          "path": "docs/onyx/VE-SCOPE-P4-E1E5-R6-001.sha256",
+          "sha256": "6adc82993c41d5421aff66169b25a3b93bb5572db3f674d8e51f9d71c0ea989d"
+        }
+      ],
+      "successor_contract": "Onyx live governance authority",
+      "current_static_authority_modules": [
+        "core.control_plane",
+        "core.domain_ledger",
+        "core.workspaces"
+      ],
+    "current_fresh_import_authority_modules": [
+      "core.control_plane",
+      "core.domain_ledger",
+      "core.workspaces"
+    ],
+      "reason": "The accepted default-off Phase 4 isolation candidate was succeeded by the live governed workspace and control-plane composition."
+    },
+    {
+      "id": "capability-nexus-v3-no-live-wiring",
+      "disposition": "superseded-not-rebound",
+      "historical_claim": "No live runtime source references capability_nexus_v3.",
+      "historical_test_id": "tests/test_capability_nexus_v3.py::test_no_live_runtime_source_references_v3",
+      "historical_test_path": "tests/test_capability_nexus_v3.py",
+      "historical_test_sha256": "64b2a6c2fd252b4f30bc9bb04afad021757ea1980b4d020d7b38e99748aee035",
+      "successor_contract": "VE-CAPABILITY-NEXUS-CURRENT-V1-E6-001",
+      "successor_verifier": "scripts.verify_capability_nexus_current_v1",
+      "successor_marker": "CAPABILITY_NEXUS_CURRENT_V1_ACCEPTANCE_OK",
+      "reason": "The isolated V3 no-wiring claim was succeeded by accepted governed Phase 5 integration wiring and a separate current catalog integrity gate."
+    },
+    {
+      "id": "capability-nexus-v15-v32-permission-broker-history",
+      "disposition": "superseded-not-rebound",
+      "historical_claim": "The frozen V14 recursive leaf core/permission_broker.py still has SHA-256 8358ba39d7ff2d965eae7af7c24007f64f4670bef349447737c72e88776cbffc in every V15 through V32 candidate proof.",
+      "historical_leaf_path": "core/permission_broker.py",
+      "historical_leaf_sha256": "8358ba39d7ff2d965eae7af7c24007f64f4670bef349447737c72e88776cbffc",
+      "historical_test_ids": [
+        "tests/test_capability_nexus_v15.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+        "tests/test_capability_nexus_v16.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+        "tests/test_capability_nexus_v17.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+        "tests/test_capability_nexus_v18.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+        "tests/test_capability_nexus_v19.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+        "tests/test_capability_nexus_v20.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+        "tests/test_capability_nexus_v21.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+        "tests/test_capability_nexus_v22.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+        "tests/test_capability_nexus_v23.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+        "tests/test_capability_nexus_v24.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+        "tests/test_capability_nexus_v25.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+        "tests/test_capability_nexus_v26.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+        "tests/test_capability_nexus_v27.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+        "tests/test_capability_nexus_v28.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+        "tests/test_capability_nexus_v29.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+        "tests/test_capability_nexus_v30.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+        "tests/test_capability_nexus_v31.py::test_frozen_history_proof_never_spawns_a_recursive_verifier",
+        "tests/test_capability_nexus_v32.py::test_frozen_history_proof_never_spawns_a_recursive_verifier"
+      ],
+      "successor_contract": "VE-CAPABILITY-NEXUS-CURRENT-V1-E6-001",
+      "successor_verifier": "scripts.verify_capability_nexus_current_v1",
+      "successor_marker": "CAPABILITY_NEXUS_CURRENT_V1_ACCEPTANCE_OK",
+      "reason": "The frozen V14 leaf remains immutable historical evidence; the evolved permission broker is authenticated only by the separate current Capability Nexus successor and live authorization gates."
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "phase4-r3-verifier",
+      "path": "scripts/verify_phase4_exit_candidate_r3.py",
+      "historical_bytes": 23165,
+      "historical_sha256": "763f5ad024ea9818e79a2dc581fab3a2fd873c97f1218e94db12d2b98439be52",
+      "disposition": "superseded-verifier-not-rebound",
+      "successor_contract": "legacy evidence retirement v1"
+    },
+    {
+      "id": "phase4-r3-tests",
+      "path": "tests/test_phase4_exit_candidate_r3.py",
+      "historical_bytes": 11070,
+      "historical_sha256": "d47e8e307738cc1e316d821f05b94d6b4458b2d5f8b4e0a276235a5e9c55c7af",
+      "disposition": "superseded-test-not-rebound",
+      "successor_contract": "legacy evidence retirement v1"
+    },
+    {
+      "id": "phase5-v3-permission-broker",
+      "path": "core/permission_broker.py",
+      "historical_bytes": 21754,
+      "historical_sha256": "e37fb092410ba0843036dbdc779342c4d24a811bbfcf0de8812f2f6144e7d250",
+      "disposition": "superseded-runtime-not-rebound",
+      "successor_contract": "Governance V16 and DayOps V19 authorization"
+    },
+    {
+      "id": "phase5-v3-transition-verifier",
+      "path": "scripts/verify_phase5_integration_v3_transition.py",
+      "historical_bytes": 23338,
+      "historical_sha256": "c23724bc5d5ac2a184bdca5766e53ec4324ac4ea5fe8601998421477e1ded025",
+      "disposition": "superseded-verifier-not-rebound",
+      "successor_contract": "legacy evidence retirement v1"
+    },
+    {
+      "id": "phase6-v2-mission-tests",
+      "path": "tests/test_missions.py",
+      "historical_bytes": 63927,
+      "historical_sha256": "c55e2d0829555d6b94c806be0ac3e0e4ada7df15b8af6359dbcf40964f30fad9",
+      "disposition": "superseded-test-not-rebound",
+      "successor_contract": "Phase 11 mission authority lifecycle"
+    },
+    {
+      "id": "phase6-v3-mission-store",
+      "path": "core/missions.py",
+      "historical_bytes": 89747,
+      "historical_sha256": "fe2074eb132c09beecb9f13c5151659e745cf888676c4244c037e0a7ed7f2fe5",
+      "disposition": "superseded-runtime-not-rebound",
+      "successor_contract": "Phase 11 authenticated mission authority"
+    },
+    {
+      "id": "phase6-v2-tests",
+      "path": "tests/test_phase6_agentic_core_v2.py",
+      "historical_bytes": 16699,
+      "historical_sha256": "ae432f6c805efb5bc8c2e6bc482191226fbe1c7e500444a9ec5d97761917dfc9",
+      "disposition": "superseded-test-not-rebound",
+      "successor_contract": "legacy evidence retirement v1"
+    },
+    {
+      "id": "phase6-v3-tests",
+      "path": "tests/test_phase6_agentic_core_v3.py",
+      "historical_bytes": 17903,
+      "historical_sha256": "8329b1e7cc1be66d34555d5c5f08c9c2a3fcb13a91bc7ddfa635ccfa303ff14b",
+      "disposition": "superseded-test-not-rebound",
+      "successor_contract": "legacy evidence retirement v1"
+    },
+    {
+      "id": "phase6-v4-tests",
+      "path": "tests/test_phase6_agentic_core_v4.py",
+      "historical_bytes": 18086,
+      "historical_sha256": "1d2b5f39b426614ccdb7d977628cd9f3b384cdfe458b2f93e34f49a805b8b401",
+      "disposition": "superseded-test-not-rebound",
+      "successor_contract": "legacy evidence retirement v1"
+    },
+    {
+      "id": "phase6-v5-tests",
+      "path": "tests/test_phase6_agentic_core_v5.py",
+      "historical_bytes": 9224,
+      "historical_sha256": "aba9ef6def4b242fc598df70117c4c934949f77f88215bf72738f3df69931faa",
+      "disposition": "superseded-test-not-rebound",
+      "successor_contract": "legacy evidence retirement v1"
+    },
+    {
+      "id": "phase6-v6-tests",
+      "path": "tests/test_phase6_agentic_core_v6.py",
+      "historical_bytes": 9846,
+      "historical_sha256": "83218e07beaa85e570998936278cb3cd53fcaee9f0b37d55cb675b35dedf8dc0",
+      "disposition": "superseded-test-not-rebound",
+      "successor_contract": "legacy evidence retirement v1"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P6-PROVIDER-REGISTRY-V1-E6-001",
+  "decision": "accepted",
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "pre_acceptance_resolved": {
+    "P1": 2,
+    "P2": 1
+  },
+  "candidate_manifest_sha256": "7a3191607037f6210ae145b5477bbaeff5bfdaa7c756257d4775c1f30c0a10c6",
+  "artifact_root_sha256": "98d381711cda0b9f72eadb9a1ae9f81f8bebff70a922b1f7aa42c139baa82baf",
+  "artifact_count": 5,
+  "frozen_anchors": 7,
+  "results": {
+    "focused": {
+      "passed": 22,
+      "failed": 0
+    },
+    "cumulative": {
+      "passed": 156,
+      "failed": 0
+    }
+  },
+  "contracts": {
+    "exact_agentic_core_types": 3,
+    "hard_privacy_before_health_ranking": true,
+    "sensitive_remote_fallback": false,
+    "health_hmac_sha256": true,
+    "health_key_fingerprint_attested": true,
+    "health_snapshot_membership_exact": true,
+    "replay_forgery_drift_duplicate_out_of_order": "deny",
+    "metadata_only_plan": true,
+    "provider_invocation": false,
+    "network_calls": 0
+  },
+  "scope": "phase6-provider-registry-v1-isolated-default-off-unwired",
+  "default_off": true,
+  "live_wiring": false,
+  "phase6_exit": false
+}

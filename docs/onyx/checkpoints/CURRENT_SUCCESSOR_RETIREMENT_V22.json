@@ -1,0 +1,37 @@
+{
+  "schema": "onyx.current-successor-retirement.v22",
+  "issued_at": "2026-08-24T16:30:00-04:00",
+  "predecessor": {
+    "path": "docs/onyx/checkpoints/CURRENT_SUCCESSOR_RETIREMENT_V21.json",
+    "sha256": "e64568819038f25ce05d2815573a298ffd28687ac42f8ffbc74e13914abff7ec"
+  },
+  "policy": {
+    "historical_tests_are_rewritten": false,
+    "historical_hashes_are_rebound": false,
+    "registered_nodes_must_remain_collected": true,
+    "successor_sources_are_sha256_bound": true,
+    "successor_tests_must_execute": true,
+    "exact_nodeids_only": true,
+    "v22_precedes_v21_on_overlap": true
+  },
+  "additional_claims": [
+    {
+      "id": "release-v61-to-v63-converged-current-authority",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_release_workflow_transition_v61.py::test_release_v61_authenticates_current_runtime_closure",
+        "tests/test_release_workflow_transition_v61.py::test_release_v61_rejects_transition_or_predecessor_tamper[False]",
+        "tests/test_release_workflow_transition_v61.py::test_release_v61_rejects_transition_or_predecessor_tamper[True]",
+        "tests/test_release_workflow_transition_v61.py::test_release_v61_rejects_linked_transition"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_release_workflow_transition_v63.py",
+          "sha256": "1f076465280e611ba0475c09d16157560ceaaae3d8bcbb45472bd00270c847f1"
+        }
+      ],
+      "validated_tests": 4,
+      "reason": "V63 converges current build and retirement wiring while V61 and V62 remain immutable predecessors."
+    }
+  ]
+}

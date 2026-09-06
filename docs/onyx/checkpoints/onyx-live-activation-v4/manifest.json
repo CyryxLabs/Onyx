@@ -1,0 +1,110 @@
+{
+  "schema": "onyx.live-activation.v4",
+  "candidate": "onyx-live-activation-v4",
+  "created_at": "2026-07-22",
+  "default_off": true,
+  "live_activated": false,
+  "live_restart_performed": false,
+  "provider_calls_performed": false,
+  "credential_provisioned": false,
+  "files": [
+    {"path":"core/onyx_live_activation_v1.py","role":"rejected-v1","sha256":"141d363f2df1a8a17a3fa92dc1e5f9f17aed400cdb65fe53f35f3ada0e3f6c51"},
+    {"path":"scripts/launch_onyx_live_v1.pyw","role":"rejected-v1","sha256":"d920ba4fb222532e6a54ba6cc51bb52801ed5ce693e77c12282e4fa65bb09d9d"},
+    {"path":"scripts/verify_onyx_live_activation_v1.py","role":"rejected-v1","sha256":"d4259167ea354cfa25e541a5090c08e42b164742d7950185fbac8e18ed6d2daa"},
+    {"path":"tests/test_onyx_live_activation_v1.py","role":"rejected-v1","sha256":"66cc8a5ea33df0dd453b44a92c54dfc0146905f8bb00621d0ddb3ef342c316c8"},
+    {"path":"docs/onyx/checkpoints/onyx-live-activation-v1/manifest.json","role":"rejected-v1","sha256":"3e9021893d93a7c00749d2e5e2c19fd7b90fcf5286239aecbb19e5197487fbef"},
+    {"path":"docs/onyx/checkpoints/onyx-live-activation-v1/ONYX_LIVE_ACTIVATION_V1_CHECKPOINT.md","role":"rejected-v1","sha256":"d612962e7809653ca7f46e883c4dc7e4623a26ff30e1b4061b97a685e283dbcc"},
+    {"path":"docs/onyx/rejections/ONYX_LIVE_ACTIVATION_V1_REJECTED.md","role":"rejected-v1","sha256":"651aab3942f3e955bd30210b31a116c1e3e1900ffe4b3d33eadb716cac566e2f"},
+
+    {"path":"core/onyx_live_activation_v2.py","role":"rejected-v2","sha256":"a39c8a43b04b0147dd7efc44bbe355a6873417df8e2432a93c77ef042cd60659"},
+    {"path":"scripts/launch_onyx_live_v2.pyw","role":"rejected-v2","sha256":"b614616b3efc188b8179596e16d1a209c60d6cefefbb429146d6c9775d770e3b"},
+    {"path":"scripts/verify_onyx_live_activation_v2.py","role":"rejected-v2","sha256":"58f0328a93f72be2d0e806fd9f3b3656a20b92507e020bd2eaae7a91f7cbc5a7"},
+    {"path":"scripts/verify_onyx_live_activation_v2_host.py","role":"rejected-v2","sha256":"3bb6e35c84c4b07417ae0b306c1b5a28b5a6842ce2feff63d32e0a135fc8b12b"},
+    {"path":"tests/test_onyx_live_activation_v2.py","role":"rejected-v2","sha256":"8b84eccee4cb020e448119cec05f9e47fcf0f1af53d3245fc2df63442ba48e8c"},
+    {"path":"docs/onyx/checkpoints/onyx-live-activation-v2/manifest.json","role":"rejected-v2","sha256":"f829cdc1c4ddb8b2612ab82b4c835d66d7440020f2e18a04ed8d1bcc881af76d"},
+    {"path":"docs/onyx/checkpoints/onyx-live-activation-v2/ONYX_LIVE_ACTIVATION_V2_CHECKPOINT.md","role":"rejected-v2","sha256":"a0572baa31a68d81ce1aadb53780b65267331b4b4e96b97c89fe7a83a62c41f7"},
+    {"path":"docs/onyx/rejections/ONYX_LIVE_ACTIVATION_V2_REJECTED.md","role":"rejected-v2","sha256":"17e44a547499d9ae563483171b5efaed2cb13e48017135f5bd6a821c58173541"},
+
+    {"path":"core/onyx_live_activation_v3.py","role":"rejected-v3","sha256":"8860a140c053e07633209d482209635d67f8e1a4c1b5f70f7bd029ff8c0f0be7"},
+    {"path":"scripts/launch_onyx_live_v3.pyw","role":"rejected-v3","sha256":"86df14f853654053984623bef3557e205c28898b36b8c6ff02558f834877fc6a"},
+    {"path":"scripts/verify_onyx_live_activation_v3.py","role":"rejected-v3","sha256":"0dca532679626b3b4815caf668bf8cbbca2b1a48e76f551a6d2ed586e8e6a4c0"},
+    {"path":"scripts/verify_onyx_live_activation_v3_host.py","role":"rejected-v3","sha256":"2c51d4c61b79a009dbbf4d6ba3fccd38cb3299147cf28c70bc452c7938dbde10"},
+    {"path":"scripts/verify_onyx_live_activation_v3_qt.py","role":"rejected-v3","sha256":"c6f8f8000b6344f6fd8a469949ac15c06bdffc7e4f655b95dcb76f9b8dcf0ffb"},
+    {"path":"tests/test_onyx_live_activation_v3.py","role":"rejected-v3","sha256":"31c67de48a54c6145cda72ea25bf526dcd21b12ef8866c77b7bf149300bda6b8"},
+    {"path":"docs/onyx/checkpoints/onyx-live-activation-v3/ONYX_LIVE_ACTIVATION_V3_CHECKPOINT.md","role":"rejected-v3","sha256":"4419193517c172b9324a49233a0920c4c39b8456deb0a5c942294d4921a3f1d0"},
+    {"path":"docs/onyx/checkpoints/onyx-live-activation-v3/manifest.json","role":"rejected-v3","sha256":"e886340788a9c305b4cc2142da98e1964546382050880b7123b1203d0b8c9006"},
+    {"path":"docs/onyx/rejections/ONYX_LIVE_ACTIVATION_V3_REJECTED.md","role":"rejected-v3","sha256":"bd47b4f9975887857d1c353a824bf9717adff043e3d13de55438e35a4cfd6ab0"},
+
+    {"path":"core/onyx_live_activation_v4.py","role":"transition-v4","sha256":"2521b5dcf53172e73e23219e9266037f7312a233ef135281a1a2ac3660aec05b"},
+    {"path":"scripts/launch_onyx_live_v4.pyw","role":"transition-v4","sha256":"a7bfc190cb95d49e871fcd312f32badbd1a5a6d18393ca725d214f1f66769af8"},
+    {"path":"scripts/verify_onyx_live_activation_v4.py","role":"transition-v4-verifier","sha256":"20426a7fd2e592dfa54b2a352928a941e01bd7798314bb3d21363a9c0e6bd597"},
+    {"path":"scripts/verify_onyx_live_activation_v4_host.py","role":"transition-v4-real-host-gate","sha256":"e1e53cee11d1fbaf460d8690f9131da56c9773e75ffbd286345395c969fe2105"},
+    {"path":"scripts/verify_onyx_live_activation_v4_qt.py","role":"transition-v4-real-qt-gate","sha256":"19015ebf96a32e449709831d86d90465e612ba63f770bea917f01dd21ab3b95b"},
+    {"path":"tests/test_onyx_live_activation_v4.py","role":"transition-v4-tests","sha256":"4c776af560a7f3bfd470bef91d205fddbe509c6c767cbaad2b754f3023068783"},
+    {"path":"docs/onyx/checkpoints/onyx-live-activation-v4/ONYX_LIVE_ACTIVATION_V4_CHECKPOINT.md","role":"transition-v4-checkpoint","sha256":"3ea17bf227025f7dbe2ce4f91e15801151c6262efc01173657e7c3ce481d638f"},
+
+    {"path":"main.py","role":"frozen-host","sha256":"6b82fed0d7c932a08d2d1f8a31d7650a1b235d55085ee608fdbb7651e5f49712"},
+    {"path":"ui.py","role":"frozen-host","sha256":"e5768626b7eb9d162a54cd67b08b5cb7d9685fb5c0e1b8c951843a1146fc252b"},
+    {"path":"core/permission_broker.py","role":"frozen-host","sha256":"e37fb092410ba0843036dbdc779342c4d24a811bbfcf0de8812f2f6144e7d250"},
+    {"path":"dashboard/server.py","role":"frozen-host","sha256":"4d3142dc9c6a78cfe76f804de2b154334da2d7790484783a993babc92300bae1"},
+    {"path":"scripts/launch_onyx.pyw","role":"frozen-host","sha256":"34808ff75aee0418fb0c2af9107e51fffbdc62ef43b04885f6a1df9b94151451"},
+
+    {"path":"core/owner_profile_v8.py","role":"accepted-component","sha256":"837295cfdf663dc97bf32592d186e0ba76ee74c83e1c757cfe420baea7dc0f3b"},
+    {"path":"core/phase5_integration_v3.py","role":"accepted-component","sha256":"52d48c121da485c024811e6cd3fafbabaed971175d7cb41ad23358c5c2879b0d"},
+    {"path":"core/phase5_runtime_v10.py","role":"accepted-component","sha256":"f80fd636e145e669cc1ea76cfc024fcc5d385451cc1ef8624f7c9d8e0ac3f439"},
+    {"path":"core/phase5_component_adapters_v3.py","role":"accepted-component","sha256":"9c570d40a410e57a18f82a4ee2c30eddfe515a0cc7798d13607d020e573e3239"},
+    {"path":"core/session_grants_v11.py","role":"accepted-component","sha256":"0f4ad25b72a9c64064dfc946afab6d2515edff1f91171d46d54e36e38c6cd159"},
+    {"path":"core/approval_inbox_v15.py","role":"accepted-component","sha256":"f9627e6b9e840dbca8e098a047e56da4647d24ef80f201c5585a41d405d52061"},
+    {"path":"core/capability_nexus_v32.py","role":"accepted-component","sha256":"576eed0bda063945d33f8bcb79b338e64976ca5252af793633fe3ab667ed1fc9"},
+    {"path":"qml/OnyxLiveShellV5.qml","role":"accepted-component","sha256":"9ff4d3d5d3771d1bbf2c2f8fe68793fd05e8cc80fd0c0644d700596d7cd39e47"},
+    {"path":"qml/components/OnyxOrbCinematicV5.qml","role":"accepted-component","sha256":"adff9ee062fff1c735bd28d4a77591581b6e4ce131067b1724699da5055e2622"},
+    {"path":"qml/assets/onyx-orb-cinematic-v3.png","role":"accepted-component","sha256":"44668e57df10b4b47516cf7b35238ced7803523c76ea264a2045bdb35b174de1"},
+
+    {"path":"docs/onyx/acceptance/VE-OWNER-PROFILE-V8-E6-001.md","role":"accepted-e6-record","sha256":"61c1f7986e6de153efe41f79bf8520b555365b3e1c14c55a431f66e2519164d7"},
+    {"path":"docs/onyx/acceptance/VE-P5-INTEGRATION-V3-E6-001.md","role":"accepted-e6-record","sha256":"03e23fca1a5a6772a2e5b70611b9329808bb933a386271882ed32462fcc7f82b"},
+    {"path":"docs/onyx/acceptance/VE-HUD-ORB-V5-LIVE-E6-001.md","role":"accepted-e6-record","sha256":"db6bbcb53a249e5db5d2f3e461fb60aec44acd9d9784b33314f947e3f3215acf"},
+    {"path":"docs/onyx/acceptance/VE-P5-RUNTIME-V10-E6-001.md","role":"accepted-e6-record","sha256":"135be5fc3e97e81466f398fcc9211da767c0e3fb251387588dfd836d02b28de0"},
+    {"path":"docs/onyx/acceptance/VE-P51-GRANTS-R11-E6-001.md","role":"accepted-e6-record","sha256":"ff703416675653b4f1611e7f9ee633fac974c3bdf4225a16d84f302233b824d4"},
+    {"path":"docs/onyx/acceptance/VE-P52-APPROVAL-INBOX-V15-E6-001.md","role":"accepted-e6-record","sha256":"45d9d215c0fd8024f730ec3f4436507c411658ea1e8f6d26e133ce707bc3d908"},
+    {"path":"docs/onyx/acceptance/VE-P53-CAPABILITY-NEXUS-V32-E6-001.md","role":"accepted-e6-record","sha256":"b75ccb2b4bc58a4c4d72445d46eb66e550636cbb0deb02ecef304c8327f9d1dc"}
+  ],
+  "host_contract": {
+    "class": "main.OnyxLive",
+    "window_class": "ui.MainWindow",
+    "transactional_seams": 11,
+    "preflight_before_install": true,
+    "install_before_owner_provision": true,
+    "qt_affinity_dispatch": true,
+    "multi_window_atomic_rollback": true,
+    "durable_compensation": true,
+    "exact_apply_readback": true,
+    "exact_rollback_readback": true,
+    "qt_validity_checks": true,
+    "compound_ack": true
+  },
+  "continuity": {
+    "reconnects": 64,
+    "catalog_reads": 64,
+    "unique_session_trace_ids": 128,
+    "id_form": "(session|trace)-p<PID>-n<N>"
+  },
+  "activation": {
+    "master": "ONYX_LIVE_ACTIVATION_V4=1",
+    "launcher": "scripts/launch_onyx_live_v4.pyw",
+    "controlled_restart_required": true
+  },
+  "rollback": {
+    "single_switch": "ONYX_LIVE_ROLLBACK_V4=1",
+    "delegates_to": "scripts/launch_onyx.pyw"
+  },
+  "verification": {
+    "focused": {"passed":13,"failed":0},
+    "combined": {"passed":67,"failed":0},
+    "ruff":"pass",
+    "py_compile":"pass",
+    "real_host":"pass",
+    "real_qt_offscreen":"pass",
+    "direct64_ms":2.812,
+    "bundle_verifier":"pass"
+  }
+}

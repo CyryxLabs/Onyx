@@ -1,0 +1,64 @@
+{
+  "schema": "onyx.owner-profile-candidate-bundle.v4",
+  "candidate": "owner-profile-v4",
+  "created_at": "2026-07-22",
+  "bundle_root": "docs/onyx/checkpoints/owner-profile-v4",
+  "isolated": true,
+  "default_off": true,
+  "live_wired": false,
+  "files": [
+    {
+      "path": "core/owner_profile_v4.py",
+      "sha256": "a3ab381ed50c6fd539b10775ce0058b51c5a06b89bd87b1156e6793f6f438fd5"
+    },
+    {
+      "path": "tests/test_owner_profile_v4.py",
+      "sha256": "ee57cc1f0b629f72cbdd8f7d53bc2fd78451a7524995c5eac74d6e60d043d5f0"
+    }
+  ],
+  "historical_rejected": [
+    {
+      "candidate": "owner-profile-v1",
+      "core_sha256": "b2296227bb165f32117978e234519430af15838ad757104eeba08b8b7751b754",
+      "tests_sha256": "fafdf46a0a716f09aca81668ffda0b566af369be4d89095dc1be0a02209ee035"
+    },
+    {
+      "candidate": "owner-profile-v2",
+      "core_sha256": "12c459c1d34376a121e7a837d6dbeca365967c69affdc12b7d3e18ea1c76cd73",
+      "tests_sha256": "76f0481f91b82b650ece00d86ad0bfffe21fa4020e46d8e3dcaaaf7e36832714"
+    },
+    {
+      "candidate": "owner-profile-v3",
+      "core_sha256": "abf5e990b875a4ed04e9e9fed15eb550f972facf02b060683aa1e3abe88e4d16",
+      "tests_sha256": "f327a01f7d82a5df2d5e05d2bde70e3b89f06c6c4f69011e0ee257521033fe38"
+    }
+  ],
+  "verification": {
+    "focused_v4": {"passed": 16, "failed": 0},
+    "cumulative_v1_v2_v3_v4_memory_store": {
+      "passed": 84,
+      "subtests_passed": 15,
+      "failed": 0
+    },
+    "ruff": "pass",
+    "py_compile": "pass",
+    "live_surface_imports": 0
+  },
+  "rejection_closure": {
+    "durable_prepared_record": true,
+    "durable_committed_decision": true,
+    "durable_compensated_decision": true,
+    "cleanup_is_post_decision_gc_only": true,
+    "restart_resolves_prepared_to_prior": true,
+    "restart_resolves_committed_to_target": true,
+    "restart_resolves_compensated_to_prior": true,
+    "bilateral_write_and_readback": true,
+    "prior_reconcile_root_stage_preserved": true
+  },
+  "limitations": [
+    "candidate-only; no live wiring",
+    "durable recovery protocol, not a native distributed transaction",
+    "unreadable journal remains fail-closed degraded",
+    "independent functional, integrity, and quality review pending"
+  ]
+}

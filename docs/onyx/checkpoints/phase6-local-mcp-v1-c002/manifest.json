@@ -1,0 +1,55 @@
+{
+  "schema": "OnyxPhase6LocalMCPReacceptance.v1",
+  "candidate": "phase6-local-mcp-v1-c002-activation-v10-c003",
+  "status": "accepted-dependency-rebind-default-off-not-live",
+  "artifact_root_algorithm": "sha256-sorted-path-nul-digest-lf-v1",
+  "artifact_root_sha256": "117ffc3fbfee04981c76713ad672edb87ab697b2c59141ed1049ebdcbaeb2a7f",
+  "artifacts": [
+    {
+      "path": "scripts/verify_phase6_local_mcp_v1_c002_reacceptance.py",
+      "bytes": 7638,
+      "sha256": "f71b5cb4ee484063d3a2eed675b1985d7181045f037dd73781f1fea235a9ca23"
+    },
+    {
+      "path": "tests/test_phase6_local_mcp_v1_c002_reacceptance.py",
+      "bytes": 1066,
+      "sha256": "ccac4c972b9206e2d840aafe4e44a5dbed20b21736401c09609acaa246a90efc"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase6-local-mcp-v1-c002/PHASE6_LOCAL_MCP_V1_C002_CHECKPOINT.md",
+      "bytes": 1355,
+      "sha256": "b4c6e34cba484107437b39fd51cbb498e2092d466868ebf8761e809a43b935a2"
+    }
+  ],
+  "original_candidate": {
+    "manifest": "docs/onyx/checkpoints/phase6-local-mcp-v1/manifest.json",
+    "manifest_sha256": "9529946b80d4ee8c4434acd2db064afab03bbb049482e82126a57151fc395921",
+    "artifact_root_sha256": "c0efe67f8e28fb6444456d535f482c5af783d20508fcb48a618dd3b3ce693f6f",
+    "artifacts": 6,
+    "source_changed": false
+  },
+  "dependency_rebind": {
+    "path": "core/onyx_live_activation_v10.py",
+    "historical_sha256": "608d38456cdd4ac1f4b2c7e1128fce9feec1725422f204370fed58b27db79cc8",
+    "current_sha256": "546842aeceb8fc5839d0782658ea4272d4bea999b786b96d38d7968c419a2ee7",
+    "activation_candidate": "onyx-live-activation-v10-c003",
+    "activation_manifest_sha256": "b22459a5315370f179089cf67d501a687305c2147d2c68ef132575326d47e236",
+    "activation_artifact_root_sha256": "5f1b32f01fe7a481f27062b90e5cbbf9816a7b6306547b7a0fe7ddf2a26a56c4",
+    "activation_e6": "VE-ONYX-LIVE-ACTIVATION-V10-C003-E6-001",
+    "activation_e6_findings": {
+      "P0": 0,
+      "P1": 0,
+      "P2": 0,
+      "P3": 0
+    }
+  },
+  "verification": {
+    "focused": "27 passed",
+    "reacceptance_tests": "3 passed",
+    "network_calls": 0,
+    "provider_calls": 0,
+    "live_activation": false,
+    "phase6_exit": false,
+    "marker": "P6_LOCAL_MCP_V1_C002_REACCEPTANCE_OK"
+  }
+}

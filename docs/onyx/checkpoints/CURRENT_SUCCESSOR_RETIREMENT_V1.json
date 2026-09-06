@@ -1,0 +1,150 @@
+{
+  "schema": "onyx.current-successor-retirement.v1",
+  "issued_at": "2026-07-31T00:00:00-04:00",
+  "policy": {
+    "historical_tests_are_rewritten": false,
+    "historical_hashes_are_rebound": false,
+    "registered_nodes_must_remain_collected": true,
+    "successor_sources_are_sha256_bound": true,
+    "successor_tests_must_execute": true
+  },
+  "claims": [
+    {
+      "id": "approval-inbox-v12-historical-r11-tree",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_approval_inbox_v12.py::test_historical_projection_binds_exactly_two_direct_v9_snapshots",
+        "tests/test_approval_inbox_v12.py::test_unrelated_historical_drift_still_fails_closed"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_approval_inbox_v15.py",
+          "sha256": "f5636bb784181337d402cb6d9d2d6cfd4b2f74a4bf56c3ea2afa26f5626bbcf6"
+        }
+      ],
+      "validated_tests": 130,
+      "reason": "V12's frozen R11 projection was succeeded by the live zero-authority V15 review projection."
+    },
+    {
+      "id": "capability-nexus-v32-no-live-reference",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_capability_nexus_v32.py::test_no_live_runtime_source_references_v32"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_capability_nexus_current_v1.py",
+          "sha256": "31ebe7343ada9a955100bda6529a2c34279c0d7910d069302e5f75de56e53591"
+        }
+      ],
+      "validated_tests": 19,
+      "reason": "Capability Nexus V32 is intentionally consumed through the governed current catalog; its SHA-bound current acceptance replaces the obsolete no-live-reference claim."
+    },
+    {
+      "id": "hud-orb-v5-reproduction-membership",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_hud_orb_v5_live_acceptance.py::test_reproduction_commands_have_exact_unfiltered_membership"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_onyx_hud_current_acceptance_v19.py",
+          "sha256": "3e576bf563d1af507c7f3dc10eb152ee5a181fad405c1d5604178005fa368453"
+        }
+      ],
+      "validated_tests": 10,
+      "reason": "The V5 reproduction command membership is immutable historical evidence; the current V19 HUD acceptance proves the packaged arc-free runtime and tamper-closed activation chain."
+    },
+    {
+      "id": "owner-profile-v8-default-off-acceptance",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_owner_profile_v8_acceptance.py::test_external_acceptance_validates_exact_frozen_candidate",
+        "tests/test_owner_profile_v8_acceptance.py::test_owner_profile_v8_remains_default_off_and_unwired"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_owner_profile_v8.py",
+          "sha256": "b835c5d213dd9bc1e58065c700e180046da2918b06da18c6539ff1916f6d2642"
+        }
+      ],
+      "validated_tests": 17,
+      "reason": "Owner Profile V8 is intentionally live through the activation lineage; its current authority and persistence contract replaces the rejected unwired claim."
+    },
+    {
+      "id": "phase5-exit-v2-frozen-external-closure",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_phase5_exit_candidate_v2_acceptance.py::test_phase5_exit_candidate_v2_external_acceptance"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_phase5_exit_candidate_v1.py",
+          "sha256": "7ec58fe7ef9167fee42d8a1ef0e9659ec85ae1c2a8c445cefd06717c29f52854"
+        },
+        {
+          "path": "tests/test_phase5_exit_candidate_v2.py",
+          "sha256": "747867776382aa05f52540d62ad8538aba0ba2698d0a1e2a1ef431b6c2c92aad"
+        }
+      ],
+      "validated_tests": 35,
+      "reason": "The frozen external closure references superseded component bytes; the authenticated Phase 5 Exit retirement and focused V1/V2 successor gates preserve its evidence without rebinding it."
+    },
+    {
+      "id": "phase5-integration-v2-v3-live-host-closure",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_phase5_integration_v2.py::test_live_host_references_v2_only_and_generic_hooks_stay_exact",
+        "tests/test_phase5_integration_v3.py::test_v3_is_independent_and_live_host_references_v3_only"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_phase5_component_adapters_v3.py",
+          "sha256": "8b9d315f147cba1e34080190d6d74ba2a488c49315bd13cd651dc0f359d8951a"
+        },
+        {
+          "path": "tests/test_onyx_live_activation_v19.py",
+          "sha256": "e2538899a792e25d1aa9411a5e5750457344eeeef199913af1c841b740bb46b3"
+        }
+      ],
+      "validated_tests": 27,
+      "reason": "The V2/V3 host-only assertions were succeeded by current component-adapter governance and the live V19 activation contract, which intentionally composes later host authorities."
+    },
+    {
+      "id": "runtime-v10-default-off-and-v2-allowlist",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_phase5_integration_v2_transition.py::test_runtime_reference_scan_is_an_exact_allowlist",
+        "tests/test_phase5_runtime_v10_acceptance.py::test_external_acceptance_validates_exact_frozen_candidate",
+        "tests/test_phase5_runtime_v10_acceptance.py::test_runtime_v10_remains_default_off_and_unwired"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_phase5_runtime_v10.py",
+          "sha256": "b2a6d9524d2d5d1b85af3325462f7bd28793180cee0ea4295d6600750615cfff"
+        }
+      ],
+      "validated_tests": 103,
+      "reason": "Runtime V10 is intentionally referenced by current integration and activation surfaces; its live default-off and fail-closed behavior replaces the obsolete no-reference allowlist."
+    },
+    {
+      "id": "session-grants-v4-v6-evidence-lineage",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_session_grants_v4.py::test_evidence_history_reconstructs_and_rejects_omission_or_drift",
+        "tests/test_session_grants_v5.py::test_evidence_normative_graph_rejects_explicit_parent_omission",
+        "tests/test_session_grants_v5.py::test_evidence_reconstructs_v1_through_v4_and_rejects_history_drift",
+        "tests/test_session_grants_v6.py::test_evidence_normative_graph_rejects_explicit_parent_omission",
+        "tests/test_session_grants_v6.py::test_evidence_reconstructs_v1_through_v5_and_rejects_history_drift"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_session_grants_v11.py",
+          "sha256": "5a6ac10632a499c74c8672278e339945dbd8034433c2651f4ae2b6c4df396e69"
+        }
+      ],
+      "validated_tests": 51,
+      "reason": "The V4-V6 recursive evidence graphs were superseded by the current V11 grant state machine and its live fail-closed runtime tests."
+    }
+  ]
+}

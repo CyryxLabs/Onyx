@@ -1,0 +1,97 @@
+{
+  "schema": "onyx.owner-profile-candidate-bundle.v7",
+  "candidate": "owner-profile-v7",
+  "created_at": "2026-07-22",
+  "bundle_root": "docs/onyx/checkpoints/owner-profile-v7",
+  "isolated": true,
+  "default_off": true,
+  "live_wired": false,
+  "files": [
+    {
+      "path": "core/owner_profile_v7.py",
+      "sha256": "6976ee481a9e494f4fa16548ac1d6a4eb8f5c160753cef3114b4d647220114e7"
+    },
+    {
+      "path": "tests/test_owner_profile_v7.py",
+      "sha256": "79f416d5d279b32e74279bcd981fbbe777b0f7886824e82149d6179b392d9466"
+    }
+  ],
+  "historical_rejected": [
+    {
+      "candidate": "owner-profile-v5",
+      "core_sha256": "53f6de7dfb7eb1f15f4f5c309257219a2ce67af7a662f0bb7e267fd1644daa18",
+      "tests_sha256": "1a4f9e2dcd5ec4ca1e3f4ff0390200ce56a6705dceb5499203d34a45dbab36ad"
+    },
+    {
+      "candidate": "owner-profile-v6",
+      "core_sha256": "f5bc62f7c326acea61ff8e2508814cbbbd7ac2c4833b2bcccb5353d44c530e0d",
+      "tests_sha256": "72d44825c927704faae4f46802820babf89e4645d7cf16b33dc923289a155df1",
+      "rejection": [
+        "PREPARED admission did not reserve exact worst-case terminal capacity",
+        "the transaction-wide journal/projection/CAS path lacked one host-wide cross-session lease"
+      ]
+    }
+  ],
+  "capacity_protocol": {
+    "canonical_pair_admission": true,
+    "json_delimiters_and_trailing_newline_counted": true,
+    "worst_terminal_is_max_of_committed_and_compensated": true,
+    "prepared_and_terminal_record_slots_reserved_together": true,
+    "terminal_capacity_survives_restart": true,
+    "active_prepared_is_never_compacted": true,
+    "fully_terminalized_history_compacts_to_latest_authenticated_pair": true,
+    "exact_fit_tested": true,
+    "one_byte_short_rejected_before_prepared": true
+  },
+  "lease_protocol": {
+    "required_port": "HostTransactionLease.hold",
+    "cross_session_guarantee_required": true,
+    "reentrant_in_process": true,
+    "bounded_timeout": true,
+    "scope": "reconcile, recovery, journal preparation, projections, terminal decision, chain-head CAS",
+    "windows": "Global named mutex; creation/access failure refuses the operation; no Local-session fallback",
+    "windows_chain_head_cas": "V7 adapter additionally wraps Credential Manager CAS in the Global host lease",
+    "anchor_cas_retained": true
+  },
+  "verification": {
+    "focused_v7": {
+      "passed": 21,
+      "failed": 0
+    },
+    "cumulative_v1_v2_v3_v4_v5_v6_v7_memory_store": {
+      "passed": 184,
+      "subtests_passed": 15,
+      "failed": 0
+    },
+    "multiprocess_two_writer_race": "pass; both writers complete in one serial order, journal and anchor finish at sequence 6",
+    "ruff_check": "pass",
+    "ruff_format_check": "pass",
+    "py_compile": "pass",
+    "stable_reconcile_benchmark": {
+      "iterations": 200,
+      "median_ms": 13.013,
+      "p95_ms": 15.25,
+      "max_ms": 19.606
+    },
+    "live_surface_imports": 0
+  },
+  "security_closure": {
+    "commit_journal_and_advance_chain_head_diagnostics_are_distinct": true,
+    "actual_journal_state_is_reread_for_failure_diagnostics": true,
+    "stale_bob_snapshot_cannot_replace_carol": true,
+    "preforget_snapshot_cannot_resurrect_owner": true,
+    "lease_timeout_is_sticky_degraded_and_read_only": true,
+    "journal_mutation_outside_lease_is_rejected": true,
+    "config_memory_journal_and_anchor_are_all_touched_under_lease": true,
+    "crash_windows_before_and_after_terminal_and_cas_remain_resolvable": true,
+    "first_contact_unicode_correction_forget_restart_and_literal_sir_preserved": true
+  },
+  "limitations": [
+    "candidate-only; no live wiring, restart, commit, or production credential creation",
+    "Global Windows mutex availability depends on host permissions; failure refuses the operation instead of falling back to a session-local mutex",
+    "the multiprocess authority race uses a test-only file-backed lease and anchor port; the production Windows Global mutex and Credential Manager adapter require an independent real-host gate",
+    "macOS Keychain and Linux Secret Service CAS and host-wide lease adapters remain explicit platform work",
+    "atomic journal replacement cannot guarantee physical-media flush across every power-loss/filesystem combination",
+    "independent functional, integrity, and quality review pending"
+  ]
+}

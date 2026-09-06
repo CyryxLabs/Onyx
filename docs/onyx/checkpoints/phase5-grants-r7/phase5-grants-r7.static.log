@@ -1,0 +1,12 @@
+compile_mode=recursive-live-in-memory-built-in-compile
+compile_exit_code=0
+diff_check_command=python scripts/check_phase5_grants_r7_whitespace.py
+diff_check_exit_code=0
+diff_check_scope=core/session_grants_v7.py;scripts/check_phase5_grants_r7_whitespace.py;scripts/verify_phase5_grants_r7.py;tests/test_session_grants_v7.py
+live_scan_exit_code=0
+live_scan_manifest=docs/onyx/checkpoints/phase5-grants-r7/phase5-grants-r7.live-scan.sha256
+live_scan_scope=main.py;ui.py;dashboard;actions;memory;runtime;qml;packaging;core
+ruff_command=ruff check --no-cache --select F,E9
+ruff_exit_code=0
+v6_evidence_artifacts=41
+v6_evidence_root=1

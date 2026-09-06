@@ -1,0 +1,1624 @@
+{
+  "schema": "onyx.source-test-succession.v3",
+  "release": 101,
+  "disposition": "superseded-not-rebound",
+  "predecessor": {
+    "path": "tests/fixtures/source_test_succession_v2.json",
+    "sha256": "4812751922b68d5b242d31a37af60d1bce258e332718d358e7cf3e586025cfe3"
+  },
+  "routes": [
+    {
+      "node": "tests/test_current_capability_status_v1.py::test_current_version_claims_agree_across_runtime_and_current_docs",
+      "kind": "documentation",
+      "successors": [
+        "tests/test_current_capability_status_v2.py"
+      ]
+    },
+    {
+      "node": "tests/test_humanoid_promotion_v47.py::test_current_source_and_package_accept_transparent_successor",
+      "kind": "hud",
+      "successors": [
+        "tests/test_hud_conversation_successor_v48.py"
+      ]
+    },
+    {
+      "node": "tests/test_humanoid_promotion_v47.py::test_package_rejects_changed_transparent_renderer",
+      "kind": "hud",
+      "successors": [
+        "tests/test_hud_conversation_successor_v48.py"
+      ]
+    },
+    {
+      "node": "tests/test_onyx_hud_current_acceptance_v33.py::test_v33_rejects_linked_runtime_input",
+      "kind": "links",
+      "successors": [
+        "tests/test_hud_linked_input_v1.py",
+        "tests/test_release_workflow_transition_v101.py::test_rejects_linked_permission_broker"
+      ]
+    },
+    {
+      "node": "tests/test_onyx_hud_current_acceptance_v36.py::test_v36_authenticates_living_liquid_metal_without_palette_change",
+      "kind": "hud",
+      "successors": [
+        "tests/test_hud_conversation_successor_v48.py"
+      ]
+    },
+    {
+      "node": "tests/test_onyx_hud_current_acceptance_v37.py::test_current_hud_v37_authenticates_humanoid_successor",
+      "kind": "hud",
+      "successors": [
+        "tests/test_hud_conversation_successor_v48.py"
+      ]
+    },
+    {
+      "node": "tests/test_onyx_hud_current_acceptance_v38.py::test_current_hud_v38_authenticates_multimodal_attention",
+      "kind": "hud",
+      "successors": [
+        "tests/test_hud_conversation_successor_v48.py"
+      ]
+    },
+    {
+      "node": "tests/test_onyx_hud_current_acceptance_v39.py::test_current_hud_v39_authenticates_stable_multimodal_attention",
+      "kind": "hud",
+      "successors": [
+        "tests/test_hud_conversation_successor_v48.py"
+      ]
+    },
+    {
+      "node": "tests/test_onyx_hud_current_acceptance_v40.py::test_current_hud_v40_authenticates_calibrated_multimodal_attention",
+      "kind": "hud",
+      "successors": [
+        "tests/test_hud_conversation_successor_v48.py"
+      ]
+    },
+    {
+      "node": "tests/test_onyx_hud_current_acceptance_v41.py::test_current_hud_v41_authenticates_temporally_stable_humanoid",
+      "kind": "hud",
+      "successors": [
+        "tests/test_hud_conversation_successor_v48.py"
+      ]
+    },
+    {
+      "node": "tests/test_onyx_hud_current_acceptance_v43.py::test_current_hud_v43_authenticates_setup_voice_selection",
+      "kind": "hud",
+      "successors": [
+        "tests/test_hud_conversation_successor_v48.py"
+      ]
+    },
+    {
+      "node": "tests/test_onyx_hud_current_acceptance_v45.py::test_current_hud_v45_authenticates_non_visual_setup_dismissal",
+      "kind": "hud",
+      "successors": [
+        "tests/test_hud_conversation_successor_v48.py"
+      ]
+    },
+    {
+      "node": "tests/test_onyx_hud_current_acceptance_v46.py::test_current_hud_v46_authenticates_non_visual_shortcut_recovery",
+      "kind": "hud",
+      "successors": [
+        "tests/test_hud_conversation_successor_v48.py"
+      ]
+    },
+    {
+      "node": "tests/test_packaged_runtime_hud_contract_v10.py::test_package_smoke_targets_the_current_stable_humanoid",
+      "kind": "smoke",
+      "successors": [
+        "tests/test_packaged_humanoid_smoke_targets_v1.py"
+      ]
+    },
+    {
+      "node": "tests/test_packaged_runtime_hud_contract_v10.py::test_packaged_runtime_v10_binds_temporally_stable_humanoid",
+      "kind": "hud",
+      "successors": [
+        "tests/test_hud_conversation_successor_v48.py"
+      ]
+    },
+    {
+      "node": "tests/test_packaged_runtime_hud_contract_v11.py::test_package_smoke_targets_the_current_continuity_humanoid",
+      "kind": "smoke",
+      "successors": [
+        "tests/test_packaged_humanoid_smoke_targets_v1.py"
+      ]
+    },
+    {
+      "node": "tests/test_packaged_runtime_hud_contract_v12.py::test_packaged_v12_authenticates_setup_voice_selection",
+      "kind": "hud",
+      "successors": [
+        "tests/test_hud_conversation_successor_v48.py"
+      ]
+    },
+    {
+      "node": "tests/test_packaged_runtime_hud_contract_v14.py::test_packaged_v14_authenticates_non_visual_setup_dismissal",
+      "kind": "hud",
+      "successors": [
+        "tests/test_hud_conversation_successor_v48.py"
+      ]
+    },
+    {
+      "node": "tests/test_packaged_runtime_hud_contract_v15.py::test_packaged_v15_authenticates_non_visual_shortcut_recovery",
+      "kind": "hud",
+      "successors": [
+        "tests/test_hud_conversation_successor_v48.py"
+      ]
+    },
+    {
+      "node": "tests/test_packaged_runtime_hud_contract_v2.py::test_packaged_v2_rejects_host_port_tamper",
+      "kind": "staged",
+      "successors": [
+        "tests/test_staged_capability_source_v1.py"
+      ]
+    },
+    {
+      "node": "tests/test_packaged_runtime_hud_contract_v3.py::test_packaged_v3_binds_exact_current_capabilities_and_hygiene",
+      "kind": "staged",
+      "successors": [
+        "tests/test_staged_capability_source_v1.py"
+      ]
+    },
+    {
+      "node": "tests/test_packaged_runtime_hud_contract_v3.py::test_packaged_v3_rejects_current_host_port_tamper[relative0]",
+      "kind": "staged",
+      "successors": [
+        "tests/test_staged_capability_source_v1.py"
+      ]
+    },
+    {
+      "node": "tests/test_packaged_runtime_hud_contract_v3.py::test_packaged_v3_rejects_current_host_port_tamper[relative1]",
+      "kind": "staged",
+      "successors": [
+        "tests/test_staged_capability_source_v1.py"
+      ]
+    },
+    {
+      "node": "tests/test_packaged_runtime_hud_contract_v4.py::test_packaged_v4_rejects_linked_runtime_input",
+      "kind": "staged",
+      "successors": [
+        "tests/test_staged_capability_source_v1.py"
+      ]
+    },
+    {
+      "node": "tests/test_packaged_runtime_hud_contract_v5.py::test_packaged_v5_authenticates_liquid_metal_runtime",
+      "kind": "hud",
+      "successors": [
+        "tests/test_hud_conversation_successor_v48.py"
+      ]
+    },
+    {
+      "node": "tests/test_packaged_runtime_hud_contract_v6.py::test_packaged_runtime_v6_binds_humanoid_presence",
+      "kind": "hud",
+      "successors": [
+        "tests/test_hud_conversation_successor_v48.py"
+      ]
+    },
+    {
+      "node": "tests/test_packaged_runtime_hud_contract_v7.py::test_packaged_runtime_v7_binds_multimodal_attention",
+      "kind": "hud",
+      "successors": [
+        "tests/test_hud_conversation_successor_v48.py"
+      ]
+    },
+    {
+      "node": "tests/test_packaged_runtime_hud_contract_v8.py::test_packaged_runtime_v8_binds_stable_multimodal_attention",
+      "kind": "hud",
+      "successors": [
+        "tests/test_hud_conversation_successor_v48.py"
+      ]
+    },
+    {
+      "node": "tests/test_packaged_runtime_hud_contract_v9.py::test_packaged_runtime_v9_binds_calibrated_multimodal_attention",
+      "kind": "hud",
+      "successors": [
+        "tests/test_hud_conversation_successor_v48.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_current_source_pins_membership_and_registry_are_source_only",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_linked_core_ancestor",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_linked_current_and_predecessor_inputs[current-ui]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_linked_current_and_predecessor_inputs[current100]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_linked_current_and_predecessor_inputs[predecessor99]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_linked_permission_broker",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[core/business_document_delivery_v1.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[core/capability_ports/budget_v1.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[core/live_voice_continuity_v1.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[core/onyx_packaged_runtime_hud_contract_v5.manifest.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[core/permission_broker.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[core/telegram_official_connector_v1.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[docs/onyx/acceptance/VE-HUD-CURRENT-V36-E6-001.manifest.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[docs/onyx/CURRENT_CAPABILITY_STATUS_V1.md]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[docs/onyx/V100_BLOCKER_SUCCESSOR_20260905.md]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[scripts/build_release.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[scripts/generate_release_workflow_v100.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[scripts/generate_release_workflow_v99.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[scripts/hud_test_succession_v1.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[scripts/onyx_capabilities_cli.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[scripts/source_test_succession_v1.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[scripts/source_test_succession_v2.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[scripts/verify_release_workflow_v98.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[scripts/verify_release_workflow_v99.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[scripts/verify_staged_capabilities_v1.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/hud_test_succession_v1.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/r11-6cd546e975b05efd74c5cd790f3a6129d151ff86fb8557e8ec56cd465a661601.snapshot]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/r11-6f4418afba826a60a682ec2c926fb9d214f14081a20c958f7f55688b66b0777c.snapshot]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/r11-a233194960de277fe697172d663ea12d8d6ac9de5feb4e1c41fc24ce7185a04c.snapshot]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/r11-memory-store-0516fafd.snapshot]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v100.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v71.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v72.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v73.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v74.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v75.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v76.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v77.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v78.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v79.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v80.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v81.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v82.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v83.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v84.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v85.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v86.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v87.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v88.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v89.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v90.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v91.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v92.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v93.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v94.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v95.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v96.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v97.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v98.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/release_workflow_transition_v99.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/source_test_succession_v1.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/fixtures/source_test_succession_v2.json]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/test_current_capability_status_v1.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/test_current_capability_status_v2.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/test_hud_conversation_successor_v48.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/test_hud_linked_input_v1.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/test_hud_test_succession_v1.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/test_humanoid_promotion_v47.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/test_onyx_hud_current_acceptance_v36.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/test_onyx_hud_orb_v7_candidate.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/test_onyx_hud_orb_v8_candidate.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/test_onyx_humanoid_entity_v10.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/test_packaged_humanoid_smoke_targets_v1.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/test_packaged_runtime_hud_contract_v5.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/test_phase6_live_wiring_v2.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/test_release_preparation_v110.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/test_release_workflow_transition_v100.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/test_release_workflow_transition_v99.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/test_ruff_historical_immutable_ignores.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/test_source_test_succession_v2.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[tests/test_staged_capability_source_v1.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_tampered_source_predecessor_registry_and_history[ui.py]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_wrong_strong_pins[V100_ROOT_SHA256]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_wrong_strong_pins[V100_SHA256]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_wrong_strong_pins[V99_ROOT_SHA256]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v100.py::test_rejects_wrong_strong_pins[V99_SHA256]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v62.py::test_release_v62_authenticates_current_build_and_retirement_closure",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v71.py::test_release_v71_authenticates_converged_release_documentation_authority",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v72.py::test_release_v72_authenticates_humanoid_presence_authority",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v73.py::test_release_v73_authenticates_stable_calibrated_humanoid",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v74.py::test_release_v74_authenticates_packaged_parity_successor",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v75.py::test_release_v75_authenticates_live_qualification_successor",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v76.py::test_release_v76_authenticates_lifecycle_identity_successor",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v77.py::test_release_v77_authenticates_humanoid_render_stability",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v78.py::test_release_v78_authenticates_compositor_continuity",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v79.py::test_release_v79_authenticates_startup_trust_boundary",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v80.py::test_release_v80_authenticates_governed_shutdown_recovery",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v81.py::test_release_v81_authenticates_mobile_humanoid_and_current_tests",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v82.py::test_release_v82_authenticates_mark_lii_operational_parity",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v83.py::test_release_workflow_transition_v83_is_exact_and_non_publishable",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v84.py::test_release_workflow_transition_v84_is_exact_and_non_publishable",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v85.py::test_release_workflow_transition_v85_is_exact_and_non_publishable",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v86.py::test_release_workflow_transition_v86_is_exact_and_non_publishable",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v87.py::test_release_workflow_transition_v87_is_exact_and_non_publishable",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v88.py::test_release_workflow_transition_v88_is_exact_and_non_publishable",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v89.py::test_release_workflow_transition_v89_is_exact_and_non_publishable",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v90.py::test_release_workflow_transition_v90_is_exact_and_non_publishable",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v91.py::test_release_workflow_transition_v91_is_exact_and_non_publishable",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v92.py::test_release_workflow_transition_v92_is_exact_and_non_publishable",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v93.py::test_release_workflow_transition_v93_is_exact_and_non_publishable",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v94.py::test_release_workflow_transition_v94_is_exact_and_non_publishable",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v95.py::test_release_workflow_transition_v95_is_exact_and_non_publishable",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v96.py::test_release_v96_keeps_public_release_unapproved",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v97.py::test_current_source_is_not_public_or_live_certification",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v97.py::test_rejects_tampered_predecessor_manifest_and_runtime[changed0]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v97.py::test_rejects_tampered_predecessor_manifest_and_runtime[changed1]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v97.py::test_rejects_tampered_predecessor_manifest_and_runtime[changed2]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v98.py::test_current_source_is_not_public_or_live_certification",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v98.py::test_rejects_tampered_predecessor_manifest_and_runtime[changed0]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v98.py::test_rejects_tampered_predecessor_manifest_and_runtime[changed1]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v98.py::test_rejects_tampered_predecessor_manifest_and_runtime[changed2]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_current_source_is_not_public_or_live_certification",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed0]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed1]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed10]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed11]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed12]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed13]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed14]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed15]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed16]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed17]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed18]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed19]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed2]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed20]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed21]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed22]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed23]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed24]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed25]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed26]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed27]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed28]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed29]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed3]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed30]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed31]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed32]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed33]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed34]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed35]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed36]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed37]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed38]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed39]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed4]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed40]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed41]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed42]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed43]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed44]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed45]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed46]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed47]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed48]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed49]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed5]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed50]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed51]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed52]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed6]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed7]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed8]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_tampered_predecessor_manifest_runtime_and_history[changed9]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_wrong_strong_pins[V98_ROOT_SHA256]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_wrong_strong_pins[V98_SHA256]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_wrong_strong_pins[V99_ROOT_SHA256]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    },
+    {
+      "node": "tests/test_release_workflow_transition_v99.py::test_rejects_wrong_strong_pins[V99_SHA256]",
+      "kind": "release",
+      "successors": [
+        "tests/test_release_workflow_transition_v101.py"
+      ]
+    }
+  ],
+  "bindings": {
+    "core/onyx_hud_current_acceptance_v33.py": "756bc1806e1e7229b1b36b476584ee0eb93bf739e80410a1b923a920d0c30886",
+    "core/onyx_hud_current_acceptance_v36.py": "de3de40c70851c1fe830b0c4520a0dcbd6d44900a9b5151814240ebce9baa948",
+    "core/onyx_hud_current_acceptance_v37.py": "21e621e4d5cd2e3383030836f7f751f7f6a9fa8bcb0a3abb4aad76a69e0ea55c",
+    "core/onyx_hud_current_acceptance_v38.py": "b78d61feab5a86e1f646055192b825936ccf5136e41f6cfe3b4fda39c9cdcbf3",
+    "core/onyx_hud_current_acceptance_v39.py": "59409d14d2318590b127342e675939cb7b4a5e4626685bba194487664b162e58",
+    "core/onyx_hud_current_acceptance_v40.py": "0862ea941ea587ef198838f05c7dfb46853af237fd29aee307e59432ccf19420",
+    "core/onyx_hud_current_acceptance_v41.py": "13ba1e2cb427b06da5245383514681c44db2d00e4e9ffbe19cb14fdc57efa729",
+    "core/onyx_hud_current_acceptance_v43.py": "eb2cfa477df6c0407bb5246edfd3948af9c55610e7674bce0deeeb32b7d69c2e",
+    "core/onyx_hud_current_acceptance_v45.py": "36e0d228c246dc0214536fbc18e56035f7ef8a858d0c0a3d02eb782066195c13",
+    "core/onyx_hud_current_acceptance_v46.py": "e630c76b40860af754307c40a5582edc5a67f72f38affd5e16b99260db9aa85f",
+    "core/onyx_hud_current_acceptance_v48.py": "f3cf493e1d0653ba6366ad475a210ab947569e3bf47aa85d3ab8fe9a5ac054c3",
+    "core/onyx_packaged_runtime_hud_contract_v10.manifest.json": "9e05366f95ebffb28eba0e433457950e72dc0464b75edaff9fe1dcc53f061c54",
+    "core/onyx_packaged_runtime_hud_contract_v10.py": "52828ba3d3a03cc2052af12fc64e727b46f232af42627546f569503eea9d3b5b",
+    "core/onyx_packaged_runtime_hud_contract_v11.manifest.json": "3823acc95510c81d7ddb6b67c65056fee65e895c346308785b8934ade85347cb",
+    "core/onyx_packaged_runtime_hud_contract_v11.py": "7fb54ce8877191cebd4b86d1d0c39767198fb0971c8b50078bc6dc7be1adf14e",
+    "core/onyx_packaged_runtime_hud_contract_v12.manifest.json": "d0bf6c1969f5951aede9d7b562655299a0cda8784039cc7b1b22d3312ab72867",
+    "core/onyx_packaged_runtime_hud_contract_v12.py": "9e7d1311cd4b08ff28488baf2212c21dd97f4c9126ea1f905099be0dd533e7fa",
+    "core/onyx_packaged_runtime_hud_contract_v14.manifest.json": "6da43e45205d0c8a36abad6c19e2cc4c55ec04da93799da3b1c1c328fbf76cc3",
+    "core/onyx_packaged_runtime_hud_contract_v14.py": "e1cdf010b40890749aaacdcbf0ebf64567dcae8ada405990ef5464fada2e56d2",
+    "core/onyx_packaged_runtime_hud_contract_v15.manifest.json": "d7de9843e24893488fb33b5955430dbfd9892a39f3f5096c7a22dabcff427945",
+    "core/onyx_packaged_runtime_hud_contract_v15.py": "64efb55f73007689c4ff63843f493a4c817cee2adc44819a9d79a93d4e7398f1",
+    "core/onyx_packaged_runtime_hud_contract_v17.manifest.json": "2bc9dfebcca92da8bdcbe6efe2bfea222b7b3ea960cb72aae73f093bfc6b18f1",
+    "core/onyx_packaged_runtime_hud_contract_v17.py": "15ecb053e07d61262fa31ce9ca03ae283a1b71bc837b72eb3dec2c87c0739440",
+    "core/onyx_packaged_runtime_hud_contract_v2.manifest.json": "c98c35d0a527a89e61859c6aa951074891ff31d20df2422d1283a9eb905ce377",
+    "core/onyx_packaged_runtime_hud_contract_v2.py": "f258f0940b8dff6adf41602b71e25f7ff23afab746657d16788035b75ab12f75",
+    "core/onyx_packaged_runtime_hud_contract_v3.manifest.json": "5acad81a41f4469c95faebf6a527e338ab5b48f6253d229ab2c21e95f873e7ce",
+    "core/onyx_packaged_runtime_hud_contract_v3.py": "09b31c41d934c7a3f77d2c93dde0d44d0b0ce61b09dd61eb28d74c163d3c84ef",
+    "core/onyx_packaged_runtime_hud_contract_v4.manifest.json": "4e9eabce9ba24a21496b8514bf1a8a3c0ddf26ce82d90eb0bbc1b597a9764e8e",
+    "core/onyx_packaged_runtime_hud_contract_v4.py": "6efae9777ce5e5b34f4ae59620a96ee564847ce950cc9e26bd823a5349c2ff0a",
+    "core/onyx_packaged_runtime_hud_contract_v5.manifest.json": "ef037a65fcc154432a428f0766a2253200fb202f889e0041fd36a9d616fdf8ef",
+    "core/onyx_packaged_runtime_hud_contract_v5.py": "03a68b3342036193e946269360ea102968afbc1e5d4926e38eaebe8800dff652",
+    "core/onyx_packaged_runtime_hud_contract_v6.manifest.json": "9fe601cc6449be0d08d3811bcafd4a5d8313eb14d51a1a0d6b82724b75bc372e",
+    "core/onyx_packaged_runtime_hud_contract_v6.py": "c9132462a47d4f99dbe22d10c69bba4b7f4f8f6dc574309a9b8f5bf61b5d335e",
+    "core/onyx_packaged_runtime_hud_contract_v7.manifest.json": "9322fbed4119b0b450610aa49d7b32a4dabf95b5a2a59d7e8c749f8ab504702a",
+    "core/onyx_packaged_runtime_hud_contract_v7.py": "c2bb59c9ae3a6c346840738b47904672eb10ddb1275edb5826666e57aca87680",
+    "core/onyx_packaged_runtime_hud_contract_v8.manifest.json": "6ea70210fdb87047a2edc9a8b2066baabb596d173054ab8fa67e7ca6be7a3163",
+    "core/onyx_packaged_runtime_hud_contract_v8.py": "3b8d9803f43e18f9f662d2c6bcead4c1de8a913f631b7ef97541be55b9dc433b",
+    "core/onyx_packaged_runtime_hud_contract_v9.manifest.json": "636da9d3bdfb24ae687f670f52f711cb111a09e0fa335217a2c0ba6dd8c9de2b",
+    "core/onyx_packaged_runtime_hud_contract_v9.py": "d8ad3673d001d1769a3c6e87d975d9233bfe83467acea740115fb4447e69c335",
+    "docs/onyx/acceptance/VE-HUD-CURRENT-V33-E6-001.manifest.json": "08cf9b873d709776514240a48c875966bb7d71258b117807ad72cd5a5907a4ce",
+    "docs/onyx/acceptance/VE-HUD-CURRENT-V36-E6-001.manifest.json": "b3fdd3d35b44b673f9a82921f1fd884065d9c6b1beeaa97755c989d9faadd257",
+    "docs/onyx/acceptance/VE-HUD-CURRENT-V37-E6-001.manifest.json": "9b9a945b564c0a9bde8da7ba9cf1b924e228150abe47bc5a78af704c50ab50ed",
+    "docs/onyx/acceptance/VE-HUD-CURRENT-V38-E6-001.manifest.json": "0c6d6e103829a1a7bf88e20baa23285bb5d24cbd6ac67b2ff6cecadd4887ffa2",
+    "docs/onyx/acceptance/VE-HUD-CURRENT-V39-E6-001.manifest.json": "61058ff6f9aff57a86e9480620d88df4a85beabd685c4100ffb8cdb376deb8b2",
+    "docs/onyx/acceptance/VE-HUD-CURRENT-V40-E6-001.manifest.json": "aa49c24d7ee001f67a2e3e44969c140d4e93ada4d34508f46e2ed17a44bcd39e",
+    "docs/onyx/acceptance/VE-HUD-CURRENT-V41-E6-001.manifest.json": "e5a9cfd05f9efdba8fa029c89d707e2977a284e3d1daae769aa76c56397b812e",
+    "docs/onyx/acceptance/VE-HUD-CURRENT-V43-E6-001.manifest.json": "5046fd657453179e530dbb8a5eb9b51780b3526b091503d363feaab5cd3dcdfb",
+    "docs/onyx/acceptance/VE-HUD-CURRENT-V45-E6-001.manifest.json": "4428d2178fd42b45aa5e6447ec06fdd3bc01316036c5af7981006f9b40028952",
+    "docs/onyx/acceptance/VE-HUD-CURRENT-V46-E6-001.manifest.json": "ec462d226c9f3ac333e21916ff67f6aee81d5a92f0b461c31de3a5422f633756",
+    "docs/onyx/acceptance/VE-HUD-CURRENT-V48-E6-001.manifest.json": "a07f0bd02647995abae4bc103aeb989c6ae076ca1affdda058bd993cccf006ee",
+    "docs/onyx/CURRENT_CAPABILITY_STATUS_V1.md": "79a799d9fffd208c9e982ccafe0abd398bdc75a32a31c84c7985ac14ff5d295c",
+    "scripts/hud_test_succession_v1.py": "c51044fd2fc866e5b047e211e2655320f54e94a83796f0817081ced225830cb0",
+    "scripts/source_test_succession_v1.py": "9a09e587ead700c80e7441d648bb734270d6b4c2a65c8f945ed3eac45e9400c8",
+    "scripts/source_test_succession_v2.py": "df4ce295b11f29058fe0770a8c854424b67bfcfbd56c34ecf7179ed878f55b5a",
+    "scripts/verify_release_workflow_v100.py": "71a9a6c23e6a381745853518f49f9ffef2bdd84dfc66a29e0e7f376c99efc2d7",
+    "scripts/verify_release_workflow_v62.py": "97419bb564bb6536fa6e4c9616c411f66e7949a2fbc8ed9c44ed07d7b5411284",
+    "scripts/verify_release_workflow_v99.py": "39a52122f9734be6a89843b235e0ae0011d132596ac5e6cdd9c273a6bf9843ed",
+    "tests/fixtures/hud_test_succession_v1.json": "898e0505057c77ffd95c48cec3f562f196ae65f9399e907130e0c66124b25592",
+    "tests/fixtures/release_workflow_transition_v100.json": "ec9302df2b6bece061e4f0a0c62e922539e82d78d05b0295d27d9386d2241161",
+    "tests/fixtures/release_workflow_transition_v62.json": "947d4eb360b233e98293c025708ab4894fa09a1ecaf4154d38dcb62d05cf44f8",
+    "tests/fixtures/release_workflow_transition_v71.json": "cb368372543f2ddb07735a472c3d81dd5cdc87150f07d50a247ef944c326fe38",
+    "tests/fixtures/release_workflow_transition_v72.json": "b8519c0263f609adeb4cba032cf088b6e424cb5cb9a6709ed76ec36b42224137",
+    "tests/fixtures/release_workflow_transition_v73.json": "fb22c460f153782af60a300cf3973507b54f04946351e5142826c3a98132a7a0",
+    "tests/fixtures/release_workflow_transition_v74.json": "28ee9c94ac978506c1fc0a67bf187188bf51a991208bb7921f184b4588213634",
+    "tests/fixtures/release_workflow_transition_v75.json": "829cb6957786d699aa84f55caf76aed573912e5cde325d8969d5358447d397c6",
+    "tests/fixtures/release_workflow_transition_v76.json": "e36d919cd05671ce537d1774a33e8293f5678ed50be189fc209c48375a5388f5",
+    "tests/fixtures/release_workflow_transition_v77.json": "97fdd81b2a81c6cfe150a503b52e1dd3008521141252e0601d9d3d38871ef055",
+    "tests/fixtures/release_workflow_transition_v78.json": "a8b9a4a0e1b9fd4d9361a8f0c18fe42f7852b5b69247c4f7a764593266bd7bc0",
+    "tests/fixtures/release_workflow_transition_v79.json": "7d576995c3a33ed731b6eb5c532b5d52d0fb77fee9c495f48ebb36fb5482f546",
+    "tests/fixtures/release_workflow_transition_v80.json": "35bdfed6a1999291897b63a921c6653991da9e3dee75efc73b51ee4ae48e96ce",
+    "tests/fixtures/release_workflow_transition_v81.json": "35fcaf2743ed7144ea9bfed5b013230f2815b17d1d8bb361f1d13bcf92437d9e",
+    "tests/fixtures/release_workflow_transition_v82.json": "0a34cd398d0af9db6cfbf66af8feb59aa306a2b12aaa34595f0466572cef4c34",
+    "tests/fixtures/release_workflow_transition_v83.json": "cc7f807130d73b0e4a90dfe357e553f9fa959e6fae1939fa64b22577aa30df5e",
+    "tests/fixtures/release_workflow_transition_v84.json": "40e32d1a77f547e6f98aa398bf57a05497d7ecbf18b7b9336e24135fa48d8532",
+    "tests/fixtures/release_workflow_transition_v85.json": "891e63d0872eb033d620c9f5447ed863f6393995f37a5799c8b2d1c04296ed11",
+    "tests/fixtures/release_workflow_transition_v86.json": "18bf445b1e40d213efaa46f82a16d48f8838c7b6702fc2efbbc0284ef6a2c5ed",
+    "tests/fixtures/release_workflow_transition_v87.json": "10b5c27e5c214cd962caff58db8469f2b92000f1fc5a0223f477c19a81290376",
+    "tests/fixtures/release_workflow_transition_v88.json": "cedda687e8f5eee6a6cb355f5f3975afe8f44035751bb5203aba0f8ce36b353f",
+    "tests/fixtures/release_workflow_transition_v89.json": "6b1a836ace325a19a2dee7f3b35f5a46120ca4633edba6dc4e65bd868bbd1d1e",
+    "tests/fixtures/release_workflow_transition_v90.json": "d0abf73f16ff8e960a3bd6eb868e03877d9d21d2143f0182b6ef5b9041a24df8",
+    "tests/fixtures/release_workflow_transition_v91.json": "a34fa6a0198182701c0cb06d6e09547ee60f9712160f9de85d8a6e15aa30f0b3",
+    "tests/fixtures/release_workflow_transition_v92.json": "cfa4abefee544c09fd5308c5e3f7478a8d3f937b4d50a41c3f99810952deb8b0",
+    "tests/fixtures/release_workflow_transition_v93.json": "6f8883f724c574e4f1a47266bd905a7a35383db17b81b6cfe22b53ae3e0fe813",
+    "tests/fixtures/release_workflow_transition_v94.json": "2fa11978b0b19228603b6593928e94d7daf5e5bd31634bcd1d90d5c790ad8b6b",
+    "tests/fixtures/release_workflow_transition_v95.json": "63d84c702535998084554d9647dd06178663b60ca5c21fb858ab8058ae3b4b3e",
+    "tests/fixtures/release_workflow_transition_v96.json": "b2bcc08c2638a034144a71516f375b1f537ac992b406d0522fd45ee60ad48966",
+    "tests/fixtures/release_workflow_transition_v97.json": "97230b1beeecd0359b3ea43c874df77687eb3c435dd4616bfa8568d19a7deefc",
+    "tests/fixtures/release_workflow_transition_v98.json": "9d6e3e005cc5d626461e7c54725d2b2825fac42eeff89feef42fb6508d08dba1",
+    "tests/fixtures/release_workflow_transition_v99.json": "ac6ae93d21f03707460e8cc566df36376005a02d7ea29dc91d71d8401fd89f83",
+    "tests/fixtures/source_test_succession_v1.json": "215fcc1393df42935629df10070239f66818811becbf98d3b70213b42a4e7e07",
+    "tests/fixtures/source_test_succession_v2.json": "4812751922b68d5b242d31a37af60d1bce258e332718d358e7cf3e586025cfe3",
+    "tests/test_current_capability_status_v1.py": "674fd72d5ae03c0cb6d473bd4ef12fe0e450af2aa7c4d0a31833a6307836188a",
+    "tests/test_current_capability_status_v2.py": "a3f625d1c4298160d855f84cda995342d350196c87868b59b37d191f75e52be0",
+    "tests/test_hud_conversation_successor_v48.py": "7bd6a7e628a2a32bc0f43070748d93462ebd62da00959f72d6c062a245e54a70",
+    "tests/test_hud_linked_input_v1.py": "b91045b2e8ce1380c0a58d6efe8c71320bf84d2accc8fd51a2d236f74a329b8f",
+    "tests/test_humanoid_promotion_v47.py": "baa1bd65808fb611436b2b2d10a0fa2d3cc26d5a4e157497d0a45be83692a6e8",
+    "tests/test_onyx_hud_current_acceptance_v33.py": "f8f09b3b1335ed2490425a214e1d229b54b0ff51d2176809e3c78a74567cd70c",
+    "tests/test_onyx_hud_current_acceptance_v36.py": "9ab510c0c1ddd9ead120764e9cd8f8a90d7079f000c6f6c7f2fdf298d009534b",
+    "tests/test_onyx_hud_current_acceptance_v37.py": "c9bef2db50cf817d7328c1f58f508c64a35024d86664a566ee8dc087da306cb6",
+    "tests/test_onyx_hud_current_acceptance_v38.py": "d1dc8456588d59d6fa6cd1bc9275230bd686086ce13c6cb0a301258c8c1a67de",
+    "tests/test_onyx_hud_current_acceptance_v39.py": "e71aaff51ef66168a6aef05fbe4958b90507dc49f90c9e107a7331ea5da489b8",
+    "tests/test_onyx_hud_current_acceptance_v40.py": "5704ff17ff627d07dc358d0b12604d471e243402fa954e6751e59a45f900f6e2",
+    "tests/test_onyx_hud_current_acceptance_v41.py": "e91e2198664dfaaf3e3d0d9e431e7b8ce8085209f0ac909ba96cccb44d4e47f4",
+    "tests/test_onyx_hud_current_acceptance_v43.py": "b87655284ddf0e194d9bf5a0288b92fb38e9606b1f9bbab40842a6c9e4a7e02f",
+    "tests/test_onyx_hud_current_acceptance_v45.py": "0633e6d9d6e3b69cb7cbf856ea7cec3a8e985d6619ab9467adad38a63873bd14",
+    "tests/test_onyx_hud_current_acceptance_v46.py": "4d8a673463c4d6b494919e777fb3d1a506ff319c514e07abbfbd6e0101c52bb9",
+    "tests/test_packaged_humanoid_smoke_targets_v1.py": "acd1c94c696b00ddd9a40dcc95ce62d7268fb0763adb2a98ff5625c6ab87845e",
+    "tests/test_packaged_runtime_hud_contract_v10.py": "e6540026b27c77a6d462c5ede808f58c43e7f15e4e7acc0ccf9c31e92d685b3d",
+    "tests/test_packaged_runtime_hud_contract_v11.py": "e4b2c3b2c2243fdf7f768a8e4d41d0dd21dffb989f650170c4901f082ff627cb",
+    "tests/test_packaged_runtime_hud_contract_v12.py": "12e52c44ef4a59fa5c038c97e4b763ec7aa9d6415df05ef65cf0277849ca4feb",
+    "tests/test_packaged_runtime_hud_contract_v14.py": "c0831fb862ccf3163f7ea935eb2a840d90968933701a435f2cd0c49f37a97cb3",
+    "tests/test_packaged_runtime_hud_contract_v15.py": "95d8d42047571e907b950a3a5782d9e2c30624e98c7a2189c3b4923286c62fa1",
+    "tests/test_packaged_runtime_hud_contract_v2.py": "7da374925184c229d397436a425e2e7ce87a356c36c37105a23a7bbce21c6f60",
+    "tests/test_packaged_runtime_hud_contract_v3.py": "2e4ce01599dcd20a0a13e493ddfe042d2602295c5da20be9cd3d73979225ccc3",
+    "tests/test_packaged_runtime_hud_contract_v4.py": "068dea5272f5f00305dbd5f0a8c1cf778f0289a2fd20f370c8f80e8374a627bd",
+    "tests/test_packaged_runtime_hud_contract_v5.py": "879a4ff7d2f9a79af11a9d38e50686d5319d4a67324a835ac14136100dd01f28",
+    "tests/test_packaged_runtime_hud_contract_v6.py": "67e1e4b0184a58353cfac4fd13ffbee84180b495b1d3379d8395784dd81d75ac",
+    "tests/test_packaged_runtime_hud_contract_v7.py": "60b2bd0adb9c9dc963ac468e4954c7a6036f9d4c6afb77c1ee08fa30a7841807",
+    "tests/test_packaged_runtime_hud_contract_v8.py": "27e7461ea0cbe356ae114d3403d811f3ece177a7dda9f2ff4b32ab63919e34d0",
+    "tests/test_packaged_runtime_hud_contract_v9.py": "3cbebe4dd76ac1eb5387500e27823984c9f3a66ae830b2bd12e0d40e74e4e4c7",
+    "tests/test_release_workflow_transition_v100.py": "a35e427c42abf3ebc3e7a381684b129d9acd2156d711180b1ebf34ffe6b67213",
+    "tests/test_release_workflow_transition_v101.py": "f6745df7481ffc5db982f45b1160cda50838bd6ececf72a94e5883e491e41892",
+    "tests/test_release_workflow_transition_v62.py": "ab6666ec6738d30729fd1fa297682b0afb6925f1e1d21a3c6b68e7fcf2d3f257",
+    "tests/test_release_workflow_transition_v71.py": "efbd8b95c656d06b82236ef677fa4774e909362ac4d05b3bbc99caaf448435ea",
+    "tests/test_release_workflow_transition_v72.py": "4649f0ac27936af7c6f4bb196249c136709847fa0737e53f30cc6a5eca3740e6",
+    "tests/test_release_workflow_transition_v73.py": "222d2843ccc8d69ea7309215e3c852add9ab2631e3aba2322a97e79f67473539",
+    "tests/test_release_workflow_transition_v74.py": "c02fbd7d031a1f9baa56778795043d0fcaeb5cc5804b2b77630f155227bb6c6c",
+    "tests/test_release_workflow_transition_v75.py": "138e21e8200262851ed903f5ffb4ed22851a68fbf71aa23d9973ad8b1bd3cdbe",
+    "tests/test_release_workflow_transition_v76.py": "7edd1884e876836ce71389808fe02ea7cb128c96cdc30c0f2e7e98964a5e8f8d",
+    "tests/test_release_workflow_transition_v77.py": "87d2ee2647cbaeeeeaa0b1ecc8b7bb8a2fc81264d41ac98ffa7d33ef01ab8af2",
+    "tests/test_release_workflow_transition_v78.py": "474104db7d832e2d474ae3f49d7824a3afecd4edbdb2ecb16fc621066035bbd4",
+    "tests/test_release_workflow_transition_v79.py": "89e318738a5d2b09bcc76fc7d8eb2f1f5f09bd1520440840f9890b2d463b2584",
+    "tests/test_release_workflow_transition_v80.py": "3e921a6a1894f9f8f3bbd17568a19e77e6ac61695a972a9dc31f729f6793c980",
+    "tests/test_release_workflow_transition_v81.py": "52d9ac94288739a3e3c0a5ad06565f1a67a9c538a7ccaf594b0bbc3b66a4be9d",
+    "tests/test_release_workflow_transition_v82.py": "9f74dad6c52841fe5958c9065f8e78fb4fccd6cf44c85fef4c7b562981bc9f6b",
+    "tests/test_release_workflow_transition_v83.py": "d219c8a46a650ec2bfef92e481340f7616f6e7f9fc1194af6f6c014921124fb6",
+    "tests/test_release_workflow_transition_v84.py": "21a512f562bfed2340d96603160815567e278d95be22e5883ec37fda127a9064",
+    "tests/test_release_workflow_transition_v85.py": "362589345c2d6177d66ca87cca70a6fb20d7668c3e4de2bd0482342deb7b8511",
+    "tests/test_release_workflow_transition_v86.py": "f265ef50b745cd41750f9570c22b0edc97719030d7e0e0c36a349bd8bd593faf",
+    "tests/test_release_workflow_transition_v87.py": "f7771ce9c4cc2ba7ba4a0227fdbe012a87cfe68ab4995c8a5c73f9b0ce829d90",
+    "tests/test_release_workflow_transition_v88.py": "c8528060fdc2936a110a7107ae4210c6adfdeec59add4dcd8ee00d5b975d4538",
+    "tests/test_release_workflow_transition_v89.py": "179ecc1c12acc1fc9457b04eb085b6ac1115089c101d73cfa5ad8b9eaab5adb1",
+    "tests/test_release_workflow_transition_v90.py": "9744262aa847623ed9132ce1b5ccd2ba3a231e17ac664d3b6e94be4010ef4959",
+    "tests/test_release_workflow_transition_v91.py": "16176d4b208f15034274cadf1cc4452255242041bf3c09e0110708bb390fecc0",
+    "tests/test_release_workflow_transition_v92.py": "795d2fe1a30502fe3e563dd63390302d62dd7a30826f068426f0640b73215900",
+    "tests/test_release_workflow_transition_v93.py": "933472cff4fdb02c0d3e81a0ebc8a73b7e1027a0778b3d777726b5a9f924ebfd",
+    "tests/test_release_workflow_transition_v94.py": "79ca5b1de42a9e1395cb7559f9becb9636bea5a71d71206e5f1c4a4433a4d6d6",
+    "tests/test_release_workflow_transition_v95.py": "3ddf2b8ced71050eb4dadcef58fa5a0c087b0d4183d2ab6a56ada9a2de1e80e6",
+    "tests/test_release_workflow_transition_v96.py": "4c64746ed6480e66e20a19ee2252d185591fcba597cccb02a9c0d8b147fef6c8",
+    "tests/test_release_workflow_transition_v97.py": "fe95c84c7b05f527e2a2cff12351850e758d2597ea583747a57dc8a3cfe1bccd",
+    "tests/test_release_workflow_transition_v98.py": "d696b3421ac838cf364ee548851e081e6c48d7580bcddd635ff067c899912fea",
+    "tests/test_release_workflow_transition_v99.py": "d845afce1412383a3ffa6c86fd3bf65dd24eea33b59aff17a765b62b5c9127e4",
+    "tests/test_source_test_succession_v2.py": "00bdcd917a58c840dbaf2886f07722c253540ead9f6d72fd5f40f39981315dff",
+    "tests/test_staged_capability_source_v1.py": "1b30b0c778bf8d5c1d3836fc14cfbadbfe09e41bff925dbdaf3140b2b09ed947"
+  }
+}

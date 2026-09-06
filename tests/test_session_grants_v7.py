@@ -1,0 +1,489 @@
+from __future__ import annotations
+
+import dataclasses
+import hashlib
+import threading
+from concurrent.futures import ThreadPoolExecutor
+
+import pytest
+
+import core.session_grants_v7 as grants
+
+
+TARGET = hashlib.sha256(b"target").hexdigest()
+PAYLOAD = hashlib.sha256(b"payload").hexdigest()
+AUDIT = hashlib.sha256(b"audit").hexdigest()
+RESULT = hashlib.sha256(b"result").hexdigest()
+
+
+def _policy() -> grants.HostActionPolicy:
+    return grants.HostActionPolicy("local-files", "file-controller", "write", "low", False, "internal")
+
+
+def _state(**changes: object) -> grants.HostState:
+    values: dict[str, object] = {
+        "schema_version": grants.GRANT_SCHEMA_VERSION,
+        "policy_version": grants.GRANT_POLICY_VERSION,
+        "principal_id": "owner-one",
+        "session_id": "session-one",
+        "workspace_id": "workspace-one",
+        "mission_ids": ("mission-one",),
+        "policies": (_policy(),),
+        "audit_head": AUDIT,
+        "credential_epoch": 1,
+        "vault_generation": 1,
+        "audit_healthy": True,
+        "session_active": True,
+        "kill_switch": False,
+    }
+    values.update(changes)
+    return grants.HostState(**values)  # type: ignore[arg-type]
+
+
+def _binding(**changes: object) -> grants.ActionBinding:
+    values: dict[str, object] = {
+        "provider": "local-provider",
+        "provider_namespace": "desktop-files",
+        "target_identity": TARGET,
+        "target_display": r"C:\Work\report.txt",
+        "payload_digest": PAYLOAD,
+        "payload_summary": "Reviewed report",
+        "payload_rule_id": "exact-report",
+        "egress": "local-only",
+        "idempotency_key": "write-report-one",
+    }
+    values.update(changes)
+    return grants.ActionBinding(**values)  # type: ignore[arg-type]
+
+
+def _scope(binding: grants.ActionBinding | None = None, **changes: object) -> grants.ResolvedGrantScope:
+    exact = binding or _binding()
+    values: dict[str, object] = {
+        "mission_id": "mission-one",
+        "capability": "local-files",
+        "tool": "file-controller",
+        "operation": "write",
+        "bindings": (exact,),
+        "account": "account-one",
+        "path": r"C:\Work",
+        "effect": "Write reviewed report",
+        "environment": "test-env",
+        "data_class": "internal",
+        "reversible": True,
+        "verification_plan": "Compare SHA-256",
+        "rollback_plan": "Restore snapshot",
+        "cost_currency": "USD",
+        "cost_unit": "micro-units",
+        "initial_binding_digest": exact.digest(),
+        "initial_cost_micro": 3,
+        "max_cost_per_action_micro": 5,
+        "max_cost_aggregate_micro": 20,
+        "max_uses": 5,
+        "not_before_delay_ms": 0,
+        "lifetime_ms": 10_000,
+    }
+    values.update(changes)
+    return grants.ResolvedGrantScope(**values)  # type: ignore[arg-type]
+
+
+def _action(binding: grants.ActionBinding | None = None) -> grants.ResolvedAction:
+    return grants.ResolvedAction(
+        "mission-one", "local-files", "file-controller", "write", binding or _binding(),
+        "account-one", r"C:\Work", "Write reviewed report", "test-env", "internal", True,
+        "Compare SHA-256", "Restore snapshot", "USD", "micro-units", 3,
+    )
+
+
+class Host:
+    def __init__(self) -> None:
+        self.now = 1_000
+        self.state_value = _state()
+        self.scope_value = _scope()
+        self.actions: dict[str, grants.ResolvedAction] = {"action": _action()}
+        self.outcomes: dict[str, grants.ResolvedOutcome | str] = {}
+        self.store: grants.SessionGrantShadowStore | None = None
+        self.receipt_sequence = 0
+        self.approval_sequence = 0
+        self.reconciliation_sequence = 0
+        self.verify_result = True
+        self.verify_hook = None
+        self.reconciliation_outcome = "still-uncertain"
+        self.reconcile_started: threading.Event | None = None
+        self.reconcile_release: threading.Event | None = None
+
+    def resolve_grant(self, _reference: str) -> grants.ResolvedGrantScope:
+        return self.scope_value
+
+    def resolve_action(self, reference: str) -> grants.ResolvedAction:
+        return self.actions[reference]
+
+    def _effect_outcome(self, reservation_id: str, status: str) -> grants.ResolvedOutcome:
+        assert self.store is not None
+        reservation = self.store._reservations.get(reservation_id)
+        if reservation is None:
+            uncertain = next(item for item in self.store._uncertain_records.values() if item.reservation_id == reservation_id)
+            reservation = self.store._reservation_from_uncertain(uncertain)
+        self.receipt_sequence += 1
+        sequence = self.receipt_sequence
+        provider_id = grants._expected_provider_receipt_id(sequence, RESULT)
+        placeholder = grants.ReceiptVerificationRequest(
+            reservation.receipt_challenge, reservation.session_id, reservation.workspace_id,
+            reservation.provider, reservation.provider_namespace, reservation.account,
+            reservation.tool, reservation.operation, reservation.reservation_id, reservation.grant_id,
+            reservation.scope_digest, reservation.binding_digest, reservation.action_audit_digest,
+            reservation.idempotency_key, reservation.idempotency_identity_digest,
+            provider_id, RESULT, AUDIT,
+        )
+        receipt_id = grants._expected_receipt_id(sequence, reservation.receipt_challenge)
+        receipt_digest = grants.canonical_receipt_digest(placeholder, sequence, receipt_id)
+        return grants.ResolvedOutcome(reservation_id, status, RESULT, provider_id, receipt_digest)
+
+    def resolve_outcome(self, reference: str) -> grants.ResolvedOutcome:
+        value = self.outcomes[reference]
+        if isinstance(value, str):
+            reservation_id, status = value.split("|")
+            if status in {"verified-effect", "dispatch-attempted-with-evidence"}:
+                return self._effect_outcome(reservation_id, "verified-effect" if status == "verified-effect" else "dispatch-attempted")
+            return grants.ResolvedOutcome(reservation_id, status, None, None, None)
+        return value
+
+    def approve(self, prompt: grants.ApprovalPrompt) -> grants.HostApprovalResponse:
+        self.approval_sequence += 1
+        sequence = self.approval_sequence
+        return grants.HostApprovalResponse(
+            True, grants._expected_attestation_id(sequence, prompt.challenge_digest), sequence,
+            prompt.challenge_digest, prompt.scope_digest, prompt.prompt_digest,
+        )
+
+    def verify_receipt(self, request: grants.ReceiptVerificationRequest) -> grants.HostReceiptVerification:
+        if self.verify_hook is not None:
+            self.verify_hook()
+        sequence = int(request.provider_receipt_id.split("-")[1], 16)
+        receipt_id = grants._expected_receipt_id(sequence, request.receipt_challenge)
+        value = grants.HostReceiptVerification(
+            self.verify_result, sequence, receipt_id, request.receipt_challenge,
+            request.session_id, request.workspace_id, request.provider, request.provider_namespace,
+            request.account, request.tool, request.operation, request.reservation_id, request.grant_id,
+            request.scope_digest, request.binding_digest, request.action_audit_digest,
+            request.idempotency_key, request.idempotency_identity_digest, request.provider_receipt_id,
+            request.result_digest, request.receipt_digest, AUDIT,
+        )
+        return dataclasses.replace(value, verification_digest=grants.canonical_verification_digest(value))
+
+    def reconcile(self, request: grants.ReconciliationRequest) -> grants.HostReconciliation:
+        if self.reconcile_started is not None and self.reconcile_release is not None:
+            self.reconcile_started.set()
+            assert self.reconcile_release.wait(timeout=5)
+        self.reconciliation_sequence += 1
+        sequence = self.reconciliation_sequence
+        verification = None
+        if self.reconciliation_outcome == "confirmed-effect":
+            receipt_sequence = self.receipt_sequence + 1
+            self.receipt_sequence = receipt_sequence
+            result = request.known_result_digest or RESULT
+            provider_id = request.known_provider_receipt_id or grants._expected_provider_receipt_id(receipt_sequence, result)
+            placeholder = grants.ReceiptVerificationRequest(
+                request.receipt_challenge, request.session_id, request.workspace_id,
+                request.provider, request.provider_namespace, request.account, request.tool, request.operation,
+                self.store._uncertain_records[request.identity_digest].reservation_id, request.grant_id,
+                request.scope_digest, request.binding_digest, request.action_audit_digest,
+                request.idempotency_key, request.identity_digest, provider_id, result, AUDIT,
+            )
+            receipt_id = grants._expected_receipt_id(receipt_sequence, request.receipt_challenge)
+            receipt_digest = request.known_receipt_digest or grants.canonical_receipt_digest(placeholder, receipt_sequence, receipt_id)
+            exact = dataclasses.replace(placeholder, receipt_digest=receipt_digest)
+            verification = self.verify_receipt(exact)
+        response = grants.HostReconciliation(
+            self.reconciliation_outcome, sequence,
+            grants._expected_reconciliation_id(sequence, request.reconciliation_challenge),
+            request, verification, AUDIT,
+        )
+        return dataclasses.replace(response, reconciliation_digest=grants.canonical_reconciliation_digest(response))
+
+    def services(self) -> grants.HostServices:
+        return grants.HostServices(
+            "desktop-root", self.resolve_grant, self.resolve_action, self.resolve_outcome,
+            self.approve, self.verify_receipt, self.reconcile, lambda: self.state_value, lambda: self.now,
+        )
+
+
+def _ready(monkeypatch: pytest.MonkeyPatch, host: Host | None = None) -> tuple[Host, grants.SessionGrantShadowStore, str]:
+    monkeypatch.setenv(grants.GRANT_EVALUATOR_FLAG, "true")
+    fixture = host or Host()
+    store = grants.SessionGrantShadowStore(fixture.services())
+    fixture.store = store
+    grant_id = store.request_session_grant("grant")
+    return fixture, store, grant_id
+
+
+def test_external_mutation_identity_excludes_grant_and_binding() -> None:
+    source = grants.canonical_idempotency_identity(_scope_from_resolved_for_test(), _binding())
+    assert len(source) == 64
+
+
+def _scope_from_resolved_for_test() -> grants.GrantScope:
+    resolved = _scope()
+    return grants.SessionGrantShadowStore._scope_from_resolved(resolved, _state(), "desktop-root", 1_000)
+
+
+def test_verified_effect_consumes_and_receipt_is_self_sufficient(monkeypatch: pytest.MonkeyPatch) -> None:
+    host, store, grant_id = _ready(monkeypatch)
+    reservation = store.reserve("action")
+    identity = store._reservations[reservation].idempotency_identity_digest
+    host.outcomes["done"] = f"{reservation}|verified-effect"
+    decision = store.record_outcome("done")
+    assert decision.committed and decision.reason == "verified-commit"
+    assert store._mutation_ledger[identity].state == "consumed_verified"
+    assert store._uses[grant_id] == 1
+    receipt = next(iter(store._receipts.values()))
+    assert receipt.provider == "local-provider" and receipt.idempotency_identity_digest == identity
+    store.revoke(grant_id)
+    assert receipt == next(iter(store._receipts.values()))
+
+
+@pytest.mark.parametrize("status", ["cancelled-before-dispatch", "definitive-no-effect"])
+def test_definite_no_dispatch_or_effect_releases_for_retry(monkeypatch: pytest.MonkeyPatch, status: str) -> None:
+    host, store, _grant = _ready(monkeypatch)
+    reservation = store.reserve("action")
+    identity = store._reservations[reservation].idempotency_identity_digest
+    host.outcomes["done"] = f"{reservation}|{status}"
+    decision = store.record_outcome("done")
+    assert decision.reason == status
+    assert store._mutation_ledger[identity].state in {"cancelled_before_dispatch", "definitive_no_effect"}
+    assert store.reserve("action") != reservation
+
+
+def test_dispatch_attempt_is_quarantined_and_cannot_retry_across_successor_grant(monkeypatch: pytest.MonkeyPatch) -> None:
+    host, store, grant_id = _ready(monkeypatch)
+    reservation = store.reserve("action")
+    identity = store._reservations[reservation].idempotency_identity_digest
+    host.outcomes["done"] = f"{reservation}|dispatch-attempted"
+    assert store.record_outcome("done").reason == "uncertain-needs-reconciliation"
+    assert store._mutation_ledger[identity].state == "uncertain_needs_reconciliation"
+    store.revoke(grant_id)
+    successor = store.request_session_grant("successor")
+    assert successor != grant_id
+    assert store.evaluate("action").reason == "idempotency-uncertain"
+    with pytest.raises(grants.GrantV7Denied, match="idempotency-uncertain"):
+        store.reserve("action")
+
+
+def test_unverified_receipt_remains_uncertain(monkeypatch: pytest.MonkeyPatch) -> None:
+    host = Host()
+    host.verify_result = False
+    host, store, _grant = _ready(monkeypatch, host)
+    reservation = store.reserve("action")
+    identity = store._reservations[reservation].idempotency_identity_digest
+    host.outcomes["done"] = f"{reservation}|verified-effect"
+    assert store.record_outcome("done").reason == "uncertain-needs-reconciliation"
+    assert store._mutation_ledger[identity].state == "uncertain_needs_reconciliation"
+    assert identity in store._uncertain_records
+
+
+def test_confirmed_no_effect_releases_quarantine(monkeypatch: pytest.MonkeyPatch) -> None:
+    host, store, _grant = _ready(monkeypatch)
+    reservation = store.reserve("action")
+    identity = store._reservations[reservation].idempotency_identity_digest
+    host.outcomes["done"] = f"{reservation}|dispatch-attempted"
+    store.record_outcome("done")
+    host.reconciliation_outcome = "confirmed-no-effect"
+    result = store.reconcile_uncertain(identity)
+    assert result.outcome == "confirmed-no-effect"
+    assert store._mutation_ledger[identity].state == "definitive_no_effect"
+    assert identity not in store._uncertain_records
+    assert store.reserve("action")
+
+
+def test_still_uncertain_stays_quarantined(monkeypatch: pytest.MonkeyPatch) -> None:
+    host, store, _grant = _ready(monkeypatch)
+    reservation = store.reserve("action")
+    identity = store._reservations[reservation].idempotency_identity_digest
+    host.outcomes["done"] = f"{reservation}|dispatch-attempted"
+    store.record_outcome("done")
+    result = store.reconcile_uncertain(identity)
+    assert result.outcome == "still-uncertain"
+    assert identity in store._uncertain_records
+    assert store._mutation_ledger[identity].state == "uncertain_needs_reconciliation"
+
+
+def test_confirmed_effect_consumes_with_full_receipt(monkeypatch: pytest.MonkeyPatch) -> None:
+    host, store, _grant = _ready(monkeypatch)
+    reservation = store.reserve("action")
+    identity = store._reservations[reservation].idempotency_identity_digest
+    host.outcomes["done"] = f"{reservation}|dispatch-attempted"
+    store.record_outcome("done")
+    host.reconciliation_outcome = "confirmed-effect"
+    result = store.reconcile_uncertain(identity)
+    assert result.outcome == "confirmed-effect" and result.receipt_digest != "0" * 64
+    assert store._mutation_ledger[identity].state == "consumed_verified"
+    assert identity not in store._uncertain_records
+    assert len(store._receipts) == 1
+
+
+def test_confirmed_effect_preserves_known_quarantined_receipt_evidence(monkeypatch: pytest.MonkeyPatch) -> None:
+    host = Host()
+    host.verify_result = False
+    host, store, _grant = _ready(monkeypatch, host)
+    reservation = store.reserve("action")
+    identity = store._reservations[reservation].idempotency_identity_digest
+    host.outcomes["done"] = f"{reservation}|verified-effect"
+    store.record_outcome("done")
+    known = store._uncertain_records[identity].receipt_digest
+    host.verify_result = True
+    host.reconciliation_outcome = "confirmed-effect"
+    result = store.reconcile_uncertain(identity)
+    assert result.receipt_digest == known
+    assert next(iter(store._receipts.values())).receipt_digest == known
+
+
+def test_unrelated_revoke_does_not_invalidate_other_grant_commit(monkeypatch: pytest.MonkeyPatch) -> None:
+    host, store, grant_a = _ready(monkeypatch)
+    alternate = _binding(idempotency_key="write-report-two", target_identity=hashlib.sha256(b"target-two").hexdigest())
+    host.scope_value = _scope(alternate)
+    host.actions["other"] = _action(alternate)
+    grant_b = store.request_session_grant("grant-b")
+    reservation = store.reserve("other")
+    host.outcomes["done"] = f"{reservation}|verified-effect"
+    store.revoke(grant_a)
+    result = store.record_outcome("done")
+    assert result.committed and result.grant_id == grant_b
+
+
+def test_relevant_revoke_after_dispatch_leaves_uncertain(monkeypatch: pytest.MonkeyPatch) -> None:
+    host, store, grant_id = _ready(monkeypatch)
+    reservation = store.reserve("action")
+    identity = store._reservations[reservation].idempotency_identity_digest
+    host.outcomes["done"] = f"{reservation}|dispatch-attempted"
+    store.record_outcome("done")
+    store.revoke(grant_id)
+    assert identity in store._uncertain_records
+    assert store._mutation_ledger[identity].state == "uncertain_needs_reconciliation"
+
+
+def test_concurrent_reconciliation_only_one_response_applies(monkeypatch: pytest.MonkeyPatch) -> None:
+    host, store, _grant = _ready(monkeypatch)
+    reservation = store.reserve("action")
+    identity = store._reservations[reservation].idempotency_identity_digest
+    host.outcomes["done"] = f"{reservation}|dispatch-attempted"
+    store.record_outcome("done")
+    host.reconciliation_outcome = "confirmed-no-effect"
+    host.reconcile_started = threading.Event()
+    host.reconcile_release = threading.Event()
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        first = pool.submit(store.reconcile_uncertain, identity)
+        assert host.reconcile_started.wait(timeout=5)
+        second = pool.submit(store.reconcile_uncertain, identity)
+        host.reconcile_release.set()
+        outcomes = []
+        for future in (first, second):
+            try:
+                outcomes.append(future.result(timeout=5).outcome)
+            except grants.GrantV7Denied:
+                outcomes.append("denied")
+    assert outcomes.count("confirmed-no-effect") == 1
+    assert outcomes.count("denied") == 1
+
+
+def test_terminal_controls_release_pending_but_preserve_uncertain(monkeypatch: pytest.MonkeyPatch) -> None:
+    host, store, _grant = _ready(monkeypatch)
+    uncertain_reservation = store.reserve("action")
+    identity = store._reservations[uncertain_reservation].idempotency_identity_digest
+    host.outcomes["done"] = f"{uncertain_reservation}|dispatch-attempted"
+    store.record_outcome("done")
+    store.kill()
+    assert identity in store._uncertain_records
+    assert store._mutation_ledger[identity].state == "uncertain_needs_reconciliation"
+
+
+def test_pre_dispatch_transition_survives_absence_timeout_and_terminal(monkeypatch: pytest.MonkeyPatch) -> None:
+    _host, store, _grant = _ready(monkeypatch)
+    reservation = store.reserve("action")
+    identity = store._reservations[reservation].idempotency_identity_digest
+    notice = store.mark_dispatch_attempted(reservation)
+    assert notice.identity_digest == identity and not notice.authority_granted
+    store.end_session()
+    assert identity in store._uncertain_records
+    assert store._mutation_ledger[identity].state == "uncertain_needs_reconciliation"
+
+
+def test_verified_outcome_after_explicit_dispatch_transition_can_commit(monkeypatch: pytest.MonkeyPatch) -> None:
+    host, store, _grant = _ready(monkeypatch)
+    reservation = store.reserve("action")
+    store.mark_dispatch_attempted(reservation)
+    host.outcomes["done"] = f"{reservation}|verified-effect"
+    assert store.record_outcome("done").committed
+
+
+def test_identity_contract_has_minimum_namespace_and_no_grant_or_binding_fields() -> None:
+    scope = _scope_from_resolved_for_test()
+    binding = _binding()
+    expected = grants._sha({
+        "account": scope.account,
+        "contract": "ExternalMutationIdentity.v7",
+        "idempotency_key": binding.idempotency_key,
+        "operation": scope.operation,
+        "provider": binding.provider,
+        "provider_namespace": binding.provider_namespace,
+        "session_id": scope.session_id,
+        "tool": scope.tool,
+        "workspace_id": scope.workspace_id,
+    })
+    assert grants.canonical_idempotency_identity(scope, binding) == expected
+
+
+def test_same_external_namespace_key_cannot_reserve_across_distinct_bindings(monkeypatch: pytest.MonkeyPatch) -> None:
+    first = _binding()
+    second = _binding(
+        target_identity=hashlib.sha256(b"different-target").hexdigest(),
+        target_display=r"C:\Work\other.txt",
+        payload_digest=hashlib.sha256(b"different-payload").hexdigest(),
+    )
+    host = Host()
+    host.scope_value = _scope(first, bindings=(first, second))
+    host.actions["other"] = _action(second)
+    _host, store, _grant = _ready(monkeypatch, host)
+    store.reserve("action")
+    assert store.evaluate("other").reason == "idempotency-pending"
+    with pytest.raises(grants.GrantV7Denied, match="idempotency-pending"):
+        store.reserve("other")
+
+
+def test_consumed_external_namespace_key_survives_successor_grant_and_binding(monkeypatch: pytest.MonkeyPatch) -> None:
+    host, store, first_grant = _ready(monkeypatch)
+    reservation = store.reserve("action")
+    host.outcomes["done"] = f"{reservation}|verified-effect"
+    store.record_outcome("done")
+    store.revoke(first_grant)
+    successor_binding = _binding(
+        target_identity=hashlib.sha256(b"successor-target").hexdigest(),
+        target_display=r"C:\Work\successor.txt",
+        payload_digest=hashlib.sha256(b"successor-payload").hexdigest(),
+    )
+    host.scope_value = _scope(successor_binding)
+    host.actions["successor"] = _action(successor_binding)
+    store.request_session_grant("successor-grant")
+    assert store.evaluate("successor").reason == "idempotency-consumed"
+
+
+def test_relevant_semantic_drift_after_dispatch_quarantines_verified_effect(monkeypatch: pytest.MonkeyPatch) -> None:
+    host, store, _grant = _ready(monkeypatch)
+    reservation = store.reserve("action")
+    identity = store._reservations[reservation].idempotency_identity_digest
+    host.outcomes["done"] = f"{reservation}|verified-effect"
+    host.verify_hook = lambda: setattr(host, "state_value", _state(credential_epoch=2))
+    decision = store.record_outcome("done")
+    assert decision.reason == "uncertain-needs-reconciliation"
+    assert identity in store._uncertain_records
+    assert store._mutation_ledger[identity].state == "uncertain_needs_reconciliation"
+
+
+def test_reconciliation_after_terminal_resolves_once_and_replay_is_denied(monkeypatch: pytest.MonkeyPatch) -> None:
+    host, store, _grant = _ready(monkeypatch)
+    reservation = store.reserve("action")
+    identity = store._reservations[reservation].idempotency_identity_digest
+    store.mark_dispatch_attempted(reservation)
+    store.kill()
+    host.reconciliation_outcome = "confirmed-no-effect"
+    assert store.reconcile_uncertain(identity).outcome == "confirmed-no-effect"
+    with pytest.raises(grants.GrantV7Denied, match="already reconciled"):
+        store.reconcile_uncertain(identity)

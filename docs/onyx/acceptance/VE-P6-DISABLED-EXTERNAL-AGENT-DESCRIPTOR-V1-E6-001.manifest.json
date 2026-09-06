@@ -1,0 +1,30 @@
+{
+  "acceptance_id": "VE-P6-DISABLED-EXTERNAL-AGENT-DESCRIPTOR-V1-E6-001",
+  "decision": "accepted",
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "candidate_manifest_sha256": "d0d356b808dfbb1996dd31c57cb9f9d95774a9c2d3ad7488d0a9bb81c4177293",
+  "artifact_root_sha256": "d48984d1c568eaa1fcecb3ad906049905e62f138143b9d958b7ee7b3048ffab4",
+  "artifact_count": 5,
+  "component_root_count": 5,
+  "focused": {
+    "passed": 40,
+    "failed": 0
+  },
+  "cumulative": {
+    "passed": 74,
+    "failed": 0
+  },
+  "live_files_checked": 205,
+  "provider_calls": 0,
+  "process_calls": 0,
+  "network_calls": 0,
+  "live_calls": 0,
+  "authority_granted": false,
+  "live_activation": false,
+  "phase6_exit": false
+}

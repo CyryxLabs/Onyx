@@ -1,0 +1,43 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P8-MICROSOFT-GRAPH-OAUTH-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-07-23",
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "candidate_manifest_path": "docs/onyx/checkpoints/phase8-microsoft-graph-oauth-v1/manifest.json",
+  "candidate_manifest_sha256": "81dbaba8991478737c7000519281d8c1924a3522aec40b62e3a635bcde3d2b65",
+  "artifact_root_sha256": "9ae6f034f530a6e8353dfccbcf675760d2746684cf1a840da94adab326bf824d",
+  "artifacts": 8,
+  "results": {
+    "test_files": 14,
+    "passed": 304,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "explained_platform_skips": 8,
+    "subtests_passed": 80
+  },
+  "claims": {
+    "microsoft_graph_oauth_v1_accepted": true,
+    "device_authorization_contract": true,
+    "read_only_delegated_scopes": true,
+    "signed_in_account_verification": true,
+    "refresh_token_native_vault": true,
+    "refresh_token_rotation": true,
+    "access_token_process_local_only": true,
+    "device_session_one_shot": true,
+    "get_only_graph_transport": true,
+    "provider_mutation_authority": false,
+    "real_app_registration": false,
+    "live_identity_e2e": false,
+    "live_graph_e2e": false,
+    "live_wiring": false,
+    "phase8_exit": false,
+    "full_onyx_prd_complete": false
+  }
+}

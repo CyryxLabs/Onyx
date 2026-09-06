@@ -1,0 +1,29 @@
+{
+  "schema": "onyx.gws.source-provenance-evidence.v1",
+  "generated_at_utc": "2026-09-05T04:35:00Z",
+  "purpose": "Cyryx Labs successor provenance for the Windows long-path witness correction; the 2026-08-10 evidence remains immutable historical evidence.",
+  "source_boundary": {
+    "repository_root": "C:/MAAX_Assistant/Onyx-Remediation-Clean-20260823-151210",
+    "classification": "local_successor_candidate",
+    "published": false
+  },
+  "aggregate": {
+    "algorithm": "sha256",
+    "canonicalization": "Sort records by repository-relative path; encode each as path|size_bytes|sha256 followed by LF; concatenate as UTF-8.",
+    "digest": "d3962996733c76e99046cb46949a9f8fed630d0a0ad1b00ac368cc355c7426bc"
+  },
+  "dependencies": [
+    {"path": "core/google_workspace_connector_v1.py", "size_bytes": 120549, "sha256": "084c8dba0f1af73babfac977b4dabe7e8bc7be2126e48b91a9d2696a7a91fc5d"},
+    {"path": "core/google_workspace_host_v1.py", "size_bytes": 123742, "sha256": "5c9d9d332de3c3c7dac1e5f612c6fdf7ffbfeaedd2a5ad9fcdd81376c5c2c7fc"},
+    {"path": "docs/stories/ONYX-GWS-1.0.0.md", "size_bytes": 20333, "sha256": "ba9f853e56da927db97965c3c1e79e24b8a5b65374eb522b16c6bfeae33dd279"},
+    {"path": "docs/stories/ONYX-GWS-1.1.0.md", "size_bytes": 36832, "sha256": "032c05eb2cb7a7c89201ad5ae8ce0be041ebdc6ab0adddd8f2781a57ceefb604"},
+    {"path": "scripts/onyx_google_workspace.py", "size_bytes": 11127, "sha256": "a2ab58b19950fe7a3d189eb404eba3e52cefd1fa2501a559f4d55590adb605ad"},
+    {"path": "tests/test_google_workspace_connector_v1.py", "size_bytes": 60347, "sha256": "7e947babf5775850cdc7202802520c65389a3c95d73ae37edddb172dbe7f71fc"},
+    {"path": "tests/test_google_workspace_host_v1.py", "size_bytes": 85242, "sha256": "c61698ff1b08d67806b36eebb0458e8b396bedaff8b7fbe819819721a1a560ae"}
+  ],
+  "operational_decision": {
+    "local_source_preflight": "eligible_after_exact verification",
+    "owner_oauth": "still_required",
+    "public_release": "blocked_until_formal_release_gates"
+  }
+}

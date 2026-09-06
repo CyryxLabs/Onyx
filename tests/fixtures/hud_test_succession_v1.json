@@ -1,0 +1,49 @@
+{
+  "schema": "onyx.hud-test-succession.v1",
+  "disposition": "superseded-not-rebound",
+  "release": 99,
+  "policy": {
+    "exact_nodeids_only": true,
+    "historical_tests_are_rewritten": false,
+    "historical_hashes_are_rebound": false,
+    "canonical_collection_policy_changed": false,
+    "fresh_authority_before_suite_cache": true,
+    "successor_tests_must_execute": true,
+    "public_or_live_certification": false
+  },
+  "routes": [
+    {
+      "node": "tests/test_onyx_hud_current_acceptance_v36.py::test_v36_authenticates_living_liquid_metal_without_palette_change",
+      "kind": "hud36",
+      "historical_manifest": "docs/onyx/acceptance/VE-HUD-CURRENT-V36-E6-001.manifest.json",
+      "successor": "tests/test_hud_conversation_successor_v48.py"
+    },
+    {
+      "node": "tests/test_packaged_runtime_hud_contract_v5.py::test_packaged_v5_authenticates_liquid_metal_runtime",
+      "kind": "package5",
+      "historical_manifest": "core/onyx_packaged_runtime_hud_contract_v5.manifest.json",
+      "successor": "tests/test_hud_conversation_successor_v48.py"
+    }
+  ],
+  "retained_nodes": [
+    "tests/test_onyx_hud_current_acceptance_v36.py::test_v36_rejects_manifest_tamper",
+    "tests/test_packaged_runtime_hud_contract_v5.py::test_package_hygiene_includes_every_liquid_metal_runtime_file"
+  ],
+  "historical_input": {
+    "path": "packaging/onyx.spec",
+    "sha256": "0cd195e511ed2dd81b6d5b32e43ca9e0cecb7bc368a00961860d51a0377226c8"
+  },
+  "bindings": {
+    "tests/test_onyx_hud_current_acceptance_v36.py": "9ab510c0c1ddd9ead120764e9cd8f8a90d7079f000c6f6c7f2fdf298d009534b",
+    "tests/test_packaged_runtime_hud_contract_v5.py": "879a4ff7d2f9a79af11a9d38e50686d5319d4a67324a835ac14136100dd01f28",
+    "core/onyx_hud_current_acceptance_v36.py": "de3de40c70851c1fe830b0c4520a0dcbd6d44900a9b5151814240ebce9baa948",
+    "core/onyx_packaged_runtime_hud_contract_v5.py": "03a68b3342036193e946269360ea102968afbc1e5d4926e38eaebe8800dff652",
+    "docs/onyx/acceptance/VE-HUD-CURRENT-V36-E6-001.manifest.json": "b3fdd3d35b44b673f9a82921f1fd884065d9c6b1beeaa97755c989d9faadd257",
+    "core/onyx_packaged_runtime_hud_contract_v5.manifest.json": "ef037a65fcc154432a428f0766a2253200fb202f889e0041fd36a9d616fdf8ef",
+    "tests/test_hud_conversation_successor_v48.py": "7bd6a7e628a2a32bc0f43070748d93462ebd62da00959f72d6c062a245e54a70",
+    "core/onyx_hud_current_acceptance_v48.py": "f3cf493e1d0653ba6366ad475a210ab947569e3bf47aa85d3ab8fe9a5ac054c3",
+    "core/onyx_packaged_runtime_hud_contract_v17.py": "15ecb053e07d61262fa31ce9ca03ae283a1b71bc837b72eb3dec2c87c0739440",
+    "docs/onyx/acceptance/VE-HUD-CURRENT-V48-E6-001.manifest.json": "a07f0bd02647995abae4bc103aeb989c6ae076ca1affdda058bd993cccf006ee",
+    "core/onyx_packaged_runtime_hud_contract_v17.manifest.json": "2bc9dfebcca92da8bdcbe6efe2bfea222b7b3ea960cb72aae73f093bfc6b18f1"
+  }
+}

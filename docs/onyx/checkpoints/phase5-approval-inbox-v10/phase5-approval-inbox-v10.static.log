@@ -1,0 +1,12 @@
+$ C:\Python313\python.exe -m py_compile core/approval_inbox_v10.py tests/test_approval_inbox_v10.py scripts/build_phase5_approval_inbox_v10_evidence.py scripts/phase5_approval_inbox_v10_historical_projection.py
+
+$ C:\Python313\python.exe -m ruff check core/approval_inbox_v10.py tests/test_approval_inbox_v10.py scripts/build_phase5_approval_inbox_v10_evidence.py scripts/phase5_approval_inbox_v10_historical_projection.py scripts/verify_phase5_approval_inbox_v10.py scripts/verify_phase5_approval_inbox_v10_worker.py scripts/check_phase5_approval_inbox_v10_whitespace.py
+All checks passed!
+
+$ C:\Python313\python.exe -m ruff format --check core/approval_inbox_v10.py tests/test_approval_inbox_v10.py scripts/build_phase5_approval_inbox_v10_evidence.py scripts/phase5_approval_inbox_v10_historical_projection.py scripts/verify_phase5_approval_inbox_v10.py scripts/verify_phase5_approval_inbox_v10_worker.py scripts/check_phase5_approval_inbox_v10_whitespace.py
+7 files already formatted
+
+$ C:\Python313\python.exe scripts/check_phase5_approval_inbox_v10_whitespace.py
+P52_APPROVAL_INBOX_V10_WHITESPACE_OK files=7
+
+$ git diff --check -- core/approval_inbox_v10.py tests/test_approval_inbox_v10.py scripts/build_phase5_approval_inbox_v10_evidence.py scripts/phase5_approval_inbox_v10_historical_projection.py scripts/verify_phase5_approval_inbox_v10.py scripts/verify_phase5_approval_inbox_v10_worker.py scripts/check_phase5_approval_inbox_v10_whitespace.py

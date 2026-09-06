@@ -1,0 +1,284 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# AEXOS Squad Manifest — educational curriculum engineering
+# Conforms to .aexos-core/schemas/squad-schema.json (task-first architecture).
+# components/ is derived from disk by scripts/normalize-squad-manifests.js.
+# ═══════════════════════════════════════════════════════════════════════════════
+
+name: education
+version: 1.0.0
+short-title: educational curriculum engineering
+description: >-
+  Replicable system for transforming complex knowledge into mastery journeys using cognitive science
+  + legal compliance
+author: Cyryx Labs LLC
+license: UNLICENSED
+slashPrefix: education
+tags:
+  - education
+  - curriculum
+  - instructional design
+  - cognitive science
+  - learning engineering
+  - MEC compliance
+cyryx:
+  minVersion: 2.1.0
+  type: squad
+components:
+  tasks:
+    - adapt-progression.md
+    - analyze-cognitive-load.md
+    - assess-transfer.md
+    - classify-course-type.md
+    - classify-objectives.md
+    - compare-curricula.md
+    - create-diagnostic.md
+    - create-knowledge-map.md
+    - design-curriculum.md
+    - design-lesson.md
+    - design-media-format.md
+    - design-module.md
+    - design-motivation.md
+    - design-practice.md
+    - diagnose-domain.md
+    - filter-action-mapping.md
+    - generate-deliverables.md
+    - load-mec-requirements.md
+    - schedule-repetition.md
+    - validate-evidence.md
+    - validate-mec-compliance.md
+  agents:
+    - bjork-engineer.md
+    - bloom-diagnostician.md
+    - clark-validator.md
+    - education-chief.md
+    - ericsson-coach.md
+    - fsrs-scheduler.md
+    - keller-motivator.md
+    - mayer-presenter.md
+    - mec-compliance.md
+    - merrill-designer.md
+    - moore-filter.md
+    - novak-mapper.md
+    - rosenshine-teacher.md
+    - sweller-analyst.md
+    - thalheimer-assessor.md
+    - wiggins-architect.md
+  workflows:
+    - wf-curriculum-validation.yaml
+    - wf-domain-research.yaml
+    - wf-full-course-creation.yaml
+    - wf-lesson-design.yaml
+  checklists:
+    - cognitive-load-check.md
+    - curriculum-architecture-quality.md
+    - domain-research-quality.md
+    - evidence-based-check.md
+    - lesson-quality.md
+    - mastery-criteria-check.md
+    - mec-curso-livre-check.md
+    - mec-curso-tecnico-check.md
+    - mec-ead-check.md
+    - mec-graduacao-check.md
+    - mec-pos-lato-sensu-check.md
+    - motivation-design-check.md
+    - multimedia-principles-check.md
+    - retention-design-check.md
+    - transfer-validation-check.md
+  templates:
+    - arcs-analysis-tmpl.yaml
+    - cognitive-load-report-tmpl.yaml
+    - competency-matrix-tmpl.yaml
+    - curriculum-master-tmpl.yaml
+    - knowledge-map-tmpl.yaml
+    - learner-diagnostic-tmpl.yaml
+    - lesson-tmpl.yaml
+    - ltem-assessment-tmpl.yaml
+    - mec-compliance-report-tmpl.yaml
+    - module-tmpl.yaml
+    - practice-design-tmpl.yaml
+  tools: []
+  scripts:
+    - assemble-deliverables.py
+    - fsrs-scheduler.py
+    - load-mec-reqs.py
+config:
+  extends: extend
+dependencies:
+  node: []
+  squads: []
+squad:
+  name: education
+  icon: 🧠
+  title: Education Engineer Squad
+  version: 1.0.0
+  status: production
+  description: >-
+    Replicable system for transforming complex knowledge into mastery journeys using cognitive
+    science + legal compliance
+  domain: educational curriculum engineering
+  keywords:
+    - education
+    - curriculum
+    - instructional design
+    - cognitive science
+    - learning engineering
+    - MEC compliance
+  target_user: Educational institutions, training companies, courseware creators
+  use_cases:
+    - Design domain-agnostic curricula (any subject)
+    - Validate compliance with MEC regulations (Brazil)
+    - Adapt learning paths to student cognitive level
+    - Apply evidence-based instructional design
+    - Validate transfer of learning (LTEM tier 5+)
+  architecture:
+    layers:
+      permanent: Educational Engineering (methodology, science, validation)
+      variable: Thematic Absorption (grows per domain via minds/)
+    tiers:
+      tier_0:
+        name: Diagnostic
+        agents:
+          - bloom-diagnostician
+          - sweller-analyst
+          - moore-filter
+          - mec-compliance
+      tier_1:
+        name: Core Engine
+        agents:
+          - wiggins-architect
+          - merrill-designer
+          - bjork-engineer
+          - mayer-presenter
+          - clark-validator
+      tier_2:
+        name: Specialists
+        agents:
+          - novak-mapper
+          - keller-motivator
+          - rosenshine-teacher
+          - fsrs-scheduler
+          - ericsson-coach
+          - thalheimer-assessor
+      orchestrator:
+        agents:
+          - education-chief
+  paths:
+    agents: agents/
+    tasks: tasks/
+    templates: templates/
+    checklists: checklists/
+    workflows: workflows/
+    data: data/
+    minds: minds/
+    scripts: scripts/
+    docs: docs/
+    config: config/
+  model_routing:
+    opus:
+      - create agents (mind cloning)
+      - curriculum architecture design
+      - complex pedagogical decisions
+    sonnet:
+      - lesson design
+      - template generation
+      - documentation
+    haiku:
+      - validation checklists
+      - MEC compliance checks
+      - spaced repetition scheduling
+      - format decisions
+  dependencies:
+    external_squads: []
+    mcps: []
+    scripts: []
+  entry_agent: education-chief
+entry_agent: education-chief
+agents:
+  bjork-engineer:
+    file: agents/bjork-engineer.md
+    persona: Robert Bjork
+    title: Desirable Difficulties Engineer - Memory & Retention
+    icon: ◈ED01
+  bloom-diagnostician:
+    file: agents/bloom-diagnostician.md
+    persona: bloom-diagnostician
+    title: >-
+      Classify learning objectives using Bloom's Taxonomy (revised: Remember → Understand → Apply →
+      Analyze → Evaluate → Create). Define mastery thresholds per obj...
+    icon: ◈ED02
+  clark-validator:
+    file: agents/clark-validator.md
+    persona: Ruth Colvin Clark
+    title: Evidence-Based Validator - Myth Buster & Decision Scientist
+    icon: ◈ED03
+  education-chief:
+    file: agents/education-chief.md
+    persona: Education Chief
+    title: Education Engineering Orchestrator
+    icon: ◈ED04
+  ericsson-coach:
+    file: agents/ericsson-coach.md
+    persona: Ericsson Coach
+    title: Deliberate Practice Architect
+    icon: ◈ED05
+  fsrs-scheduler:
+    file: agents/fsrs-scheduler.md
+    persona: FSRS Scheduler
+    title: Spaced Repetition Architect
+    icon: ◈ED06
+  keller-motivator:
+    file: agents/keller-motivator.md
+    persona: Keller Motivator
+    title: Motivational Design Architect
+    icon: ◈ED07
+  mayer-presenter:
+    file: agents/mayer-presenter.md
+    persona: Richard Mayer
+    title: Multimedia Learning Architect - Cognitive Load Optimizer
+    icon: ◈ED08
+  mec-compliance:
+    file: agents/mec-compliance.md
+    persona: mec-compliance
+    title: >-
+      Compliance gate for Brazilian education law. Classify course type
+      (livre/FIC/técnico/graduação/pós). Load applicable regulatory requirements. Validate curric...
+    icon: ◈ED09
+  merrill-designer:
+    file: agents/merrill-designer.md
+    persona: David Merrill
+    title: First Principles Instructor - Problem-Centered Learning
+    icon: ◈ED10
+  moore-filter:
+    file: agents/moore-filter.md
+    persona: moore-filter
+    title: >-
+      First gate in the education pipeline. Apply Action Mapping to determine if a course/training
+      is actually the right solution. Filter knowledge gaps (course ne...
+    icon: ◈ED11
+  novak-mapper:
+    file: agents/novak-mapper.md
+    persona: Novak Mapper
+    title: Domain Researcher & Concept Cartographer
+    icon: ◈ED12
+  rosenshine-teacher:
+    file: agents/rosenshine-teacher.md
+    persona: Rosenshine Teacher
+    title: Master of Effective Instruction
+    icon: ◈ED13
+  sweller-analyst:
+    file: agents/sweller-analyst.md
+    persona: sweller-analyst
+    title: >-
+      Analyze and optimize cognitive load in instructional materials. Identify extraneous load
+      sources. Maximize germane load. Apply the 15+ CLT instructional effe...
+    icon: ◈ED14
+  thalheimer-assessor:
+    file: agents/thalheimer-assessor.md
+    persona: Thalheimer Assessor
+    title: Transfer Validation Guardian
+    icon: ◈ED15
+  wiggins-architect:
+    file: agents/wiggins-architect.md
+    persona: Grant Wiggins
+    title: Backward Design Architect - Understanding by Design
+    icon: ◈ED16

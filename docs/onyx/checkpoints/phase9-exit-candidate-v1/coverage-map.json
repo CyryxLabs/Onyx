@@ -1,0 +1,49 @@
+{
+  "schema": "onyx.phase9.exit.coverage.v1",
+  "phase": 9,
+  "provider": "onyx-intelligence-radar-v1",
+  "scope": "default-off intelligence/opportunity/live-connector contract layer only; excludes World Monitor (BLOCKED_BY_LICENSE) and all live execution (the approved-source live ingestion run is owner-gated and unbound); never turns geopolitical/financial headlines into autonomous trading actions",
+  "requirements": {
+    "official_source_first_ingestion_temporal_dedup_claim_typing": [
+      "VE-P9-INTELLIGENCE-INGESTION-V1-E6-001"
+    ],
+    "transparent_opportunity_scoring": [
+      "VE-P9-OPPORTUNITY-SCORING-V1-E6-001"
+    ],
+    "approved_source_live_connector_contract": [
+      "VE-P9-LIVE-INGESTION-V1-E6-001"
+    ]
+  },
+  "excluded_requirements": {
+    "world_monitor_licensed_connector": "BLOCKED_BY_LICENSE — not implemented, not bound; do not copy its UI/assets/source or imply Cyryx ownership"
+  },
+  "accepted_roots": {
+    "intelligence_ingestion": [
+      "2d7650b305b203ce9c74e576652d8221b4dac2498d37c7450ab365325e04a78f",
+      "8496c3cbc39bbca67c25241355ad494a622b64076733436ebe5447eb1e209465",
+      "6105adc37682a47296d87181dc5f7e70a3aa82e039b1f4a335830139acd1bbf1",
+      "dcf8b3351ee909f44efe7b5e442f8c26acc361bf580adceb48ff398ba61e0a84"
+    ],
+    "opportunity_scoring": [
+      "9249c37f825d07f21860f82296c9eeee2dee9cf4e9948aa7d0e75230e6e68d85",
+      "c29a3dad5802d694d3a3888d3b34872e1b317ee9404d8fea123cb36a5f5517d0",
+      "7562ccdc2d52359a72928d7437a1e5b57bd21b911ab1d2e401fd993eea4ed11c",
+      "d94846a68cc9e253c815acae257fa2eaca0919840198074a7fc66c3eab790bdc"
+    ],
+    "live_ingestion": [
+      "0def1781c9e98c50d6728bfdec54b3866fdd5bb392a89af9ef068ff20bb7ae29",
+      "6c87468da08ae7520593b9d0cae08e89681d3ccebe72e85351895475eb2d9281",
+      "e104dcf14e12169491263382c7bcb01a3421253cd4b25a70e0a22e2b44c2c4ad",
+      "1dc70fc02987382fa8524be953e42aad04f1b73f1b437ea4d1a5026592d59163"
+    ]
+  },
+  "claims": {
+    "phase9_intelligence_layer_default_off_implementation_complete": true,
+    "official_source_first_proven": true,
+    "world_monitor_bound": false,
+    "live_execution_bound": false,
+    "autonomous_trading_enabled": false,
+    "phase10_started": false,
+    "full_onyx_prd_complete": false
+  }
+}

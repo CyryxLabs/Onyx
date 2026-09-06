@@ -1,0 +1,47 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P9-OPPORTUNITY-SCORING-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-07-24",
+  "findings": {"P0": 0, "P1": 0, "P2": 0, "P3": 1},
+  "candidate_manifest_path": "docs/onyx/checkpoints/phase9-opportunity-scoring-v1/manifest.json",
+  "candidate_manifest_sha256": "9249c37f825d07f21860f82296c9eeee2dee9cf4e9948aa7d0e75230e6e68d85",
+  "artifact_root_sha256": "519d1e40710210dbc4527954964dc9551efc977911b9c9eec03f8b2c38b6c097",
+  "artifacts": 8,
+  "results": {"test_files": 22, "passed": 454, "failed": 0, "errors": 0, "skipped": 8, "explained_platform_skips": 8, "subtests_passed": 80},
+  "review_history": {
+    "functional": "PASS first pass (3 informational notes, no defects)",
+    "integrity": "PASS: artifact root 519d1e40 recomputed exactly; ingestion entry-bind genuine; no predecessor modified",
+    "quality": "PASS-WITH-CONCERNS remediated: 2 P2 mutation-proven test gaps (band boundaries; per-cost-dim direction) + P3 weight/text gaps closed"
+  },
+  "remediation": {
+    "tests": [
+      "band ladder pinned at each exact boundary (39/40, 59/60, 79/80)",
+      "cost and benefit dimension sets pinned independently of DIMENSIONS",
+      "every per-dimension weight pinned independently",
+      "per-cost and per-benefit direction asserted individually",
+      "non-str and oversize _text branches for id and title"
+    ],
+    "docs": ["ADR notes half-up rounding reduces to nearest-integer at the fixed weight scale"],
+    "focused_tests_before": 13,
+    "focused_tests_after": 15
+  },
+  "residual_advisory": "Unraised base error class kept for API symmetry with the sibling ingestion slice; all-raw-zero input scores 29 by design (cost dimensions invert). Both documented.",
+  "claims": {
+    "opportunity_scoring_v1_accepted": true,
+    "transparent_weighted_scoring": true,
+    "fixed_published_weights": true,
+    "cost_dimension_inversion": true,
+    "deterministic_integer_rounding": true,
+    "per_dimension_breakdown": true,
+    "batch_ranking": true,
+    "model_assisted_or_learned_weighting": false,
+    "live_source_fetch": false,
+    "autonomous_action_on_score": false,
+    "world_monitor_connector": false,
+    "network_or_model_or_action": false,
+    "live_wiring": false,
+    "phase9_exit": false,
+    "full_onyx_prd_complete": false
+  }
+}

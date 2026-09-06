@@ -1,0 +1,46 @@
+{
+  "schema": "onyx.owner-profile-candidate-bundle.v1",
+  "candidate": "owner-profile-v1",
+  "created_at": "2026-07-22",
+  "bundle_root": "docs/onyx/checkpoints/owner-profile-v1",
+  "isolated": true,
+  "default_off": true,
+  "live_wired": false,
+  "files": [
+    {
+      "path": "core/owner_profile_v1.py",
+      "sha256": "b2296227bb165f32117978e234519430af15838ad757104eeba08b8b7751b754"
+    },
+    {
+      "path": "tests/test_owner_profile_v1.py",
+      "sha256": "fafdf46a0a716f09aca81668ffda0b566af369be4d89095dc1be0a02209ee035"
+    }
+  ],
+  "verification": {
+    "focused": {
+      "passed": 27,
+      "failed": 0
+    },
+    "with_existing_memory_store": {
+      "passed": 47,
+      "subtests_passed": 15,
+      "failed": 0
+    },
+    "ruff": "pass",
+    "py_compile": "pass",
+    "live_surface_imports": 0
+  },
+  "durability": {
+    "config_key": "owner_name",
+    "memory_category": "preferences",
+    "memory_key": "owner_display_name",
+    "reconciliation": "valid-config-primary-memory-recovers-unknown-config",
+    "rollback": "verified-compensating"
+  },
+  "limitations": [
+    "candidate-only; no startup, UI, dashboard, permission-broker, QML, Orb, or live wiring",
+    "two atomic durable stores with compensation, not a native distributed transaction",
+    "rollback failure requires deterministic reconciliation",
+    "independent functional, integrity, and quality review pending"
+  ]
+}

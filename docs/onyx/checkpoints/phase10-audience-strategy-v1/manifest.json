@@ -1,0 +1,60 @@
+{
+  "schema": "onyx.phase10.audience-strategy.v1",
+  "candidate": "phase10-audience-strategy-v1",
+  "created_at": "2026-08-18T18:46:30-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_PHASE10_AUDIENCE_STRATEGY_V1",
+  "default_off": true,
+  "accepted_content_draft_root_sha256": "59308ada89f691443238644bdb18b7bc29aa66a61365b95908bc5631d8b8d449",
+  "verification": {
+    "test_files": 32,
+    "passed": 833,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 17,
+    "subtests_passed": 96
+  },
+  "artifacts": [
+    {
+      "path": "core/phase10_audience_strategy_v1.py",
+      "bytes": 17142,
+      "sha256": "bd86db759bf630686fddee5885b224161a929fc5393ce20afc51e898cdaa7f80"
+    },
+    {
+      "path": "tests/test_phase10_audience_strategy_v1.py",
+      "bytes": 10128,
+      "sha256": "5a1d69a71eafcb8c9573146570e5d7ed6d812175bfa1ee858d48a77bea9c6aea"
+    },
+    {
+      "path": "scripts/verify_phase10_audience_strategy_v1.py",
+      "bytes": 8200,
+      "sha256": "632c9131067b1f961600bb644413712fc726b49e4f2ac8cb80979532d49bd6a2"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0058-phase10-audience-strategy-v1.md",
+      "bytes": 2020,
+      "sha256": "e598c123c0cb0d0155e487283fa8911876653ea86d18afc966fe900f7c4407b4"
+    },
+    {
+      "path": "docs/onyx/research/PHASE10_AUDIENCE_STRATEGY_V1_SOURCES.md",
+      "bytes": 1205,
+      "sha256": "0c4c20d682440786b5502751700d46894cf9aef5596ccbe5e5decea1b3581291"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase10-audience-strategy-v1/PHASE10_AUDIENCE_STRATEGY_V1_CHECKPOINT.md",
+      "bytes": 1519,
+      "sha256": "8574a7d8abde991f84be9143abd4c32454de12a5d65bd3a388156442905352f1"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase10-audience-strategy-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 828,
+      "sha256": "6c7976b89f3c1667b171af733d0082f3ac20ab608695154ba54c3ea1a06485b2"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase10-audience-strategy-v1/cumulative-selection.json",
+      "bytes": 4895,
+      "sha256": "587347d2cc35f7300d764bfb9b05c1c96d8b464c808ea16cc32958f52b7bc08f"
+    }
+  ],
+  "artifact_root_sha256": "81199863a9d0acea479c639b1023a1abd119cbb2b76cc8fcdec1caabf9c22829"
+}

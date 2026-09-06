@@ -1,0 +1,147 @@
+{
+  "schema": "onyx.live-activation.v11",
+  "candidate": "onyx-live-activation-v11-c001",
+  "created_at": "2026-07-23",
+  "status": "candidate-ready-external-gate",
+  "default_off": true,
+  "live_activated": false,
+  "shortcut_write_performed": false,
+  "network_calls": 0,
+  "artifact_root_algorithm": "sha256-sorted-path-nul-digest-lf-v1",
+  "artifact_root_sha256": "3c196ad5a9483675264ae3f04380cd037761c04c77c2fa523fc4867a09d9d935",
+  "files": [
+    {
+      "path": "core/onyx_live_activation_v11.py",
+      "role": "modular-v11-composition-c001",
+      "sha256": "4143540a6fab0c7bd6e1f5cc7e319c836de15fcfc27f8ad667a19674b920f88b"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v11.pyw",
+      "role": "canonical-v11-launcher",
+      "sha256": "7bc84015ca83bb7a0ede1924ae9db3f57833d035097fddc7e456fa919e9693d0"
+    },
+    {
+      "path": "scripts/bootstrap_onyx_live_v11.pyw",
+      "role": "exact-v11-bootstrap",
+      "sha256": "b85fbf61dbac4341bf574ed9c0a1367a575dee5b32e8f4e993551f4283f8a8d6"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v11_active.cmd",
+      "role": "default-off-active-control-not-run",
+      "sha256": "5ae062db82828cd668304d24198115225d7c1051743003534b41680269062de2"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v11_rollback.cmd",
+      "role": "exact-v10-rollback-control",
+      "sha256": "f18141706e997a614605a20c64bdb3641eb445909687ce803101202fa76149fd"
+    },
+    {
+      "path": "scripts/verify_onyx_live_activation_v11.py",
+      "role": "candidate-verifier",
+      "sha256": "e338430b643b008182e22bd0452450173c1bab812f1f10e35a96a111eb3e34f4"
+    },
+    {
+      "path": "scripts/verify_onyx_live_activation_v11_c001_physical_smoke.py",
+      "role": "isolated-real-host-smoke",
+      "sha256": "b7c9143f2a1c5b79c038bca48f7c512b374751e1ce215f37197c347cf9ab8fc8"
+    },
+    {
+      "path": "tests/test_onyx_live_activation_v11.py",
+      "role": "candidate-tests",
+      "sha256": "248cab83816dc0ca29f35202357780dfddb8a076d5b56ccba77cd714fa50d9d3"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0021-activation-v11-hud-v8.md",
+      "role": "decision-record",
+      "sha256": "7760fee663ab890356b9dfb6dbff991606dc7a880d87db4b337035e3d971fc41"
+    },
+    {
+      "path": "docs/onyx/checkpoints/onyx-live-activation-v11/ONYX_LIVE_ACTIVATION_V11_CHECKPOINT.md",
+      "role": "candidate-checkpoint",
+      "sha256": "7430295d208d6f6d445c8cf076503cad7d9d2d91714f878e03e7eadf5347ac5c"
+    },
+    {
+      "path": "docs/onyx/checkpoints/onyx-live-activation-v11/runtime-manifest.json",
+      "role": "runtime-bundle-root",
+      "sha256": "80bb3591318c7fcdd9757b7353a15e938a672e8b42349414acf8b1deb94775ef"
+    },
+    {
+      "path": "core/onyx_live_activation_v10.py",
+      "role": "accepted-v10-c003-base",
+      "sha256": "12b8d7e32bde861fbbc6e3c65fa67a0d6596351e13b7b632f9e623a9d93dfba7"
+    },
+    {
+      "path": "docs/onyx/checkpoints/onyx-live-activation-v10/manifest.json",
+      "role": "accepted-v10-c003-candidate-root",
+      "sha256": "b22459a5315370f179089cf67d501a687305c2147d2c68ef132575326d47e236"
+    },
+    {
+      "path": "docs/onyx/acceptance/VE-ONYX-LIVE-ACTIVATION-V10-C003-E6-001.md",
+      "role": "accepted-v10-c003-e6",
+      "sha256": "4134d37498ccefe9044782c5c4edace53f14c29396117eac7a1181006cc38154"
+    },
+    {
+      "path": "docs/onyx/acceptance/VE-ONYX-LIVE-ACTIVATION-V10-C003-E6-001.manifest.json",
+      "role": "accepted-v10-c003-e6-root",
+      "sha256": "31f4d19c25d137edff5f9c1a148e141e66174709021cbda73b56788fd9537ce0"
+    },
+    {
+      "path": "core/onyx_hud_orb_v8.py",
+      "role": "accepted-hud-v8-c001-module",
+      "sha256": "f30c4d7433780082bb0ed87170e3e173b4bbc662c729ca83d075114f2775cd86"
+    },
+    {
+      "path": "docs/onyx/checkpoints/hud-orb-v8-candidate/manifest.json",
+      "role": "accepted-hud-v8-c001-candidate-root",
+      "sha256": "b3ea35bea9a160803ae01c3ddfc8e4e5811d5547095f7dc21b0ca8f2adbf4152"
+    },
+    {
+      "path": "docs/onyx/acceptance/VE-HUD-ORB-V8-C001-E6-001.md",
+      "role": "accepted-hud-v8-c001-e6",
+      "sha256": "cc7241c02ce14a78929e5bd19e34ca5e5972fac49f4794cef5bcb3b377b6761c"
+    },
+    {
+      "path": "docs/onyx/acceptance/VE-HUD-ORB-V8-C001-E6-001.manifest.json",
+      "role": "accepted-hud-v8-c001-e6-root",
+      "sha256": "313ef43b3c723100c4b0db0a341b9b3b5a30309800ad0385c01ebfb6ca28c256"
+    }
+  ],
+  "activation": {
+    "master": "ONYX_LIVE_ACTIVATION_V11=1",
+    "hud": "ONYX_HUD_V8_LIVE=1",
+    "current_result": "preflight-accepted-live-activation-not-performed"
+  },
+  "planned_composition": {
+    "predecessor": "accepted-v10-c003-e6-exact",
+    "hud": "accepted-hud-orb-v8-c001-e6-exact",
+    "new_transactional_seams": 2,
+    "total_transactional_seams": 37,
+    "rollback_state": "exact-installed-v10",
+    "macos_linux": "delegate-exact-v10"
+  },
+  "verification": {
+    "focused": {
+      "passed": 18,
+      "failed": 0
+    },
+    "v10_regression": {
+      "passed": 33,
+      "failed": 0
+    },
+    "hud_v8_candidate": {
+      "passed": 7,
+      "failed": 0
+    },
+    "hud_v8_e6_regression": {
+      "passed": 8,
+      "failed": 0
+    },
+    "ruff": "pass",
+    "py_compile": "pass",
+    "private_v7_bridge_authentication": "pass",
+    "physical_real_host_smoke": "pass-no-shortcut-write",
+    "prerequisite_validation_before_host_import": "pass",
+    "network_calls": 0,
+    "live_activation": "not_performed"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "schema": "onyx.phase5.historical-execution-closure.v1",
+  "closure": "approval-inbox-v15-e6",
+  "entrypoint": "scripts/verify_phase5_approval_inbox_v15_acceptance.py",
+  "execution_mode": "verify-run_parent-false",
+  "files": [
+    {
+      "path": "docs/onyx/CAPABILITY_MATRIX.md",
+      "sha256": "2ba2507ccbf4ff5cae4a38609366f2c547bf47446527cf14ded3636806c10a87"
+    },
+    {
+      "path": "docs/onyx/VE-ACCEPTANCE-P52-APPROVAL-INBOX-V15-E6-001.sha256",
+      "sha256": "2effb13b8d5dc85e62108bd67698db6d9531547d22731a22f18f6f99d47ba3a6"
+    },
+    {
+      "path": "docs/onyx/VE-ARTIFACTS-P52-APPROVAL-INBOX-V14-001.sha256",
+      "sha256": "88dd035f18f5975f8dea3882b31e0dab79082e68ce99fe53c4a05dc5431336f8"
+    },
+    {
+      "path": "docs/onyx/VE-ARTIFACTS-P52-APPROVAL-INBOX-V15-001.sha256",
+      "sha256": "a1a0f27d0f4edc370b7470a3b7e788cf87fb62cf398eab6b5532a1fb97ff60e0"
+    },
+    {
+      "path": "docs/onyx/VE-SOURCE-P52-APPROVAL-INBOX-V14-001.sha256",
+      "sha256": "fdf6139e1e9a82edf7cb8f853ad59ffd88173bdef5fae4a1a25af3a5b0a427c9"
+    },
+    {
+      "path": "docs/onyx/VE-SOURCE-P52-APPROVAL-INBOX-V15-001.sha256",
+      "sha256": "279052fbcaf3018f7fee6733e063e94c67e90e7ce62a2a2cdc7742b55470631f"
+    },
+    {
+      "path": "docs/onyx/VERIFICATION_EVIDENCE.md",
+      "sha256": "7f1d216fc8fb5e9b02f40b1bab21c80c79746c2dcc1171df4829708494e4a2ad"
+    },
+    {
+      "path": "docs/onyx/acceptance/VE-P52-APPROVAL-INBOX-V15-E6-001.md",
+      "sha256": "45d9d215c0fd8024f730ec3f4436507c411658ea1e8f6d26e133ce707bc3d908"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase5-approval-inbox-v15/phase5-approval-inbox-v15.bundle.json",
+      "sha256": "7334f3abb8345754eb1c027af5139023f3a624d4f4bfe52ad45f004442540734"
+    },
+    {
+      "path": "scripts/verify_phase5_approval_inbox_v15_acceptance.py",
+      "sha256": "d46e7ccf1560f7bef23c5e5ffa27deb4f6354086806398f7c042aacc120fb71b"
+    },
+    {
+      "path": "tests/test_approval_inbox_v15_acceptance.py",
+      "sha256": "71d407a90645c85fc7786f3bb1ce2a5486452242a2f674c0206c1399ecc6e47b"
+    }
+  ],
+  "closure_root_sha256": "8a125205928d9b55e662f5da1086a9f2605e98eab34533281379cae2875d007d"
+}
+

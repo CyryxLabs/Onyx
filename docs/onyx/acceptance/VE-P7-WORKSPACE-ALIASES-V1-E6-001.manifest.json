@@ -1,0 +1,43 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P7-WORKSPACE-ALIASES-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-07-23",
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "candidate_manifest_path": "docs/onyx/checkpoints/phase7-workspace-aliases-v1/manifest.json",
+  "candidate_manifest_sha256": "ec1938f4b1671187ed8384f104bb6082b0bd75d157cf4c8f12e259beb5612ca4",
+  "artifact_root_sha256": "1ae29f0e8300b19737f61e795ea867f474d5dc7efd803a5a6bbaef4e74f2362e",
+  "artifacts": 7,
+  "workspace_memory_entry_roots": 4,
+  "results": {
+    "test_files": 7,
+    "passed": 160,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 9,
+    "explained_platform_skips": 9,
+    "subtests_passed": 113
+  },
+  "claims": {
+    "workspace_aliases_v1_accepted": true,
+    "credential_aliases": true,
+    "profile_aliases": true,
+    "artifact_aliases": true,
+    "secret_storage": false,
+    "secret_resolution": false,
+    "browser_launch": false,
+    "artifact_content_read": false,
+    "live_wiring": false,
+    "runtime_authority_added": false,
+    "approved_source_registry_implemented": false,
+    "company_graph_implemented": false,
+    "founder_brief_implemented": false,
+    "phase7_exit": false,
+    "full_onyx_prd_complete": false
+  }
+}

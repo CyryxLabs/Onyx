@@ -1,0 +1,31 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P10-PROVIDER-CONNECTOR-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-07-25",
+  "findings": {"P0":0,"P1":0,"P2":0,"P3":0},
+  "candidate_manifest_sha256": "87b3ed60dd533f29e3b42447ada20846dda231f8b5f5478da59c9d7e1d822d0c",
+  "artifact_root_sha256": "7aba66ad246c75b1660c70c00dbf012526de72e1592892bee0fd1ea363a35711",
+  "feature_flag": "ONYX_PHASE10_PROVIDER_CONNECTOR_V1",
+  "accepted_editorial_calendar_root_sha256": "415bbc4de20811c3d7caac47dacb8a01cf50a4ed1660f9670ee5278136411939",
+  "results": {"test_files":26,"passed":570,"failed":0,"errors":0,"skipped":8,"subtests_passed":80},
+  "review_history": {
+    "functional": "PASS: read-only, no publish method (machine-checked); anti-spoof handle check + route pin enforced and behaviourally tested (off-route/port/query rejected, no network); origin grammar rejects userinfo/port/uppercase/unicode/single-label/leading-hyphen; payload bounds-checked; test_account_only-unenforced observation considered and kept (read of registry-declared handle-verified account is safe; enforcement belongs to the later publish slice)",
+    "integrity": "PASS: artifact root 7aba66ad and all 8 candidate artifacts recomputed exactly; accepted editorial-calendar entry-bind genuine; no predecessor modified",
+    "quality": "PASS: reuses accepted Phase 9 live-ingestion connector patterns + Phase 10 idioms; verifier checks source invariants, forbids publish-authority tokens, asserts no publish method, reproduces the 26-file gate with per-file sum check"
+  },
+  "scope_exclusions": [
+    "publishing — no publish method; first real publish per account is a later owner-approved, access-gated slice",
+    "live provider fetch — owner-gated (OAuth/app-review + test account); BLOCKED_BY_ACCESS; contract verified with an injected transport only",
+    "audience research / community action — later gated Phase 10 slices",
+    "runtime wiring / action authority — none added"
+  ],
+  "claims": {
+    "phase10_provider_connector_default_off_readonly_contract_complete": true,
+    "route_pin_and_anti_spoof_enforced": true,
+    "publish_authority_added": false,
+    "live_network_exercised": false,
+    "phase10_further_slices_started": false,
+    "full_onyx_prd_complete": false
+  }
+}

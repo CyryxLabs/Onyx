@@ -1,0 +1,26 @@
+{
+  "schema": "onyx.packaged-runtime-hud-contract.v10",
+  "runtime_inputs": [
+    {"path": "qml/OnyxLiveShellV14.qml", "sha256": "0bb511c27f82253d50228e8925ab88bf1d923c3e3e8302cf1cc85c5fd5996832"},
+    {"path": "qml/components/OnyxHumanoidEntityV11.qml", "sha256": "be7820614bd21e3b4759e010912488f1751f8d7b226abff8906769f26fc031d8"},
+    {"path": "qml/web/onyx-humanoid-three-v2.html", "sha256": "27eaf0ebe3981f28d9ab9c44e176d7e3fd20dba4bd10bd72b45d33873ba35370"},
+    {"path": "ui.py", "sha256": "655c0740b96c521de4f11d25a4eec13b27b2036714419572c58dee56a459c801"},
+    {"path": "core/onyx_hud_current_acceptance_v41.py", "sha256": "13ba1e2cb427b06da5245383514681c44db2d00e4e9ffbe19cb14fdc57efa729"},
+    {"path": "docs/onyx/acceptance/VE-HUD-CURRENT-V41-E6-001.manifest.json", "sha256": "e5a9cfd05f9efdba8fa029c89d707e2977a284e3d1daae769aa76c56397b812e"},
+    {"path": "core/onyx_hud_orb_v15.py", "sha256": "4350d6b9fa750975f76869d296652f0b9c151fa756e97220e7d4f11e4f29f5ae"},
+    {"path": "qml/web/data/onyx-humanoid-pointcloud-v1.js", "sha256": "ffd52a2690c79841202eecd1be5c188a2b0976a8954c89f3f7f0712391c42886"}
+  ],
+  "semantics": {
+    "current_orb": "humanoid-presence-v11-stable",
+    "single_authoritative_animation_loop": true,
+    "preserved_webgl_drawing_buffer": true,
+    "opaque_hud_matched_surface": true,
+    "webgl_context_recovery": true,
+    "layout_changed": false,
+    "palette_changed": false,
+    "voice_pipeline_changed": false,
+    "capability_surface_changed": false,
+    "provider_independent": true,
+    "formal_release_ready": false
+  }
+}

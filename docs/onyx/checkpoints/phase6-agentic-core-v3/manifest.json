@@ -1,0 +1,118 @@
+{
+  "schema": "OnyxPhase6AgenticCoreCheckpoint.v3",
+  "status": "candidate_default_off_unaccepted",
+  "generated_at": "2026-07-22T22:30:00-04:00",
+  "environment": {
+    "platform": "Windows 11 10.0.26200",
+    "python": "3.13.7 x64"
+  },
+  "activation": {
+    "feature_flag": "ONYX_PHASE6_AGENTIC_CORE_V3",
+    "enabled_value": "true",
+    "default": "off",
+    "live_wiring": false
+  },
+  "artifact_root_algorithm": {
+    "name": "onyx-artifact-root-v2",
+    "manifest_self_included": false,
+    "record": "UTF-8(canonical relative POSIX path + NUL + lowercase SHA-256)",
+    "ordering": "ascending complete record string",
+    "separator": "LF",
+    "trailing_separator": false,
+    "digest": "SHA-256"
+  },
+  "artifacts": [
+    {
+      "path": "core/missions.py",
+      "bytes": 89747,
+      "sha256": "fe2074eb132c09beecb9f13c5151659e745cf888676c4244c037e0a7ed7f2fe5"
+    },
+    {
+      "path": "core/phase6_agentic_core_v3.py",
+      "bytes": 62516,
+      "sha256": "406215c8031d48aba5fb189a8f14160e539391f9c48a3b9ba24a00d4f9d89484"
+    },
+    {
+      "path": "tests/test_phase6_agentic_core_v3.py",
+      "bytes": 17903,
+      "sha256": "8329b1e7cc1be66d34555d5c5f08c9c2a3fcb13a91bc7ddfa635ccfa303ff14b"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0012-phase6-agentic-core-v3-bounded-execution-and-fencing.md",
+      "bytes": 5380,
+      "sha256": "f67066fdb4e34c049e830f89f68be49e2b989b8ad312125a2e676ddc35eac9ac"
+    },
+    {
+      "path": "docs/onyx/rejections/PHASE6_AGENTIC_CORE_V2_REJECTION.md",
+      "bytes": 1505,
+      "sha256": "74198315f36a100c1e2e1c5f31edfdb9df0c8cea0ef421f65d1910121242b513"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase6-agentic-core-v3/PHASE6_AGENTIC_CORE_V3_CHECKPOINT.md",
+      "bytes": 5153,
+      "sha256": "af2411905da6a27c695014d85c3c403fc8792b154907689f4dc920aa69cf1bf2"
+    }
+  ],
+  "artifact_root_sha256": "9f0f710373441a86d6d77bf908cfc7cf81b7f06faab9b293dcba5d23dd33bf27",
+  "frozen_v1": {
+    "core_sha256": "ab7a6cfec738c31b7beb66ac7a66584f892231ce8a3a2c9e81f30945123cc965",
+    "tests_sha256": "409e9c59b1650f155c3075e176541f438e0cf588f4242dadeb2126b306792b0a",
+    "adr_sha256": "71c70c591298ba33b7d46ed4c373ee734538ee4161de5fa93fd4f5f175901e07",
+    "checkpoint_sha256": "b4d0f7faccbd0fc02be7266fdc8d5d82c4227c9649826f49b655544269cb29d7",
+    "manifest_sha256": "82eea75a58beec613eba2823d928a76b6d520d9f76b4e4f6b8c811058c77cbd1",
+    "status": "rejected_preserved_not_live"
+  },
+  "frozen_v2": {
+    "core_sha256": "da46b34cb77e57586d1d9ed7964ccb426f031f30a05a2e27b528fbaf0ea95120",
+    "tests_sha256": "ae432f6c805efb5bc8c2e6bc482191226fbe1c7e500444a9ec5d97761917dfc9",
+    "adr_sha256": "c8b3179e82d1d9ce22a8d345e457998f085efcee9e4acc723c7d4e980733cc7d",
+    "checkpoint_sha256": "f9870daa1be3bd011a1123f8b18c656f54b92cf30306a237ee8b853a4f714ef7",
+    "manifest_sha256": "c1608dbb7042b1f940422f9ca7c8791eb6935ec15505fe2859c0f756e129dcbc",
+    "artifact_root_sha256": "5d8dd8b9d65f8aae17224b2cbeed74546c3c563eba76a87a9f53ac3ba7104ec4",
+    "status": "rejected_preserved_not_live"
+  },
+  "verification": {
+    "focused_before_manifest": "16 passed, 1 deselected",
+    "stable_before_manifest": "171 passed, 44 subtests passed, 2 deselected",
+    "cumulative_with_manifest": "61 passed, no deselection",
+    "stable_with_manifest": "173 passed, 44 subtests passed, no deselection",
+    "two_process_forced_expiry": "both interleavings passed and were repeated three times",
+    "schema_inventory": "passed; exact tables, indexes and trigger; tamper fails closed",
+    "sqlite_query_plans": "passed; declared recovery indexes used",
+    "ruff_lint": "passed",
+    "ruff_format": "passed",
+    "py_compile": "passed",
+    "performance": {
+      "compute_snapshot": {
+        "samples": 500,
+        "median_ms": 3.812,
+        "p95_ms": 4.794,
+        "max_ms": 6.083
+      },
+      "indexed_recovery_empty": {
+        "samples": 500,
+        "median_ms": 4.778,
+        "p95_ms": 5.797,
+        "max_ms": 7.938
+      }
+    }
+  },
+  "scope_guards": {
+    "network_calls": false,
+    "provider_calls": false,
+    "subprocess_calls": false,
+    "process_restart": false,
+    "live_config_change": false,
+    "main_py_modified_by_v3": false,
+    "existing_mission_execution_changed": false,
+    "mission_store_additive_api": true,
+    "commit_or_push": false
+  },
+  "limitations": [
+    "One timed-out callback may retain the single daemon worker; the poisoned core rejects subsequent callbacks until reconstructed.",
+    "Natural-language provider planning and Gemini or llm_client parity remain separate slices.",
+    "local_catalog_read remains dependent on an independently accepted Phase 5 binding.",
+    "Planner-context memory and an installed external-agent runtime are not operational here.",
+    "No Phase 6 exit or live activation is claimed."
+  ]
+}

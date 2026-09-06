@@ -1,0 +1,6 @@
+7a6a927247e082878364931e0a0fc6e7a780bc1bdfffd488692835a12e4d9382  docs/onyx/acceptance/VE-ONYX-LIVE-ACTIVATION-V10-C002-E6-001.md
+5bf571ba6ca1d4a566320629980dddaa46066282f06ba5f179e338c3a47dca7c  docs/onyx/acceptance/VE-ONYX-LIVE-ACTIVATION-V10-C002-E6-001.manifest.json
+64cf9a980f1a2fccdfcd83035b7c4f5548a97d30b30fe1bf3eafbaf238458ba8  docs/onyx/VE-SOURCE-ONYX-LIVE-ACTIVATION-V10-C002-E6-001.sha256
+a69eff024ff076a8504f32206ca3f7659d698b9c8023424da360da39eead58c1  docs/onyx/VE-ACCEPTANCE-ONYX-LIVE-ACTIVATION-V10-C002-E6-001.sha256
+6517c1ba16c4d8ab02d4b14319e1dc626aee656ea1d8afe22f0519fc396c226b  scripts/verify_onyx_live_activation_v10_c002_acceptance.py
+b0c8eddf0ff0ad2ebcdbb794a9437e7d9a849dadd137bbd39331d7ce4da7956c  tests/test_onyx_live_activation_v10_c002_acceptance.py

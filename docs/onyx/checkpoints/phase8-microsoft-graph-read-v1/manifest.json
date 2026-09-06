@@ -1,0 +1,103 @@
+{
+  "schema": "onyx.phase8.microsoft-graph-read.v1",
+  "candidate": "phase8-microsoft-graph-read-v1",
+  "created_at": "2026-07-23T19:27:20-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_PHASE8_MICROSOFT_GRAPH_READ_V1",
+  "enabled_value": "true",
+  "default_off": true,
+  "entry_roots": {
+    "phase7_exit": 4,
+    "decision": "accepted"
+  },
+  "claims": {
+    "first_provider_proof": "microsoft-graph-v1.0",
+    "calendar_read": true,
+    "daily_brief": true,
+    "calendar_local_draft": true,
+    "calendar_create": false,
+    "mail_search": true,
+    "mail_read": true,
+    "mail_local_draft": true,
+    "mail_send": false,
+    "workspace_principal_alias_binding": true,
+    "least_scope_enforcement": true,
+    "rotation_revocation_enforcement": true,
+    "provider_mutation_authority": false,
+    "oauth_onboarding": false,
+    "live_http_transport": false,
+    "live_wiring": false,
+    "phase8_exit": false,
+    "full_onyx_prd_complete": false,
+    "e1_e5_ready": true,
+    "external_e6_accepted": false
+  },
+  "verification": {
+    "test_files": 13,
+    "passed": 264,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "subtests_passed": 80
+  },
+  "effects": {
+    "default_off_import_persistent_writes": 0,
+    "default_off_import_network_calls": 0,
+    "default_off_import_process_calls": 0,
+    "default_off_import_provider_calls": 0,
+    "model_calls": 0,
+    "action_dispatches": 0,
+    "live_surface_changes": 0
+  },
+  "limitations": [
+    "Default-off and not wired to V13, startup, voice, UI or dashboard.",
+    "The provider transport is injected and contract-tested; OAuth onboarding and live HTTP are not introduced by V1.",
+    "Local drafts are immutable proposals and are not created in Microsoft 365.",
+    "No event creation, invitation, cancellation, shared-calendar mutation or email send authority exists.",
+    "Tasks, notifications, Drive, OneDrive and Office remain subsequent Phase 8 work.",
+    "Phase 8 aggregate exit and full Onyx PRD completion remain pending."
+  ],
+  "artifacts": [
+    {
+      "path": "core/phase8_microsoft_graph_read_v1.py",
+      "bytes": 26026,
+      "sha256": "4a3330ba119a07b90b7c63e3b5f5c4133fc31cfb7abc5917aa32db9b759cb459"
+    },
+    {
+      "path": "tests/test_phase8_microsoft_graph_read_v1.py",
+      "bytes": 17295,
+      "sha256": "81b846303b74f7084f6b618fe0166658e67b67c9fff7a6c106b70750b8a18af2"
+    },
+    {
+      "path": "scripts/verify_phase8_microsoft_graph_read_v1.py",
+      "bytes": 7507,
+      "sha256": "eb32bb51dc5acbbc187972947f3860ff8d6b12af04fcff54ace9c8140792611f"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0036-phase8-microsoft-graph-read-v1.md",
+      "bytes": 1796,
+      "sha256": "785fa206927cba78f5a002601602687f7eada4669befa3b713f24935a8003a56"
+    },
+    {
+      "path": "docs/onyx/research/PHASE8_MICROSOFT_GRAPH_READ_V1_SOURCES.md",
+      "bytes": 2222,
+      "sha256": "344bc940f6a0935019ddc7bcdc7a0b46ec0f82eca82e258b07d693c52552b270"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase8-microsoft-graph-read-v1/PHASE8_MICROSOFT_GRAPH_READ_V1_CHECKPOINT.md",
+      "bytes": 1001,
+      "sha256": "6df8dc94c568a6d269e8bd79873f453141aebe122e4690d8c8f0411b86f073dd"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase8-microsoft-graph-read-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 904,
+      "sha256": "4b86d4d43efaaa3b6fa1e9368fbbf089802bf25f803bf7cd86b015c69461edb0"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase8-microsoft-graph-read-v1/cumulative-selection.json",
+      "bytes": 1639,
+      "sha256": "400958528de163b60c87799f8c812dfb1c6d7f6b6f755f167f4a4621b2faa17a"
+    }
+  ],
+  "artifact_root_sha256": "abb152e611e1b58adc55b88207497d64188ad9485d2b6a32ada5f8c364528291"
+}

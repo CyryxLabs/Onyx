@@ -1,0 +1,101 @@
+{
+  "schema": "onyx.phase8.microsoft-graph-tasks.v1",
+  "candidate": "phase8-microsoft-graph-tasks-v1",
+  "created_at": "2026-07-24T12:31:19-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_PHASE8_MICROSOFT_GRAPH_TASKS_V1",
+  "enabled_value": "true",
+  "default_off": true,
+  "entry_roots": {
+    "phase8_mail_v1_artifact_root_sha256": "73875e708fbd9684cddec51fb34cb327b958c7e851f5035f37cbce9540cf30f0",
+    "decision": "accepted"
+  },
+  "claims": {
+    "deterministic_notification_router": true,
+    "quiet_hours_wraps_midnight": true,
+    "workspace_device_suppression": true,
+    "exact_content_bound_task_grant": true,
+    "draft_content_digest_recomputed": true,
+    "durable_ledger_one_shot_seam": true,
+    "receipt_and_readback_reconciliation": true,
+    "uncertain_reconcile_before_retry": true,
+    "no_task_auto_retry_on_429": true,
+    "route_pinned_tasks_transport": true,
+    "write_scope_exact_validation": true,
+    "task_update_delete_complete_authority": false,
+    "live_task_create_e2e": false,
+    "live_wiring": false,
+    "phase8_exit": false,
+    "full_onyx_prd_complete": false,
+    "e1_e5_ready": true,
+    "external_e6_accepted": false
+  },
+  "verification": {
+    "test_files": 19,
+    "passed": 403,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "subtests_passed": 80
+  },
+  "effects": {
+    "default_off_import_persistent_writes": 0,
+    "default_off_import_network_calls": 0,
+    "default_off_import_process_calls": 0,
+    "default_off_import_provider_calls": 0,
+    "model_calls": 0,
+    "action_dispatches": 0,
+    "live_surface_changes": 0
+  },
+  "limitations": [
+    "Default-off and not wired to V13, startup, voice, UI or dashboard.",
+    "Live task-create E2E requires delegated Tasks.ReadWrite consent on the Entra app and an explicitly confirmed run; until then this is contract evidence only.",
+    "Notification router is pure local decision logic; it delivers no provider push and no reminder transport.",
+    "No task update, delete, complete, recurrence or list mutation.",
+    "Refresh-token rotation is best-effort in-module to tolerate the frozen vault byte cap.",
+    "Phase 8 aggregate exit and full Onyx PRD completion remain pending."
+  ],
+  "artifacts": [
+    {
+      "path": "core/phase8_microsoft_graph_tasks_v1.py",
+      "bytes": 35341,
+      "sha256": "b0d566606973c72d55184b8f5305990a0846f4bb843474944c3f0ea53636edcb"
+    },
+    {
+      "path": "tests/test_phase8_microsoft_graph_tasks_v1.py",
+      "bytes": 16180,
+      "sha256": "29d0f847558753fcac830f36fb2f0cdb3d2dec346253d476a9372a599f1b34fc"
+    },
+    {
+      "path": "scripts/verify_phase8_microsoft_graph_tasks_v1.py",
+      "bytes": 7626,
+      "sha256": "02a08b4200c1b7fb2158ad7373982952c7754c89b6e8d35c7220c3b09ddd32b5"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0042-phase8-microsoft-graph-tasks-v1.md",
+      "bytes": 2899,
+      "sha256": "55c4fd2eb0261d1b79c6f8f335c66425fd6507b34d5af5510f865efcc65a4d83"
+    },
+    {
+      "path": "docs/onyx/research/PHASE8_MICROSOFT_GRAPH_TASKS_V1_SOURCES.md",
+      "bytes": 2758,
+      "sha256": "2cbb0fa6534611d9c54628a417abd2330f3db5b27d298dcfbd35dd93e35ef674"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase8-microsoft-graph-tasks-v1/PHASE8_MICROSOFT_GRAPH_TASKS_V1_CHECKPOINT.md",
+      "bytes": 1826,
+      "sha256": "fa8a684bb441b22f8be54d0de4ae868e460c79c17efa43743d38883e524c3943"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase8-microsoft-graph-tasks-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 1497,
+      "sha256": "458c4baf7418582cdc4bad74a1a25f6446a78740ba27b5a7a36822522cd550b0"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase8-microsoft-graph-tasks-v1/cumulative-selection.json",
+      "bytes": 2338,
+      "sha256": "381ad78fa052d52f9c2ec170c73ad32476f7aba40e08fb9c977d2c93cf47f1c0"
+    }
+  ],
+  "artifact_root_sha256": "984f32cf236bac4b9ef1c4ad0a63bcf9a1384c19a0fdc8feae5720d0334f6508"
+}

@@ -1,0 +1,13 @@
+# Phase 5.1 R5 scoped static and historical verification
+ruff_exit_code=0
+py_compile_exit_code=0
+diff_check_command=python scripts/check_phase5_grants_r5_whitespace.py
+diff_check_scope=core/session_grants_v5.py;scripts/check_phase5_grants_r5_whitespace.py;scripts/verify_phase5_grants_r5.py;tests/test_session_grants_v5.py
+diff_check_exit_code=0
+v1_historical_files=10
+v2_evidence_root=1
+v2_evidence_artifacts=8
+v3_evidence_root=1
+v3_evidence_artifacts=11
+v4_evidence_root=1
+v4_evidence_artifacts=20

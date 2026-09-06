@@ -1,0 +1,66 @@
+{
+  "schema": "onyx.release-workflow-transition.v1",
+  "issued_at": "2026-08-03T06:10:00-04:00",
+  "predecessor": {
+    "path": "tests/fixtures/phase5_current_successor_transition_v9.json",
+    "sha256": "27991fabab95e3220ab34d86aec00a29d84ba49a82dc6e1ea075dc8662ca2200"
+  },
+  "policy": {
+    "predecessor_is_immutable": true,
+    "historical_hashes_are_rebound": false,
+    "current_release_paths_are_sha256_bound": true,
+    "unsigned_windows_may_be_formal": false,
+    "diagnostic_candidates_may_be_published": false
+  },
+  "current_release_paths": [
+    {
+      "path": ".github/workflows/release-packages.yml",
+      "sha256": "5dcec20d7b7b4f0c721162decbe7fac08e61bb2db7a0160e188d5044f5fd1196"
+    },
+    {
+      "path": "docs/onyx/FORMAL_RELEASE_CONTRACT.md",
+      "sha256": "c3f2ffcbdfcc9d62e4f0da7395acfd77577290175d24b30af19dc4af3f5e0ffc"
+    },
+    {
+      "path": "scripts/__init__.py",
+      "sha256": "adc737038813c8e12d905c3252b7451bf9b54bfd3cb4e0cb313eaec7599a457f"
+    },
+    {
+      "path": "scripts/build_release.py",
+      "sha256": "93f24626a8b668cf17cd83f2e15a56fef3082a6a8f2fdfea8eec186dd4b7a2f1"
+    },
+    {
+      "path": "scripts/check_release_eligibility.py",
+      "sha256": "5f1389a81ec07ce43e65ec6b6fb15e452142b609d9615a30cc47eec295fc1823"
+    },
+    {
+      "path": "scripts/macos_release.py",
+      "sha256": "cea710c3d41dcda89a06e70c4151c0ba9a812f12e7d17e58e8a92a3c3f1a797a"
+    },
+    {
+      "path": "scripts/windows_native_eligibility.py",
+      "sha256": "eb9db2c03d1d6cbb58f55e86298725ceb99df5760a382c488cdf58c24b8b79af"
+    },
+    {
+      "path": "scripts/windows_release.py",
+      "sha256": "399cd3ca2618645de39924e9dee2419136e1501ca7856f89b0a306f65457215c"
+    },
+    {
+      "path": "tests/test_formal_release_contract_v1.py",
+      "sha256": "615ebbb5505baca012efc346d8b615d95e1e49dc2c060cbf582fed2f9a3e9439"
+    },
+    {
+      "path": "tests/test_macos_release_pipeline_v1.py",
+      "sha256": "a7fa933665f50f41c296a13d24e79892de54ac08864c8768f49fa1d8eaff4396"
+    },
+    {
+      "path": "tests/test_phase5_current_successor_transition_v2.py",
+      "sha256": "20a0efa2fffad56a88e8fb185924f24c986fd85223f392b0d94f87c894bd6db4"
+    },
+    {
+      "path": "tests/test_release_eligibility.py",
+      "sha256": "ea2590505f6524d3e55764c949b6e4f03efd8d2cb2efea8f336a331c97467ec5"
+    }
+  ],
+  "current_root_sha256": "8a8a2b97dda71e0268222f84d706f89669f00a340cd99a2888ce14b5434e1f8f"
+}

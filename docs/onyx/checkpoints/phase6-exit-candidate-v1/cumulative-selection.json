@@ -1,0 +1,70 @@
+{
+  "schema": "onyx.phase6.exit-candidate.v1.cumulative-selection",
+  "created_at": "2026-07-23T15:07:30-04:00",
+  "execution": "one-test-file-per-fresh-python-process",
+  "expected": {
+    "passed": 294,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "test_files": 14
+  },
+  "tests": [
+    {
+      "path": "tests/test_phase6_agentic_core_v6.py",
+      "passed": 30
+    },
+    {
+      "path": "tests/test_phase6_live_integration_v2.py",
+      "passed": 23
+    },
+    {
+      "path": "tests/test_phase6_gemini_live_compat_v1.py",
+      "passed": 11
+    },
+    {
+      "path": "tests/test_phase6_local_text_compat_v1.py",
+      "passed": 31
+    },
+    {
+      "path": "tests/test_phase6_provider_registry_v1.py",
+      "passed": 22
+    },
+    {
+      "path": "tests/test_phase6_research_cells_v1.py",
+      "passed": 22
+    },
+    {
+      "path": "tests/test_phase6_local_mcp_v1.py",
+      "passed": 27
+    },
+    {
+      "path": "tests/test_phase6_local_mcp_v1_c002_reacceptance.py",
+      "passed": 3
+    },
+    {
+      "path": "tests/test_phase6_unified_command_router_v1.py",
+      "passed": 27
+    },
+    {
+      "path": "tests/test_phase6_disabled_external_agent_descriptor_v1.py",
+      "passed": 40
+    },
+    {
+      "path": "tests/test_phase6_live_wiring_v1.py",
+      "passed": 17
+    },
+    {
+      "path": "tests/test_phase6_live_wiring_v2.py",
+      "passed": 15
+    },
+    {
+      "path": "tests/test_onyx_live_activation_v13.py",
+      "passed": 6
+    },
+    {
+      "path": "tests/test_phase6_exit_candidate_v1.py",
+      "passed": 20
+    }
+  ]
+}

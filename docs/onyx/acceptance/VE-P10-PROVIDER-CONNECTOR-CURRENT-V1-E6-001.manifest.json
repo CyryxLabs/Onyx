@@ -1,0 +1,20 @@
+{
+  "schema": "onyx.current-successor-acceptance.v1",
+  "acceptance_id": "VE-P10-PROVIDER-CONNECTOR-CURRENT-V1-E6-001",
+  "decision": "accepted_current_successor",
+  "decision_date": "2026-08-17",
+  "historical_acceptance_id": "VE-P10-PROVIDER-CONNECTOR-V1-E6-001",
+  "correction": "docs/onyx/corrections/CORRECTION-P10-PROVIDER-CONNECTOR-POST-ACCEPTANCE-DRIFT.md",
+  "candidate_artifact_root_sha256": "90139dd8b2856a6d778356b64a747d851e5320afe2241401b7150cf9499d9054",
+  "current_module_sha256": "327f7d949ae764b6e3353e258500bc4a3ccc9f2bc87637f27b12bdbff71cb588",
+  "current_module_bytes": 15989,
+  "feature_flag": "ONYX_PHASE10_PROVIDER_CONNECTOR_V1",
+  "results": {"test_files":1,"passed":32,"failed":0,"errors":0,"skipped":0,"subtests_passed":0},
+  "claims": {
+    "current_bytes_bound": true,
+    "historical_record_rewritten": false,
+    "capability_or_authority_added": false,
+    "independent_human_review_performed": false,
+    "released_r15b_carries_current_bytes": true
+  }
+}

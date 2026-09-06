@@ -1,0 +1,21 @@
+{
+  "schema": "onyx.phase7.exit.coverage.v1",
+  "phase": 7,
+  "requirements": {
+    "company_graph_authorized_sources": ["VE-P7-APPROVED-SOURCES-COMPANY-GRAPH-V1-E6-001"],
+    "typed_knowledge_semantics": ["VE-P7-APPROVED-SOURCES-COMPANY-GRAPH-V1-E6-001"],
+    "seven_layer_memory_lifecycle": ["VE-P7-WORKSPACE-MEMORY-V1-E6-001", "VE-P7-LAYERED-MEMORY-V1-E6-001"],
+    "workspace_aliases": ["VE-P7-WORKSPACE-ALIASES-V1-E6-001"],
+    "founder_command_outputs": ["VE-P7-FOUNDER-COMMAND-V1-E6-001"],
+    "document_ingestion_and_citations": ["VE-P7-DOCUMENT-INGESTION-V1-E6-001"]
+  },
+  "accepted_roots": {
+    "workspace_memory": ["59ed88abd6967a73f3050d1215fed0c278b21b5c6e5335814abe8267576c9cd7", "3490c0f89ba37c81c67f7e76dc2daedac91622e8386efe668e259d4819848825", "c6497c644f447a1bc83b63446c25c8be4071dcf103b5dfbf2a5de7b809edf43a", "9628e79458bd8ef76ce8fbbc56939182638b2b10dbf2262b9e4c2b3d677bdfa9"],
+    "workspace_aliases": ["ec1938f4b1671187ed8384f104bb6082b0bd75d157cf4c8f12e259beb5612ca4", "27b61a9ef3351728f0811af6d86a83d4a8dfa80e00640b0ac847bce9917e22cf", "98ca596125e43dec17424d06d6716528e319cd129cc5a7737372626c89a5343c", "5f80d972ac6d8c4eef521a7015a027cbe81d61833d4c27b4868bf7c659b01d41"],
+    "approved_sources_company_graph": ["fa5fea91caf6914e559cbc22420841b602eeace0153653dc57591fb0070f23f3", "b5336b1484c1225b58454dd39cfeb6fad51662fd46b7658bfbb3572389222650", "27522c63449d625c97b500ac8ed9048aeddb4cf1d20f77a96bd5431cd21cd14d", "d5d17c9fdceb76b43405afc8b54129f1e6c9af1e35e67f140cb25aeafb674f85"],
+    "founder_command": ["b094e18b99342465e06cdc703b3a7db118ffe9fe3e3182171be61be06f63457e", "0c239d45377b907e28f741b85202f35ee28eee73c8a3793fe88d63a78ff1f1d7", "6fab5120163f523292dd1a164ca15e6ca4112875992a5e7db4553f5327e5fd53", "3878c9028815ea22031189b627ba56be03eaf516e6d6417dab9e7aec1c635ebb"],
+    "layered_memory": ["2818c6ffe66681436286d89f557c57cd23c35c29ee7f29d53d7eb2bf9d8ec95d", "594af1ea18644aa3f2ab951ecf2204bde01649399cb8a2c8ca793308b87def5a", "5fb4ea8b702967a4d9861215783f54b79ab156637870c195d32ee7bb4ccae0d6", "b4c14e068728d685f22b9049d0f2776188072451eb1dde850081238f41dd3fd7"],
+    "document_ingestion": ["20efa9f6125d881eab60e4edbd04d103196608cd26875634af06ee47793b8a03", "3d6cea680bb591ade10f1cde819fa773658078c5f782c182abadf38a5bf48cd5", "d24640d28cd5c420d5b4b0f714cce5fc38544a230616ea5ac961915882978bc3", "db44bdd6c76333300c241f24f52de210756881f254511ac4ac61b6f452c7937f"]
+  },
+  "claims": {"phase7_default_off_implementation_complete": true, "live_wiring": false, "phase8_started": false, "full_onyx_prd_complete": false}
+}

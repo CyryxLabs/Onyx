@@ -1,0 +1,71 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-HUD-ORB-V7-C003-E6-001",
+  "decision": "accepted",
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "candidate_manifest": "docs/onyx/checkpoints/hud-orb-v7-candidate/manifest.json",
+  "candidate_manifest_sha256": "38f77492b6b72eeb8bff8c1bddbe129081bbe79e67b7f8679054d86dff781f03",
+  "evidence_root_sha256": "5e0f16fcbf6885ed20b3bf3967a2af24b1d8dc4d174c0fdb7b0f5b78855aafe4",
+  "binding_count": 17,
+  "scope": "windows-d3d11-default-off-no-live-activation",
+  "results": {
+    "candidate": 19,
+    "external": 9,
+    "v6_regression": 25,
+    "quick_widgets": 1,
+    "projection_fps": [
+      16,
+      0,
+      0
+    ]
+  },
+  "visual": {
+    "screenshot_sha256": "ac05686b74829c59f404da455184e13bc073ce426ad882b4ddef8b12fe873399",
+    "review": "approved-no-external-arcs-orbits-or-structural-ring",
+    "command_keel": "preserved"
+  },
+  "performance": {
+    "active_host_cpu_percent": 0.5851777783254598,
+    "idle_host_cpu_percent": 0.09581097375918032,
+    "hidden_host_cpu_percent": 0.04171934978724512,
+    "projection_fps": [
+      16,
+      0,
+      0
+    ],
+    "visual_timer_fps_max": 12
+  },
+  "new_artifacts": [
+    {
+      "path": "docs/onyx/acceptance/VE-HUD-ORB-V7-C003-E6-001.md",
+      "sha256": "1ef23e14d42a9ff199115cbf1615e68318b492978487d90a1b6cc61c74a32a3d"
+    },
+    {
+      "path": "docs/onyx/VE-SOURCE-HUD-ORB-V7-C003-E6-001.sha256",
+      "sha256": "0b56c9146944769748e9b6fb942edf482cd0caeb0ebbc0d789baf4b006cb6de5"
+    },
+    {
+      "path": "docs/onyx/VE-ACCEPTANCE-HUD-ORB-V7-C003-E6-001.sha256",
+      "sha256": "4a905cfa21f4a52558b6de48ff3f3485b768b74acca72f1f08e2678cf3f9bc51"
+    },
+    {
+      "path": "scripts/verify_hud_orb_v7_c003_acceptance.py",
+      "sha256": "3e04457fea56a2d2777d1a7cabaf36712996fef04fc22405194783aea7a554ca"
+    },
+    {
+      "path": "tests/test_hud_orb_v7_c003_acceptance.py",
+      "sha256": "6509b665240b66da8a3552655a00f7511543e54bb42be21f4579cbfa0586ee42"
+    }
+  ],
+  "activation": {
+    "flag": "ONYX_HUD_V7_LIVE=1",
+    "default_off": true,
+    "live_activated": false,
+    "v9_v10_shortcuts_modified": false
+  }
+}

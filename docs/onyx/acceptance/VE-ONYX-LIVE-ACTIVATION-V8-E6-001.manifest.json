@@ -1,0 +1,18 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-ONYX-LIVE-ACTIVATION-V8-E6-001",
+  "decision": "accepted",
+  "findings": {"P0": 0, "P1": 0, "P2": 0, "P3": 0},
+  "candidate_manifest": "docs/onyx/checkpoints/onyx-live-activation-v8/manifest.json",
+  "candidate_manifest_sha256": "ab28f369248df1ed807aeeee15658193a533881bf68fb2268d49692b52c20392",
+  "evidence_root_sha256": "8198e4265e45f6895ac07e95943a8868127ee7bb3037fd7512ccf31515d998dd",
+  "binding_count": 21,
+  "scope": "windows-source-shortcut-bootstrap-default-off-no-live-activation",
+  "results": {"focused": 7, "desktop_legacy": 4, "identity_refusals": 27, "seams": 24},
+  "new_artifacts": [
+    {"path": "docs/onyx/acceptance/VE-ONYX-LIVE-ACTIVATION-V8-E6-001.md", "sha256": "ee17b06e2f468c94621e7dda913e3dcda6850f3fbce478f0a5200fa9de1f1c0b"},
+    {"path": "docs/onyx/VE-ACCEPTANCE-ONYX-LIVE-ACTIVATION-V8-E6-001.sha256", "sha256": "2ab65965cb45a18dbc48dc38578b2f0f244cfe32e16a92286e3d85ef5e22ba55"},
+    {"path": "scripts/verify_onyx_live_activation_v8_acceptance.py", "sha256": "bd831423b6c1cd282dcb6172039b63ff3d85798ee2c0468f6877f98342bf7aae"},
+    {"path": "tests/test_onyx_live_activation_v8_acceptance.py", "sha256": "573d00bee40734c7a429fa2102af9d38a4d1220e1562653fa6128d66de0c1a94"}
+  ]
+}

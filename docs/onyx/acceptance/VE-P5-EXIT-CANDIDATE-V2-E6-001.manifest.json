@@ -1,0 +1,18 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P5-EXIT-CANDIDATE-V2-E6-001",
+  "decision": "accepted",
+  "findings": {"P0": 0, "P1": 0, "P2": 0, "P3": 0},
+  "candidate_manifest_sha256": "b2cf8d781fc1f72a375be444c24ad74c4e59b910adab765a48c7c7b59ae15d2b",
+  "evidence_root_sha256": "2255b9a8a5315f99ab376f7f32d22ef8d39e6c2c4039a9ff77afa4ddf75e5fa6",
+  "selection_sha256": "39735644fa8b88bd856eb994a526a56da4f79544ad4a6f9bd96fe9651fcafc8f",
+  "binding_count": 73,
+  "startup_files": 32,
+  "component_acceptances": 5,
+  "flags_default_false": 8,
+  "focused": {"passed": 15, "failed": 0},
+  "compatible_cumulative": {"passed": 257, "failed": 0, "test_files": 10},
+  "raw_historical": {"passed": 275, "failed": 2, "scope": "obsolete-v1-startup-discovery-only"},
+  "phase6_unlocked": false,
+  "live_activated": false
+}

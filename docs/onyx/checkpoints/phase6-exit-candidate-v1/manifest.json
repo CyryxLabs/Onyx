@@ -1,0 +1,96 @@
+{
+  "schema": "onyx.phase6.exit-candidate.v1",
+  "candidate": "phase6-exit-candidate-v1",
+  "created_at": "2026-07-23T15:07:30-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_PHASE6_EXIT_CANDIDATE_V1",
+  "enabled_value": "true",
+  "default_off": true,
+  "claims": {
+    "e1_e5_ready": true,
+    "ready_for_external_gate": true,
+    "external_e6_accepted": false,
+    "phase6_exit": false,
+    "phase7_unlocked": false,
+    "runtime_authority_added": false,
+    "permanent_provider_availability": false,
+    "external_agent_authority": false,
+    "cross_route_authority": false,
+    "additional_provider_authority": false
+  },
+  "environment": {
+    "base_commit": "b2dc0b21f487013cebec34bb148ffb1aeb02611a",
+    "tree_state": "dirty-content-addressed-candidate",
+    "platform": "Windows-11-10.0.26200-SP0-x64",
+    "python": "CPython-3.13.7-x64",
+    "pytest": "9.1.1",
+    "google_genai": "2.11.0"
+  },
+  "component_acceptance_root": {
+    "algorithm": "sha256-sorted-path-nul-digest-lf-v1",
+    "count": 34,
+    "sha256": "98de22eb674d6a6a4465ca32ff8bb4bd1ab77ae76a80264d50742beab63e3ff3"
+  },
+  "verification": {
+    "selected_test_files": 14,
+    "passed": 294,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "ruff_lint": "passed",
+    "ruff_format": "passed",
+    "py_compile": "passed"
+  },
+  "rollback": {
+    "kind": "evidence-only",
+    "runtime_state_created": false,
+    "application_restart_required": false,
+    "disable_flag_restores_pre_candidate_runtime": true
+  },
+  "limitations": [
+    "Aggregate E6 is pending, so Phase 6 is not exited and Phase 7 is not unlocked.",
+    "V13 is point-in-time operational evidence and does not establish permanent Gemini availability.",
+    "Router V1 remains local-private-only; no remote cross-route or additional provider is authorized.",
+    "Local MCP is accepted as a read-only adapter contract but V13 opens no MCP process.",
+    "The External-Agent descriptor remains BLOCKED_BY_ACCESS with no authority.",
+    "The full Onyx PRD is not complete."
+  ],
+  "artifacts": [
+    {
+      "path": "core/phase6_exit_candidate_v1.py",
+      "bytes": 33344,
+      "sha256": "43bc0bca33bfd759703c4cef04e20fefbac1d3bb2346d8e0c328d0163dc67e9a"
+    },
+    {
+      "path": "tests/test_phase6_exit_candidate_v1.py",
+      "bytes": 11400,
+      "sha256": "edc0317012dc55e74fb69d09fd43a9c5a3e6adc08b916377c2acd46ac9e943ed"
+    },
+    {
+      "path": "scripts/verify_phase6_exit_candidate_v1.py",
+      "bytes": 12526,
+      "sha256": "2cfdec6a5864bc202899068cf48aa89ffafe90242b9d678c03f08dc014c051d5"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0028-phase6-exit-candidate-v1.md",
+      "bytes": 3233,
+      "sha256": "dce8e5fbcf88c9f42dd26a4c9ba7991a94a66d94a42d042658fe8273768f11c4"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase6-exit-candidate-v1/PHASE6_EXIT_CANDIDATE_V1_CHECKPOINT.md",
+      "bytes": 4536,
+      "sha256": "d23867831b3a76fde05e34eeda868904d5e1af10975253d7d234e9fb446e93a3"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase6-exit-candidate-v1/cumulative-selection.json",
+      "bytes": 1571,
+      "sha256": "cd58bbf0e711484504572bb93e2267a73f1da1802db542192fd7966974bea22b"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase6-exit-candidate-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 3599,
+      "sha256": "4cba783e8d29a2df1ebac352e6f19265c58c77b3ba052d965bcb40e64b98ecc9"
+    }
+  ],
+  "artifact_root_sha256": "ab8d1465c375a6ff183d844b89cae247ce5cf846e35de15b142683fe9be1390f"
+}

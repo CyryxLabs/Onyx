@@ -1,0 +1,91 @@
+{
+  "schema": "onyx.live-activation.v5",
+  "candidate": "onyx-live-activation-v5",
+  "created_at": "2026-07-22",
+  "status": "candidate-ready-for-independent-gate",
+  "default_off": true,
+  "live_activated": false,
+  "live_restart_performed": false,
+  "provider_calls_performed": false,
+  "credential_provisioned": false,
+  "files": [
+    {"path":"core/onyx_live_activation_v5.py","role":"transition-v5","sha256":"5c110ae3af5172ba5de5f1f6711a214f24bbaee30b9ea33b863272a83a36bba6"},
+    {"path":"scripts/launch_onyx_live_v5.pyw","role":"transition-v5-launcher","sha256":"1b468782ad6d1784eaaad5e188a63a84ff00e52505ef1602cca01c6b320c98a1"},
+    {"path":"scripts/launch_onyx_live_v5_active.cmd","role":"transition-v5-active-control","sha256":"b0b897aa345e7776ac48f2a7adf81c5f6fd98597ff3f6e1faeccfa658c2ca1a1"},
+    {"path":"scripts/launch_onyx_live_v5_rollback.cmd","role":"transition-v5-rollback-control","sha256":"51e332ba23c55248c3992b8e516abb6d36207a58e98fd5a0585be2b745ed522d"},
+    {"path":"scripts/verify_onyx_live_activation_v5.py","role":"transition-v5-cumulative-verifier","sha256":"84031b50fc16779b9c7690d1080e56cb16f8d327f83ac8c4a0368bbd772d25a3"},
+    {"path":"scripts/verify_onyx_live_activation_v5_manifest.py","role":"transition-v5-manifest-verifier","sha256":"0fa5eac369b1acf3f3f12d4b1fe8aab4e7180331c2d898daf6cf1341a5d53602"},
+    {"path":"scripts/verify_onyx_live_activation_v5_host.py","role":"transition-v5-real-host-gate","sha256":"13abfbc24771d551f37c6a30276823854bbf2ccdcb262fa8294c5f9100a660e6"},
+    {"path":"scripts/verify_onyx_live_activation_v5_provider.py","role":"transition-v5-fake-provider-e2e","sha256":"9385dc07fb2b4dc8df2898a9efa1f32de9969e9172b8f2edfc77d662c85cfa65"},
+    {"path":"scripts/verify_onyx_live_activation_v5_qt.py","role":"transition-v5-real-qt-gate","sha256":"f816e1c90fcae9295191bc02e99e52770e2b874947232dd6d8fc987ac9410105"},
+    {"path":"tests/test_onyx_live_activation_v5.py","role":"transition-v5-tests","sha256":"7fdf6b5dcdf122b351bf5f77c25bfa3784fd8de38876c6790e31719316f2bf64"},
+    {"path":"docs/onyx/checkpoints/onyx-live-activation-v5/ONYX_LIVE_ACTIVATION_V5_CHECKPOINT.md","role":"transition-v5-checkpoint","sha256":"e5873466d08df0c27d81768188bf04853abc063c39aae4ed2845a34f9ef9b929"},
+    {"path":"docs/onyx/checkpoints/onyx-live-activation-v4/LIVE_ACTIVATION_REJECTED.md","role":"v4-live-rejection-evidence","sha256":"8a1779fdfc2beb59e95ae90f75c257c9e0a5a0dfd5d4a9c7a3a8e9609fb9bc36"},
+
+    {"path":"main.py","role":"frozen-host","sha256":"6b82fed0d7c932a08d2d1f8a31d7650a1b235d55085ee608fdbb7651e5f49712"},
+    {"path":"ui.py","role":"frozen-host","sha256":"e5768626b7eb9d162a54cd67b08b5cb7d9685fb5c0e1b8c951843a1146fc252b"},
+    {"path":"dashboard/server.py","role":"frozen-host","sha256":"4d3142dc9c6a78cfe76f804de2b154334da2d7790484783a993babc92300bae1"},
+    {"path":"scripts/launch_onyx.pyw","role":"legacy-rollback-host","sha256":"34808ff75aee0418fb0c2af9107e51fffbdc62ef43b04885f6a1df9b94151451"},
+    {"path":"core/audio_contract.py","role":"accepted-audio-contract","sha256":"133d72bad448d99eabcd7d8909478a69b7e6580c81e814bca8f2b8e282c3f27a"},
+    {"path":"core/readiness_probe.py","role":"accepted-provider-contract","sha256":"40039dedef80ad7b55e295cf83c40fd6194e862bdb8e227bdd8ecbfb066d0a66"},
+
+    {"path":"core/onyx_live_activation_v4.py","role":"frozen-v4-base","sha256":"2521b5dcf53172e73e23219e9266037f7312a233ef135281a1a2ac3660aec05b"},
+    {"path":"scripts/launch_onyx_live_v4.pyw","role":"frozen-v4-launcher","sha256":"a7bfc190cb95d49e871fcd312f32badbd1a5a6d18393ca725d214f1f66769af8"},
+    {"path":"scripts/verify_onyx_live_activation_v4.py","role":"frozen-v4-verifier","sha256":"20426a7fd2e592dfa54b2a352928a941e01bd7798314bb3d21363a9c0e6bd597"},
+    {"path":"scripts/verify_onyx_live_activation_v4_host.py","role":"frozen-v4-host-gate","sha256":"e1e53cee11d1fbaf460d8690f9131da56c9773e75ffbd286345395c969fe2105"},
+    {"path":"scripts/verify_onyx_live_activation_v4_qt.py","role":"frozen-v4-qt-gate","sha256":"19015ebf96a32e449709831d86d90465e612ba63f770bea917f01dd21ab3b95b"},
+    {"path":"tests/test_onyx_live_activation_v4.py","role":"frozen-v4-test","sha256":"4c776af560a7f3bfd470bef91d205fddbe509c6c767cbaad2b754f3023068783"},
+    {"path":"docs/onyx/checkpoints/onyx-live-activation-v4/ONYX_LIVE_ACTIVATION_V4_CHECKPOINT.md","role":"frozen-v4-checkpoint","sha256":"3ea17bf227025f7dbe2ce4f91e15801151c6262efc01173657e7c3ce481d638f"},
+    {"path":"docs/onyx/checkpoints/onyx-live-activation-v4/manifest.json","role":"frozen-v4-manifest","sha256":"ebe3b24e641d1148e3ddb3767705b593a0d9df0898ba2654b53cd7820e0d6c09"},
+
+    {"path":"core/owner_profile_v8.py","role":"accepted-component","sha256":"837295cfdf663dc97bf32592d186e0ba76ee74c83e1c757cfe420baea7dc0f3b"},
+    {"path":"core/phase5_integration_v3.py","role":"accepted-component","sha256":"52d48c121da485c024811e6cd3fafbabaed971175d7cb41ad23358c5c2879b0d"},
+    {"path":"qml/OnyxLiveShellV5.qml","role":"accepted-component","sha256":"9ff4d3d5d3771d1bbf2c2f8fe68793fd05e8cc80fd0c0644d700596d7cd39e47"},
+    {"path":"qml/components/OnyxOrbCinematicV5.qml","role":"accepted-component","sha256":"adff9ee062fff1c735bd28d4a77591581b6e4ce131067b1724699da5055e2622"}
+  ],
+  "host_contract": {
+    "class": "main.OnyxLive",
+    "window_class": "ui.MainWindow",
+    "v4_transactional_writes": 11,
+    "v5_transactional_writes": 7,
+    "total_transactional_writes": 18,
+    "frozen_host_modified": false,
+    "frozen_v4_modified": false,
+    "exact_input_audio_mime": "audio/pcm;rate=16000",
+    "provider_failure_terminates_host": false,
+    "provider_commands_buffered": false,
+    "tool_call_id_replay": false,
+    "visible_setup_surfaces": 1
+  },
+  "provider_circuit": {
+    "states": ["closed", "degraded", "open", "half_open"],
+    "default_retry_seconds": [1, 3, 10, 30],
+    "opens_after_consecutive_failures": 2,
+    "default_open_cooldown_seconds": 30,
+    "automatic_recovery": true,
+    "manual_recovery": true,
+    "stable_close_seconds": 30
+  },
+  "activation": {
+    "master": "ONYX_LIVE_ACTIVATION_V5=1",
+    "launcher": "scripts/launch_onyx_live_v5.pyw",
+    "controlled_restart_required": true,
+    "independent_gate_required": true
+  },
+  "rollback": {
+    "single_switch": "ONYX_LIVE_ROLLBACK_V5=1",
+    "delegates_to": "scripts/launch_onyx.pyw"
+  },
+  "verification": {
+    "focused": {"passed": 6, "failed": 0},
+    "combined_v4_v5": {"passed": 29, "failed": 0},
+    "py_compile": "pass",
+    "real_host": "pass",
+    "fake_provider_1007_recovery": "pass",
+    "accelerated_stability_seconds": 601,
+    "real_qt_offscreen": "pass",
+    "bundle_verifier": "pass",
+    "network_calls": 0,
+    "live_activation": "not_performed"
+  }
+}

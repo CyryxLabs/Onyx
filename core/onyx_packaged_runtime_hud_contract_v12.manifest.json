@@ -1,0 +1,32 @@
+{
+  "schema": "onyx.packaged-runtime-hud-contract.v12",
+  "runtime_inputs": [
+    {"path": "qml/OnyxLiveShellV15.qml", "sha256": "f8b914e93a3438f8a7f94052a1ad85aad40b7f963b6acc88dc17a6be69edae02"},
+    {"path": "qml/components/OnyxHumanoidEntityV12.qml", "sha256": "3fdd312fe2e606c1e296d08c8c34747e0814d02fa12a713615b4333e8058116e"},
+    {"path": "qml/web/onyx-humanoid-three-v3.html", "sha256": "0a4e603097b5a54e33e28675896d0618c792877e983d1c4c7cd923f290c43ae0"},
+    {"path": "qml/web/onyx-humanoid-three-v2.html", "sha256": "27eaf0ebe3981f28d9ab9c44e176d7e3fd20dba4bd10bd72b45d33873ba35370"},
+    {"path": "ui.py", "sha256": "302a9c2af197eeabfa237b41001ced56f0bb6f988d3715d0856f67f5557d23cb"},
+    {"path": "core/live_voice_preference_v1.py", "sha256": "12506cb9540eed38aa4a04e439d9e32c0d76fc7ddfff4ba49b1d0d41bcaaabfe"},
+    {"path": "core/onyx_hud_current_acceptance_v43.py", "sha256": "eb2cfa477df6c0407bb5246edfd3948af9c55610e7674bce0deeeb32b7d69c2e"},
+    {"path": "docs/onyx/acceptance/VE-HUD-CURRENT-V43-E6-001.manifest.json", "sha256": "5046fd657453179e530dbb8a5eb9b51780b3526b091503d363feaab5cd3dcdfb"},
+    {"path": "core/onyx_hud_orb_v16.py", "sha256": "40388959bf7d43e7b8efd7a6c3e4beaf5dd2eb0f4d39015da869928f70363c06"},
+    {"path": "qml/web/data/onyx-humanoid-pointcloud-v1.js", "sha256": "ffd52a2690c79841202eecd1be5c188a2b0976a8954c89f3f7f0712391c42886"}
+  ],
+  "semantics": {
+    "current_presence": "humanoid-presence-v12-continuity",
+    "live_renderer": "three.js-webgl",
+    "primary_layout_changed": false,
+    "setup_surface_changed": true,
+    "voice_selection_surface_changed": true,
+    "palette_changed": false,
+    "humanoid_runtime_changed": false,
+    "voice_pipeline_changed": false,
+    "voice_preference_contract_changed": false,
+    "last_real_frame_continuity": true,
+    "double_buffered_qml_backing": true,
+    "validated_presentation_buffer": true,
+    "transparent_compositor_surface": true,
+    "provider_independent": true,
+    "formal_release_ready": false
+  }
+}

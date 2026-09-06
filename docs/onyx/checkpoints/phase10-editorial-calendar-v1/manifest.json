@@ -1,0 +1,60 @@
+{
+  "schema": "onyx.phase10.editorial-calendar.v1",
+  "candidate": "phase10-editorial-calendar-v1",
+  "created_at": "2026-07-25T14:30:00-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_PHASE10_EDITORIAL_CALENDAR_V1",
+  "default_off": true,
+  "accepted_brand_passport_root_sha256": "6f218e78ca1be45218ae8bd25448666482714edd2cd5a087d4eace45654f2483",
+  "verification": {
+    "test_files": 25,
+    "passed": 538,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "subtests_passed": 80
+  },
+  "artifacts": [
+    {
+      "path": "core/phase10_editorial_calendar_v1.py",
+      "bytes": 12693,
+      "sha256": "eb34c6f147830779b8e786c4e39982019675a89098434f9cac19e9b400b683c7"
+    },
+    {
+      "path": "tests/test_phase10_editorial_calendar_v1.py",
+      "bytes": 9244,
+      "sha256": "b9a0e3f1a995e3264944c7b132b70e208befa498eb5a5a9913975ee28e0d54b0"
+    },
+    {
+      "path": "scripts/verify_phase10_editorial_calendar_v1.py",
+      "bytes": 8145,
+      "sha256": "3a4017a84d7b7867d85abeafac769fd8360a05856febab93c7280e47a8753ee7"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0050-phase10-editorial-calendar-v1.md",
+      "bytes": 3048,
+      "sha256": "4851b7406dfe19714b1d7b22df9f236d2564cefdff7473307046ef0226383af2"
+    },
+    {
+      "path": "docs/onyx/research/PHASE10_EDITORIAL_CALENDAR_V1_SOURCES.md",
+      "bytes": 1974,
+      "sha256": "791d6761a3eec4c80aa414471e982cce697791b48c3fcaabd855caef76ea4e41"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase10-editorial-calendar-v1/PHASE10_EDITORIAL_CALENDAR_V1_CHECKPOINT.md",
+      "bytes": 1848,
+      "sha256": "1a51a825fd2d378251c690f986e6c06e90e61dc4ce2a966bee9fbf20f3e07291"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase10-editorial-calendar-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 1044,
+      "sha256": "da584ba93cbef8207eac7a047aed743c868805f8ab8cb2bc4085ad3d2a4d6c93"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase10-editorial-calendar-v1/cumulative-selection.json",
+      "bytes": 3912,
+      "sha256": "b9f68c8c3a4dca9c53cae1bba9275411f9bbc29dfda420fdc0b6b342e2cc6ba4"
+    }
+  ],
+  "artifact_root_sha256": "415bbc4de20811c3d7caac47dacb8a01cf50a4ed1660f9670ee5278136411939"
+}

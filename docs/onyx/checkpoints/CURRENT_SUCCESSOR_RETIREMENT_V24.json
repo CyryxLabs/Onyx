@@ -1,0 +1,34 @@
+{
+  "schema": "onyx.current-successor-retirement.v24",
+  "issued_at": "2026-08-24T18:00:00-04:00",
+  "predecessor": {
+    "path": "docs/onyx/checkpoints/CURRENT_SUCCESSOR_RETIREMENT_V23.json",
+    "sha256": "e0e20e763772631a66878864084850c3b0817a9985747bedcd9e26c341231d2c"
+  },
+  "policy": {
+    "historical_tests_are_rewritten": false,
+    "historical_hashes_are_rebound": false,
+    "registered_nodes_must_remain_collected": true,
+    "successor_sources_are_sha256_bound": true,
+    "successor_tests_must_execute": true,
+    "exact_nodeids_only": true,
+    "v24_precedes_v23_on_overlap": true
+  },
+  "additional_claims": [
+    {
+      "id": "release-v64-to-v65-current-hud-accessibility-authority",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_release_workflow_transition_v64.py::test_release_v64_authenticates_corrected_current_authority"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_release_workflow_transition_v65.py",
+          "sha256": "1a376ab4e587e2e8c3c280eb067163dbcb637066afe183073b675577d0aadcc0"
+        }
+      ],
+      "validated_tests": 1,
+      "reason": "V65 binds the corrected current HUD accessibility invariant while V64 remains immutable."
+    }
+  ]
+}

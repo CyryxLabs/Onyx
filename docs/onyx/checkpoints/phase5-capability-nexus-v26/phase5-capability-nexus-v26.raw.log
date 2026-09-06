@@ -1,0 +1,4 @@
+focused: 1963 passed
+combined V1-V26: 29778 passed
+regressions: 102 base tests and 221 subtests passed
+parent verifier: 28.467 seconds

@@ -1,0 +1,92 @@
+{
+  "schema": "onyx.live-activation.v8",
+  "candidate": "onyx-live-activation-v8",
+  "created_at": "2026-07-23",
+  "status": "candidate-ready-for-independent-gate",
+  "default_off": true,
+  "live_activated": false,
+  "live_restart_performed": false,
+  "shortcut_write_performed": false,
+  "provider_calls_performed": false,
+  "network_calls": 0,
+  "files": [
+    {"path":"core/onyx_live_activation_v8.py","role":"transition-v8","sha256":"a088d0c49851699c5486a59a4db6734b8ec81ed7c01ad821bf8a1ea1966486f4"},
+    {"path":"scripts/launch_onyx_live_v8.pyw","role":"canonical-v8-launcher","sha256":"ded88457c5ed4aa593748dffb8ca7233d879b0277d5a1fab054a50b20b46209b"},
+    {"path":"scripts/bootstrap_onyx_live_v8.pyw","role":"desktop-active-bootstrap","sha256":"896c9755a529354868691cc739864113f2644e7594f009dae38ab1dd3eb91adf"},
+    {"path":"scripts/launch_onyx_live_v8_active.cmd","role":"active-control","sha256":"e5fc573933b59bedad413989b2a28e2203ae14aed5a7d30f4784dda7aa1ab01c"},
+    {"path":"scripts/launch_onyx_live_v8_rollback.cmd","role":"post-v7-rollback-control","sha256":"8989b85827ee2c7dce553f3ab9b125dfaa6e532095018b98b9f4fe262c3899c1"},
+    {"path":"scripts/verify_onyx_live_activation_v8_host.py","role":"shortcut-host-gate","sha256":"831ba8e85e52117eb14c59aa1ce64d3ee8856c748b99deb5c406357df78c83f7"},
+    {"path":"scripts/verify_onyx_live_activation_v8.py","role":"cumulative-verifier","sha256":"59d8e5f2dc06e6da86ba09a9481f86f2aa8c9c979d1fa349e1d827bc9f8e1b5e"},
+    {"path":"scripts/verify_onyx_live_activation_v8_manifest.py","role":"manifest-verifier","sha256":"e60aac815864a15f805fbaccee1420beb240e7845a153d81402f260dcd58252c"},
+    {"path":"tests/test_onyx_live_activation_v8.py","role":"candidate-tests","sha256":"c1145ce15156dd9636f70aa23c4f8bfe799ebd44c8fe7a7e688041df60f6c9fb"},
+    {"path":"docs/onyx/checkpoints/onyx-live-activation-v8/ONYX_LIVE_ACTIVATION_V8_CHECKPOINT.md","role":"candidate-checkpoint","sha256":"df234c21298c31394d2497af8667fe9272b9c0f64b936ca0cac131f327f5517c"},
+
+    {"path":"core/onyx_live_activation_v7.py","role":"frozen-v7-base","sha256":"906c7c0e31cb5efc28e5357bb158545e903d65ff1f160b3899bc3e2fb3c1dc77"},
+    {"path":"docs/onyx/checkpoints/onyx-live-activation-v7/manifest.json","role":"frozen-v7-manifest","sha256":"312d6654f3423f16f4b36f435638920836994bd56c3e9a8766a086e2c6d647da"},
+    {"path":"docs/onyx/acceptance/VE-ONYX-LIVE-ACTIVATION-V7-E6-001.md","role":"accepted-v7-record","sha256":"8438769b1b597b0d66174db0c73d50a9577702c5957ba6ff24b55315d11aedb5"},
+    {"path":"main.py","role":"frozen-host","sha256":"6b82fed0d7c932a08d2d1f8a31d7650a1b235d55085ee608fdbb7651e5f49712"},
+    {"path":"ui.py","role":"frozen-shortcut-host","sha256":"e5768626b7eb9d162a54cd67b08b5cb7d9685fb5c0e1b8c951843a1146fc252b"},
+    {"path":"core/phase5_integration_v3.py","role":"accepted-phase5","sha256":"52d48c121da485c024811e6cd3fafbabaed971175d7cb41ad23358c5c2879b0d"},
+    {"path":"qml/OnyxLiveShellV5.qml","role":"accepted-hud","sha256":"9ff4d3d5d3771d1bbf2c2f8fe68793fd05e8cc80fd0c0644d700596d7cd39e47"},
+    {"path":"qml/components/OnyxOrbCinematicV5.qml","role":"accepted-orb","sha256":"adff9ee062fff1c735bd28d4a77591581b6e4ce131067b1724699da5055e2622"},
+    {"path":"packaging/windows/onyx.iss","role":"frozen-windows-package-shortcut","sha256":"b3326de599c2ebf13f0ba79452e68e6c373fecb1d94cc318626de9c0a0fd4392"},
+    {"path":"packaging/linux/onyx.desktop","role":"frozen-linux-package-shortcut","sha256":"0fc6da87140a3f5455eab5995ab5736edf998fd63f98d860359da850efe61724"},
+    {"path":"scripts/launch_onyx.pyw","role":"frozen-legacy-launcher","sha256":"34808ff75aee0418fb0c2af9107e51fffbdc62ef43b04885f6a1df9b94151451"}
+  ],
+  "phase5_identity": {
+    "principal_id": "onyx-owner",
+    "workspace_id": "onyx-local-workspace",
+    "account_id": "cyryx-local-account",
+    "profile_id": "onyx-owner-profile"
+  },
+  "host_contract": {
+    "class": "ui.MainWindow",
+    "seam": "_create_desktop_shortcut",
+    "v7_transactional_writes": 23,
+    "v8_transactional_writes": 1,
+    "total_transactional_writes": 24,
+    "rollback_state": "exact-installed-v7",
+    "frozen_v7_modified": false,
+    "frozen_host_modified": false
+  },
+  "shortcut": {
+    "scope": "windows-unfrozen-source-checkout-only",
+    "source_target": ".venv/Scripts/pythonw.exe",
+    "source_target_required_file": true,
+    "source_argument": "scripts/bootstrap_onyx_live_v8.pyw",
+    "canonical_launcher": "scripts/launch_onyx_live_v8.pyw",
+    "legacy_launcher_forbidden": true,
+    "bootstrap_empty_environment_mode": "active",
+    "hud": "v5",
+    "phase5_bridge": "real-v3",
+    "com_argument_quoting": "separate-double-quoted-argument",
+    "recreation": "same-link-idempotent",
+    "frozen_behavior": "delegated-unchanged",
+    "macos_linux_behavior": "delegated-unchanged",
+    "duplicate_process_prevention_added": false
+  },
+  "activation": {
+    "master": "ONYX_LIVE_ACTIVATION_V8=1",
+    "bootstrap": "scripts/bootstrap_onyx_live_v8.pyw",
+    "launcher": "scripts/launch_onyx_live_v8.pyw",
+    "independent_gate_required": true
+  },
+  "rollback": {
+    "single_switch": "ONYX_LIVE_ROLLBACK_V8=1",
+    "returns_to": "canonical-v7-activation"
+  },
+  "verification": {
+    "focused": {"passed": 7, "failed": 0},
+    "default_off_desktop": {"passed": 4, "failed": 0},
+    "identity_variants_refused": 27,
+    "shortcut_recreations": 2,
+    "v8_failpoint": "post-v7-exact",
+    "bootstrap_preflight": "active-hud-v5",
+    "simulated_com": "pass",
+    "ruff": "pass",
+    "py_compile": "pass",
+    "v7_acceptance": "pass",
+    "network_calls": 0,
+    "live_activation": "not_performed"
+  }
+}

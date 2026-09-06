@@ -1,0 +1,60 @@
+{
+  "schema": "onyx.voice-session-authority.v1",
+  "candidate": "voice-session-authority-v1",
+  "created_at": "2026-08-20T13:31:13-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_VOICE_SESSION_AUTHORITY_V1",
+  "default_off": true,
+  "accepted_predecessor_root_sha256": "438fe075ca88e31e588b4e04dc087ab9e58fce5c3fabdfa658a1dc199ad60874",
+  "verification": {
+    "test_files": 35,
+    "passed": 977,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 17,
+    "subtests_passed": 96
+  },
+  "artifacts": [
+    {
+      "path": "core/voice_session_authority_v1.py",
+      "bytes": 16093,
+      "sha256": "88945438743502363b3e80e63f097b01ad4f3da447642aba6aadcfb5437c2fe0"
+    },
+    {
+      "path": "tests/test_voice_session_authority_v1.py",
+      "bytes": 12029,
+      "sha256": "eb9506a137e7277321846c4e96c970aa3e0902da17858962b4133840e43a7100"
+    },
+    {
+      "path": "scripts/verify_voice_session_authority_v1.py",
+      "bytes": 9404,
+      "sha256": "9a0e09b81ee2183afa54451341139862febeb1434e4d6ee4c1c9431052583247"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0061-voice-session-authority-v1.md",
+      "bytes": 4619,
+      "sha256": "7bb1c29ee4ec419d3e43522c9fc0f8e4e15455edf23728dabf28b9d2bf9ef574"
+    },
+    {
+      "path": "docs/onyx/research/VOICE_SESSION_AUTHORITY_V1_SOURCES.md",
+      "bytes": 2874,
+      "sha256": "111bfcd49638ae8d612cc9c9f7176602886ca13e0a4183929e61cc0c9b93816b"
+    },
+    {
+      "path": "docs/onyx/checkpoints/voice-session-authority-v1/VOICE_SESSION_AUTHORITY_V1_CHECKPOINT.md",
+      "bytes": 2659,
+      "sha256": "9fec22cf09dccad212a828e7c162770cb8ef37043a31c7c182ce5e671fc135e6"
+    },
+    {
+      "path": "docs/onyx/checkpoints/voice-session-authority-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 1406,
+      "sha256": "2a2b6b70a25637691b69162f96754513fab610c8406a442f61fcc094e11a3a71"
+    },
+    {
+      "path": "docs/onyx/checkpoints/voice-session-authority-v1/cumulative-selection.json",
+      "bytes": 5306,
+      "sha256": "32062952fd5ae04716600ae73665581cc8b4cc5e518c0f7911bbcc038966e993"
+    }
+  ],
+  "artifact_root_sha256": "8d16f979db21395e3c3ba8896ca8e8442b2ecedfe548c1ebfb75a88faaf6e7aa"
+}

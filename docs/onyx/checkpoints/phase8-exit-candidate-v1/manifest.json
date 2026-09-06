@@ -1,0 +1,52 @@
+{
+  "schema": "onyx.phase8.exit-candidate.v1",
+  "candidate": "phase8-exit-candidate-v1",
+  "created_at": "2026-07-24T21:00:00-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "accepted_component_roots": 28,
+  "claims": {
+    "phase8_connector_layer_default_off_implementation_complete": true,
+    "one_provider_proven_before_generalizing": true,
+    "external_e6_accepted": false,
+    "live_wiring": false,
+    "live_e2e_bound_in_aggregate": false,
+    "phase9_started": false,
+    "full_onyx_prd_complete": false
+  },
+  "verification": {
+    "test_files": 20,
+    "passed": 421,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "subtests_passed": 80
+  },
+  "artifacts": [
+    {
+      "path": "scripts/verify_phase8_exit_candidate_v1.py",
+      "bytes": 8565,
+      "sha256": "5db88d9cdfc4636556d13844c5bc6f80b62b6edee7eaa0fb3501b2270fc246ed"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0044-phase8-exit-candidate-v1.md",
+      "bytes": 4524,
+      "sha256": "84d6a11b8ab0692958a1bde209646db8a693d0a7dd05cf68861b8792482c7633"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase8-exit-candidate-v1/PHASE8_EXIT_CANDIDATE_V1_CHECKPOINT.md",
+      "bytes": 2778,
+      "sha256": "283912bfb0ec2c5fc6f87b4d51203f627e52a315b9f7192c2f74322af32b3114"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase8-exit-candidate-v1/coverage-map.json",
+      "bytes": 3555,
+      "sha256": "b3cd67f2346b807a84cb0b1a6f0645ed05673d06deca6759879ef2a8438533f2"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase8-exit-candidate-v1/cumulative-selection.json",
+      "bytes": 2434,
+      "sha256": "1347741982debcc3e69553408bf0df04c785d122d66fa1041abf6dd8dd256a90"
+    }
+  ],
+  "artifact_root_sha256": "114cba2de27b680848ed5bfe6ddba7e0033c6448d6f85d198689aa8cffc1485a"
+}

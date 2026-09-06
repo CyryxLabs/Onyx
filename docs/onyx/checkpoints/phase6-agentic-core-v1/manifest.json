@@ -1,0 +1,76 @@
+{
+  "schema": "OnyxPhase6AgenticCoreCheckpoint.v1",
+  "status": "candidate_default_off_unaccepted",
+  "generated_at": "2026-07-22T17:34:49-04:00",
+  "environment": {
+    "platform": "Windows 11 10.0.26200",
+    "python": "3.13.7 x64"
+  },
+  "activation": {
+    "feature_flag": "ONYX_PHASE6_AGENTIC_CORE_V1",
+    "enabled_value": "true",
+    "default": "off",
+    "live_wiring": false
+  },
+  "artifacts": [
+    {
+      "path": "core/phase6_agentic_core_v1.py",
+      "bytes": 93076,
+      "sha256": "ab7a6cfec738c31b7beb66ac7a66584f892231ce8a3a2c9e81f30945123cc965"
+    },
+    {
+      "path": "tests/test_phase6_agentic_core_v1.py",
+      "bytes": 22495,
+      "sha256": "409e9c59b1650f155c3075e176541f438e0cf588f4242dadeb2126b306792b0a"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0010-default-off-agentic-core-v1.md",
+      "bytes": 3831,
+      "sha256": "71c70c591298ba33b7d46ed4c373ee734538ee4161de5fa93fd4f5f175901e07"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase6-agentic-core-v1/PHASE6_AGENTIC_CORE_V1_CHECKPOINT.md",
+      "bytes": 5895,
+      "sha256": "b4d0f7faccbd0fc02be7266fdc8d5d82c4227c9649826f49b655544269cb29d7"
+    }
+  ],
+  "artifact_root_sha256": "192556429c262c63161bfcf1fe07d27e3e3470336fd6d97e6f8bacbf7816f0e1",
+  "verification": {
+    "focused": {
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest -q -p no:cacheprovider --basetemp C:\\MAAX_Assistant\\phase6-tests-20260722-i tests\\test_phase6_agentic_core_v1.py",
+      "result": "27 passed",
+      "duration_seconds": 5.33
+    },
+    "static": {
+      "ruff": "passed",
+      "py_compile": "passed"
+    },
+    "stable_boundary": {
+      "result": "111 passed, 1 deselected, 44 subtests passed",
+      "duration_seconds": 24.18,
+      "excluded_test": "MissionTests.test_onyx_live_stops_application_worker_in_finally"
+    },
+    "unfiltered_baseline": {
+      "result": "111 passed, 1 failed, 44 subtests passed",
+      "failing_test": "MissionTests.test_onyx_live_stops_application_worker_in_finally",
+      "reason": "Existing __new__ fixture omits _phase5 while main.py:_stop_phase5_session() reads it directly."
+    }
+  },
+  "scope_guards": {
+    "network_calls": false,
+    "provider_calls": false,
+    "subprocess_calls": false,
+    "process_restart": false,
+    "live_config_change": false,
+    "main_engine_modified": false,
+    "commit_or_push": false
+  },
+  "limitations": [
+    "Natural-language provider planning is not operational in this candidate.",
+    "Gemini Live and llm_client adapter parity remain separate slices.",
+    "local_catalog_read remains waiting_for_phase5 pending an accepted binding.",
+    "Phase 6 planner-context memory adapter is not implemented.",
+    "External agent execution remains blocked_by_access.",
+    "No Phase 6 E1-E6 exit or live activation is claimed."
+  ]
+}

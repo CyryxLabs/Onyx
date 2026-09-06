@@ -1,0 +1,52 @@
+{
+  "schema": "onyx.phase7.workspace-memory.v1.cumulative-selection",
+  "created_at": "2026-07-23T15:43:03-04:00",
+  "execution": "one-test-file-per-fresh-python-process",
+  "platform": "Windows-11-10.0.26200-SP0-x64",
+  "expected": {
+    "passed": 77,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 1,
+    "subtests_passed": 73,
+    "test_files": 5
+  },
+  "explained_skips": [
+    {
+      "path": "tests/test_workspace_registry_audit.py",
+      "reason": "FIFO creation is unavailable on Windows"
+    }
+  ],
+  "tests": [
+    {
+      "path": "tests/test_phase7_workspace_memory_v1.py",
+      "passed": 21,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_memory_store.py",
+      "passed": 20,
+      "skipped": 0,
+      "subtests_passed": 15
+    },
+    {
+      "path": "tests/test_workspace_registry.py",
+      "passed": 10,
+      "skipped": 0,
+      "subtests_passed": 10
+    },
+    {
+      "path": "tests/test_workspace_registry_security.py",
+      "passed": 8,
+      "skipped": 0,
+      "subtests_passed": 11
+    },
+    {
+      "path": "tests/test_workspace_registry_audit.py",
+      "passed": 18,
+      "skipped": 1,
+      "subtests_passed": 37
+    }
+  ]
+}

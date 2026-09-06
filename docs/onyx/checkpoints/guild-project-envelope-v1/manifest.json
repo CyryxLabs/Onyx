@@ -1,0 +1,60 @@
+{
+  "schema": "onyx.guild.project-envelope.v1",
+  "candidate": "guild-project-envelope-v1",
+  "created_at": "2026-08-19T14:52:29-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_GUILD_PROJECT_ENVELOPE_V1",
+  "default_off": true,
+  "accepted_guild_execution_intent_root_sha256": "68a4fc775dbdccb0741c0bf69aa5ff786966f4f828f2220ac35ec21efde64e83",
+  "verification": {
+    "test_files": 34,
+    "passed": 910,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 17,
+    "subtests_passed": 96
+  },
+  "artifacts": [
+    {
+      "path": "core/guild_project_envelope_v1.py",
+      "bytes": 15890,
+      "sha256": "7fdf2574c615e50e2e27316ef83dcf0b216ff083a9d25e02f17db4d83e62f135"
+    },
+    {
+      "path": "tests/test_guild_project_envelope_v1.py",
+      "bytes": 13347,
+      "sha256": "d36a264230c32c22e28c6ff57206476a937577966951afd6bce5cc966e0857cb"
+    },
+    {
+      "path": "scripts/verify_guild_project_envelope_v1.py",
+      "bytes": 8752,
+      "sha256": "1ad0261b2c8e92ef96dbccf9027bee0374dce3cb8414cd158bb3baed432fa9df"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0060-guild-project-envelope-v1.md",
+      "bytes": 3476,
+      "sha256": "78cee41c322db131a78b3c869d61a87bdd25d81f1c32b6d5b4bbe4beaef0d224"
+    },
+    {
+      "path": "docs/onyx/research/GUILD_PROJECT_ENVELOPE_V1_SOURCES.md",
+      "bytes": 2026,
+      "sha256": "f19217085feb25ddcd4d1f9fd7d3298cb66efdd6646f1e27a169b27125ba0fae"
+    },
+    {
+      "path": "docs/onyx/checkpoints/guild-project-envelope-v1/GUILD_PROJECT_ENVELOPE_V1_CHECKPOINT.md",
+      "bytes": 2398,
+      "sha256": "de79804568d64e3feedcf3c8a043e75eec2c41cf79c96290809ccd4eccf4406f"
+    },
+    {
+      "path": "docs/onyx/checkpoints/guild-project-envelope-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 1336,
+      "sha256": "8b72710cba9839ad51eeab4bb1e5ff43a70eb65833fae5262070600c6a92506f"
+    },
+    {
+      "path": "docs/onyx/checkpoints/guild-project-envelope-v1/cumulative-selection.json",
+      "bytes": 5161,
+      "sha256": "6b4712d3396b9bbcc862eeb320666819830726ff974ea96734135048ac96b872"
+    }
+  ],
+  "artifact_root_sha256": "438fe075ca88e31e588b4e04dc087ab9e58fce5c3fabdfa658a1dc199ad60874"
+}

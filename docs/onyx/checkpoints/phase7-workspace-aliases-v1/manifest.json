@@ -1,0 +1,106 @@
+{
+  "schema": "onyx.phase7.workspace-aliases.v1",
+  "candidate": "phase7-workspace-aliases-v1",
+  "created_at": "2026-07-23T16:30:00-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_PHASE7_WORKSPACE_ALIASES_V1",
+  "enabled_value": "true",
+  "default_off": true,
+  "workspace_memory_entry_root": {
+    "acceptance_id": "VE-P7-WORKSPACE-MEMORY-V1-E6-001",
+    "candidate_manifest_sha256": "59ed88abd6967a73f3050d1215fed0c278b21b5c6e5335814abe8267576c9cd7",
+    "artifact_root_sha256": "fafe2c2fb2c0d0f55f0ce6fc6824b71a93c42f3527565449986e90ba1fb09f95",
+    "decision": "accepted"
+  },
+  "claims": {
+    "workspace_aliases_v1_implemented": true,
+    "credential_aliases": true,
+    "profile_aliases": true,
+    "artifact_aliases": true,
+    "secret_storage": false,
+    "secret_resolution": false,
+    "browser_launch": false,
+    "artifact_content_read": false,
+    "e1_e5_ready": true,
+    "external_e6_accepted": false,
+    "live_wiring": false,
+    "runtime_authority_added": false,
+    "approved_source_registry_implemented": false,
+    "company_graph_implemented": false,
+    "founder_brief_implemented": false,
+    "phase7_exit": false,
+    "full_onyx_prd_complete": false
+  },
+  "verification": {
+    "execution": "one-test-file-per-fresh-python-process",
+    "test_files": 7,
+    "passed": 160,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 9,
+    "subtests_passed": 113
+  },
+  "effects": {
+    "persistent_writes_when_explicitly_enabled": [
+      "capability_descriptors insert",
+      "capability_descriptors lifecycle update"
+    ],
+    "persistent_reads_when_explicitly_enabled": [
+      "workspaces",
+      "capability_descriptors",
+      "artifact_index"
+    ],
+    "secret_reads": 0,
+    "browser_launches": 0,
+    "artifact_content_reads": 0,
+    "network_calls": 0,
+    "process_calls": 0,
+    "provider_calls": 0,
+    "live_surface_changes": 0
+  },
+  "rollback": "Leave the exact feature flag unset; the factory returns before entry validation or host binding and existing engines remain unchanged.",
+  "limitations": [
+    "Candidate remains default-off and is not wired to V13, startup, voice, UI or dashboard.",
+    "Aliases contain signed locator metadata only and do not resolve credential values, open profiles or read artifact bytes.",
+    "Approved-source registry, Company Graph, contradiction/freshness and Founder Brief remain unimplemented.",
+    "Phase 7 is not exited and the full Onyx PRD is incomplete."
+  ],
+  "artifacts": [
+    {
+      "path": "core/phase7_workspace_aliases_v1.py",
+      "bytes": 55353,
+      "sha256": "285d74c26c1db0bfc1a5a3b00c38ce3abfbf4c83deb2dbc0f742a1fc2051b371"
+    },
+    {
+      "path": "tests/test_phase7_workspace_aliases_v1.py",
+      "bytes": 19247,
+      "sha256": "24d66da195c27c5c57381626537e5bae7447a2e18909eb5a65dee7c337b6f5c7"
+    },
+    {
+      "path": "scripts/verify_phase7_workspace_aliases_v1.py",
+      "bytes": 12282,
+      "sha256": "f35bac4816f3392938c3814ccfdcaa8cfa6a019f9478fc06474f1f7667e86112"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0030-phase7-workspace-aliases-v1.md",
+      "bytes": 2457,
+      "sha256": "1a1bd259b883f37f16bb88d122354993cad35c360730b8a5a2a5851670749e43"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase7-workspace-aliases-v1/PHASE7_WORKSPACE_ALIASES_V1_CHECKPOINT.md",
+      "bytes": 1692,
+      "sha256": "53d2bef828c3b0f0be3b25d22bd8795c4703050b3625bc43140c1a85f7adcd75"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase7-workspace-aliases-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 1192,
+      "sha256": "fb3255f19640b7a3b11e8ddabce7bab66f6b0054b6af510e92ddc565239ccfcd"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase7-workspace-aliases-v1/cumulative-selection.json",
+      "bytes": 1712,
+      "sha256": "ad7d78bec9a233058ce24515941247462d3623832b31ab4a5dda9294270111ce"
+    }
+  ],
+  "artifact_root_sha256": "1ae29f0e8300b19737f61e795ea867f474d5dc7efd803a5a6bbaef4e74f2362e"
+}

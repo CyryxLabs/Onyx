@@ -1,0 +1,55 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P9-INTELLIGENCE-INGESTION-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-07-24",
+  "findings": {"P0": 0, "P1": 0, "P2": 0, "P3": 1},
+  "candidate_manifest_path": "docs/onyx/checkpoints/phase9-intelligence-ingestion-v1/manifest.json",
+  "candidate_manifest_sha256": "2d7650b305b203ce9c74e576652d8221b4dac2498d37c7450ab365325e04a78f",
+  "artifact_root_sha256": "977132cea3f9316bb1b7a62ecc4c8368da6f2a12a7e65a62b9d5511a833cbb6a",
+  "artifacts": 8,
+  "results": {"test_files": 21, "passed": 439, "failed": 0, "errors": 0, "skipped": 8, "explained_platform_skips": 8, "subtests_passed": 80},
+  "review_history": {
+    "functional": "PASS-WITH-CONCERNS remediated: P2 ASCII-only dedup tokenisation + P3 byte-vs-char limit fixed and re-verified",
+    "integrity": "PASS: artifact root 977132ce recomputed exactly; Phase 8 exit entry-bind genuine; no predecessor modified",
+    "quality": "PASS-WITH-CONCERNS remediated: test-adequacy gaps closed; dead SCHEMA + freshness clamp removed; O(n) canonical lookup"
+  },
+  "remediation": {
+    "code": [
+      "Unicode word-class dedup tokenisation with symbol-only fallback (non-Latin headlines dedup by content)",
+      "_text enforces UTF-8 byte budget",
+      "removed dead SCHEMA constant and unreachable freshness clamp",
+      "O(n) dictionary canonical incumbent lookup"
+    ],
+    "tests": [
+      "non-Latin dedup by content not category",
+      "equal-publication item-id tie-break",
+      "entry-bind hash-drift denial branch",
+      "future event time allowed",
+      "freshness-zero boundary",
+      "corroborating-source-id type and count bounds",
+      "non-dict claim / byte-length title / non-int clock"
+    ],
+    "focused_tests_before": 11,
+    "focused_tests_after": 18
+  },
+  "residual_advisory": "ISO date-only timestamps coerce to 00:00 UTC and internal result dataclasses are validated at the sealed session boundary rather than per __post_init__; both intended and documented.",
+  "claims": {
+    "intelligence_ingestion_v1_accepted": true,
+    "separate_publication_and_event_time": true,
+    "future_publication_denied": true,
+    "recycled_story_dedup": true,
+    "unicode_dedup_tokenisation": true,
+    "closed_claim_typing": true,
+    "consequential_claim_corroboration": true,
+    "source_health_tiers": true,
+    "live_source_fetch": false,
+    "opportunity_scoring": false,
+    "conflicting_claim_detection": false,
+    "world_monitor_connector": false,
+    "network_or_model_or_action": false,
+    "live_wiring": false,
+    "phase9_exit": false,
+    "full_onyx_prd_complete": false
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "schema": "onyx.phase9.live-ingestion.v1",
+  "candidate": "phase9-live-ingestion-v1",
+  "created_at": "2026-07-25T00:00:00-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_PHASE9_LIVE_INGESTION_V1",
+  "enabled_value": "true",
+  "default_off": true,
+  "entry_roots": {
+    "phase9_scoring_v1_artifact_root_sha256": "519d1e40710210dbc4527954964dc9551efc977911b9c9eec03f8b2c38b6c097",
+    "decision": "accepted"
+  },
+  "claims": {
+    "route_pinned_https_client": true,
+    "redirects_disabled": true,
+    "approved_source_registry": true,
+    "source_health_attributed_from_registry": true,
+    "bounded_response_and_item_count": true,
+    "no_auto_retry": true,
+    "feeds_accepted_ingestion_contract": true,
+    "real_live_fetch_exercised": false,
+    "claim_typing_or_dedup_or_corroboration": false,
+    "opportunity_scoring": false,
+    "world_monitor_connector": false,
+    "mutation_or_action_or_model_or_persistence": false,
+    "live_wiring": false,
+    "phase9_exit": false,
+    "full_onyx_prd_complete": false,
+    "e1_e5_ready": true,
+    "external_e6_accepted": false
+  },
+  "verification": {
+    "test_files": 23,
+    "passed": 472,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "subtests_passed": 80
+  },
+  "effects": {
+    "default_off_import_persistent_writes": 0,
+    "default_off_import_network_calls": 0,
+    "default_off_import_process_calls": 0,
+    "default_off_import_model_calls": 0,
+    "action_dispatches": 0,
+    "live_surface_changes": 0
+  },
+  "limitations": [
+    "Default-off and not wired to V13, startup, voice, UI or dashboard.",
+    "The real network fetch against live sources is owner-gated (source registration, egress, consent) and is NOT exercised by this acceptance; the contract is verified with an injected transport only.",
+    "Performs no claim typing, deduplication or corroboration (the accepted ingestion contract does this on the output), and no opportunity scoring.",
+    "Has no mutation, action, model or persistence primitive; a fetched item is data only and can never become a trade.",
+    "World Monitor connector remains BLOCKED_BY_LICENSE and is not implemented.",
+    "Phase 9 exit and full Onyx PRD completion remain pending."
+  ],
+  "artifacts": [
+    {
+      "path": "core/phase9_live_ingestion_v1.py",
+      "bytes": 15259,
+      "sha256": "e666eb00dd400fc710eeb8ec23c516f163a28bebf19f2ecb7ca78e594162dc8b"
+    },
+    {
+      "path": "tests/test_phase9_live_ingestion_v1.py",
+      "bytes": 15246,
+      "sha256": "94f0a54cd41ea17fce2ce9c8561f6c944aae2f57feb0862bb42a98434fc11008"
+    },
+    {
+      "path": "scripts/verify_phase9_live_ingestion_v1.py",
+      "bytes": 7691,
+      "sha256": "11e1baf27ee27ec5bb5a1d41e1d85865f4e28e20076b15bf465a13aa346f16cc"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0047-phase9-live-ingestion-v1.md",
+      "bytes": 3694,
+      "sha256": "97d776810104e63e9a32d1a7fe1bbe081ed7c14e6c30169316023d1e4c330ac9"
+    },
+    {
+      "path": "docs/onyx/research/PHASE9_LIVE_INGESTION_V1_SOURCES.md",
+      "bytes": 2800,
+      "sha256": "37e4677e041cc05974f5b3d7b1b2d085b5ed02523f43974310d275f6a1a44497"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase9-live-ingestion-v1/PHASE9_LIVE_INGESTION_V1_CHECKPOINT.md",
+      "bytes": 3846,
+      "sha256": "9409378939cfa51c036394763a83c9b7ff0e3b58a410f4fd423e6a9bb079b1ab"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase9-live-ingestion-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 1363,
+      "sha256": "9be57b49b5940b6859621436a6985e1d1b85b94255587eb97850b782e59b5f2e"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase9-live-ingestion-v1/cumulative-selection.json",
+      "bytes": 2775,
+      "sha256": "a864be14b8ac1edfb26a27ff1529c688d88b8117f7afc60e2dff94b86d82331e"
+    }
+  ],
+  "artifact_root_sha256": "fc1611e4ac1c896a637bab525df0d066e2eecf7f860f8f0766f4312c6f920d6a"
+}

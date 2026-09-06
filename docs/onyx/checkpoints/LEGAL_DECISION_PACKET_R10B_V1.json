@@ -1,0 +1,169 @@
+{
+  "schema": "OnyxLegalDecisionPacket.v1",
+  "candidate": {
+    "name": "ONYX-1.1.9-V49-R10B",
+    "source_root_sha256": "f9b169d15a964cd25c151dfca0e2ef807229761a6325dab5005c3a93c6487a50",
+    "bundle_root_sha256": "d8ce24ddd991c114367707eb990caaf7e4119cd4650c99fed2ac8a56e8826635",
+    "sbom_sha256": "b335a9a8b33f287bd9b8e91dba7d0ef20bfa8cf163701f2134bd8cb8ee799dd3",
+    "compliance_receipt_sha256": "7aeefaeebb22a1becb93b0a568756234918c259a408dfaae6a9a7dc33ddb6e6f"
+  },
+  "status": "ENGINEERING_RECONCILIATION_ONLY",
+  "legal_approval_granted": false,
+  "public_release_eligible": false,
+  "noassertion_summary": {
+    "sbom_rows": 8,
+    "tag_bound_engineering_candidates": 7,
+    "substantively_unresolved": 1,
+    "legally_approved": 0
+  },
+  "tag_bound_candidates": [
+    {
+      "package": "colorama",
+      "version": "0.4.6",
+      "spdx_candidate": "BSD-3-Clause",
+      "upstream_repository": "https://github.com/tartley/colorama",
+      "upstream_ref": "0.4.6",
+      "upstream_commit": "3de9f013df4b470069d03d250224062e8cf15c49",
+      "comparison": "raw_exact",
+      "license_files": [
+        {
+          "upstream_path": "LICENSE.txt",
+          "upstream_sha256": "cac35c02686e5d04a5a7140bfb3b36e73aed496656e891102e428886d7930318",
+          "shipped_path": "colorama-0.4.6.dist-info/licenses/LICENSE.txt",
+          "shipped_sha256": "cac35c02686e5d04a5a7140bfb3b36e73aed496656e891102e428886d7930318"
+        }
+      ],
+      "legal_disposition": "REQUIRED"
+    },
+    {
+      "package": "importlib_metadata",
+      "version": "8.7.0",
+      "spdx_candidate": "Apache-2.0",
+      "upstream_repository": "https://github.com/python/importlib_metadata",
+      "upstream_ref": "v8.7.0",
+      "upstream_commit": "708dff4f1ab89bdd126e3e8c56098d04282c5809",
+      "comparison": "raw_exact",
+      "license_files": [
+        {
+          "upstream_path": "LICENSE",
+          "upstream_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "shipped_path": "importlib_metadata-8.7.0.dist-info/licenses/LICENSE",
+          "shipped_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        }
+      ],
+      "legal_disposition": "REQUIRED"
+    },
+    {
+      "package": "itsdangerous",
+      "version": "2.2.0",
+      "spdx_candidate": "BSD-3-Clause",
+      "upstream_repository": "https://github.com/pallets/itsdangerous",
+      "upstream_ref": "2.2.0",
+      "upstream_commit": "096c8d42545d3b68ea21a4f890fb2b2d8979c0bd",
+      "comparison": "raw_exact",
+      "license_files": [
+        {
+          "upstream_path": "LICENSE.txt",
+          "upstream_sha256": "63af09891b6be8ad1a4252ed43af0f4efba7fc948e228367bed7f3c5ae0b09d7",
+          "shipped_path": "itsdangerous-2.2.0.dist-info/LICENSE.txt",
+          "shipped_sha256": "63af09891b6be8ad1a4252ed43af0f4efba7fc948e228367bed7f3c5ae0b09d7"
+        }
+      ],
+      "legal_disposition": "REQUIRED"
+    },
+    {
+      "package": "markdown-it-py",
+      "version": "4.2.0",
+      "spdx_candidate": "MIT",
+      "upstream_repository": "https://github.com/executablebooks/markdown-it-py",
+      "upstream_ref": "v4.2.0",
+      "upstream_commit": "36c5f547144df2d01970a5792d68c71a3380b227",
+      "comparison": "raw_exact",
+      "license_files": [
+        {
+          "upstream_path": "LICENSE",
+          "upstream_sha256": "4a2260d6e2cd0f5a151a1e86dbfe7d3ed552b1e2beabf9941c1ba5c49cbce484",
+          "shipped_path": "markdown_it_py-4.2.0.dist-info/licenses/LICENSE",
+          "shipped_sha256": "4a2260d6e2cd0f5a151a1e86dbfe7d3ed552b1e2beabf9941c1ba5c49cbce484"
+        },
+        {
+          "upstream_path": "LICENSE.markdown-it",
+          "upstream_sha256": "792c48c5a849a15fdf9e37e8bcf9e6d1dd13b32b46c642a748a0a46a9919d473",
+          "shipped_path": "markdown_it_py-4.2.0.dist-info/licenses/LICENSE.markdown-it",
+          "shipped_sha256": "792c48c5a849a15fdf9e37e8bcf9e6d1dd13b32b46c642a748a0a46a9919d473"
+        }
+      ],
+      "legal_disposition": "REQUIRED"
+    },
+    {
+      "package": "mdurl",
+      "version": "0.1.2",
+      "spdx_candidate": "MIT",
+      "upstream_repository": "https://github.com/executablebooks/mdurl",
+      "upstream_ref": "0.1.2",
+      "upstream_commit": "596bf1c8752de45fa576a52c315d6d8cc5bb1a4e",
+      "comparison": "raw_exact",
+      "license_files": [
+        {
+          "upstream_path": "LICENSE",
+          "upstream_sha256": "7c605df6e28667a9603118e98274f64a49ce3eed0d26fccce9534a345e0ef955",
+          "shipped_path": "mdurl-0.1.2.dist-info/LICENSE",
+          "shipped_sha256": "7c605df6e28667a9603118e98274f64a49ce3eed0d26fccce9534a345e0ef955"
+        }
+      ],
+      "legal_disposition": "REQUIRED"
+    },
+    {
+      "package": "pdfplumber",
+      "version": "0.11.10",
+      "spdx_candidate": "MIT",
+      "upstream_repository": "https://github.com/jsvine/pdfplumber",
+      "upstream_ref": "v0.11.10",
+      "upstream_commit": "7d4f2f582f2d99f9e60ba522fdf7afd2f6d54c62",
+      "comparison": "raw_exact",
+      "license_files": [
+        {
+          "upstream_path": "LICENSE.txt",
+          "upstream_sha256": "0d48994da4d1321e395b5e64a724ed4dec63fb96b88ac5b88fc014771e690821",
+          "shipped_path": "pdfplumber-0.11.10.dist-info/licenses/LICENSE.txt",
+          "shipped_sha256": "0d48994da4d1321e395b5e64a724ed4dec63fb96b88ac5b88fc014771e690821"
+        }
+      ],
+      "legal_disposition": "REQUIRED"
+    },
+    {
+      "package": "pycaw",
+      "version": "20251023",
+      "spdx_candidate": "MIT",
+      "upstream_repository": "https://github.com/AndreMiras/pycaw",
+      "upstream_ref": "v20251023",
+      "upstream_commit": "97adea4212eb52d16bce9ad87becf82d2084469a",
+      "comparison": "utf8_lf_normalized_exact",
+      "license_files": [
+        {
+          "upstream_path": "LICENSE",
+          "upstream_sha256": "e58ee129029562365d1c38a7537fa271cb5f569f9d698965cfc0c1450efb01eb",
+          "shipped_path": "pycaw-20251023.dist-info/licenses/LICENSE",
+          "shipped_sha256": "5a5ad52784ea895fc05dbdd19f661a08b7260818e17ed26177a9f36e4448753c",
+          "shipped_normalized_sha256": "e58ee129029562365d1c38a7537fa271cb5f569f9d698965cfc0c1450efb01eb"
+        }
+      ],
+      "legal_disposition": "REQUIRED"
+    }
+  ],
+  "unresolved": [
+    {
+      "package": "odfpy",
+      "version": "1.4.1",
+      "upstream_repository": "https://github.com/eea/odfpy",
+      "upstream_ref": "release-1.4.1",
+      "upstream_commit": "8aa4dddae48c76d5cb6712a94d15a1beef6fa4e5",
+      "upstream_setup_sha256": "6cdac33d204d9b0192916cfb740259345469d3fd2800644a7848bac27c087f28",
+      "shipped_notice_path": "odfpy-1.4.1.dist-info/NOTICE-ONYX-SUPPLEMENTAL-LEGAL-EVIDENCE.txt",
+      "shipped_notice_sha256": "89edbc71947a34a323d1e3be86fd72cc6a8f942800e65d9c467cceebe0509b7e",
+      "spdx_candidate": null,
+      "reason": "Upstream release metadata presents Apache and GPL-family alternatives or combinations; the governing choice and required authoritative texts are not approved.",
+      "legal_disposition": "REQUIRED"
+    }
+  ]
+}

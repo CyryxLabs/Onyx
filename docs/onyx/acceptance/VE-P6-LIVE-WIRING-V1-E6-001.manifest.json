@@ -1,0 +1,47 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P6-LIVE-WIRING-V1-E6-001",
+  "decision": "accepted",
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "candidate_manifest_sha256": "d98cdd73ae056e3afe5eac2976565d8b301fb1410a8b0498f04c6f7e8c2db6ee",
+  "artifact_root_sha256": "272143e6419ca5ef242916569aee8e1c18e01317ba638c10dc336e99283c0dc8",
+  "artifact_count": 5,
+  "frozen_anchors": 18,
+  "lifecycle": {
+    "patched_seams": 3,
+    "protected_seams": 3
+  },
+  "results": {
+    "focused": {
+      "passed": 17,
+      "failed": 0
+    },
+    "cumulative": {
+      "passed": 264,
+      "failed": 0
+    }
+  },
+  "phase5_exit_entry": {
+    "acceptance_id": "VE-P5-EXIT-CANDIDATE-V2-E6-001",
+    "record_sha256": "052426cc0d62aad20af4ee8f1810d0729698fb0dd74e95cb76c1bbf0f50404d3",
+    "candidate_manifest_sha256": "b2cf8d781fc1f72a375be444c24ad74c4e59b910adab765a48c7c7b59ae15d2b",
+    "evidence_root_sha256": "2255b9a8a5315f99ab376f7f32d22ef8d39e6c2c4039a9ff77afa4ddf75e5fa6",
+    "phase6_unlocked": false
+  },
+  "v9_chain": {
+    "candidate_manifest_sha256": "38de625b7725dab7aa9c7906f7f3164687f1f20a0cca6e683fe64145bb53142a",
+    "evidence_root_sha256": "88307dbbf5ac2f3d1656549db94cd1293103a12b38ba8d157271f71700c5123d",
+    "v8_binds_exact_v7": true,
+    "wiring_imported_or_enabled": false
+  },
+  "scope": "phase6-live-wiring-v1-default-off-unwired-no-live-activation",
+  "default_off": true,
+  "live_wiring": false,
+  "network_calls": 0,
+  "phase6_exit": false
+}

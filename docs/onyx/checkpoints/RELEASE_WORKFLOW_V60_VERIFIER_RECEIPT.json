@@ -1,0 +1,13 @@
+{
+  "schema": "onyx.release-workflow-v60-verifier-receipt.v1",
+  "release_path": "tests/fixtures/release_workflow_transition_v60.json",
+  "release_sha256": "79521716c4c0cc7e835068d3441261123699096e20aaa66c448f21c8917ca49c",
+  "release_root_sha256": "d2f98dd01391d20fbe44259cff3201115cc2dc6f96ca8b9db0fd3b1bdfb09ba7",
+  "predecessor_sha256": "3ee33cfbe225b3008d053da73d05bff8f87420f1557b8e2ffa1f356e0f3ffe43",
+  "verifier_path": "scripts/verify_release_workflow_v60.py",
+  "verifier_sha256": "8c5e52e1a77fc609528371fc6344fbe93335a717dc8b75a592ad05e0edec9edb",
+  "test_path": "tests/test_release_workflow_transition_v60.py",
+  "test_sha256": "49cb34fe28ee0d32d66cd886ed0ab9d4e62d20f721af8a2d1fea8ac35c901d1f",
+  "chronology": "normal_successor",
+  "scope": "current-v4-v35-release-v60-retirement-v19-closure"
+}

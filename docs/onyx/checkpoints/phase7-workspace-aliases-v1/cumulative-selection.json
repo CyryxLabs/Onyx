@@ -1,0 +1,73 @@
+{
+  "schema": "onyx.phase7.workspace-aliases.v1.cumulative-selection",
+  "execution": "one-test-file-per-fresh-python-process",
+  "expected": {
+    "test_files": 7,
+    "passed": 160,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 9,
+    "subtests_passed": 113
+  },
+  "explained_skips": [
+    {
+      "path": "tests/test_control_plane.py",
+      "count": 1,
+      "reason": "POSIX mode assertions are unavailable on Windows"
+    },
+    {
+      "path": "tests/test_workspace_registry_audit.py",
+      "count": 1,
+      "reason": "FIFO creation is unavailable on Windows"
+    },
+    {
+      "path": "tests/test_artifact_service.py",
+      "count": 7,
+      "reason": "POSIX FIFO, link-count, quarantine, restart and crash contracts are unavailable on Windows"
+    }
+  ],
+  "tests": [
+    {
+      "path": "tests/test_phase7_workspace_aliases_v1.py",
+      "passed": 22,
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_control_plane.py",
+      "passed": 31,
+      "skipped": 1,
+      "subtests_passed": 52
+    },
+    {
+      "path": "tests/test_workspace_registry.py",
+      "passed": 10,
+      "skipped": 0,
+      "subtests_passed": 10
+    },
+    {
+      "path": "tests/test_workspace_registry_security.py",
+      "passed": 8,
+      "skipped": 0,
+      "subtests_passed": 11
+    },
+    {
+      "path": "tests/test_workspace_registry_audit.py",
+      "passed": 18,
+      "skipped": 1,
+      "subtests_passed": 37
+    },
+    {
+      "path": "tests/test_artifact_service.py",
+      "passed": 51,
+      "skipped": 7,
+      "subtests_passed": 0
+    },
+    {
+      "path": "tests/test_credentials.py",
+      "passed": 20,
+      "skipped": 0,
+      "subtests_passed": 3
+    }
+  ]
+}

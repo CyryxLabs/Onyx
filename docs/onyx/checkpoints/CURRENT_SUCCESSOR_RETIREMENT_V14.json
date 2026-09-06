@@ -1,0 +1,37 @@
+{
+  "schema": "onyx.current-successor-retirement.v14",
+  "issued_at": "2026-08-11T15:21:00-04:00",
+  "predecessor": {
+    "path": "docs/onyx/checkpoints/CURRENT_SUCCESSOR_RETIREMENT_V13.json",
+    "sha256": "17edde3d63686916335e920df708e07c0985830ae4a4f77f60cb26091ba62735"
+  },
+  "policy": {
+    "historical_tests_are_rewritten": false,
+    "historical_hashes_are_rebound": false,
+    "registered_nodes_must_remain_collected": true,
+    "successor_sources_are_sha256_bound": true,
+    "successor_tests_must_execute": true
+  },
+  "additional_claims": [
+    {
+      "id": "release-v52-to-v53-portable-test-contract",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_freeze_release_source_v52.py::test_freezer_selects_phase5_v51_and_release_v52_authorities",
+        "tests/test_release_workflow_transition_v52.py::test_release_v52_authenticates_legal_evidence_successor"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_freeze_release_source_v53.py",
+          "sha256": "1e32ef0ba5ca6a08dbc40b97472c97bc7afcdbbb39c3504e046bca6788f83b13"
+        },
+        {
+          "path": "tests/test_release_workflow_transition_v53.py",
+          "sha256": "4c840e68d9bd7cbf25f963dc84b31e496ace0e8e6b148f586563ad0f7db85a21"
+        }
+      ],
+      "validated_tests": 2,
+      "reason": "Release V53 preserves immutable V52 evidence while correcting cross-platform portable security tests to exercise the sealed POSIX authority and a symlink-neutral runtime endpoint."
+    }
+  ]
+}

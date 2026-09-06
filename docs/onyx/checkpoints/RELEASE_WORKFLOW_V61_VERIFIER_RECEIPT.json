@@ -1,0 +1,13 @@
+{
+  "schema": "onyx.release-workflow-v61-verifier-receipt.v1",
+  "release_path": "tests/fixtures/release_workflow_transition_v61.json",
+  "release_sha256": "b6fa425580699ce9fa27efcb54f9bfcab759284c21b3b7e4de53dd44735d3779",
+  "release_root_sha256": "00dd14ca8ab177dd3e122042b5833cb9eb2c1ef74bc117409801a9df4c557050",
+  "predecessor_sha256": "79521716c4c0cc7e835068d3441261123699096e20aaa66c448f21c8917ca49c",
+  "verifier_path": "scripts/verify_release_workflow_v61.py",
+  "verifier_sha256": "7a5996609ffd2cc6a66ace88fdab0cf1c8567e25a0d954de00490dc4a7594c84",
+  "test_path": "tests/test_release_workflow_transition_v61.py",
+  "test_sha256": "2861345215004507e81844ee08823da3af074af6acebbf15b6c6e76b7673d9b0",
+  "chronology": "normal_successor",
+  "scope": "living-liquid-metal-v9-hud-v36-packaged-v5-closure"
+}

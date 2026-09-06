@@ -1,0 +1,467 @@
+{
+  "schema": "onyx.phase5.exit-candidate.v1",
+  "candidate": "phase5-exit-candidate-v1",
+  "created_at": "2026-07-23",
+  "status": "candidate-e1-e5-e6-pending",
+  "claims": {
+    "e1_e5_candidate": true,
+    "external_e6_accepted": false,
+    "phase5_exit_complete": false,
+    "phase6_unlocked": false,
+    "live_activated": false,
+    "runtime_authority_added": false,
+    "onyx_complete": false
+  },
+  "rollback": {
+    "kind": "evidence-only",
+    "application_restart_required": false,
+    "runtime_state_created": false,
+    "integration_v3_transition_retained": true
+  },
+  "startup_closure": [
+    ".github/workflows/release-packages.yml",
+    "packaging/linux/onyx.desktop",
+    "packaging/macos/entitlements.plist",
+    "packaging/onyx.spec",
+    "packaging/windows/onyx.iss",
+    "scripts/bootstrap_onyx_live_v8.pyw",
+    "scripts/build_release.py",
+    "scripts/check_release_eligibility.py",
+    "scripts/launch_onyx.pyw",
+    "scripts/launch_onyx_live_v1.pyw",
+    "scripts/launch_onyx_live_v2.pyw",
+    "scripts/launch_onyx_live_v3.pyw",
+    "scripts/launch_onyx_live_v4.pyw",
+    "scripts/launch_onyx_live_v4_active.cmd",
+    "scripts/launch_onyx_live_v4_rollback.cmd",
+    "scripts/launch_onyx_live_v5.pyw",
+    "scripts/launch_onyx_live_v5_active.cmd",
+    "scripts/launch_onyx_live_v5_rollback.cmd",
+    "scripts/launch_onyx_live_v6.pyw",
+    "scripts/launch_onyx_live_v6_active.cmd",
+    "scripts/launch_onyx_live_v6_rollback.cmd",
+    "scripts/launch_onyx_live_v7.pyw",
+    "scripts/launch_onyx_live_v7_active.cmd",
+    "scripts/launch_onyx_live_v7_rollback.cmd",
+    "scripts/launch_onyx_live_v8.pyw",
+    "scripts/launch_onyx_live_v8_active.cmd",
+    "scripts/launch_onyx_live_v8_rollback.cmd",
+    "setup.py"
+  ],
+  "acceptances": [
+    {
+      "id": "VE-P5-RUNTIME-V10-E6-001",
+      "record_path": "docs/onyx/acceptance/VE-P5-RUNTIME-V10-E6-001.md",
+      "record_sha256": "135be5fc3e97e81466f398fcc9211da767c0e3fb251387588dfd836d02b28de0",
+      "acceptance_manifest_path": "docs/onyx/VE-ACCEPTANCE-P5-RUNTIME-V10-E6-001.sha256",
+      "acceptance_manifest_sha256": "44d4a70aa293524f494d503b7cc78a0e935520afc3b672653850ba4b8a1c8566",
+      "scope": "isolated-default-off-runtime-core"
+    },
+    {
+      "id": "VE-P51-GRANTS-R11-E6-001",
+      "record_path": "docs/onyx/acceptance/VE-P51-GRANTS-R11-E6-001.md",
+      "record_sha256": "ff703416675653b4f1611e7f9ee633fac974c3bdf4225a16d84f302233b824d4",
+      "acceptance_manifest_path": "docs/onyx/VE-ACCEPTANCE-P51-GRANTS-R11-E6-001.sha256",
+      "acceptance_manifest_sha256": "36fb198e27ebb7e8e8bb97885d8a823d2a291ed573da3d5513d950715b113bb0",
+      "scope": "default-off-shadow-only-session-grants"
+    },
+    {
+      "id": "VE-P52-APPROVAL-INBOX-V15-E6-001",
+      "record_path": "docs/onyx/acceptance/VE-P52-APPROVAL-INBOX-V15-E6-001.md",
+      "record_sha256": "45d9d215c0fd8024f730ec3f4436507c411658ea1e8f6d26e133ce707bc3d908",
+      "acceptance_manifest_path": "docs/onyx/VE-ACCEPTANCE-P52-APPROVAL-INBOX-V15-E6-001.sha256",
+      "acceptance_manifest_sha256": "2effb13b8d5dc85e62108bd67698db6d9531547d22731a22f18f6f99d47ba3a6",
+      "scope": "default-off-read-only-non-authority-inbox"
+    },
+    {
+      "id": "VE-P53-CAPABILITY-NEXUS-V32-E6-001",
+      "record_path": "docs/onyx/acceptance/VE-P53-CAPABILITY-NEXUS-V32-E6-001.md",
+      "record_sha256": "b75ccb2b4bc58a4c4d72445d46eb66e550636cbb0deb02ecef304c8327f9d1dc",
+      "acceptance_manifest_path": "docs/onyx/VE-ACCEPTANCE-P53-CAPABILITY-NEXUS-V32-E6-001.sha256",
+      "acceptance_manifest_sha256": "b1e181bf76d8d88b8428bb912bfaabdbdf6ec54c27d9fbc05d998b195a253d51",
+      "scope": "default-off-shadow-only-capability-nexus"
+    },
+    {
+      "id": "VE-P5-INTEGRATION-V3-E6-001",
+      "record_path": "docs/onyx/acceptance/VE-P5-INTEGRATION-V3-E6-001.md",
+      "record_sha256": "03e23fca1a5a6772a2e5b70611b9329808bb933a386271882ed32462fcc7f82b",
+      "acceptance_manifest_path": "docs/onyx/VE-ACCEPTANCE-P5-INTEGRATION-V3-E6-001.sha256",
+      "acceptance_manifest_sha256": "3440e267c4733dc37dfd553ab22aad3a7da5950667e0f2d7f3735f08b048b39a",
+      "scope": "default-off-transition-handoff"
+    }
+  ],
+  "files": [
+    {
+      "path": "docs/onyx/adrs/ADR-0018-phase5-exit-candidate-v1.md",
+      "role": "candidate-adr",
+      "sha256": "69d5e72d7dfa0fe7ff594361c401ac00cbe08ab8f7475d0f9178e7a6fe5c3cf5"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase5-exit-candidate-v1/PHASE5_EXIT_CANDIDATE_V1_CHECKPOINT.md",
+      "role": "candidate-checkpoint",
+      "sha256": "8788ce0185800725a7af8e7754dc72a12890b89e62c0cb4f1ef4a5c553d1688d"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase5-exit-candidate-v1/CAPABILITY_MATRIX_DELTA.md",
+      "role": "candidate-capability-matrix-delta",
+      "sha256": "e01e72ced9372a01199c5da6e25e8aeb1dcfe3aabfccee4a193c2ffdf14f22ca"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase5-exit-candidate-v1/VERIFICATION_EVIDENCE_DELTA.md",
+      "role": "candidate-verification-evidence-delta",
+      "sha256": "4a803bf3478d635645ba7e425f769f129ca2257bb47020ad05e36765b5a8f34e"
+    },
+    {
+      "path": "scripts/verify_phase5_exit_candidate_v1.py",
+      "role": "candidate-verifier",
+      "sha256": "a49f23a28c304c6ee62125636c3b30d1af35619716d00e8d33147b002a29f01c"
+    },
+    {
+      "path": "tests/test_phase5_exit_candidate_v1.py",
+      "role": "candidate-tests",
+      "sha256": "e7700a8450f82fc77ef32719b3cbe0e0299e865435e83db746c3a77a88ce7c73"
+    },
+    {
+      "path": "docs/onyx/CAPABILITY_MATRIX.md",
+      "role": "historical-projection-full-file",
+      "sha256": "2ba2507ccbf4ff5cae4a38609366f2c547bf47446527cf14ded3636806c10a87"
+    },
+    {
+      "path": "docs/onyx/VERIFICATION_EVIDENCE.md",
+      "role": "historical-projection-full-file",
+      "sha256": "7f1d216fc8fb5e9b02f40b1bab21c80c79746c2dcc1171df4829708494e4a2ad"
+    },
+    {
+      "path": ".github/workflows/release-packages.yml",
+      "role": "startup-closure",
+      "sha256": "84409f0bc2a24ce7c0a6db11419b07d680674df7e77836b51b7cd5509aa03cab"
+    },
+    {
+      "path": "packaging/linux/onyx.desktop",
+      "role": "startup-closure",
+      "sha256": "0fc6da87140a3f5455eab5995ab5736edf998fd63f98d860359da850efe61724"
+    },
+    {
+      "path": "packaging/macos/entitlements.plist",
+      "role": "startup-closure",
+      "sha256": "3c70bd8a436460de7e999674c5c924231cbfb4f7d142ff7b1a94f9ee772144b4"
+    },
+    {
+      "path": "packaging/onyx.spec",
+      "role": "startup-closure",
+      "sha256": "2ab5ade541b6cd8b9c6edcd52320535d7cad912d150169156810330c577506b3"
+    },
+    {
+      "path": "packaging/windows/onyx.iss",
+      "role": "startup-closure",
+      "sha256": "b3326de599c2ebf13f0ba79452e68e6c373fecb1d94cc318626de9c0a0fd4392"
+    },
+    {
+      "path": "scripts/bootstrap_onyx_live_v8.pyw",
+      "role": "startup-closure",
+      "sha256": "896c9755a529354868691cc739864113f2644e7594f009dae38ab1dd3eb91adf"
+    },
+    {
+      "path": "scripts/build_release.py",
+      "role": "startup-closure",
+      "sha256": "1d06830f743c818fb89fc6571efa971a35a9a46f005661b4d9cb6c6e6ab2c5e3"
+    },
+    {
+      "path": "scripts/check_release_eligibility.py",
+      "role": "startup-closure",
+      "sha256": "8a762c3e679f108f3c1a166f3820c4aafe0f774a8bd9d37e319ae47e576917a7"
+    },
+    {
+      "path": "scripts/launch_onyx.pyw",
+      "role": "startup-closure",
+      "sha256": "34808ff75aee0418fb0c2af9107e51fffbdc62ef43b04885f6a1df9b94151451"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v1.pyw",
+      "role": "startup-closure",
+      "sha256": "d920ba4fb222532e6a54ba6cc51bb52801ed5ce693e77c12282e4fa65bb09d9d"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v2.pyw",
+      "role": "startup-closure",
+      "sha256": "b614616b3efc188b8179596e16d1a209c60d6cefefbb429146d6c9775d770e3b"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v3.pyw",
+      "role": "startup-closure",
+      "sha256": "86df14f853654053984623bef3557e205c28898b36b8c6ff02558f834877fc6a"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v4.pyw",
+      "role": "startup-closure",
+      "sha256": "a7bfc190cb95d49e871fcd312f32badbd1a5a6d18393ca725d214f1f66769af8"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v4_active.cmd",
+      "role": "startup-closure",
+      "sha256": "0b2c04b227027fe06795a176ac11e929e0da33863ff597df1331f772623b7cf2"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v4_rollback.cmd",
+      "role": "startup-closure",
+      "sha256": "87a90f03b1b35926288ef0db1235658d4a4c3fcd4eb3dad53c5a655b4c4fe79f"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v5.pyw",
+      "role": "startup-closure",
+      "sha256": "1b468782ad6d1784eaaad5e188a63a84ff00e52505ef1602cca01c6b320c98a1"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v5_active.cmd",
+      "role": "startup-closure",
+      "sha256": "b0b897aa345e7776ac48f2a7adf81c5f6fd98597ff3f6e1faeccfa658c2ca1a1"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v5_rollback.cmd",
+      "role": "startup-closure",
+      "sha256": "51e332ba23c55248c3992b8e516abb6d36207a58e98fd5a0585be2b745ed522d"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v6.pyw",
+      "role": "startup-closure",
+      "sha256": "de6aff494b5c9c22dc93e209c50cfa5710a6d7012b217d263c22bca3076eeb0f"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v6_active.cmd",
+      "role": "startup-closure",
+      "sha256": "525aa4d5e156dcda0bdd72fe3dfe5d429d3d658a495e249ef9235940528e587e"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v6_rollback.cmd",
+      "role": "startup-closure",
+      "sha256": "05818c5fd17e923d009fc408a834dbb2dd53dc48b9a296cd141ab1a4da40eb94"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v7.pyw",
+      "role": "startup-closure",
+      "sha256": "a5dae76af4b09af90aa89b3638e2329fbed8c79a50fbcafa0a6179f38d82c531"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v7_active.cmd",
+      "role": "startup-closure",
+      "sha256": "c3a144c6913c6c77aed0752d44913966b4b3eabf1c014e20761c8dec1adea1ae"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v7_rollback.cmd",
+      "role": "startup-closure",
+      "sha256": "b6312849e2687fe152c5ae2667ce130fac1475ae2ca2cb2e53e53270c7777e29"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v8.pyw",
+      "role": "startup-closure",
+      "sha256": "ded88457c5ed4aa593748dffb8ca7233d879b0277d5a1fab054a50b20b46209b"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v8_active.cmd",
+      "role": "startup-closure",
+      "sha256": "e5fc573933b59bedad413989b2a28e2203ae14aed5a7d30f4784dda7aa1ab01c"
+    },
+    {
+      "path": "scripts/launch_onyx_live_v8_rollback.cmd",
+      "role": "startup-closure",
+      "sha256": "8989b85827ee2c7dce553f3ab9b125dfaa6e532095018b98b9f4fe262c3899c1"
+    },
+    {
+      "path": "setup.py",
+      "role": "startup-closure",
+      "sha256": "2c21a273cb2a05fb587176e5a0231150dcd31ec114ed6c144173c60d69a4d8e5"
+    },
+    {
+      "path": "docs/onyx/acceptance/VE-P5-RUNTIME-V10-E6-001.md",
+      "role": "accepted-e6-record",
+      "sha256": "135be5fc3e97e81466f398fcc9211da767c0e3fb251387588dfd836d02b28de0"
+    },
+    {
+      "path": "docs/onyx/VE-ACCEPTANCE-P5-RUNTIME-V10-E6-001.sha256",
+      "role": "accepted-e6-manifest",
+      "sha256": "44d4a70aa293524f494d503b7cc78a0e935520afc3b672653850ba4b8a1c8566"
+    },
+    {
+      "path": "core/phase5_runtime_v10.py",
+      "role": "accepted-component",
+      "sha256": "f80fd636e145e669cc1ea76cfc024fcc5d385451cc1ef8624f7c9d8e0ac3f439"
+    },
+    {
+      "path": "tests/test_phase5_runtime_v10.py",
+      "role": "accepted-component-tests",
+      "sha256": "b2a6d9524d2d5d1b85af3325462f7bd28793180cee0ea4295d6600750615cfff"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase5-runtime-v10/manifest.json",
+      "role": "accepted-component-root",
+      "sha256": "1cc83a994194b3ecb87bf43a91db4219cf480d48da7821e7057eb4e068ca01cb"
+    },
+    {
+      "path": "scripts/verify_phase5_runtime_v10_acceptance.py",
+      "role": "external-verifier",
+      "sha256": "71d7db0b01c1fb2c3b133302a1b3877bd04b549f136f7a06e8f2f26371fc3a2c"
+    },
+    {
+      "path": "docs/onyx/acceptance/VE-P51-GRANTS-R11-E6-001.md",
+      "role": "accepted-e6-record",
+      "sha256": "ff703416675653b4f1611e7f9ee633fac974c3bdf4225a16d84f302233b824d4"
+    },
+    {
+      "path": "docs/onyx/VE-ACCEPTANCE-P51-GRANTS-R11-E6-001.sha256",
+      "role": "accepted-e6-manifest",
+      "sha256": "36fb198e27ebb7e8e8bb97885d8a823d2a291ed573da3d5513d950715b113bb0"
+    },
+    {
+      "path": "core/session_grants_v11.py",
+      "role": "accepted-component",
+      "sha256": "0f4ad25b72a9c64064dfc946afab6d2515edff1f91171d46d54e36e38c6cd159"
+    },
+    {
+      "path": "docs/onyx/VE-SOURCE-P51-GRANTS-R11-001.sha256",
+      "role": "accepted-component-root",
+      "sha256": "b4759d8840611e2affbd322831ae8dc88ff84ac09701a24b4a6f56df66463071"
+    },
+    {
+      "path": "scripts/verify_phase5_grants_r11.py",
+      "role": "external-verifier",
+      "sha256": "84a3aefcef448db543a08335d7317f161dba7c93cc8d1d5bb996cfdf844ae408"
+    },
+    {
+      "path": "docs/onyx/acceptance/VE-P52-APPROVAL-INBOX-V15-E6-001.md",
+      "role": "accepted-e6-record",
+      "sha256": "45d9d215c0fd8024f730ec3f4436507c411658ea1e8f6d26e133ce707bc3d908"
+    },
+    {
+      "path": "docs/onyx/VE-ACCEPTANCE-P52-APPROVAL-INBOX-V15-E6-001.sha256",
+      "role": "accepted-e6-manifest",
+      "sha256": "2effb13b8d5dc85e62108bd67698db6d9531547d22731a22f18f6f99d47ba3a6"
+    },
+    {
+      "path": "core/approval_inbox_v15.py",
+      "role": "accepted-component",
+      "sha256": "f9627e6b9e840dbca8e098a047e56da4647d24ef80f201c5585a41d405d52061"
+    },
+    {
+      "path": "docs/onyx/VE-SOURCE-P52-APPROVAL-INBOX-V15-001.sha256",
+      "role": "accepted-component-root",
+      "sha256": "279052fbcaf3018f7fee6733e063e94c67e90e7ce62a2a2cdc7742b55470631f"
+    },
+    {
+      "path": "scripts/verify_phase5_approval_inbox_v15_acceptance.py",
+      "role": "external-verifier",
+      "sha256": "d46e7ccf1560f7bef23c5e5ffa27deb4f6354086806398f7c042aacc120fb71b"
+    },
+    {
+      "path": "docs/onyx/acceptance/VE-P53-CAPABILITY-NEXUS-V32-E6-001.md",
+      "role": "accepted-e6-record",
+      "sha256": "b75ccb2b4bc58a4c4d72445d46eb66e550636cbb0deb02ecef304c8327f9d1dc"
+    },
+    {
+      "path": "docs/onyx/VE-ACCEPTANCE-P53-CAPABILITY-NEXUS-V32-E6-001.sha256",
+      "role": "accepted-e6-manifest",
+      "sha256": "b1e181bf76d8d88b8428bb912bfaabdbdf6ec54c27d9fbc05d998b195a253d51"
+    },
+    {
+      "path": "core/capability_nexus_v32.py",
+      "role": "accepted-component",
+      "sha256": "576eed0bda063945d33f8bcb79b338e64976ca5252af793633fe3ab667ed1fc9"
+    },
+    {
+      "path": "docs/onyx/VE-SOURCE-P53-CAPABILITY-NEXUS-V32-001.sha256",
+      "role": "accepted-component-root",
+      "sha256": "86cc174fb212f51c56b59cb9043c8cb59e765307eea2c32a7a44857f6112bfa3"
+    },
+    {
+      "path": "scripts/verify_phase5_capability_nexus_v32_acceptance.py",
+      "role": "external-verifier",
+      "sha256": "cd12e0aa97b97b39f7f8724b7df5ef3d6d561a77a5eba3d718833591a22a2f95"
+    },
+    {
+      "path": "docs/onyx/acceptance/VE-P5-INTEGRATION-V3-E6-001.md",
+      "role": "accepted-e6-record",
+      "sha256": "03e23fca1a5a6772a2e5b70611b9329808bb933a386271882ed32462fcc7f82b"
+    },
+    {
+      "path": "docs/onyx/VE-ACCEPTANCE-P5-INTEGRATION-V3-E6-001.sha256",
+      "role": "accepted-e6-manifest",
+      "sha256": "3440e267c4733dc37dfd553ab22aad3a7da5950667e0f2d7f3735f08b048b39a"
+    },
+    {
+      "path": "core/phase5_integration_v3.py",
+      "role": "accepted-component",
+      "sha256": "52d48c121da485c024811e6cd3fafbabaed971175d7cb41ad23358c5c2879b0d"
+    },
+    {
+      "path": "core/phase5_component_adapters_v3.py",
+      "role": "accepted-transitive-component",
+      "sha256": "9c570d40a410e57a18f82a4ee2c30eddfe515a0cc7798d13607d020e573e3239"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase5-integration-v3/manifest.json",
+      "role": "accepted-component-root",
+      "sha256": "9ee4b34fc87a6be5e123c83c7dd244804498891eb175b5201cf074475ff0d167"
+    },
+    {
+      "path": "scripts/verify_phase5_integration_v3_acceptance.py",
+      "role": "external-verifier",
+      "sha256": "9bc529d2434a83c4cdacc6e1f89240bb82235c996c3c606df902f921c6489056"
+    },
+    {
+      "path": "main.py",
+      "role": "unchanged-live-surface",
+      "sha256": "6b82fed0d7c932a08d2d1f8a31d7650a1b235d55085ee608fdbb7651e5f49712"
+    },
+    {
+      "path": "ui.py",
+      "role": "unchanged-live-surface",
+      "sha256": "e5768626b7eb9d162a54cd67b08b5cb7d9685fb5c0e1b8c951843a1146fc252b"
+    },
+    {
+      "path": "dashboard/server.py",
+      "role": "unchanged-live-surface",
+      "sha256": "4d3142dc9c6a78cfe76f804de2b154334da2d7790484783a993babc92300bae1"
+    }
+  ],
+  "external_verifiers": [
+    {
+      "name": "runtime-v10",
+      "path": "scripts/verify_phase5_runtime_v10_acceptance.py",
+      "execution": "integration-v3-historical-projection",
+      "args": [],
+      "marker_prefix": "P5_RUNTIME_V10_ACCEPTANCE_OK ",
+      "timeout_seconds": 300
+    },
+    {
+      "name": "grants-r11",
+      "path": "scripts/verify_phase5_grants_r11.py",
+      "execution": "proportional-r11-frozen-evidence",
+      "args": [],
+      "marker_prefix": "P51_GRANTS_R11_EVIDENCE_OK ",
+      "timeout_seconds": 180
+    },
+    {
+      "name": "approval-inbox-v15",
+      "path": "scripts/verify_phase5_approval_inbox_v15_acceptance.py",
+      "execution": "integration-v3-historical-projection",
+      "args": [],
+      "marker_prefix": "P52_APPROVAL_INBOX_V15_ACCEPTANCE_OK ",
+      "timeout_seconds": 300
+    },
+    {
+      "name": "capability-nexus-v32",
+      "path": "scripts/verify_phase5_capability_nexus_v32_acceptance.py",
+      "execution": "integration-v3-historical-projection",
+      "args": [],
+      "marker_prefix": "P53_CAPABILITY_NEXUS_V32_ACCEPTANCE_OK ",
+      "timeout_seconds": 300
+    },
+    {
+      "name": "integration-v3",
+      "path": "scripts/verify_phase5_integration_v3_acceptance.py",
+      "execution": "projected-current-transition",
+      "args": [],
+      "marker_prefix": "P5_INTEGRATION_V3_ACCEPTANCE_OK ",
+      "timeout_seconds": 300
+    }
+  ]
+}

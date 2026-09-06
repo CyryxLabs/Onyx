@@ -1,0 +1,122 @@
+{
+  "schema": "onyx.phase5.historical-execution-closure.v1",
+  "closure": "runtime-v10-e6",
+  "entrypoint": "scripts/verify_phase5_runtime_v10_acceptance.py",
+  "execution_mode": "record-candidate-projections-without-current-state-unwired-scan",
+  "files": [
+    {
+      "path": "core/phase5_runtime_v1.py",
+      "sha256": "437bff54676a5691efe2494c21e7d6812a7559726cf336e52c4d8e5ca5bbf59f"
+    },
+    {
+      "path": "core/phase5_runtime_v10.py",
+      "sha256": "f80fd636e145e669cc1ea76cfc024fcc5d385451cc1ef8624f7c9d8e0ac3f439"
+    },
+    {
+      "path": "core/phase5_runtime_v2.py",
+      "sha256": "85288ceeafaa2597a587eeb610ea2edf90e472dff993d0aa7f56e652f230c33b"
+    },
+    {
+      "path": "core/phase5_runtime_v3.py",
+      "sha256": "4665848e43478fe3e90ea2e6ab6a462e76641309d130a16127eb9f85f6c12ab2"
+    },
+    {
+      "path": "core/phase5_runtime_v4.py",
+      "sha256": "cb5b2a6768fc3da7f4d61861adebc8e3a117fe1b55b540dbfed67c12d42d0dba"
+    },
+    {
+      "path": "core/phase5_runtime_v5.py",
+      "sha256": "b181fd69d5bc7a4e08e2220a2e10fdeceb4f9cdf15fd32bdb2ad6dc85e9e4dad"
+    },
+    {
+      "path": "core/phase5_runtime_v6.py",
+      "sha256": "28996b9066d6ccc4a0461e19447dbcd89b24b2c58edddd88e40a78b9b11dece5"
+    },
+    {
+      "path": "core/phase5_runtime_v7.py",
+      "sha256": "0051d6a20cd42e898f36f51cbf6de39b793be645f44efec62a4ace0e888e5b05"
+    },
+    {
+      "path": "core/phase5_runtime_v8.py",
+      "sha256": "a3206bc5767c83bf9407f97d3ede32227eba3fe4c18d9753b69fe6b730d806d7"
+    },
+    {
+      "path": "core/phase5_runtime_v9.py",
+      "sha256": "55130494afe02bbbd52acad4d9b4e12cf09e69aeba51592b0bd97c93ccdf0da1"
+    },
+    {
+      "path": "docs/onyx/CAPABILITY_MATRIX.md",
+      "sha256": "2ba2507ccbf4ff5cae4a38609366f2c547bf47446527cf14ded3636806c10a87"
+    },
+    {
+      "path": "docs/onyx/VE-ACCEPTANCE-P5-RUNTIME-V10-E6-001.sha256",
+      "sha256": "44d4a70aa293524f494d503b7cc78a0e935520afc3b672653850ba4b8a1c8566"
+    },
+    {
+      "path": "docs/onyx/VERIFICATION_EVIDENCE.md",
+      "sha256": "7f1d216fc8fb5e9b02f40b1bab21c80c79746c2dcc1171df4829708494e4a2ad"
+    },
+    {
+      "path": "docs/onyx/acceptance/VE-P5-RUNTIME-V10-E6-001.md",
+      "sha256": "135be5fc3e97e81466f398fcc9211da767c0e3fb251387588dfd836d02b28de0"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase5-runtime-v10/PHASE5_RUNTIME_V10_CHECKPOINT.md",
+      "sha256": "7f31d7ddda750f35c7b56e0af2e3569e068229f8a236e783936c28c2fff55f0d"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase5-runtime-v10/manifest.json",
+      "sha256": "1cc83a994194b3ecb87bf43a91db4219cf480d48da7821e7057eb4e068ca01cb"
+    },
+    {
+      "path": "scripts/verify_phase5_runtime_v10_acceptance.py",
+      "sha256": "71d7db0b01c1fb2c3b133302a1b3877bd04b549f136f7a06e8f2f26371fc3a2c"
+    },
+    {
+      "path": "tests/test_phase5_runtime_v1.py",
+      "sha256": "35f56c59b661a00cf3f372397a1175971d2a4d7c1951f858f96b2816afd9ff13"
+    },
+    {
+      "path": "tests/test_phase5_runtime_v10.py",
+      "sha256": "b2a6d9524d2d5d1b85af3325462f7bd28793180cee0ea4295d6600750615cfff"
+    },
+    {
+      "path": "tests/test_phase5_runtime_v10_acceptance.py",
+      "sha256": "3d8b2c2d8be5f19adb8be681ec6267d7d631acd22115bf0fa6c53ad95b8d2883"
+    },
+    {
+      "path": "tests/test_phase5_runtime_v2.py",
+      "sha256": "1cea61a9fa841c24d002ef0b1e1f6ad23d7151ec2c30fcaf52378d017679b9e4"
+    },
+    {
+      "path": "tests/test_phase5_runtime_v3.py",
+      "sha256": "a9c6b84649f6fee85c67b77baa217e1fc365109f5face2322e0c525562469ac9"
+    },
+    {
+      "path": "tests/test_phase5_runtime_v4.py",
+      "sha256": "e8969daf1fb11b1101b73b021bb403f5ac268ef7f3cbf8b5b9adb3e3fda878c9"
+    },
+    {
+      "path": "tests/test_phase5_runtime_v5.py",
+      "sha256": "84179de1b9a93c8cbe4e55ec86c23f818f6d5f2be50ea4bdca07e6ac7bcc735a"
+    },
+    {
+      "path": "tests/test_phase5_runtime_v6.py",
+      "sha256": "14a7c5c23c855c528cdc98a40186914b94939e126b5d07fed40bae6b3bc4c930"
+    },
+    {
+      "path": "tests/test_phase5_runtime_v7.py",
+      "sha256": "2c0c198e1b7104a8adef5cc3dfac91c66915ac946289f06fbc1f3299a29e16e3"
+    },
+    {
+      "path": "tests/test_phase5_runtime_v8.py",
+      "sha256": "7d397bbd9e0cc812dafaddab6b60c5b39fc594bfd2e536b17d84e832f19276da"
+    },
+    {
+      "path": "tests/test_phase5_runtime_v9.py",
+      "sha256": "99de4fc6cf1bcefa32de48be6d76f0753980582cb461ebd203f44a6c6cd1406c"
+    }
+  ],
+  "closure_root_sha256": "b37df684730d1e18d8291a68af12af814f34aada22ebb1428fe29e5858dc7ed8"
+}
+

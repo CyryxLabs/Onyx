@@ -1,0 +1,114 @@
+{
+  "schema": "onyx.phase7.founder-command.v1",
+  "candidate": "phase7-founder-command-v1",
+  "created_at": "2026-07-23T18:30:00-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_PHASE7_FOUNDER_COMMAND_V1",
+  "enabled_value": "true",
+  "default_off": true,
+  "company_graph_entry_root": {
+    "acceptance_id": "VE-P7-APPROVED-SOURCES-COMPANY-GRAPH-V1-E6-001",
+    "candidate_manifest_sha256": "fa5fea91caf6914e559cbc22420841b602eeace0153653dc57591fb0070f23f3",
+    "artifact_root_sha256": "d9efc2186412abbf95a1cd03b901c5f797bcb7c50e6b3a6d256211dd2eeac1c3",
+    "decision": "accepted"
+  },
+  "claims": {
+    "daily_founder_brief": true,
+    "weekly_operating_review": true,
+    "portfolio_view": true,
+    "blocker_dependency_report": true,
+    "decision_queue": true,
+    "revenue_opportunity_queue": true,
+    "risk_register": true,
+    "what_changed_delta": true,
+    "recommended_top_three_actions": true,
+    "semantic_freshness_analysis": true,
+    "declared_contradiction_preservation": true,
+    "structured_status_conflict_detection": true,
+    "general_nlp_contradiction_discovery": false,
+    "invented_revenue_or_traction": false,
+    "persistent_writes": false,
+    "e1_e5_ready": true,
+    "external_e6_accepted": false,
+    "live_wiring": false,
+    "runtime_authority_added": false,
+    "phase7_exit": false,
+    "full_onyx_prd_complete": false
+  },
+  "verification": {
+    "execution": "one-test-file-per-fresh-python-process",
+    "test_files": 8,
+    "passed": 168,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "subtests_passed": 65
+  },
+  "effects": {
+    "persistent_writes": 0,
+    "persistent_reads_when_explicitly_enabled": [
+      "workspaces",
+      "capability_descriptors",
+      "artifact_index",
+      "evidence_records",
+      "claims",
+      "event_envelopes"
+    ],
+    "secret_reads": 0,
+    "url_fetches": 0,
+    "browser_launches": 0,
+    "artifact_content_reads": 0,
+    "network_calls": 0,
+    "process_calls": 0,
+    "provider_calls": 0,
+    "model_calls": 0,
+    "action_dispatches": 0,
+    "live_surface_changes": 0
+  },
+  "rollback": "Leave the exact feature flag unset; the factory returns before accepted-entry verification or graph binding and no brief is persisted.",
+  "limitations": [
+    "Candidate remains default-off and is not wired to V13, startup, voice, UI, dashboard or a scheduler.",
+    "General open-text/NLP contradiction discovery is not implemented; V1 preserves declared conflicts and detects structured incompatible statuses.",
+    "Revenue opportunities and action candidates require an exact evidence-linked governed input; none are inferred when absent.",
+    "The brief recommends but cannot execute an action.",
+    "Phase 7 is not exited and the full Onyx PRD is incomplete."
+  ],
+  "artifacts": [
+    {
+      "path": "core/phase7_founder_command_v1.py",
+      "bytes": 54234,
+      "sha256": "e56c156014f9cfa593ec973316e96c5ad311b4325b2fc7e42441cf6d48888b50"
+    },
+    {
+      "path": "tests/test_phase7_founder_command_v1.py",
+      "bytes": 24458,
+      "sha256": "6a80e78fda2893e8d3283cb3e7db5e60f23e8d807e714fe41e0f4db31149c76b"
+    },
+    {
+      "path": "scripts/verify_phase7_founder_command_v1.py",
+      "bytes": 12483,
+      "sha256": "375865c4cc783b300862aa45fc1d1456ee33dbd8b0ded975ef1ad41ccdf61639"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0032-phase7-founder-command-v1.md",
+      "bytes": 3145,
+      "sha256": "ab9c3eca964e28675f83b47aa093dd393e0a266af84ad106cdd1f1fceeb3bdb1"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase7-founder-command-v1/PHASE7_FOUNDER_COMMAND_V1_CHECKPOINT.md",
+      "bytes": 2119,
+      "sha256": "1898af6a8a58511bc68b9deb27cd7fd051e253c00d6c482b4faf2839b1a7d785"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase7-founder-command-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 1604,
+      "sha256": "4799988612ee0ca54782a7dead2ccedbca72adf0d5a75ebba4a489520bd85a35"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase7-founder-command-v1/cumulative-selection.json",
+      "bytes": 1700,
+      "sha256": "e45d110773e110c63582f052912a5e648fe33c99b662550db4f47459107bd464"
+    }
+  ],
+  "artifact_root_sha256": "d636a5192224a48a0ef09038d0cfc4e805b16798c1857d7735b9f27748e0e633"
+}

@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Onyx Dashboard</title>
+  <script src="/static/crypto.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:      #050607;
+      --panel:   #0A0D0F;
+      --surface: #11161A;
+      --border:  #1B2227;
+      --accent:  #19C7C0;
+      --adim:    rgba(15,107,104,0.22);
+      --text:    #C7C9CC;
+      --muted:   #8C949E;
+      --green:   #19C7C0;
+      --gdim:    rgba(15,107,104,0.22);
+    }
+    html, body {
+      height: 100%; background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      display: flex; flex-direction: column; overflow: hidden;
+    }
+
+    /* ── HEADER ── */
+    header {
+      flex-shrink: 0; display: flex; align-items: center; gap: 10px;
+      padding: 12px 16px; border-bottom: 1px solid var(--border);
+      background: rgba(5,6,7,0.96);
+    }
+    .logo { font-size: 15px; font-weight: 700; letter-spacing: 6px; }
+    .logo em { color: var(--accent); font-style: normal; }
+    .logo small { color: var(--muted); font-size: 7px; letter-spacing: 2px; margin-left: 6px; }
+    .pill {
+      display: flex; align-items: center; gap: 6px; padding: 4px 11px;
+      border-radius: 99px; background: var(--surface); border: 1px solid var(--border);
+      font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--muted); transition: all 0.3s;
+    }
+    .pill.on { background: var(--gdim); border-color: rgba(34,197,94,0.3); color: var(--green); }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); transition: background 0.3s; }
+    .pill.on .dot { background: var(--green); animation: blink 2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .spacer { flex: 1; }
+    .enc-badge {
+      font-size: 9px; font-weight: 700; letter-spacing: 1.5px; padding: 3px 8px;
+      border-radius: 4px; display: none;
+    }
+    .enc-badge.on  { display: block; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.25); color: var(--green); }
+    .enc-badge.off { display: block; background: rgba(255,100,100,0.08); border: 1px solid rgba(255,100,100,0.2); color: #f87171; }
+    .url { font-size: 10px; font-family: monospace; color: var(--muted); padding: 4px 9px; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; }
+
+    /* ── FEED ── */
+    main { flex: 1; overflow-y: auto; padding: 14px 16px 8px; display: flex; flex-direction: column; gap: 10px; }
+    main::-webkit-scrollbar { width: 3px; }
+    main::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    .msg { max-width: 82%; padding: 10px 14px; border-radius: 14px; font-size: 14px; line-height: 1.55; animation: pop 0.18s ease; }
+    @keyframes pop { from { opacity:0; transform:translateY(4px); } }
+    .msg-onyx { align-self:flex-start; background:var(--adim); border:1px solid rgba(25,199,192,0.2); border-bottom-left-radius:4px; }
+    .msg-u   { align-self:flex-end;   background:var(--surface); border:1px solid var(--border);        border-bottom-right-radius:4px; }
+    .msg-sys { align-self:center; font-size:11px; color:var(--muted); padding:2px 0; background:transparent; border:none; letter-spacing:0.3px; }
+    .lbl { font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; opacity:0.45; margin-bottom:4px; }
+    .msg-onyx .lbl { color:var(--accent); }
+    .msg-u .lbl { color:var(--muted); text-align:right; }
+
+    /* ── FILE CARD ── */
+    .msg-file {
+      align-self: flex-end;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; border-bottom-right-radius: 4px;
+      padding: 11px 14px; display: flex; align-items: center; gap: 12px;
+      max-width: 82%; animation: pop 0.18s ease;
+    }
+    .fc-icon { font-size: 26px; flex-shrink: 0; }
+    .fc-meta { flex: 1; min-width: 0; }
+    .fc-lbl  { font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; opacity:0.45; color:var(--muted); margin-bottom:4px; }
+    .fc-name { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .fc-size { font-size: 11px; color: var(--muted); margin-top: 2px; }
+    .fc-bar-wrap { height: 3px; background: var(--border); border-radius: 2px; margin-top: 7px; overflow: hidden; }
+    .fc-bar { height: 100%; width: 0%; background: var(--accent); border-radius: 2px; transition: width 0.12s linear; }
+    .fc-status { font-size: 10px; font-weight: 700; letter-spacing: 1px; flex-shrink: 0; color: var(--muted); }
+    .fc-status.done { color: var(--green); }
+    .fc-status.err  { color: #f87171; }
+    .fc-dl { display:block; margin-top:6px; font-size:11px; color:var(--accent); text-decoration:none; font-weight:600; }
+    .fc-dl:hover { opacity: 0.8; }
+
+    /* ── FOOTER ── */
+    footer { flex-shrink:0; padding:10px 14px; border-top:1px solid var(--border); background:rgba(5,6,7,0.96); display:flex; gap:8px; align-items:center; }
+    #inp { flex:1; padding:11px 14px; background:var(--surface); border:1.5px solid var(--border); border-radius:12px; color:var(--text); font-size:14px; outline:none; transition:border-color 0.15s; }
+    #inp:focus { border-color: var(--accent); }
+    #inp::placeholder { color: var(--muted); }
+    .btn { padding:11px 15px; border:none; border-radius:12px; font-size:11px; font-weight:700; letter-spacing:1.5px; cursor:pointer; transition:opacity 0.15s,transform 0.1s; }
+    .btn:active { transform: scale(0.96); }
+    .btn:hover  { opacity: 0.82; }
+    .btn-send { background: var(--accent); color: #fff; }
+    .btn-wake { background:var(--surface); border:1px solid var(--border); color:var(--muted); display:none; }
+    .btn-wake.show { display:block; color:var(--green); border-color:rgba(34,197,94,0.35); }
+    .btn-attach {
+      background: var(--surface); border: 1px solid var(--border); color: var(--muted);
+      padding: 11px 13px; font-size: 16px; line-height: 1; border-radius: 12px;
+      cursor: pointer; transition: opacity 0.15s, transform 0.1s; display: flex;
+      align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .btn-attach:hover  { opacity: 0.82; border-color: var(--accent); color: var(--accent); }
+    .btn-attach:active { transform: scale(0.96); }
+
+    /* ── MIC BUTTON ── */
+    #mic-btn {
+      background: var(--surface); border: 1px solid var(--border); color: var(--muted);
+      padding: 11px 13px; font-size: 16px; line-height: 1; border-radius: 12px;
+      cursor: pointer; transition: opacity 0.15s, transform 0.1s, background 0.2s, border-color 0.2s;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    #mic-btn:hover  { opacity: 0.82; border-color: var(--accent); color: var(--accent); }
+    #mic-btn:active { transform: scale(0.96); }
+    #mic-btn.recording {
+      background: rgba(239,68,68,0.15); border-color: rgba(239,68,68,0.45); color: #ef4444;
+      animation: mic-pulse 1s ease-in-out infinite;
+    }
+    #mic-btn.unsupported { opacity: 0.3; cursor: not-allowed; }
+    @keyframes mic-pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.65;transform:scale(0.97)} }
+
+    /* ── TOAST ── */
+    #toast {
+      position:fixed; top:66px; left:50%; transform:translateX(-50%) translateY(-8px);
+      background:rgba(34,197,94,0.16); border:1px solid rgba(34,197,94,0.4);
+      color:var(--green); font-size:12px; font-weight:700; letter-spacing:1px;
+      padding:7px 18px; border-radius:99px;
+      opacity:0; transition:opacity 0.22s,transform 0.22s;
+      pointer-events:none; white-space:nowrap;
+    }
+    #toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+    /* Cyryx Labs cinematic surface: restrained holographic depth. */
+    html, body {
+      background:
+        radial-gradient(ellipse at 50% 38%, rgba(15,107,104,0.13), transparent 42%),
+        radial-gradient(ellipse at 8% 92%, rgba(25,199,192,0.045), transparent 34%),
+        #050607;
+      font-family: Inter, "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background: linear-gradient(115deg, transparent 0 48%, rgba(199,201,204,0.018) 49%, transparent 50% 100%);
+    }
+    header, main, footer, #toast { position: relative; z-index: 1; }
+    header {
+      min-height: 72px; padding: 14px clamp(18px, 4vw, 54px);
+      border: 0; background: linear-gradient(180deg, rgba(10,13,15,0.90), rgba(5,6,7,0.30));
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    }
+    header::after {
+      content: ""; position: absolute; left: clamp(18px,4vw,54px); right: clamp(18px,4vw,54px); bottom: 0;
+      height: 1px; background: linear-gradient(90deg, transparent, #1B2227 16%, rgba(25,199,192,0.34) 50%, #1B2227 84%, transparent);
+    }
+    .logo { color: #C7C9CC; font-weight: 600; letter-spacing: 7px; }
+    .logo em { color: #19C7C0; text-shadow: 0 0 20px rgba(25,199,192,0.22); }
+    .pill, .url, .enc-badge {
+      border-radius: 999px; background: rgba(17,22,26,0.58); border-color: rgba(140,148,158,0.18);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    }
+    main { width: min(100%, 1120px); margin: 0 auto; padding: 26px clamp(16px,4vw,48px) 18px; gap: 13px; }
+    .msg, .msg-file {
+      border-radius: 22px; box-shadow: 0 18px 55px rgba(0,0,0,0.18);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    }
+    .msg-onyx {
+      background: linear-gradient(135deg, rgba(15,107,104,0.18), rgba(10,13,15,0.84));
+      border-color: rgba(25,199,192,0.18); border-bottom-left-radius: 8px;
+    }
+    .msg-u, .msg-file {
+      background: linear-gradient(145deg, rgba(17,22,26,0.90), rgba(10,13,15,0.82));
+      border-color: rgba(140,148,158,0.15); border-bottom-right-radius: 8px;
+    }
+    footer {
+      width: min(calc(100% - 28px), 1080px); margin: 0 auto 14px; padding: 8px;
+      border: 1px solid rgba(140,148,158,0.16); border-radius: 30px;
+      background: rgba(10,13,15,0.88); box-shadow: 0 24px 80px rgba(0,0,0,0.34);
+      backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px);
+    }
+    #inp { background: transparent; border: 0; border-radius: 22px; padding-left: 18px; }
+    #inp:focus { border: 0; box-shadow: inset 0 0 0 1px rgba(25,199,192,0.28); }
+    .btn, .btn-attach, #mic-btn { border-radius: 999px; min-width: 44px; min-height: 44px; }
+    .btn-send { background: #0F6B68; color: #C7C9CC; box-shadow: 0 0 24px rgba(25,199,192,0.10); }
+    #toast { border-radius: 999px; background: rgba(15,107,104,0.86); color: #C7C9CC; }
+    .presence-grid {
+      flex: 0 0 min(56vh, 610px); min-height: 360px; width: min(100%, 1440px);
+      margin: 0 auto; padding: 18px clamp(18px, 4vw, 54px) 0;
+      display: grid; grid-template-columns: minmax(170px, 0.76fr) minmax(420px, 2.6fr) minmax(190px, 0.86fr);
+      gap: clamp(14px, 2vw, 30px); align-items: center;
+    }
+    .context-panel {
+      min-width: 0; padding: 18px 0; color: var(--muted);
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+    }
+    .context-kicker {
+      color: #8C949E; font-size: 8px; letter-spacing: 3px; text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .context-title {
+      color: #C7C9CC; font-family: Inter, "Segoe UI", sans-serif; font-size: clamp(22px, 2.2vw, 34px);
+      font-weight: 400; line-height: 1.08; margin-bottom: 10px;
+    }
+    .context-copy { font-size: 11px; line-height: 1.7; }
+    .context-rule { width: 40px; height: 1px; background: #19C7C0; margin: 16px 0; box-shadow: 0 0 12px rgba(25,199,192,.35); }
+    .telemetry-line { color: #19C7C0; font-size: 8px; letter-spacing: .35px; line-height: 1.8; }
+    .runtime-title { color: #C7C9CC; font-size: 14px; font-family: Inter, "Segoe UI", sans-serif; margin-bottom: 9px; }
+    .runtime-log { margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(140,148,158,.16); }
+    .runtime-log span { display: block; font-size: 8px; line-height: 1.8; letter-spacing: .35px; }
+    .entity-stage {
+      position: relative; min-width: 0; height: 100%; overflow: hidden; isolation: isolate;
+      background:
+        radial-gradient(ellipse at 50% 46%, rgba(15,107,104,.13), transparent 48%),
+        linear-gradient(180deg, rgba(5,6,7,.18), rgba(5,6,7,.74));
+    }
+    .entity-stage::before {
+      content: ""; position: absolute; inset: 7% 13%; z-index: 0; pointer-events: none;
+      border: 1px solid rgba(25,199,192,.055); border-radius: 50%;
+      box-shadow: 0 0 0 72px rgba(25,199,192,.018), 0 0 0 144px rgba(25,199,192,.010);
+    }
+    .entity-frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #050607; z-index: 1; pointer-events: none; }
+    .entity-caption {
+      position: absolute; left: 50%; bottom: 12px; z-index: 2; transform: translateX(-50%);
+      color: #19C7C0; font: 700 8px/1 "IBM Plex Mono", ui-monospace, monospace;
+      letter-spacing: 4px; text-transform: uppercase; white-space: nowrap;
+      text-shadow: 0 0 14px rgba(25,199,192,.42);
+    }
+    .entity-caption::before { content: ""; display: inline-block; width: 5px; height: 5px; margin-right: 9px; border: 1px solid currentColor; transform: rotate(45deg); }
+    #feed {
+      flex: 1 1 auto; min-height: 112px; width: min(calc(100% - 36px), 1120px); margin: 0 auto;
+      padding: 14px clamp(14px, 3vw, 34px); border-top: 1px solid rgba(140,148,158,.13);
+      background: linear-gradient(180deg, rgba(5,6,7,.34), rgba(10,13,15,.62));
+    }
+    #feed:empty::before {
+      content: "ACTIVITY / LIVE TRACE"; align-self: center; color: rgba(140,148,158,.48);
+      font: 700 8px/1 "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 3px;
+    }
+    @media (max-width: 680px) {
+      header { min-height: 62px; padding: 10px 14px; flex-wrap: wrap; }
+      .logo small, .url { display: none; }
+      .enc-badge { display: none !important; }
+      .presence-grid {
+        flex-basis: 430px; min-height: 430px; padding: 8px 10px 0;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-rows: minmax(292px, 1fr) 112px; gap: 6px 12px;
+      }
+      .entity-stage { grid-column: 1 / -1; grid-row: 1; }
+      .entity-stage::before { inset: 6% 8%; }
+      .context-panel { grid-row: 2; padding: 8px 4px; align-self: start; }
+      .context-kicker { margin-bottom: 5px; font-size: 6px; letter-spacing: 2px; }
+      .context-title { font-size: 16px; margin-bottom: 4px; }
+      .context-copy { font-size: 8px; line-height: 1.45; }
+      .context-rule { margin: 7px 0; width: 24px; }
+      .telemetry-line, .runtime-log span { font-size: 6px; line-height: 1.55; }
+      .runtime-title { font-size: 11px; margin-bottom: 4px; }
+      .runtime-log { margin-top: 7px; padding-top: 6px; }
+      .runtime-log span:nth-child(n+3) { display: none; }
+      .entity-caption { bottom: 7px; font-size: 6px; letter-spacing: 3px; }
+      main, #feed { width: calc(100% - 16px); min-height: 86px; padding: 9px 8px; }
+      .msg, .msg-file { max-width: 92%; }
+      footer { width: calc(100% - 16px); margin-bottom: max(8px, env(safe-area-inset-bottom)); gap: 5px; }
+      #inp { min-width: 0; padding: 10px 12px; }
+      .btn, .btn-attach, #mic-btn { padding: 10px 12px; }
+      .btn-send { min-width: 58px; }
+    }
+    @media (max-width: 380px), (max-height: 720px) {
+      .presence-grid { flex-basis: 350px; min-height: 350px; grid-template-rows: minmax(236px, 1fr) 96px; }
+      .context-copy { display: none; }
+      .runtime-log { margin-top: 5px; }
+      #feed { min-height: 72px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <div id="toast"></div>
+  <header>
+    <div class="logo"><em>O</em>NYX <small>CYRYX LABS</small></div>
+    <div class="pill" id="pill"><span class="dot"></span><span id="st">Connecting</span></div>
+    <div class="enc-badge" id="enc">AES-256</div>
+    <div class="spacer"></div>
+    <div class="url">__IP__:__PORT__</div>
+  </header>
+  <section class="presence-grid" aria-label="Onyx living presence">
+    <aside class="context-panel owner-panel">
+      <div class="context-kicker">Good day, owner.</div>
+      <div class="context-title">Onyx</div>
+      <div class="context-copy">Listening for your direction</div>
+      <div class="context-rule"></div>
+      <div class="telemetry-line" id="link-state">REMOTE LINK / INITIALIZING</div>
+      <div class="telemetry-line">AUTHORITY / GOVERNED</div>
+    </aside>
+    <div class="entity-stage" id="entity-stage">
+      <iframe class="entity-frame" id="humanoid-frame" title="Onyx Three.js living humanoid" src="/visual/onyx-humanoid-three-v5.html"></iframe>
+      <div class="entity-caption" id="entity-state">PRESENT</div>
+    </div>
+    <aside class="context-panel runtime-panel">
+      <div class="context-kicker">System state</div>
+      <div class="runtime-title" id="runtime-title">READY</div>
+      <div class="context-copy" id="runtime-copy">Onyx is standing by.</div>
+      <div class="runtime-log">
+        <span>ACTIVITY / LIVE TRACE</span>
+        <span id="renderer-state">THREE.JS / INITIALIZING</span>
+        <span>VOICE / REMOTE READY</span>
+      </div>
+    </aside>
+  </section>
+  <main id="feed"></main>
+  <footer>
+    <input id="inp" placeholder="Send a command to Onyx…" autocomplete="off">
+    <label class="btn-attach" for="file-inp" title="Send file">📎</label>
+    <input type="file" id="file-inp" multiple accept="*/*" style="display:none">
+    <button id="mic-btn" onclick="doMic()" title="Voice command">🎤</button>
+    <button class="btn btn-wake" id="wake" onclick="doWake()">WAKE</button>
+    <button class="btn btn-send" onclick="doSend()">SEND</button>
+  </footer>
+
+  <script>
+    // ── Auth — bearer token ───────────────────────────────────────────────────
+    const ONYX_SESSION_TOKEN_KEY = 'onyx_token';
+    const ONYX_SESSION_KEY_KEY = 'onyx_key';
+    const _authToken = sessionStorage.getItem(ONYX_SESSION_TOKEN_KEY);
+    const _sessionKey = sessionStorage.getItem(ONYX_SESSION_KEY_KEY);
+
+    if (!_authToken) {
+      location.replace('/login');
+    }
+
+    let _sessionExpired = false;
+    function _expireSession() {
+      if (_sessionExpired) return;
+      _sessionExpired = true;
+      sessionStorage.removeItem(ONYX_SESSION_TOKEN_KEY);
+      sessionStorage.removeItem(ONYX_SESSION_KEY_KEY);
+      location.replace('/login');
+    }
+
+    function _authHeader() { return { 'Authorization': `Bearer ${_authToken}` }; }
+    async function _authFetch(url, opts = {}) {
+      opts.headers = Object.assign({}, opts.headers, _authHeader());
+      const response = await fetch(url, opts);
+      if (response.status === 401) _expireSession();
+      return response;
+    }
+
+    // ── AES-256-CBC encryption (CryptoJS) ────────────────────────────────────
+    const _AES_SALT = 'ONYX-DASHBOARD-v2';
+    let _aesKey = null;
+
+    function _initCrypto(key) {
+      if (typeof CryptoJS === 'undefined') return false;
+      _aesKey = CryptoJS.SHA256(key + _AES_SALT);
+      return true;
+    }
+
+    function _encrypt(plaintext) {
+      if (!_aesKey || typeof CryptoJS === 'undefined') return null;
+      try {
+        const iv  = CryptoJS.lib.WordArray.random(16);
+        const enc = CryptoJS.AES.encrypt(
+          CryptoJS.enc.Utf8.parse(plaintext), _aesKey,
+          { iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 }
+        );
+        const ivHex = iv.toString(CryptoJS.enc.Hex);
+        const ctHex = enc.ciphertext.toString(CryptoJS.enc.Hex);
+        const hex   = ivHex + ctHex;
+        const bytes = new Uint8Array(hex.length / 2);
+        for (let i = 0; i < bytes.length; i++)
+          bytes[i] = parseInt(hex.substr(i * 2, 2), 16);
+        return btoa(String.fromCharCode(...bytes));
+      } catch { return null; }
+    }
+
+    const _encReady = _sessionKey ? _initCrypto(_sessionKey) : false;
+    const encBadge  = document.getElementById('enc');
+    if (_encReady) { encBadge.className = 'enc-badge on'; }
+    else           { encBadge.className = 'enc-badge off'; encBadge.textContent = 'NO ENC'; }
+
+    // ── WebSocket ─────────────────────────────────────────────────────────────
+    const feed  = document.getElementById('feed');
+    const pill  = document.getElementById('pill');
+    const stTxt = document.getElementById('st');
+    const wake  = document.getElementById('wake');
+    const humanoidFrame = document.getElementById('humanoid-frame');
+    const entityStage = document.getElementById('entity-stage');
+    const entityState = document.getElementById('entity-state');
+    const runtimeTitle = document.getElementById('runtime-title');
+    const runtimeCopy = document.getElementById('runtime-copy');
+    const rendererState = document.getElementById('renderer-state');
+    const linkState = document.getElementById('link-state');
+    let _humanoidMode = 'READY';
+    let _humanoidTimer = null;
+
+    function _humanoidApi() {
+      try {
+        const view = humanoidFrame.contentWindow;
+        if (!view || view.__ONYX_THREE_READY__ !== true || !view.OnyxEntity) return null;
+        return view.OnyxEntity;
+      } catch (_) { return null; }
+    }
+
+    function _setHumanoid(mode, audio = 0) {
+      _humanoidMode = String(mode || 'READY').toUpperCase();
+      const api = _humanoidApi();
+      if (api) api.setState(_humanoidMode, audio, matchMedia('(prefers-reduced-motion: reduce)').matches, true);
+      entityState.textContent = _humanoidMode === 'SPEAKING' ? 'RESPONDING' : _humanoidMode === 'LISTENING' ? 'LISTENING' : 'PRESENT';
+      rendererState.textContent = api ? 'THREE.JS / HUMANOID ONLINE' : 'THREE.JS / INITIALIZING';
+    }
+
+    function _pulseHumanoid(mode, audio, duration) {
+      clearTimeout(_humanoidTimer);
+      _setHumanoid(mode, audio);
+      _humanoidTimer = setTimeout(() => _setHumanoid('LISTENING', 0.12), duration);
+    }
+
+    humanoidFrame.addEventListener('load', () => {
+      const probe = setInterval(() => {
+        if (!_humanoidApi()) return;
+        clearInterval(probe);
+        _setHumanoid(_humanoidMode, 0.08);
+      }, 50);
+      setTimeout(() => clearInterval(probe), 10000);
+    });
+
+    function _trackHumanoid(clientX, clientY, source = 'pointer') {
+      const api = _humanoidApi();
+      if (!api) return;
+      const bounds = entityStage.getBoundingClientRect();
+      if (bounds.width < 2 || bounds.height < 2) return;
+      const x = Math.max(-1, Math.min(1, ((clientX - bounds.left) / bounds.width - .5) * 2));
+      const y = Math.max(-1, Math.min(1, (.5 - (clientY - bounds.top) / bounds.height) * 2));
+      api.setAttention(x, y, source);
+    }
+    entityStage.addEventListener('pointermove', event => _trackHumanoid(event.clientX, event.clientY), { passive: true });
+    entityStage.addEventListener('pointerleave', () => {
+      const api = _humanoidApi(); if (api) api.setAttention(0, 0, 'pointer');
+    }, { passive: true });
+
+    const _wsProto = location.protocol === 'https:' ? 'wss' : 'ws';
+    let ws = null;
+
+    async function _getWsTicket(scope) {
+      const response = await _authFetch('/api/ws-ticket', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ scope })
+      });
+      if (!response.ok) throw new Error('WebSocket authorization failed');
+      const body = await response.json();
+      if (!body.ticket) throw new Error('WebSocket ticket missing');
+      return body.ticket;
+    }
+
+    async function _connectCommandSocket() {
+      try {
+        const ticket = await _getWsTicket('command');
+        ws = new WebSocket(
+          `${_wsProto}://${location.host}/ws?ticket=${encodeURIComponent(ticket)}`
+        );
+        ws.onopen = () => {
+          pill.className = 'pill on';
+          stTxt.textContent = 'Connected';
+          linkState.textContent = 'REMOTE LINK / SECURE';
+          _setHumanoid('LISTENING', 0.12);
+          sys('Remote session active.'); toast('Connected to Onyx');
+        };
+        ws.onclose = (event) => {
+          if (event.code === 4001) { _expireSession(); return; }
+          pill.className = 'pill';
+          stTxt.textContent = 'Disconnected';
+          linkState.textContent = 'REMOTE LINK / INTERRUPTED';
+          _setHumanoid('READY', 0);
+          sys('Connection lost — refresh to reconnect.');
+        };
+        ws.onerror = () => sys('Connection error.');
+        ws.onmessage = (e) => {
+          const m = JSON.parse(e.data);
+          if (m.type === 'log')           append(m.speaker, m.text);
+          if (m.type === 'status')        setStatus(m.state);
+          if (m.type === 'wake')          sys('Wake word detected — connecting…');
+          if (m.type === 'sys')           sys(m.text);
+          if (m.type === 'file_received') _onFileReceived(m);
+        };
+      } catch (e) {
+        if (!_sessionExpired) sys(e.message || 'Connection authorization failed.');
+      }
+    }
+    _connectCommandSocket();
+
+    function setStatus(s) {
+      if (s === 'active') {
+        pill.className = 'pill on'; stTxt.textContent = 'Active'; wake.classList.remove('show');
+        runtimeTitle.textContent = 'READY'; runtimeCopy.textContent = 'Onyx is listening.';
+        _setHumanoid('LISTENING', 0.12);
+      } else {
+        pill.className = 'pill'; stTxt.textContent = 'Sleeping'; wake.classList.add('show');
+        runtimeTitle.textContent = 'STANDBY'; runtimeCopy.textContent = 'Onyx is standing by.';
+        _setHumanoid('READY', 0);
+      }
+    }
+
+    function append(speaker, text) {
+      const d = document.createElement('div');
+      if (speaker === 'onyx') {
+        d.className = 'msg msg-onyx';
+        d.innerHTML = `<div class="lbl">Onyx</div>${esc(text)}`;
+        _pulseHumanoid('SPEAKING', 0.62, 1200);
+      } else {
+        d.className = 'msg msg-u';
+        d.innerHTML = `<div class="lbl">You</div>${esc(text)}`;
+      }
+      feed.appendChild(d);
+      feed.scrollTop = feed.scrollHeight;
+    }
+
+    function sys(text) {
+      const d = document.createElement('div');
+      d.className = 'msg msg-sys'; d.textContent = text;
+      feed.appendChild(d); feed.scrollTop = feed.scrollHeight;
+    }
+
+    function esc(s) {
+      return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    // ── File helpers ──────────────────────────────────────────────────────────
+    function _fileIcon(name) {
+      const ext = (name.split('.').pop() || '').toLowerCase();
+      if (['jpg','jpeg','png','gif','webp','heic','heif','avif','bmp','svg'].includes(ext)) return '🖼️';
+      if (['mp4','mov','avi','mkv','webm','m4v','3gp'].includes(ext))                       return '🎬';
+      if (['mp3','m4a','wav','flac','aac','ogg','opus'].includes(ext))                      return '🎵';
+      if (['pdf'].includes(ext))                                                             return '📋';
+      if (['doc','docx','txt','md','rtf','odt'].includes(ext))                              return '📝';
+      if (['xls','xlsx','csv','ods'].includes(ext))                                         return '📊';
+      if (['ppt','pptx','odp'].includes(ext))                                               return '📑';
+      if (['zip','rar','7z','tar','gz','bz2','xz'].includes(ext))                          return '📦';
+      if (['apk','exe','dmg','deb','rpm','msi'].includes(ext))                              return '⚙️';
+      return '📎';
+    }
+
+    function _fmtSize(bytes) {
+      if (bytes < 1024)             return bytes + ' B';
+      if (bytes < 1024 * 1024)     return (bytes / 1024).toFixed(1) + ' KB';
+      if (bytes < 1024 ** 3)       return (bytes / 1024 / 1024).toFixed(1) + ' MB';
+      return (bytes / 1024 ** 3).toFixed(2) + ' GB';
+    }
+
+    // ── File upload (phone → computer) ────────────────────────────────────────
+    async function _downloadFile(name) {
+      try {
+        const response = await _authFetch(`/uploads/${encodeURIComponent(name)}`);
+        if (!response.ok) throw new Error('Download failed');
+        const blobUrl = URL.createObjectURL(await response.blob());
+        const link = document.createElement('a');
+        link.href = blobUrl;
+        link.download = name;
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+      } catch (e) {
+        if (!_sessionExpired) toast(e.message || 'Download failed');
+      }
+    }
+
+    function _uploadFile(file) {
+      const id = 'fc_' + Date.now() + '_' + Math.random().toString(36).slice(2);
+
+      // Create file card in feed
+      const card = document.createElement('div');
+      card.className = 'msg-file';
+      card.id = id;
+      card.innerHTML = `
+        <div class="fc-icon">${_fileIcon(file.name)}</div>
+        <div class="fc-meta">
+          <div class="fc-lbl">Sending</div>
+          <div class="fc-name">${esc(file.name)}</div>
+          <div class="fc-size">${_fmtSize(file.size)}</div>
+          <div class="fc-bar-wrap"><div class="fc-bar" id="${id}_bar"></div></div>
+        </div>
+        <div class="fc-status" id="${id}_st">0%</div>
+      `;
+      feed.appendChild(card);
+      feed.scrollTop = feed.scrollHeight;
+
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', '/api/upload');
+      xhr.setRequestHeader('Authorization', `Bearer ${_authToken}`);
+
+      xhr.upload.onprogress = (e) => {
+        if (!e.lengthComputable) return;
+        const pct = Math.round(e.loaded / e.total * 100);
+        const bar = document.getElementById(`${id}_bar`);
+        const st  = document.getElementById(`${id}_st`);
+        if (bar) bar.style.width = pct + '%';
+        if (st)  st.textContent  = pct + '%';
+      };
+
+      xhr.onload = () => {
+        const bar  = document.getElementById(`${id}_bar`);
+        const st   = document.getElementById(`${id}_st`);
+        const meta = card.querySelector('.fc-meta');
+        const lbl  = card.querySelector('.fc-lbl');
+        if (xhr.status === 401) {
+          _expireSession();
+          return;
+        }
+        if (xhr.status === 200) {
+          let savedName = file.name;
+          try { savedName = JSON.parse(xhr.responseText).name || file.name; } catch {}
+          if (bar)  { bar.style.width = '100%'; bar.style.background = 'var(--green)'; }
+          if (st)   { st.textContent = '✓'; st.className = 'fc-status done'; }
+          if (lbl)  lbl.textContent = 'Sent';
+          if (meta) {
+            const download = document.createElement('a');
+            download.className = 'fc-dl';
+            download.href = '#';
+            download.textContent = '⬇ Download back';
+            download.addEventListener('click', event => {
+              event.preventDefault();
+              _downloadFile(savedName);
+            });
+            meta.appendChild(download);
+          }
+          toast('File sent!');
+        } else {
+          let errMsg = 'Upload failed';
+          try { errMsg = JSON.parse(xhr.responseText).error || errMsg; } catch {}
+          if (bar) bar.style.background = '#f87171';
+          if (st)  { st.textContent = 'ERR'; st.className = 'fc-status err'; }
+          if (lbl) lbl.textContent = errMsg;
+        }
+      };
+
+      xhr.onerror = () => {
+        const st  = document.getElementById(`${id}_st`);
+        const lbl = card.querySelector('.fc-lbl');
+        if (st)  { st.textContent = 'ERR'; st.className = 'fc-status err'; }
+        if (lbl) lbl.textContent = 'Connection error';
+      };
+
+      const fd = new FormData();
+      fd.append('file', file);
+      xhr.send(fd);
+    }
+
+    // File received by another WebSocket client (e.g., second open tab)
+    function _onFileReceived(m) {
+      const card  = document.createElement('div');
+      card.className = 'msg-file';
+      card.innerHTML = `
+        <div class="fc-icon">${_fileIcon(m.name)}</div>
+        <div class="fc-meta">
+          <div class="fc-lbl">Received</div>
+          <div class="fc-name">${esc(m.name)}</div>
+          <div class="fc-size">${_fmtSize(m.size)}</div>
+          <a class="fc-dl" href="#">⬇ Download</a>
+        </div>
+        <div class="fc-status done">✓</div>
+      `;
+      card.querySelector('.fc-dl').addEventListener('click', event => {
+        event.preventDefault();
+        _downloadFile(m.name);
+      });
+      feed.appendChild(card);
+      feed.scrollTop = feed.scrollHeight;
+      toast('File received on computer!');
+    }
+
+    // File input change handler
+    document.getElementById('file-inp').addEventListener('change', function () {
+      Array.from(this.files).forEach(_uploadFile);
+      this.value = ''; // reset so the same file can be re-sent
+    });
+
+    // ── Commands ──────────────────────────────────────────────────────────────
+    function doSend() {
+      const inp = document.getElementById('inp');
+      const txt = inp.value.trim();
+      if (!txt) return;
+      inp.value = '';
+      append('user', txt);
+      const enc  = _encrypt(txt);
+      const body = enc ? { enc } : { text: txt };
+      _authFetch('/api/command', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+    }
+
+    function doWake() {
+      sys('Sending wake signal…');
+      _authFetch('/api/wake', { method: 'POST' });
+    }
+
+    document.getElementById('inp').addEventListener('keydown', e => {
+      if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); doSend(); }
+    });
+
+    // ── Toast ─────────────────────────────────────────────────────────────────
+    let _toastTimer;
+    function toast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg; t.classList.add('show');
+      clearTimeout(_toastTimer);
+      _toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
+    }
+
+    // ── Real-time Voice — PCM16 WebSocket → Gemini Live ──────────────────────
+    const micBtn  = document.getElementById('mic-btn');
+    let _voiceWs  = null;
+    let _audioCtx = null;
+    let _micStm   = null;
+    let _audioSrc = null;
+    let _audioNd  = null;
+    let _audioSink = null;
+
+    function _micIdle() {
+      micBtn.innerHTML = '🎤';
+      micBtn.title     = 'Voice — tap to speak';
+      micBtn.classList.remove('recording');
+    }
+
+    // Float32 PCM → resample to 16 kHz + convert to Int16
+    function _f32toPcm16(f32, srcRate) {
+      let s = f32;
+      if (srcRate !== 16000) {
+        const ratio = srcRate / 16000;
+        const len   = Math.round(f32.length / ratio);
+        s = new Float32Array(len);
+        for (let i = 0; i < len; i++)
+          s[i] = f32[Math.min(Math.round(i * ratio), f32.length - 1)];
+      }
+      const out = new Int16Array(s.length);
+      for (let i = 0; i < s.length; i++)
+        out[i] = Math.max(-32768, Math.min(32767, Math.round(s[i] * 32768)));
+      return out.buffer;
+    }
+
+    function _showVoiceSetup() {
+      if (document.getElementById('voice-setup')) return; // show once
+      const card = document.createElement('div');
+      card.id = 'voice-setup';
+      card.style.cssText = [
+        'align-self:stretch', 'background:rgba(15,107,104,0.14)',
+        'border:1px solid rgba(25,199,192,0.24)', 'border-radius:14px',
+        'padding:16px 18px', 'font-size:13px', 'line-height:1.8',
+        'animation:pop 0.18s ease'
+      ].join(';');
+      card.innerHTML =
+        '<div style="font-weight:700;color:#19C7C0;letter-spacing:.5px;margin-bottom:10px">🎤 Microphone setup</div>' +
+        '<ol style="padding-left:18px;color:#8C949E;margin:0;display:flex;flex-direction:column;gap:4px">' +
+        '<li>Open the Onyx dashboard using its <strong style="color:#C7C9CC">https://</strong> URL.</li>' +
+        '<li>Accept the local certificate warning once if your browser displays it.</li>' +
+        '<li>Reload this page and tap 🎤 again.</li>' +
+        '<li>Choose <strong style="color:#19C7C0">Allow</strong> when the browser asks for microphone access.</li>' +
+        '</ol>';
+      feed.appendChild(card);
+      feed.scrollTop = feed.scrollHeight;
+    }
+
+    async function doMic() {
+      if (_voiceWs) { _stopVoice(); return; }
+
+      if (!navigator.mediaDevices?.getUserMedia) {
+        _showVoiceSetup();
+        return;
+      }
+      let stream;
+      try {
+        stream = await navigator.mediaDevices.getUserMedia({
+          audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true },
+        });
+      } catch (e) {
+        sys(e.name === 'NotAllowedError'
+          ? 'Microphone denied — tap the address bar lock and allow microphone.'
+          : 'Mic error: ' + e.message);
+        return;
+      }
+
+      // 16 kHz context (fall back to native rate — _f32toPcm16 resamples)
+      let ctx;
+      try { ctx = new AudioContext({ sampleRate: 16000 }); }
+      catch (_) { ctx = new AudioContext(); }
+      if (ctx.state === 'suspended') await ctx.resume();
+
+      let voiceTicket;
+      try {
+        voiceTicket = await _getWsTicket('audio');
+      } catch (e) {
+        stream.getTracks().forEach(track => track.stop());
+        await ctx.close();
+        if (!_sessionExpired) sys(e.message || 'Voice authorization failed.');
+        return;
+      }
+      const wsProto = location.protocol === 'https:' ? 'wss' : 'ws';
+      const ws = new WebSocket(
+        `${wsProto}://${location.host}/ws/phone-audio?ticket=${encodeURIComponent(voiceTicket)}`
+      );
+      ws.binaryType = 'arraybuffer';
+
+      ws.onopen = async () => {
+        const rate = ctx.sampleRate;
+        const src  = ctx.createMediaStreamSource(stream);
+
+        // AudioWorklet (modern) — runs in dedicated audio thread
+        const wCode = `class J extends AudioWorkletProcessor{process(i){const c=i[0]?.[0];if(c)this.port.postMessage(c.slice());return true;}}registerProcessor('j',J);`;
+        try {
+          const burl = URL.createObjectURL(new Blob([wCode], { type: 'application/javascript' }));
+          try { await ctx.audioWorklet.addModule(burl); }
+          finally { URL.revokeObjectURL(burl); }
+          const nd = new AudioWorkletNode(ctx, 'j');
+          // AudioWorklets must participate in a live graph or browsers may
+          // prune them. Keep the graph active but send silence to the speakers
+          // so microphone capture can never feed back audibly.
+          const sink = ctx.createGain();
+          sink.gain.value = 0;
+          // Buffer to 1024 samples (64 ms at 16 kHz) before sending —
+          // matches PC mic chunk size, prevents queue flooding on the server.
+          let _pbuf = [], _plen = 0;
+          nd.port.onmessage = e => {
+            const chunk = new Int16Array(_f32toPcm16(e.data, rate));
+            _pbuf.push(chunk); _plen += chunk.length;
+            if (_plen >= 1024) {
+              const out = new Int16Array(_plen); let off = 0;
+              for (const c of _pbuf) { out.set(c, off); off += c.length; }
+              if (ws.readyState === 1) ws.send(out.buffer);
+              _pbuf = []; _plen = 0;
+            }
+          };
+          src.connect(nd);
+          nd.connect(sink);
+          sink.connect(ctx.destination);
+          _audioSrc = src;
+          _audioNd = nd;
+          _audioSink = sink;
+        } catch (_) {
+          // ScriptProcessor fallback (deprecated, still works everywhere)
+          const sp = ctx.createScriptProcessor(4096, 1, 1);
+          const sink = ctx.createGain();
+          sink.gain.value = 0;
+          sp.onaudioprocess = e => {
+            if (ws.readyState === 1) ws.send(_f32toPcm16(e.inputBuffer.getChannelData(0), rate));
+          };
+          src.connect(sp); sp.connect(sink); sink.connect(ctx.destination);
+          _audioSrc = src;
+          _audioNd = sp;
+          _audioSink = sink;
+        }
+
+        micBtn.innerHTML = '⏹';
+        micBtn.title     = 'Tap to stop';
+        micBtn.classList.add('recording');
+        _setHumanoid('LISTENING', 0.34);
+        sys('Voice live — speak now');
+        toast('🎤 Live');
+      };
+
+      ws.onclose = (event) => {
+        _stopVoice();
+        if (event.code === 4001) _expireSession();
+      };
+      ws.onerror = () => { sys('Voice connection failed.'); _stopVoice(); };
+
+      _voiceWs  = ws;
+      _audioCtx = ctx;
+      _micStm   = stream;
+    }
+
+    function _stopVoice() {
+      if (_audioSrc) { try { _audioSrc.disconnect(); } catch (_) {}; _audioSrc = null; }
+      if (_audioNd)  { try { _audioNd.disconnect(); }  catch (_) {}; _audioNd  = null; }
+      if (_audioSink) { try { _audioSink.disconnect(); } catch (_) {}; _audioSink = null; }
+      if (_audioCtx) { try { _audioCtx.close(); }      catch (_) {}; _audioCtx = null; }
+      if (_micStm)   { _micStm.getTracks().forEach(t => t.stop()); _micStm = null; }
+      if (_voiceWs)  {
+        const w = _voiceWs; _voiceWs = null;
+        if (w.readyState < 2) w.close();
+      }
+      _micIdle();
+      if (!_sessionExpired) _setHumanoid('LISTENING', 0.12);
+    }
+  </script>
+</body>
+</html>

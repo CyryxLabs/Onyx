@@ -1,0 +1,60 @@
+{
+  "schema": "onyx.guild.profiles.v1",
+  "candidate": "guild-profiles-v1",
+  "created_at": "2026-08-17T21:46:55-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_GUILD_PROFILES_V1",
+  "default_off": true,
+  "accepted_content_draft_root_sha256": "59308ada89f691443238644bdb18b7bc29aa66a61365b95908bc5631d8b8d449",
+  "verification": {
+    "test_files": 28,
+    "passed": 674,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 17,
+    "subtests_passed": 96
+  },
+  "artifacts": [
+    {
+      "path": "core/guild_profiles_v1.py",
+      "bytes": 19413,
+      "sha256": "97021233a92fa1d92f7f46c33c7d3ae99f5a3b702bbfcf8e2916809627ec98ec"
+    },
+    {
+      "path": "tests/test_guild_profiles_v1.py",
+      "bytes": 14881,
+      "sha256": "e8ac408b26987952a1d78b3ac8365f1fcb69bbeabc1188036437d03009548a87"
+    },
+    {
+      "path": "scripts/verify_guild_profiles_v1.py",
+      "bytes": 8320,
+      "sha256": "15494a22f15ac894bcc52b65d66efd3598f905ec9f063536992605fd719a79d5"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0054-guild-profiles-v1.md",
+      "bytes": 3467,
+      "sha256": "650e6bb2fe8ed6e728df2528bc6ce5147a14483c20b2d62666bfc6e854bf3da5"
+    },
+    {
+      "path": "docs/onyx/research/GUILD_PROFILES_V1_SOURCES.md",
+      "bytes": 2602,
+      "sha256": "e9b690bc04d8d08815bc352a83ef4fcd73fa62345099b78a99bac5928627f726"
+    },
+    {
+      "path": "docs/onyx/checkpoints/guild-profiles-v1/GUILD_PROFILES_V1_CHECKPOINT.md",
+      "bytes": 2448,
+      "sha256": "347945e530ae31ec5065ccaa26d7098344fd504de861afaadbeb3c151d9ed0ba"
+    },
+    {
+      "path": "docs/onyx/checkpoints/guild-profiles-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 1209,
+      "sha256": "2cf85f99813208556e851d0aa265a330f5bd058fcd35732526e58a9035d463c4"
+    },
+    {
+      "path": "docs/onyx/checkpoints/guild-profiles-v1/cumulative-selection.json",
+      "bytes": 4144,
+      "sha256": "a66f57777a520194f9b1ef4c548a73c3ba4badf11b0682405f67cf5980904fa5"
+    }
+  ],
+  "artifact_root_sha256": "818196ac6bd2048bbfe5218d0e576b392b07aa1005816b6f4b867f3ee9bbc09d"
+}

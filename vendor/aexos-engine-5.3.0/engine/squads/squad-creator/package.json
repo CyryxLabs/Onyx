@@ -1,0 +1,27 @@
+{
+  "name": "@aexos/squad-creator",
+  "version": "4.0.0",
+  "description": "Squad Creator - Base meta-squad for creating and managing AEXOS squads",
+  "scripts": {
+    "analytics": "python3 scripts/squad-analytics.py squad-creator",
+    "validate": "python3 scripts/validate-squad-structure.py",
+    "refresh": "python3 scripts/refresh-registry.py --write",
+    "greeting": "node scripts/generate-squad-greeting.js squad-creator squad-chief",
+    "guide": "node scripts/generate-squad-guide.js squad-creator"
+  },
+  "keywords": [
+    "AEXOS",
+    "squad",
+    "squad-creator",
+    "agent-orchestration"
+  ],
+  "author": "Cyryx Labs LLC",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "python": ">=3.10"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}

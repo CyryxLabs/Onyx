@@ -1,0 +1,46 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P8-MICROSOFT-GRAPH-READ-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-07-23",
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "candidate_manifest_path": "docs/onyx/checkpoints/phase8-microsoft-graph-read-v1/manifest.json",
+  "candidate_manifest_sha256": "91a97a56729e396b84da60d30db5d33d71c8e315343d544792e7183d436dc261",
+  "artifact_root_sha256": "abb152e611e1b58adc55b88207497d64188ad9485d2b6a32ada5f8c364528291",
+  "artifacts": 8,
+  "results": {
+    "test_files": 13,
+    "passed": 264,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "explained_platform_skips": 8,
+    "subtests_passed": 80
+  },
+  "claims": {
+    "microsoft_graph_read_v1_accepted": true,
+    "first_provider_proof": "microsoft-graph-v1.0",
+    "calendar_read": true,
+    "daily_brief": true,
+    "calendar_local_draft": true,
+    "calendar_create": false,
+    "mail_search": true,
+    "mail_read": true,
+    "mail_local_draft": true,
+    "mail_send": false,
+    "workspace_principal_alias_binding": true,
+    "least_scope_enforcement": true,
+    "rotation_revocation_enforcement": true,
+    "provider_mutation_authority": false,
+    "oauth_onboarding": false,
+    "live_http_transport": false,
+    "live_wiring": false,
+    "phase8_exit": false,
+    "full_onyx_prd_complete": false
+  }
+}

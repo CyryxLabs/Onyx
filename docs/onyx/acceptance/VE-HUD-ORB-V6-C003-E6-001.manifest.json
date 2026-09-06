@@ -1,0 +1,19 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-HUD-ORB-V6-C003-E6-001",
+  "decision": "accepted",
+  "findings": {"P0": 0, "P1": 0, "P2": 0, "P3": 0},
+  "candidate_manifest": "docs/onyx/checkpoints/hud-orb-v6-candidate/manifest.json",
+  "candidate_manifest_sha256": "ba034588791b1003a6743bf037ae32a11285adcac7c4084cba1bc5bb3923ae1c",
+  "evidence_root_sha256": "0e100c6d7ace7c058d57ec53b72338b566345c4e36874c120bc8bc1c219f76ee",
+  "binding_count": 15,
+  "scope": "windows-d3d11-default-off-no-live-activation",
+  "results": {"focused_v6": 25, "v5_regression": 15, "representative": 28, "quick_widgets": 1},
+  "physical_evidence_reuse": "candidate-002-byte-exact",
+  "new_artifacts": [
+    {"path": "docs/onyx/acceptance/VE-HUD-ORB-V6-C003-E6-001.md", "sha256": "c9663515321554cec4e69524ee13eb543194562167da6ac21aafb219bcc65d9f"},
+    {"path": "docs/onyx/VE-ACCEPTANCE-HUD-ORB-V6-C003-E6-001.sha256", "sha256": "d318f24046e5ddd7680b25dfe58fcf68897f9d0e6ef7820a0477c315554242dd"},
+    {"path": "scripts/verify_hud_orb_v6_c003_acceptance.py", "sha256": "d97bb4062bc74a5c0c1f55f6959be8c7de4a3c6de641f579830b545526748543"},
+    {"path": "tests/test_hud_orb_v6_c003_acceptance.py", "sha256": "94d64130a23c6968258be5ffdb67d760b8c4f11d01425ffcaaa60b34230d6326"}
+  ]
+}

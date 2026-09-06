@@ -1,0 +1,34 @@
+{
+  "schema": "onyx.current-successor-retirement.v27",
+  "issued_at": "2026-08-25T00:20:00-04:00",
+  "predecessor": {
+    "path": "docs/onyx/checkpoints/CURRENT_SUCCESSOR_RETIREMENT_V26.json",
+    "sha256": "61d6fdc61ff1d0828bbe883746a31091543552149aaa0710c7ef089f3ca6089f"
+  },
+  "policy": {
+    "historical_tests_are_rewritten": false,
+    "historical_hashes_are_rebound": false,
+    "registered_nodes_must_remain_collected": true,
+    "successor_sources_are_sha256_bound": true,
+    "successor_tests_must_execute": true,
+    "exact_nodeids_only": true,
+    "v27_precedes_v26_on_overlap": true
+  },
+  "additional_claims": [
+    {
+      "id": "release-v67-to-v68-current-packaged-hud-smoke",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_release_workflow_transition_v67.py::test_release_v67_authenticates_bounded_successor_execution_budget"
+      ],
+      "successor_tests": [
+        {
+          "path": "tests/test_release_workflow_transition_v68.py",
+          "sha256": "501fb8afd2ba9aed0d884b8b8fbd17386b2bb09dd74aa8013fb255f2d05dac25"
+        }
+      ],
+      "validated_tests": 1,
+      "reason": "V68 binds the current shell V12 and host V13 packaged smoke while V67 remains immutable."
+    }
+  ]
+}

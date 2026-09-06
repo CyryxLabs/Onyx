@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.cyryxlabs.onyx</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>LicenseRef-proprietary</project_license>
+  <name>Onyx</name>
+  <summary>Governed AI assistant by Cyryx Labs</summary>
+  <description>
+    <p>
+      Onyx combines natural voice, local tools, local memory and configured
+      cloud models in a governed desktop assistant.
+    </p>
+  </description>
+  <launchable type="desktop-id">onyx.desktop</launchable>
+  <provides>
+    <binary>onyx</binary>
+  </provides>
+  <developer id="com.cyryxlabs">
+    <name>Cyryx Labs</name>
+  </developer>
+  <content_rating type="oars-1.1" />
+  <releases>
+    <release version="1.1.9" date="2026-08-10" />
+  </releases>
+</component>

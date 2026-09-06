@@ -1,0 +1,38 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P6-EXIT-CANDIDATE-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-07-23",
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "candidate_manifest_path": "docs/onyx/checkpoints/phase6-exit-candidate-v1/manifest.json",
+  "candidate_manifest_sha256": "6c32277bcbf17130eb60103538de6b58966a43dcd6b30a12c2aaf1e2e4b6493d",
+  "candidate_artifact_root_sha256": "ab8d1465c375a6ff183d844b89cae247ce5cf846e35de15b142683fe9be1390f",
+  "component_evidence_root_sha256": "98de22eb674d6a6a4465ca32ff8bb4bd1ab77ae76a80264d50742beab63e3ff3",
+  "candidate_artifacts": 7,
+  "component_evidence_roots": 34,
+  "component_acceptances": 8,
+  "results": {
+    "test_files": 14,
+    "passed": 294,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "claims": {
+    "phase6_exit_complete": true,
+    "phase7_default_off_implementation_unlocked": true,
+    "live_activation_changed": false,
+    "runtime_authority_added": false,
+    "remote_cross_route_authorized": false,
+    "additional_provider_authorized": false,
+    "external_agent_authority": false,
+    "permanent_provider_availability": false,
+    "local_mcp_process_observed": false,
+    "full_onyx_prd_complete": false
+  }
+}

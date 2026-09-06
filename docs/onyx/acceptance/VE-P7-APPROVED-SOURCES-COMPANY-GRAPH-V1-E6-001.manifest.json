@@ -1,0 +1,44 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P7-APPROVED-SOURCES-COMPANY-GRAPH-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-07-23",
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "candidate_manifest_path": "docs/onyx/checkpoints/phase7-approved-sources-company-graph-v1/manifest.json",
+  "candidate_manifest_sha256": "fa5fea91caf6914e559cbc22420841b602eeace0153653dc57591fb0070f23f3",
+  "artifact_root_sha256": "d9efc2186412abbf95a1cd03b901c5f797bcb7c50e6b3a6d256211dd2eeac1c3",
+  "artifacts": 9,
+  "workspace_aliases_entry_roots": 4,
+  "results": {
+    "test_files": 7,
+    "passed": 154,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "explained_platform_skips": 8,
+    "subtests_passed": 65
+  },
+  "claims": {
+    "approved_sources_v1_accepted": true,
+    "company_graph_v1_accepted": true,
+    "source_rights_scoring_freshness": true,
+    "all_prd_knowledge_semantics": true,
+    "declared_contradiction_supersession_closure": true,
+    "artifact_only_completion_denied": true,
+    "source_content_instruction_authority": false,
+    "url_fetch": false,
+    "artifact_content_read": false,
+    "graph_persistent_writes": false,
+    "automatic_contradiction_discovery": false,
+    "founder_brief_implemented": false,
+    "live_wiring": false,
+    "runtime_authority_added": false,
+    "phase7_exit": false,
+    "full_onyx_prd_complete": false
+  }
+}

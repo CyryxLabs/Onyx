@@ -1,0 +1,91 @@
+{
+  "schema": "onyx.phase5.integration-transition-bundle.v2",
+  "candidate": "phase5-integration-v2",
+  "created_at": "2026-07-22",
+  "default_off": true,
+  "live_activated": false,
+  "live_restart_performed": false,
+  "historical_runtime_acceptance": "VE-P5-RUNTIME-V10-E6-001",
+  "historical_runtime_state": "isolated-default-off-unwired",
+  "rejected_predecessor": {
+    "candidate": "phase5-integration-v1",
+    "preserved": true,
+    "reachable_from_host": false,
+    "reason": "dispatch arguments were not inseparably bound to the prepared runtime decision"
+  },
+  "files": [
+    {
+      "path": "core/phase5_integration_v2.py",
+      "sha256": "ae035c4be1364d87f23c308ca42d33c938a29d6181680de62b5d9de5fe5f285d"
+    },
+    {
+      "path": "tests/test_phase5_integration_v2.py",
+      "sha256": "cb9ec992e08c5b47c51a7aac4a57b813fd6648526c22a488dfff4b51fe3a1217"
+    },
+    {
+      "path": "scripts/verify_phase5_integration_v2_transition.py",
+      "sha256": "9eacbe19c29d58ff1890b0a50b48bfa37c7ba681c28c640115264a5627dca1b0"
+    },
+    {
+      "path": "tests/test_phase5_integration_v2_transition.py",
+      "sha256": "2efe373bf0740d32384929ab3ade7aabbcce16388d7d0063b33ef9ce3b3a1f9e"
+    },
+    {
+      "path": "main.py",
+      "sha256": "9366edc9868852aee95b80cc9cd2c7d0342bc47a74d482278e303076aa4b559a"
+    }
+  ],
+  "live_surface_transition": {
+    "main_sha256_before": "bfb6edd48df6d8752404f60137ae7056fc9d529adff9bd8fa91578b81d7a6fb0",
+    "main_sha256_after": "9366edc9868852aee95b80cc9cd2c7d0342bc47a74d482278e303076aa4b559a",
+    "permission_broker_unchanged": "e37fb092410ba0843036dbdc779342c4d24a811bbfcf0de8812f2f6144e7d250",
+    "dashboard_server_unchanged": "4d3142dc9c6a78cfe76f804de2b154334da2d7790484783a993babc92300bae1",
+    "reserved_ui_pre_parallel_observation": "60bea0ac313efa7c77dfbc1e3bffec885a0dad010b6f3e9e332761d6cd0de043",
+    "ui_qml_dashboard_static_scope": "out-of-scope-concurrent-transition",
+    "v2_ui_dependency": false
+  },
+  "authority_boundary": {
+    "executable_extension": "local.catalog/catalog_read",
+    "normalized_material_arguments": ["cursor", "page_size"],
+    "authorization_dispatch_digest_bound": true,
+    "mismatch_burns_decision": true,
+    "mismatch_purges_reference": true,
+    "mismatch_audited": true,
+    "duplicate_reference_rejected": true,
+    "seen_reference_window": 256,
+    "provider_free": true,
+    "effect": "none",
+    "egress": "none",
+    "cost_micro": 0,
+    "remote_approve": false,
+    "remote_grant": false,
+    "remote_dispatch": false
+  },
+  "historical_compatibility_projection": {
+    "primary_evidence": "exact frozen V10 E6 record, record manifest, verifier and verifier-test bytes",
+    "secondary_evidence": "closed current source projection excluding only V1, V2 and V2 transition evidence then executed by the exact frozen verifier",
+    "does_not_rewrite_history": true
+  },
+  "verification": {
+    "focused": {"passed": 24, "failed": 0},
+    "cumulative_transition_aware": {
+      "passed": 2383,
+      "failed": 0,
+      "deselected_historical_current-state_assertions": 7
+    },
+    "ruff": "pass",
+    "py_compile": "pass",
+    "performance_100_authorize_consume_reads": {
+      "p50_ms": 5.8298,
+      "p95_ms": 14.2426,
+      "max_ms": 20.4145,
+      "thread_delta": 0
+    }
+  },
+  "concurrent_transition_boundary": {
+    "surfaces": ["ui.py", "qml", "dashboard/static"],
+    "owned_by": "independent HUD V3 phase",
+    "integration_v2_authority": false,
+    "current_bytes_adopted": false
+  }
+}

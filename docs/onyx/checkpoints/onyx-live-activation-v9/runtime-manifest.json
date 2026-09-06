@@ -1,0 +1,17 @@
+{
+  "schema": "onyx.live-activation.v9.runtime",
+  "files": {
+    "pythonw": {
+      "path": ".venv/Scripts/pythonw.exe",
+      "sha256": "51361a2d68a5b4ecf1bad4d7214066e05f9598074e72662e62f7b2e3be3329b3"
+    },
+    "bootstrap": {
+      "path": "scripts/bootstrap_onyx_live_v9.pyw",
+      "sha256": "91004253f6f5d0d9228245d4a554367d1c3add41438d081d794187e1e3a9d6f5"
+    },
+    "launcher": {
+      "path": "scripts/launch_onyx_live_v9.pyw",
+      "sha256": "b06189d5a50ec2b310b8990432d56cf4c5a30b8db9aae83630d579fa945b82aa"
+    }
+  }
+}

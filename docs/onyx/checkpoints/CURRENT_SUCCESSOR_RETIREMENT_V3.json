@@ -1,0 +1,24 @@
+{
+  "schema": "onyx.current-successor-retirement.v3",
+  "issued_at": "2026-08-05T00:15:00-04:00",
+  "predecessor": {
+    "path": "docs/onyx/checkpoints/CURRENT_SUCCESSOR_RETIREMENT_V2.json",
+    "sha256": "e73f77e0b83d3a6de0d277131a6ba742ea1e204c8c8d248d03f994b24f903d37"
+  },
+  "phase5_current_successor": {
+    "path": "tests/fixtures/phase5_current_successor_transition_v36.json",
+    "sha256": "a1685eeeeaed0cdbcc7d4b1405036b64548733890e5bfc38c0e5053db6696546"
+  },
+  "policy": {
+    "predecessor_is_immutable": true,
+    "historical_hashes_are_rebound": false,
+    "current_successors_are_sha256_bound": true
+  },
+  "current_successors": [
+    {
+      "path": "tests/test_onyx_live_activation_v19.py",
+      "predecessor_sha256": "e2538899a792e25d1aa9411a5e5750457344eeeef199913af1c841b740bb46b3",
+      "current_sha256": "3932f26b5024ae381208e7a121afecc7249f244093aaf514043230f187f21381"
+    }
+  ]
+}

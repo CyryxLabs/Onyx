@@ -1,0 +1,28 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P7-DOCUMENT-INGESTION-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-07-23",
+  "findings": {"P0": 0, "P1": 0, "P2": 0, "P3": 0},
+  "candidate_manifest_path": "docs/onyx/checkpoints/phase7-document-ingestion-v1/manifest.json",
+  "candidate_manifest_sha256": "20efa9f6125d881eab60e4edbd04d103196608cd26875634af06ee47793b8a03",
+  "artifact_root_sha256": "8b7749f3228667eb15e66011129549b569caf9adbdd079a50368ae0967b8a513",
+  "artifacts": 8,
+  "results": {"test_files": 10, "passed": 178, "failed": 0, "errors": 0, "skipped": 1, "explained_platform_skips": 1, "subtests_passed": 77},
+  "claims": {
+    "document_ingestion_v1_accepted": true,
+    "required_formats": true,
+    "granular_citations": true,
+    "version_comparison": true,
+    "requirement_decision_extraction": true,
+    "render_visual_qa": true,
+    "malicious_document_defense": true,
+    "workspace_isolation": true,
+    "source_revocation": true,
+    "persistent_writes": false,
+    "instruction_authority": false,
+    "live_wiring": false,
+    "phase7_exit": false,
+    "full_onyx_prd_complete": false
+  }
+}

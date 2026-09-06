@@ -1,0 +1,54 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P8-MICROSOFT-GRAPH-LIVE-READ-E2E-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-07-23",
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 9
+  },
+  "candidate_manifest_path": "docs/onyx/checkpoints/phase8-microsoft-graph-live-read-e2e-v1/manifest.json",
+  "candidate_manifest_sha256": "63e2ff3a059aeb1c856ca73ad80ac523aac99aa33162fc200ce0fee47dcdc104",
+  "artifact_root_sha256": "30bdd9e3bf1bde4effa1acb7147fcd714d763c6fcc017e6b23fe189fcfabef6b",
+  "artifacts": 10,
+  "results": {
+    "test_files": 15,
+    "passed": 337,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "explained_platform_skips": 8,
+    "subtests_passed": 80
+  },
+  "review_history": {
+    "functional_initial": "FAIL: 0 P0, 0 P1, 3 P2",
+    "functional_reverify": "PASS: 0 P0, 0 P1, 0 P2",
+    "integrity_initial": "PASS: 0 P0, 0 P1, 0 P2",
+    "integrity_reverify": "PASS: root 30bdd9e3 reconfirmed",
+    "quality_initial": "PASS: 0 P0, 0 P1, 0 P2",
+    "quality_reverify": "PASS: delta re-check on fixed bytes"
+  },
+  "claims": {
+    "microsoft_graph_live_read_e2e_v1_accepted": true,
+    "secret_free_public_client_onboarding": true,
+    "retry_after_429_honored": true,
+    "retry_after_zero_immediate_retry": true,
+    "bounded_backoff_without_retry_after": true,
+    "non_429_never_retried": true,
+    "access_expiry_forces_refresh": true,
+    "refresh_rotation_contract": true,
+    "revocation_terminal_denial_classification": true,
+    "provider_failure_no_auto_retry": true,
+    "redacted_hash_bound_probe_report": true,
+    "live_mode_requires_real_transport": true,
+    "provider_mutation_authority": false,
+    "real_app_registration": false,
+    "live_identity_e2e": false,
+    "live_graph_e2e": false,
+    "live_wiring": false,
+    "phase8_exit": false,
+    "full_onyx_prd_complete": false
+  }
+}

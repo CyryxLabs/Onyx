@@ -1,0 +1,25 @@
+{
+  "schema": "onyx.packaged-runtime-hud-contract.v9",
+  "runtime_inputs": [
+    {"path": "core/camera_gesture_attention_v1.py", "sha256": "b126ddc31e5c4ecd2d380e1bf899cc3775c7817b236f0994850efe4caf97057a"},
+    {"path": "qml/OnyxLiveShellV13.qml", "sha256": "3853981ac7efd90d5301448d20bb32967f3d6ac3b549f94a9e3800eafa8c132c"},
+    {"path": "qml/components/OnyxHumanoidEntityV10.qml", "sha256": "4144419917ea68d68f6138806ff56fdbdd5aaee2b1d4491b3ba554ba6506c0f0"},
+    {"path": "qml/web/onyx-humanoid-three-v1.html", "sha256": "f54a2ad8dd5c407fbf5430b8f6b7b1631519249e8b72df684fef685f21f9b29d"},
+    {"path": "ui.py", "sha256": "76fcc19c9b73c1d5971a27914eb1cf923daf81e9fe32fed066cee2b77eb094d1"},
+    {"path": "core/onyx_hud_current_acceptance_v40.py", "sha256": "0862ea941ea587ef198838f05c7dfb46853af237fd29aee307e59432ccf19420"},
+    {"path": "docs/onyx/acceptance/VE-HUD-CURRENT-V40-E6-001.manifest.json", "sha256": "aa49c24d7ee001f67a2e3e44969c140d4e93ada4d34508f46e2ed17a44bcd39e"},
+    {"path": "core/onyx_hud_orb_v14.py", "sha256": "d5b8e2ff9dd7e49a7676777149f31286212942d7193982ad3ace0fc2c73a2a32"}
+  ],
+  "semantics": {
+    "current_orb": "humanoid-presence-v10",
+    "global_pointer_attention": true,
+    "camera_gesture_attention": true,
+    "session_hand_calibration": true,
+    "camera_frame_retention": false,
+    "attention_bridge_coalesced": true,
+    "intermittent_flicker_guard": true,
+    "governed_native_close": true,
+    "provider_independent": true,
+    "formal_release_ready": false
+  }
+}

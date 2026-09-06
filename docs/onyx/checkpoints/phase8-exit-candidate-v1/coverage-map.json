@@ -1,0 +1,81 @@
+{
+  "schema": "onyx.phase8.exit.coverage.v1",
+  "phase": 8,
+  "provider": "microsoft-graph-v1.0",
+  "scope": "default-off connector contract layer only; excludes PRD daily-operations behaviours (triage, travel-aware scheduling, meeting reconciliation) and all live execution",
+  "requirements": {
+    "oauth_delegated_least_scope": [
+      "VE-P8-MICROSOFT-GRAPH-OAUTH-V1-E6-001"
+    ],
+    "graph_read_brief_paging": [
+      "VE-P8-MICROSOFT-GRAPH-READ-V1-E6-001"
+    ],
+    "live_read_e2e_contract": [
+      "VE-P8-MICROSOFT-GRAPH-LIVE-READ-E2E-V1-E6-001"
+    ],
+    "calendar_availability_and_exact_grant_create": [
+      "VE-P8-MICROSOFT-GRAPH-CALENDAR-V1-E6-001"
+    ],
+    "mail_content_bound_draft_and_send": [
+      "VE-P8-MICROSOFT-GRAPH-MAIL-V1-E6-001"
+    ],
+    "tasks_and_notifications": [
+      "VE-P8-MICROSOFT-GRAPH-TASKS-V1-E6-001"
+    ],
+    "drive_metadata_read": [
+      "VE-P8-MICROSOFT-GRAPH-DRIVE-V1-E6-001"
+    ]
+  },
+  "accepted_roots": {
+    "oauth": [
+      "81dbaba8991478737c7000519281d8c1924a3522aec40b62e3a635bcde3d2b65",
+      "e39511e5f8e677ec0983df19102221ea1abbe68bdf7d297f13ac64c34a076473",
+      "a5d72b9876269bd81b8c26e22d6e79ef96468773c560e86bc38b0b518c740123",
+      "77fd9772c247308d2c18f9c911684855955a8d390705f992ac1841fee5de6bfa"
+    ],
+    "read": [
+      "91a97a56729e396b84da60d30db5d33d71c8e315343d544792e7183d436dc261",
+      "c34565135bbd7366cc51febee82ebd41bb3ed5932d928e6df0bea82920cb2325",
+      "095f5f5af0d26cf45970bae84f97181cb4f8a672e33cbaab17e37e4d29e41769",
+      "87289e933edb2d369252e6f9816785682e0f2eb4e8d8382ffc5861f2b0f920e8"
+    ],
+    "live_read_e2e": [
+      "63e2ff3a059aeb1c856ca73ad80ac523aac99aa33162fc200ce0fee47dcdc104",
+      "688b8dfea9a687474497a0aa82bce67fc443dee8f921d98ee5b455b2596739c5",
+      "47ee0cc94d177f0cc52d02df6b5f975bc24894ea5d25deae7134c32979dc571e",
+      "14fb863e7e8a935b9c9558b6bfedb0e78c0fcf0a075641b9b74c4bbf36d0ffde"
+    ],
+    "calendar": [
+      "e28bf370f81ac991d4a384d02783aa809d6afc59a5036f75852679679a5962e4",
+      "283934b419b82f346a240e604ad87ce0dba81bee2013ed14b8fd2ec9895e7314",
+      "7d76e98826cd62ccbd4b1d52a8021b557125a085a5d0306abf4e10e74b99eedb",
+      "93cdd20f42ef882c6b6c2357861cf923bb6d422d217fa5c95dc5b1848ff3fde8"
+    ],
+    "mail": [
+      "98f9cc7c75cf496275ab326af352d3332cd8f604b702c8047f405df264034acf",
+      "3d6274a2705311dff80542c5ab986b2a15354b7707f96620cee668a12598ed19",
+      "8d13864bdda32113b13f676757d866c1d37a4187019c0087fe342cb59bffadaf",
+      "9d955b6d6cef40e20b1801a3060951b3278c335706ce83f24a608451e778da7e"
+    ],
+    "tasks": [
+      "44337ca6fdd348cd8ff7010d8ffeeb6fd6bc3167b4b80f0e3a08888b1bc859a8",
+      "8940ab667fd20ed168335d45a3a5c65df11c2644d39cf5832a9a0c686dc93ee7",
+      "51061cd36e1688c97d80c5cad9f3ec796bb7a623ca99f29e159b4648522af7a5",
+      "c0a9e00072300963e32103fe116f185256869db6069d3d2b7b910d0fb5892d9e"
+    ],
+    "drive": [
+      "3ad944de2b85de78e343f0cbee0556644218ec7d7039b93efe9daffe774758b5",
+      "690231d53f93ef281e457d8fcf631de153be84f37ae3d788a4fb2ebf65e7e2d5",
+      "1f130a1adb1ccfc42c244efccf3611772a2095febd502b4dcbb4dbb8f4b2ca9a",
+      "132b6ad4c884c4f257e9fc754e5bd08295287274c51150542cd5034ca854b1f0"
+    ]
+  },
+  "claims": {
+    "phase8_connector_layer_default_off_implementation_complete": true,
+    "one_provider_proven_before_generalizing": true,
+    "live_wiring": false,
+    "live_e2e_bound_in_aggregate": false,
+    "phase9_started": false,
+    "full_onyx_prd_complete": false
+  }
+}

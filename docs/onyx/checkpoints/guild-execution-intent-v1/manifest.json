@@ -1,0 +1,61 @@
+{
+  "schema": "onyx.guild.execution-intent.v1",
+  "candidate": "guild-execution-intent-v1",
+  "created_at": "2026-08-18T13:00:51-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_GUILD_EXECUTION_INTENT_V1",
+  "default_off": true,
+  "accepted_guild_workflow_root_sha256": "48043deead60aecc926925a191926f785896229026097e1e2048e46916dabfdc",
+  "autopilot_module_sha256": "a5dc26eb034748045a7a69c826a56615f176561006cefd60518d79e4ff8b8430",
+  "verification": {
+    "test_files": 31,
+    "passed": 796,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 17,
+    "subtests_passed": 96
+  },
+  "artifacts": [
+    {
+      "path": "core/guild_execution_intent_v1.py",
+      "bytes": 15356,
+      "sha256": "4a2ea3fdf0d61570eb299fd52c0fbc43eff9f7fbe40857c058661c939d6035fc"
+    },
+    {
+      "path": "tests/test_guild_execution_intent_v1.py",
+      "bytes": 12457,
+      "sha256": "e900fd14fac9715b1d7fec54181b8db73b88534df06aa4e070c798781dc736f0"
+    },
+    {
+      "path": "scripts/verify_guild_execution_intent_v1.py",
+      "bytes": 8366,
+      "sha256": "6dde31aa4309fa79a5eddd671a821866a4048f2a191a22dc217d3b615fa5cd65"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0057-guild-execution-intent-v1.md",
+      "bytes": 3095,
+      "sha256": "400e05a9715d1d8f7b0c11c79c101b52a95d7debb5997c310ad6aaebc985afa3"
+    },
+    {
+      "path": "docs/onyx/research/GUILD_EXECUTION_INTENT_V1_SOURCES.md",
+      "bytes": 1764,
+      "sha256": "5bfc6c7352cfcc9d3ccc73589c95ff7e5022000ba002474d424f42fd56d8ab39"
+    },
+    {
+      "path": "docs/onyx/checkpoints/guild-execution-intent-v1/GUILD_EXECUTION_INTENT_V1_CHECKPOINT.md",
+      "bytes": 1991,
+      "sha256": "df27e1b8b5d267df4349a102a66623a294ab2769cf47939b3bd5fe5bc092110e"
+    },
+    {
+      "path": "docs/onyx/checkpoints/guild-execution-intent-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 1017,
+      "sha256": "dc329cf98bb07916d8327ec3c3f7f2ffcd5f9aaaff9feb98c43a02008ed8ca0e"
+    },
+    {
+      "path": "docs/onyx/checkpoints/guild-execution-intent-v1/cumulative-selection.json",
+      "bytes": 4746,
+      "sha256": "84e50bdf17c59d900b4c5b5fd4d2051cade929161b864410b3462b7f31d3eea9"
+    }
+  ],
+  "artifact_root_sha256": "68a4fc775dbdccb0741c0bf69aa5ff786966f4f828f2220ac35ec21efde64e83"
+}

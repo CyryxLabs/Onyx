@@ -1,0 +1,37 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P7-WORKSPACE-MEMORY-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-07-23",
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "candidate_manifest_path": "docs/onyx/checkpoints/phase7-workspace-memory-v1/manifest.json",
+  "candidate_manifest_sha256": "59ed88abd6967a73f3050d1215fed0c278b21b5c6e5335814abe8267576c9cd7",
+  "artifact_root_sha256": "fafe2c2fb2c0d0f55f0ce6fc6824b71a93c42f3527565449986e90ba1fb09f95",
+  "artifacts": 7,
+  "phase6_entry_roots": 4,
+  "results": {
+    "test_files": 5,
+    "passed": 77,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 1,
+    "explained_platform_skips": 1,
+    "subtests_passed": 73
+  },
+  "claims": {
+    "workspace_memory_v1_accepted": true,
+    "pre_ranking_hard_filters": true,
+    "read_only": true,
+    "live_wiring": false,
+    "runtime_authority_added": false,
+    "phase7_exit": false,
+    "company_graph_implemented": false,
+    "founder_brief_implemented": false,
+    "full_onyx_prd_complete": false
+  }
+}

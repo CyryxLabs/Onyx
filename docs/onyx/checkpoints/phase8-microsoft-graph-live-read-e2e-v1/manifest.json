@@ -1,0 +1,114 @@
+{
+  "schema": "onyx.phase8.microsoft-graph-live-read-e2e.v1",
+  "candidate": "phase8-microsoft-graph-live-read-e2e-v1",
+  "created_at": "2026-07-23T21:08:04-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_PHASE8_MICROSOFT_GRAPH_LIVE_READ_E2E_V1",
+  "enabled_value": "true",
+  "default_off": true,
+  "entry_roots": {
+    "phase8_microsoft_graph_oauth_v1_artifact_root_sha256": "9ae6f034f530a6e8353dfccbcf675760d2746684cf1a840da94adab326bf824d",
+    "decision": "accepted"
+  },
+  "claims": {
+    "secret_free_public_client_onboarding": true,
+    "retry_after_429_honored": true,
+    "bounded_backoff_without_retry_after": true,
+    "non_429_never_retried": true,
+    "access_expiry_forces_refresh": true,
+    "refresh_rotation_contract": true,
+    "revocation_classified_honestly": true,
+    "provider_failure_no_auto_retry": true,
+    "redacted_probe_report": true,
+    "live_mode_requires_real_transport": true,
+    "provider_mutation_authority": false,
+    "real_app_registration": false,
+    "live_identity_e2e": false,
+    "live_graph_e2e": false,
+    "live_wiring": false,
+    "phase8_exit": false,
+    "full_onyx_prd_complete": false,
+    "e1_e5_ready": true,
+    "external_e6_accepted": false
+  },
+  "verification": {
+    "test_files": 15,
+    "passed": 337,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "subtests_passed": 80
+  },
+  "effects": {
+    "default_off_import_persistent_writes": 0,
+    "default_off_import_network_calls": 0,
+    "default_off_import_process_calls": 0,
+    "default_off_import_provider_calls": 0,
+    "model_calls": 0,
+    "action_dispatches": 0,
+    "graph_mutation_routes": 0,
+    "live_surface_changes": 0
+  },
+  "limitations": [
+    "Default-off and not wired to V13, startup, voice, UI or dashboard.",
+    "No authorized Entra app registration/client ID, tenant consent or test account exists; live execution is BLOCKED_BY_ACCESS.",
+    "Provider failure and real throttling cannot be forced live; their behavior is contract-proven and live reports list them in probes_missing.",
+    "live_verified is true only when every probe ran over the real HTTPS transport.",
+    "The operator runner is an evidence tool, not runtime wiring; reports are redacted and written under runtime/.",
+    "No provider draft, calendar or mail mutation, task, notification, Drive, OneDrive or Office authority is added.",
+    "Phase 8 aggregate exit and full Onyx PRD completion remain pending."
+  ],
+  "artifacts": [
+    {
+      "path": "core/phase8_microsoft_graph_live_read_e2e_v1.py",
+      "bytes": 33529,
+      "sha256": "126d0e0ad1f8751575c5d58fdc97361b393ad3b206690a3bc5f17b9824834241"
+    },
+    {
+      "path": "tests/test_phase8_microsoft_graph_live_read_e2e_v1.py",
+      "bytes": 25294,
+      "sha256": "fa11e24a628c53b9cef16d3313482a9c9d25db15c0d282d0d774a6427c03127c"
+    },
+    {
+      "path": "scripts/run_phase8_microsoft_graph_live_read_e2e_v1.py",
+      "bytes": 8306,
+      "sha256": "ef0ea2636519bc48f213334fe4a4cc0b72260478f5b7684fd716781be837c738"
+    },
+    {
+      "path": "scripts/verify_phase8_microsoft_graph_live_read_e2e_v1.py",
+      "bytes": 7971,
+      "sha256": "371892295f6c51a3e3628eb4baf1b899da558e5e2ca8d7d21ab8f58016e78068"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0038-phase8-microsoft-graph-live-read-e2e-v1.md",
+      "bytes": 3375,
+      "sha256": "dfbeb763def611af137a8ed7d12dfcfecdfce5079ae3269419bc9a6fd797c4b1"
+    },
+    {
+      "path": "docs/onyx/research/PHASE8_MICROSOFT_GRAPH_LIVE_READ_E2E_V1_SOURCES.md",
+      "bytes": 4505,
+      "sha256": "72cce633cc8bd988a18f01938d62a21f918fd6a43ca4fe1cde7962ecae48405f"
+    },
+    {
+      "path": "docs/onyx/PHASE8_MICROSOFT_GRAPH_LIVE_ONBOARDING.md",
+      "bytes": 3539,
+      "sha256": "c725ab0e7309932bd593c1891a8c1d9554bf799b97cc45dbb64f8a1d6069d9aa"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase8-microsoft-graph-live-read-e2e-v1/PHASE8_MICROSOFT_GRAPH_LIVE_READ_E2E_V1_CHECKPOINT.md",
+      "bytes": 1975,
+      "sha256": "df51f7297228a6c1071f4f71a6068c7fe29c01479819d62b58b59093d037b027"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase8-microsoft-graph-live-read-e2e-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 1569,
+      "sha256": "85171975aa42220191ff35ab3a67fd23d1bc5d09c79e00c4417cddf659409689"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase8-microsoft-graph-live-read-e2e-v1/cumulative-selection.json",
+      "bytes": 1882,
+      "sha256": "053dfc55d07d58ee4ada4298b03cbe7edfc2f5c9683e34ec2c892752003769f6"
+    }
+  ],
+  "artifact_root_sha256": "30bdd9e3bf1bde4effa1acb7147fcd714d763c6fcc017e6b23fe189fcfabef6b"
+}

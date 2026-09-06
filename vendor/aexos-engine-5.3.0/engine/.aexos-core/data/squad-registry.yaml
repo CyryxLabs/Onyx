@@ -1,0 +1,1032 @@
+# GENERATED FILE — do not hand-edit.
+# Source: squads/*/{squad,config}.yaml via scripts/generate-squad-registry.js
+registry:
+  version: 1.0.0
+  generated_at: '2026-08-11T18:56:08.755Z'
+  generator: scripts/generate-squad-registry.js
+  note: >-
+    Generated from squads/*/{squad,config}.yaml. Do not hand-edit — create a squad and regenerate.
+    @aexos-master reads this to route by domain.
+  squad_count: 20
+squads:
+  - name: apex
+    display_name: apex
+    domain: apex
+    description: >-
+      Ultra-premium frontend squad for Web, Mobile, and Spatial platforms. 15 specialized agents
+      (including orchestrator), each carrying DNA from elite frontend minds. Covers everything the
+      user sees and touches: design systems, components, animations, 3D/spatial, accessibility,
+      performance, CSS, typography, colors, and visual effects.
+    keywords:
+      - apex
+    entry_agent: apex-lead
+    agent_count: 15
+    agents:
+      - id: a11y-eng
+        name: Sara
+        title: Accessibility Engineer — Universal Access
+        based_on: null
+      - id: apex-lead
+        name: Emil
+        title: Design Engineering Lead & Squad Orchestrator
+        based_on: null
+      - id: cross-plat-eng
+        name: Fernando
+        title: Design Engineer — Cross-Platform
+        based_on: null
+      - id: css-eng
+        name: Josh
+        title: Design Engineer — CSS Architecture
+        based_on: null
+      - id: design-sys-eng
+        name: Diana
+        title: Design System Designer/Engineer — Token Guardian
+        based_on: null
+      - id: frontend-arch
+        name: Arch
+        title: Staff Frontend Architect — Technical Authority
+        based_on: null
+      - id: interaction-dsgn
+        name: Ahmad
+        title: Senior Product Designer (Interaction)
+        based_on: null
+      - id: mobile-eng
+        name: Krzysztof
+        title: Design Engineer — React Native
+        based_on: null
+      - id: motion-eng
+        name: Matt
+        title: Motion Engineer — Animation & Choreography
+        based_on: null
+      - id: perf-eng
+        name: Addy
+        title: Performance Engineer — Core Web Vitals
+        based_on: null
+      - id: qa-visual
+        name: Andy
+        title: Frontend QA Engineer — Visual Regression
+        based_on: null
+      - id: qa-xplatform
+        name: Michal
+        title: Frontend QA Engineer — Cross-Platform Testing
+        based_on: null
+      - id: react-eng
+        name: Kent
+        title: Design Engineer — React/Server Components
+        based_on: null
+      - id: spatial-eng
+        name: Paul
+        title: Design Engineer — Spatial & 3D
+        based_on: null
+      - id: web-intel
+        name: Kilian
+        title: Web Intelligence Engineer — Design Extraction Specialist
+        based_on: null
+  - name: board
+    display_name: Board Squad
+    domain: Board of Directors — Governance, Risk and Oversight
+    description: >-
+      Squad de conselho: governança, supervisão de risco, auditoria e sucessão. Fiscaliza e
+      aconselha a gestão; não executa nem substitui o CEO.
+    keywords:
+      - governance
+      - board
+      - risk
+      - oversight
+      - audit
+      - succession
+      - compliance
+      - aexos
+    entry_agent: board-chief
+    agent_count: 5
+    agents:
+      - id: audit-lead
+        name: Tally
+        title: Audit Lead
+        based_on: >-
+          COSO (Internal Control -- Integrated Framework) + Sarbanes-Oxley Act (2002) + Cadbury
+          Report (1992) + the three-lines model associated with the Institute of Internal Auditors
+      - id: board-chief
+        name: Chair
+        title: Board Squad Chief
+        based_on: Original (Orchestrator)
+      - id: governance-counsel
+        name: Charter
+        title: Governance Counsel
+        based_on: Cadbury Report (1992) and the corporate governance principles derived from it
+      - id: risk-oversight
+        name: Bulwark
+        title: Risk Oversight Lead
+        based_on: COSO Enterprise Risk Management Framework
+      - id: succession-lead
+        name: Lineage
+        title: Succession Lead
+        based_on: Ram Charan, Dennis Carey & Michael Useem (Boards That Lead, 2013)
+  - name: brand
+    display_name: Brand Squad
+    domain: brand_identity
+    description: >-
+      Elite brand building squad — strategy, positioning, naming, visual identity, logo design,
+      movement architecture
+    keywords:
+      - brand
+    entry_agent: brand-chief
+    agent_count: 7
+    agents:
+      - id: alexandra-watkins
+        name: Alexandra Watkins
+        title: Naming Alchemist & Brand Language Architect
+        based_on: null
+      - id: april-dunford
+        name: April Dunford
+        title: Positioning Master & Competitive Strategy Expert
+        based_on: null
+      - id: brand-chief
+        name: Brand Chief
+        title: Brand Squad Orchestrator
+        based_on: null
+      - id: emily-heyward
+        name: Emily Heyward
+        title: Brand Builder & Movement Architect
+        based_on: null
+      - id: marty-neumeier
+        name: Marty Neumeier
+        title: Brand Strategist & Diagnostician
+        based_on: null
+      - id: michael-johnson
+        name: Michael Johnson
+        title: Visual Identity Architect & Brand Identity Designer
+        based_on: null
+      - id: sagi-haviv
+        name: Sagi Haviv
+        title: Logo Design Master & Identity Mark Strategist
+        based_on: null
+  - name: business-admin
+    display_name: Business Administration Squad
+    domain: Business Administration — Finance, People, Legal and Process
+    description: >-
+      Squad de administração: finanças, pessoas, jurídico-operacional e processo. A infraestrutura
+      que permite o resto da empresa funcionar.
+    keywords:
+      - finance
+      - people-ops
+      - legal-ops
+      - process
+      - administration
+      - compliance
+      - aexos
+    entry_agent: admin-chief
+    agent_count: 5
+    agents:
+      - id: admin-chief
+        name: Steward
+        title: Business Administration Squad Chief
+        based_on: Original (Orchestrator)
+      - id: finance-lead
+        name: Abacus
+        title: Finance Lead
+        based_on: Karen Berman & Joe Knight (Financial Intelligence, 2006)
+      - id: legal-ops
+        name: Codex
+        title: Legal Operations Lead
+        based_on: Corporate Legal Operations Consortium (CLOC core competencies)
+      - id: people-lead
+        name: Roster
+        title: People Lead
+        based_on: Laszlo Bock (Work Rules!, 2015)
+      - id: process-lead
+        name: Sluice
+        title: Process Lead
+        based_on: Michael Hammer & James Champy (Reengineering the Corporation, 1993)
+  - name: ceo
+    display_name: CEO Squad
+    domain: Chief Executive — Strategy, Capital and Organisation
+    description: >-
+      Squad da cadeira executiva: diagnóstico estratégico, alocação de capital, desenho
+      organizacional e comunicação com stakeholders. Decide onde a empresa aposta e por quê, não
+      como se implementa.
+    keywords:
+      - strategy
+      - capital-allocation
+      - org-design
+      - stakeholders
+      - ceo
+      - vision
+      - aexos
+    entry_agent: ceo-chief
+    agent_count: 5
+    agents:
+      - id: capital-allocator
+        name: Ledger
+        title: Capital Allocator
+        based_on: William Thorndike (The Outsiders, 2012)
+      - id: ceo-chief
+        name: Regent
+        title: CEO Squad Chief
+        based_on: Original (Orchestrator)
+      - id: org-designer
+        name: Lattice
+        title: Organisation Designer
+        based_on: Andrew Grove (High Output Management, 1983)
+      - id: stakeholder-lead
+        name: Herald
+        title: Stakeholder Communication Lead
+        based_on: Annual shareholder letter and board reporting tradition
+      - id: strategy-lead
+        name: Kernel
+        title: Strategy Lead
+        based_on: Richard Rumelt (Good Strategy Bad Strategy, 2011)
+  - name: claude-code-mastery
+    display_name: Claude Code Mastery Squad
+    domain: Claude Code — Full Spectrum Expertise
+    description: |-
+      Squad especialista em todas as dimensões do Claude Code: hooks, skills,
+      subagents, MCP, plugins, agent teams, customização, integração com projetos,
+      roadmap tracking, e AEXOS-core architecture awareness.
+    keywords:
+      - claude-code
+      - hooks
+      - skills
+      - subagents
+      - mcp
+      - plugins
+      - agent-teams
+      - customization
+      - integration
+      - context-engineering
+      - roadmap
+      - aexos
+    entry_agent: claude-mastery-chief
+    agent_count: 8
+    agents:
+      - id: claude-mastery-chief
+        name: Warden
+        title: Claude Code Mastery Orchestrator
+        based_on: null
+      - id: config-engineer
+        name: Sigil
+        title: Claude Code Configuration Engineer
+        based_on: null
+      - id: hooks-architect
+        name: Latch
+        title: Hooks Architect
+        based_on: null
+      - id: mcp-integrator
+        name: Piper
+        title: MCP Integration Architect & Tool Composition Specialist
+        based_on: null
+      - id: project-integrator
+        name: Conduit
+        title: Project Integration Architect
+        based_on: null
+      - id: roadmap-sentinel
+        name: Vigil
+        title: Claude Code Roadmap Sentinel & Plan-First Strategist
+        based_on: null
+      - id: skill-craftsman
+        name: Anvil
+        title: Skill Craftsman
+        based_on: null
+      - id: swarm-orchestrator
+        name: Nexus
+        title: Swarm Orchestrator & Multi-Agent Architect
+        based_on: null
+  - name: curator
+    display_name: curator
+    domain: curator
+    description: >-
+      Squad especializado em curadoria de conteúdo existente. Minera transcrições, identifica
+      momentos de alto impacto, monta roteiros de corte com timestamps EXATOS, e enriquece com
+      dados/notícias relevantes. NUNCA inventa texto - apenas MONTA o que já existe.
+    keywords:
+      - curator
+    entry_agent: curator-chief
+    agent_count: 12
+    agents:
+      - id: brendan-kane
+        name: Brendan Kane
+        title: Viral Architect & Hook Point Engineer
+        based_on: null
+      - id: content-miner-pro
+        name: Content Miner Pro
+        title: Advanced Content Mining & Moment Extraction
+        based_on: null
+      - id: curator-chief
+        name: Curator Chief
+        title: Content Curation Orchestrator
+        based_on: null
+      - id: data-curator
+        name: Data Curator
+        title: News, Trends & Data Curator
+        based_on: null
+      - id: ffmpeg-cutter
+        name: Ffmpeg Cutter
+        title: Ffmpeg Cutter Specialist
+        based_on: null
+      - id: jonah-berger
+        name: Jonah Berger
+        title: Shareability Architect & Contagious Content Expert
+        based_on: null
+      - id: ken-burns
+        name: Ken Burns
+        title: Documentary Narrative Architect
+        based_on: null
+      - id: matthew-dicks
+        name: Matthew Dicks
+        title: Story Architect & Transformation Hunter
+        based_on: null
+      - id: mrbeast
+        name: MrBeast
+        title: Retention Architect & Content Systems Engineer
+        based_on: null
+      - id: robert-mckee
+        name: Robert McKee
+        title: Story Architect & Scene Structure Master
+        based_on: null
+      - id: timestamp-cataloger
+        name: Timestamp Cataloger
+        title: Dialogue Cataloger & Timestamp Indexer
+        based_on: null
+      - id: walter-murch
+        name: Walter Murch
+        title: Master Editor & Cut Decision Architect
+        based_on: null
+  - name: customer-success
+    display_name: Customer Success Squad
+    domain: Customer Success — Onboarding, Retention and Expansion
+    description: >-
+      Squad de sucesso do cliente: ativação, retenção, expansão e voz do cliente. Do primeiro valor
+      entregue à renovação.
+    keywords:
+      - customer-success
+      - onboarding
+      - retention
+      - churn
+      - nps
+      - expansion
+      - advocacy
+      - aexos
+    entry_agent: cs-chief
+    agent_count: 5
+    agents:
+      - id: advocacy-lead
+        name: Chorus
+        title: Advocacy & Loyalty Lead
+        based_on: Fred Reichheld (The Ultimate Question / Net Promoter System, 2006)
+      - id: cs-chief
+        name: Anchor
+        title: Customer Success Squad Chief
+        based_on: Original (Orchestrator)
+      - id: onboarding-lead
+        name: Threshold
+        title: Onboarding & Activation Lead
+        based_on: >-
+          Time-to-first-value and activation discipline in subscription products — no single
+          canonical work
+      - id: retention-lead
+        name: Tenure
+        title: Retention & Account Health Lead
+        based_on: Nick Mehta, Dan Steinman & Lincoln Murphy (Customer Success, 2016)
+      - id: voice-lead
+        name: Auricle
+        title: Voice of the Customer Lead
+        based_on: >-
+          Voice of the Customer (VoC) discipline: structured collection and signal routing — no
+          single canonical work
+  - name: deep-research
+    display_name: Deep Research Squad
+    domain: Evidence-Based Research Pipeline
+    description: |-
+      Squad de pesquisa profunda com pipeline 3-tier: Diagnostic (Tier 0),
+      Execution (Tier 1), e Quality Assurance. 11 agents especializados baseados
+      em elite minds reais — de Evidence-Based Medicine (Sackett) a Competitive
+      Intelligence (Gilad), com QA obrigatório (Ioannidis + Kahneman).
+    keywords:
+      - deep-research
+      - evidence-based
+      - systematic-review
+      - competitive-intelligence
+      - osint
+      - decision-science
+      - bias-detection
+      - pico
+      - dora-metrics
+      - sensemaking
+    entry_agent: dr-orchestrator
+    agent_count: 11
+    agents:
+      - id: booth
+        name: Andrew Booth
+        title: Research Methodology Selector & Search Strategy Designer
+        based_on: null
+      - id: cochrane
+        name: Archie Cochrane
+        title: Father of Evidence-Based Medicine - Evidence Synthesis Auditor
+        based_on: null
+      - id: creswell
+        name: John W. Creswell
+        title: Research Design Architect & Mixed Methods Specialist
+        based_on: null
+      - id: dr-orchestrator
+        name: DR Orchestrator
+        title: Deep Research Pipeline Coordinator & Use Case Router
+        based_on: null
+      - id: forsgren
+        name: Nicole Forsgren
+        title: Co-creator of DORA Metrics - Technical Performance Diagnostician
+        based_on: null
+      - id: gilad
+        name: Benjamin Gilad
+        title: Co-founder of Competitive Intelligence - Competitive Intelligence Strategist
+        based_on: null
+      - id: higgins
+        name: Eliot Higgins
+        title: Founder of Bellingcat - OSINT Investigator & Source Verifier
+        based_on: null
+      - id: ioannidis
+        name: John Ioannidis
+        title: Founder of Meta-Research - Research Quality Auditor
+        based_on: null
+      - id: kahneman
+        name: Daniel Kahneman
+        title: Nobel Prize Economics 2002 - Decision Quality Auditor & Bias Detector
+        based_on: null
+      - id: klein
+        name: Gary Klein
+        title: Father of Naturalistic Decision Making - Expert Pattern Analyst & Sensemaking Specialist
+        based_on: null
+      - id: sackett
+        name: David Sackett
+        title: Research Question Architect & EBM Framework Designer
+        based_on: null
+  - name: dispatch
+    display_name: dispatch
+    domain: dispatch
+    description: >-
+      Parallel execution engine for AEXOS. Receives stories/PRDs/tasks, decomposes into atomic
+      sub-tasks, optimizes into DAG-based waves, routes to correct agents/models, and executes in
+      parallel via subagents. Enforces CODE > LLM, story-driven input, and zero main context
+      contamination.
+    keywords:
+      - dispatch
+    entry_agent: dispatch-chief
+    agent_count: 4
+    agents:
+      - id: dispatch-chief
+        name: Dispatch Chief
+        title: Pipeline Orchestrator
+        based_on: null
+      - id: quality-gate
+        name: Quality Gate
+        title: Quality Gate Specialist
+        based_on: null
+      - id: task-router
+        name: Task Router
+        title: Dynamic Task-to-Agent Router
+        based_on: null
+      - id: wave-planner
+        name: Wave Planner
+        title: DAG Optimizer & Queue Theorist
+        based_on: null
+  - name: education
+    display_name: education
+    domain: educational curriculum engineering
+    description: >-
+      Replicable system for transforming complex knowledge into mastery journeys using cognitive
+      science + legal compliance
+    keywords:
+      - education
+      - curriculum
+      - instructional design
+      - cognitive science
+      - learning engineering
+      - MEC compliance
+    entry_agent: education-chief
+    agent_count: 16
+    agents:
+      - id: bjork-engineer
+        name: Robert Bjork
+        title: Desirable Difficulties Engineer - Memory & Retention
+        based_on: null
+      - id: bloom-diagnostician
+        name: bloom-diagnostician
+        title: >-
+          Classify learning objectives using Bloom's Taxonomy (revised: Remember → Understand →
+          Apply → Analyze → Evaluate → Create). Define mastery thresholds per obj...
+        based_on: null
+      - id: clark-validator
+        name: Ruth Colvin Clark
+        title: Evidence-Based Validator - Myth Buster & Decision Scientist
+        based_on: null
+      - id: education-chief
+        name: Education Chief
+        title: Education Engineering Orchestrator
+        based_on: null
+      - id: ericsson-coach
+        name: Ericsson Coach
+        title: Deliberate Practice Architect
+        based_on: null
+      - id: fsrs-scheduler
+        name: FSRS Scheduler
+        title: Spaced Repetition Architect
+        based_on: null
+      - id: keller-motivator
+        name: Keller Motivator
+        title: Motivational Design Architect
+        based_on: null
+      - id: mayer-presenter
+        name: Richard Mayer
+        title: Multimedia Learning Architect - Cognitive Load Optimizer
+        based_on: null
+      - id: mec-compliance
+        name: mec-compliance
+        title: >-
+          Compliance gate for Brazilian education law. Classify course type
+          (livre/FIC/técnico/graduação/pós). Load applicable regulatory requirements. Validate
+          curric...
+        based_on: null
+      - id: merrill-designer
+        name: David Merrill
+        title: First Principles Instructor - Problem-Centered Learning
+        based_on: null
+      - id: moore-filter
+        name: moore-filter
+        title: >-
+          First gate in the education pipeline. Apply Action Mapping to determine if a
+          course/training is actually the right solution. Filter knowledge gaps (course ne...
+        based_on: null
+      - id: novak-mapper
+        name: Novak Mapper
+        title: Domain Researcher & Concept Cartographer
+        based_on: null
+      - id: rosenshine-teacher
+        name: Rosenshine Teacher
+        title: Master of Effective Instruction
+        based_on: null
+      - id: sweller-analyst
+        name: sweller-analyst
+        title: >-
+          Analyze and optimize cognitive load in instructional materials. Identify extraneous load
+          sources. Maximize germane load. Apply the 15+ CLT instructional effe...
+        based_on: null
+      - id: thalheimer-assessor
+        name: Thalheimer Assessor
+        title: Transfer Validation Guardian
+        based_on: null
+      - id: wiggins-architect
+        name: Grant Wiggins
+        title: Backward Design Architect - Understanding by Design
+        based_on: null
+  - name: kaizen
+    display_name: kaizen
+    domain: kaizen
+    description: >-
+      O squad que vigia e melhora todos os outros. Analisa continuamente o ecossistema de agentes,
+      squads, ferramentas e competências. Detecta gaps, monitora performance, recomenda novos
+      recursos. O sistema nervoso do seu projeto.
+    keywords:
+      - kaizen
+    entry_agent: kaizen-chief
+    agent_count: 7
+    agents:
+      - id: bottleneck-hunter
+        name: Bottleneck Hunter
+        title: System Constraint Analyst & Flow Optimizer
+        based_on: null
+      - id: capability-mapper
+        name: Capability Mapper
+        title: Competency Gap Analyst & Resource Strategist
+        based_on: null
+      - id: cost-analyst
+        name: Cost Analyst
+        title: FinOps Analyst & ROI Strategist
+        based_on: null
+      - id: kaizen-chief
+        name: Kaizen Chief
+        title: Ecosystem Intelligence Orchestrator
+        based_on: null
+      - id: performance-tracker
+        name: Performance Tracker
+        title: Squad Performance Analyst & Metrics Diagnostician
+        based_on: null
+      - id: tech-radar
+        name: Tech Radar
+        title: Technology Evaluator & Fitness Function Architect
+        based_on: null
+      - id: topology-analyst
+        name: Topology Analyst
+        title: Squad Structure Analyst & Cognitive Load Diagnostician
+        based_on: null
+  - name: kaizen-v2
+    display_name: kaizen-v2
+    domain: kaizen-v2
+    description: >-
+      Evolução do kaizen v1: sistema nervoso do projeto com sensoriamento diário (Tier 0). Captura
+      contínua de learnings, padrão de esquecimento (forgetting curve), relatórios inteligentes com
+      padrões reinforçados, e briefings proativos de sessão. Extensão fork do kaizen v1 — não
+      modifica v1.3.0, estende capacidades.
+    keywords:
+      - kaizen-v2
+      - kaizen
+      - v2
+    entry_agent: kaizen-v2-chief
+    agent_count: 8
+    agents:
+      - id: kaizen-v2-bottleneck-hunter
+        name: Kaizen V2 Bottleneck Hunter
+        title: System Constraint Analyst & Flow Optimizer
+        based_on: null
+      - id: kaizen-v2-capability-mapper
+        name: Kaizen V2 Capability Mapper
+        title: Competency Gap Analyst & Resource Strategist
+        based_on: null
+      - id: kaizen-v2-chief
+        name: Kaizen V2 Chief
+        title: Ecosystem Intelligence Orchestrator (v2 — Daily + Weekly)
+        based_on: null
+      - id: kaizen-v2-cost-analyst
+        name: Kaizen V2 Cost Analyst
+        title: FinOps Analyst & ROI Strategist
+        based_on: null
+      - id: kaizen-v2-memory-keeper
+        name: Kaizen V2 Memory Keeper
+        title: Tier 0 Sensorial — Daily Intelligence Curator
+        based_on: null
+      - id: kaizen-v2-performance-tracker
+        name: Kaizen V2 Performance Tracker
+        title: Squad Performance Analyst & Metrics Diagnostician
+        based_on: null
+      - id: kaizen-v2-tech-radar
+        name: Kaizen V2 Tech Radar
+        title: Technology Evaluator & Fitness Function Architect
+        based_on: null
+      - id: kaizen-v2-topology-analyst
+        name: Kaizen V2 Topology Analyst
+        title: Squad Structure Analyst & Cognitive Load Diagnostician
+        based_on: null
+  - name: legal-analyst
+    display_name: legal-analyst
+    domain: legal-analyst
+    description: >-
+      Sistema de analise juridica processual com 15 agentes especializados. Pesquisa, classifica e
+      analisa processos judiciais aplicando rigorosamente diretrizes do CNJ, jurisprudencias
+      consolidadas e precedentes dos Relatores. Pipeline: Triagem -> Pesquisa -> Analise ->
+      Fundamentacao -> Validacao -> Entrega.
+    keywords:
+      - legal-analyst
+      - legal
+      - analyst
+    entry_agent: legal-chief
+    agent_count: 15
+    agents:
+      - id: barbosa-classifier
+        name: barbosa-classifier
+        title: >-
+          Classificar processos judiciais usando as Tabelas Processuais Unificadas (TPU) e o Sistema
+          de Gestao de Tabelas (SGT) do CNJ. Definir classe processual, assu...
+        based_on: null
+      - id: barroso-strategist
+        name: barroso-strategist
+        title: >-
+          Estrategista argumentativo. Aplica tecnicas de argumentacao juridica, ponderacao de
+          principios (Alexy), proporcionalidade (adequacao, necessidade, proporcion...
+        based_on: null
+      - id: carmem-relator
+        name: carmem-relator
+        title: >-
+          Analista de Relatores. Estuda o perfil de Ministros, Desembargadores e Juizes Relatores
+          para mapear tendencias de voto, linhas argumentativas preferidas, div...
+        based_on: null
+      - id: cnj-compliance
+        name: cnj-compliance
+        title: >-
+          Verificar e garantir conformidade de toda analise processual com as Resolucoes do CNJ,
+          particularmente o projeto DATAJUD (Res. 331/2020), a PDPJ (Res. 335/20...
+        based_on: null
+      - id: datajud-formatter
+        name: datajud-formatter
+        title: >-
+          Formatador de dados judiciais. Estrutura toda a saida conforme o schema DATAJUD do CNJ
+          (Res. 331/2020) e organiza a apresentacao com navegabilidade inspirada...
+        based_on: null
+      - id: fachin-precedent
+        name: fachin-precedent
+        title: >-
+          Analista de precedentes. Identifica ratio decidendi vs obiter dictum. Aplica
+          distinguishing (CPC Art. 489 par. 1o, VI) e identifica overruling. Referencia: C...
+        based_on: null
+      - id: fux-procedural
+        name: fux-procedural
+        title: >-
+          Verificar admissibilidade processual: pressupostos processuais (subjetivos e objetivos),
+          condicoes da acao (legitimidade, interesse, possibilidade juridica),...
+        based_on: null
+      - id: legal-chief
+        name: Legal Chief
+        title: Orquestrador de Analise Processual
+        based_on: null
+      - id: marinoni-quality
+        name: marinoni-quality
+        title: >-
+          Controlador de qualidade de precedentes. Verifica se os precedentes citados estao
+          vigentes, se a ratio decidendi foi corretamente identificada, se o stare de...
+        based_on: null
+      - id: mendes-researcher
+        name: mendes-researcher
+        title: >-
+          Conduzir pesquisa jurisprudencial aprofundada com foco em materia constitucional. Mapear
+          precedentes do STF (ADI, ADC, ADPF, RE com repercussao geral), prece...
+        based_on: null
+      - id: moraes-analyst
+        name: moraes-analyst
+        title: >-
+          Analisar questoes envolvendo direitos e garantias fundamentais (CF/88 Art. 5o), direitos
+          sociais (Art. 6o-11), tratados internacionais de direitos humanos, e...
+        based_on: null
+      - id: nunes-quantitative
+        name: nunes-quantitative
+        title: >-
+          Jurimetrista. Aplica metodos quantitativos e estatisticos para analisar decisoes
+          judiciais. Calcula taxas de procedencia, valores medios, tendencias temporai...
+        based_on: null
+      - id: theodoro-validator
+        name: theodoro-validator
+        title: >-
+          Validador de fundamentacao processual. Aplica Teoria Geral do Processo para verificar se a
+          analise esta completa, coerente e processualmente valida. Verifica...
+        based_on: null
+      - id: toffoli-aggregator
+        name: toffoli-aggregator
+        title: >-
+          Consolidar precedentes judiciais dispersos em um mapa coerente. Especialista em mecanismos
+          de uniformizacao: IRDR (Incidente de Resolucao de Demandas Repetit...
+        based_on: null
+      - id: weber-indexer
+        name: weber-indexer
+        title: >-
+          Indexar, categorizar e organizar tematicamente os acordaos e precedentes encontrados na
+          pesquisa. Aplicar Tesauro Juridico do CNJ, classificacao TPU de assun...
+        based_on: null
+  - name: marketing
+    display_name: Marketing Squad
+    domain: Marketing — Brand, Demand and Measurement
+    description: >-
+      Squad de marketing: construção de marca, geração de demanda, conteúdo e medição. Cobre do
+      alcance de longo prazo à conversão de curto prazo.
+    keywords:
+      - marketing
+      - brand
+      - demand-generation
+      - content
+      - analytics
+      - attribution
+      - aexos
+    entry_agent: marketing-chief
+    agent_count: 7
+    agents:
+      - id: analytics-lead
+        name: Cipher
+        title: Analytics Lead
+        based_on: Avinash Kaushik (Web Analytics 2.0, 2009)
+      - id: brand-lead
+        name: Salience
+        title: Brand Lead
+        based_on: Byron Sharp (How Brands Grow, 2010)
+      - id: content-lead
+        name: Quill
+        title: Content Lead
+        based_on: >-
+          Editorial discipline applied to marketing (agenda, cadence, distribution) — no single
+          canonical work
+      - id: demand-lead
+        name: Cadence
+        title: Demand Lead
+        based_on: Les Binet & Peter Field (The Long and the Short of It, 2013)
+      - id: funnel-lead
+        name: Weir
+        title: Funnel Lead
+        based_on: Russell Brunson (DotCom Secrets, 2015 / Expert Secrets, 2017 / Traffic Secrets, 2020)
+      - id: marketing-chief
+        name: Beacon
+        title: Marketing Squad Chief
+        based_on: Original (Orchestrator)
+      - id: offer-lead
+        name: Bounty
+        title: Offer Lead
+        based_on: Alex Hormozi ($100M Offers, 2021 / $100M Leads, 2023)
+  - name: ops
+    display_name: Operations Squad
+    domain: Operations — Reliability, Flow and Continuous Improvement
+    description: >-
+      Squad de operações: confiabilidade de serviço, fluxo e restrições, melhoria contínua e
+      resposta a incidentes.
+    keywords:
+      - operations
+      - reliability
+      - sre
+      - theory-of-constraints
+      - lean
+      - incident
+      - flow
+      - aexos
+    entry_agent: ops-chief
+    agent_count: 5
+    agents:
+      - id: flow-lead
+        name: Throat
+        title: Flow Lead
+        based_on: Eliyahu Goldratt (The Goal / Theory of Constraints, 1984)
+      - id: incident-lead
+        name: Klaxon
+        title: Incident Lead
+        based_on: >-
+          Incident Command System + Beyer, Jones, Petoff & Murphy (Site Reliability Engineering,
+          Google, 2016) + Richard I. Cook (How Complex Systems Fail) + Sidney Dekker (just culture)
+      - id: lean-lead
+        name: Kaizen
+        title: Lean Lead
+        based_on: Taiichi Ohno (Toyota Production System, 1978)
+      - id: ops-chief
+        name: Fulcrum
+        title: Operations Squad Chief
+        based_on: Original (Orchestrator)
+      - id: reliability-lead
+        name: Keel
+        title: Reliability Lead
+        based_on: Beyer, Jones, Petoff & Murphy (Site Reliability Engineering, Google, 2016)
+  - name: products
+    display_name: Products Squad
+    domain: Product Management — Discovery to Monetisation
+    description: |-
+      Squad especialista no ciclo completo de produto: estratégia e times empoderados,
+      discovery contínuo, jobs to be done, posicionamento, monetização e
+      experimentação confiável. Cobre da decisão sobre o que construir até a prova
+      de que aquilo funcionou.
+    keywords:
+      - product-management
+      - discovery
+      - jobs-to-be-done
+      - positioning
+      - pricing
+      - monetization
+      - experimentation
+      - ab-testing
+      - product-strategy
+      - opportunity-solution-tree
+      - willingness-to-pay
+      - aexos
+    entry_agent: products-chief
+    agent_count: 7
+    agents:
+      - id: discovery-lead
+        name: Sonar
+        title: Continuous Discovery Lead
+        based_on: Teresa Torres (Continuous Discovery Habits)
+      - id: experimentation-lead
+        name: Vernier
+        title: Experimentation Lead
+        based_on: Kohavi, Tang & Xu (Trustworthy Online Controlled Experiments)
+      - id: jobs-analyst
+        name: Plumb
+        title: Jobs Analyst
+        based_on: Clayton Christensen (Jobs to Be Done / Competing Against Luck)
+      - id: positioning-lead
+        name: Datum
+        title: Positioning Lead
+        based_on: April Dunford (Obviously Awesome / Sales Pitch)
+      - id: pricing-strategist
+        name: Assay
+        title: Pricing Strategist
+        based_on: Madhavan Ramanujam & Georg Tacke (Monetizing Innovation)
+      - id: product-strategist
+        name: Lodestar
+        title: Product Strategist
+        based_on: Marty Cagan (INSPIRED / EMPOWERED)
+      - id: products-chief
+        name: Helm
+        title: Products Squad Chief
+        based_on: Original (Orchestrator)
+  - name: sales
+    display_name: Sales Squad
+    domain: Sales — Qualification, Method and Negotiation
+    description: >-
+      Squad comercial: qualificação, método de venda consultiva, negociação e operação de pipeline.
+      Do primeiro contato ao fechamento.
+    keywords:
+      - sales
+      - qualification
+      - meddic
+      - negotiation
+      - pipeline
+      - enterprise-sales
+      - aexos
+    entry_agent: sales-chief
+    agent_count: 5
+    agents:
+      - id: method-lead
+        name: Forge
+        title: Sales Method Lead
+        based_on: Matthew Dixon & Brent Adamson (The Challenger Sale, 2011)
+      - id: negotiation-lead
+        name: Tether
+        title: Negotiation Lead
+        based_on: Chris Voss (Never Split the Difference, 2016)
+      - id: pipeline-ops
+        name: Conveyor
+        title: Pipeline Operations Lead
+        based_on: Mark Roberge (The Sales Acceleration Formula, 2015)
+      - id: qualification-lead
+        name: Sieve
+        title: Qualification Lead
+        based_on: MEDDIC (Dick Dunkel & Jack Napoli, PTC)
+      - id: sales-chief
+        name: Vanguard
+        title: Sales Squad Chief
+        based_on: Original (Orchestrator)
+  - name: seo
+    display_name: SEO Expert Squad
+    domain: seo
+    description: >-
+      Post-design SEO optimization squad. Evaluates websites (0-100 score), optimizes all SEO
+      factors, and shows before/after improvement. Works like Yoast/RankMath but as intelligent
+      agents.
+    keywords:
+      - seo
+      - search engine optimization
+      - meta tags
+      - structured data
+      - schema markup
+      - core web vitals
+      - on-page seo
+      - technical seo
+      - e-e-a-t
+      - generative engine optimization
+    entry_agent: seo-chief
+    agent_count: 8
+    agents:
+      - id: ai-visibility-optimizer
+        name: AI Visibility Optimizer
+        title: Generative Engine Optimization (GEO) Specialist
+        based_on: >-
+          Mike King (Relevance Engineering + AI Search Manual) + GEO Research (Princeton/Georgia
+          Tech — arxiv:2311.09735)
+      - id: content-quality-assessor
+        name: Content Quality Assessor
+        title: E-E-A-T & Content Quality Specialist
+        based_on: >-
+          Marie Haynes (88-Page E-E-A-T Assessment Workbook) + Koray Tugberk GUBUR (Topical
+          Authority 2.0 + Semantic SEO)
+      - id: on-page-optimizer
+        name: On-Page Optimizer
+        title: On-Page SEO Specialist
+        based_on: Joost de Valk (Yoast SEO Analysis Engine) + Bhanu Ahluwalia (RankMath 100-Point System)
+      - id: performance-engineer
+        name: Performance Engineer
+        title: Core Web Vitals & Page Speed Specialist
+        based_on: Google Core Web Vitals Framework (web.dev) + Lighthouse audit methodology
+      - id: schema-architect
+        name: Schema Architect
+        title: Structured Data & Entity SEO Specialist
+        based_on: >-
+          Jason Barnard — Kalicube Process (Understandability > Credibility > Deliverability) +
+          Entity SEO methodology
+      - id: seo-chief
+        name: SEO Chief
+        title: SEO Orchestrator & Audit Director
+        based_on: >-
+          Aleyda Solis — LearningSEO.io Roadmap + SEO QA Framework + AI Search Optimization
+          Checklist
+      - id: site-architect
+        name: Site Architect
+        title: Site Architecture & Internal Linking Specialist
+        based_on: >-
+          Bruce Clay — SEO Silo Architecture (Physical + Virtual Siloing, 17+ years documented
+          methodology)
+      - id: technical-auditor
+        name: Technical SEO Auditor
+        title: Technical SEO Specialist
+        based_on: >-
+          Dan Sharp (Screaming Frog audit methodology) + Cyrus Shepard (Page Quality Scorecard + 7
+          Internal Linking Rules)
+  - name: squad-creator
+    display_name: squad-creator
+    domain: Squad Creator
+    description: >-
+      Base meta-squad para criar squads de agentes via templates e validacao estrutural.
+      Orchestrator: @squad-chief (triage, routing, criacao template-driven de squads). Base mode: 24
+      tasks, 3 workflows, 1 agent. Pro mode: auto-detected via squad-creator-pro/ (adds mind
+      cloning, DNA extraction, multi-agent orchestration, model routing, advanced optimization).
+      v4.0: Base/Pro split — template-driven base, mind-cloning pro.
+    keywords:
+      - squad-creator
+      - squad
+      - creator
+    entry_agent: squad-chief
+    agent_count: 1
+    agents:
+      - id: squad-chief
+        name: Squad Architect
+        title: Squad Creator & Domain Architect
+        based_on: null
+warnings:
+  - '_example: no squad.yaml or config.yaml — not a squad, skipped'

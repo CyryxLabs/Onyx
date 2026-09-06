@@ -1,0 +1,32 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P9-EXIT-CANDIDATE-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-07-25",
+  "findings": {"P0":0,"P1":0,"P2":0,"P3":0},
+  "candidate_manifest_sha256": "c0e8105eceb011b5a0629df8d9ea5beb2588787833d6053cebee6f66bf66ee2d",
+  "artifact_root_sha256": "90d1947576ebaf430cd179b1624c74974789a1426552afb42eab53b180f81fc6",
+  "accepted_component_roots": 12,
+  "results": {"test_files":23,"passed":472,"failed":0,"errors":0,"skipped":8,"subtests_passed":80},
+  "review_history": {
+    "functional": "PASS: claim set honest and machine-guarded (world_monitor/live_execution/autonomous_trading/phase10/full_prd all false); binds only default-off contract evidence; score is inert, no trade path",
+    "integrity": "PASS: artifact root 90d19475 and all 12 accepted roots recomputed exactly; requirement->evidence mapping machine-enforced; no predecessor modified; 23-file gate reproduced in fresh processes",
+    "quality": "PASS: verifier is the accepted Phase 8 exit pattern adapted to three slices; guards identity, 7 claims, bijection, tuples, closure/root, 23-file count and per-file sum; ingestion-key compression concern considered and dismissed"
+  },
+  "scope_exclusions": [
+    "World Monitor (BLOCKED_BY_LICENSE) — not implemented, not bound, UI/assets/source not copied, no Cyryx ownership implied",
+    "live execution — approved-source live ingestion run is owner-gated and unbound",
+    "autonomous trading — no headline is turned into a trade; scores are inert data"
+  ],
+  "claims": {
+    "phase9_intelligence_layer_default_off_implementation_complete": true,
+    "official_source_first_proven": true,
+    "phase10_may_begin": true,
+    "world_monitor_bound": false,
+    "live_execution_bound": false,
+    "autonomous_trading_enabled": false,
+    "runtime_authority_added": false,
+    "phase10_started": false,
+    "full_onyx_prd_complete": false
+  }
+}

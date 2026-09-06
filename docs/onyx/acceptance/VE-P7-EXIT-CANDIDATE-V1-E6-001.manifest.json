@@ -1,0 +1,12 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P7-EXIT-CANDIDATE-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-07-23",
+  "findings": {"P0":0,"P1":0,"P2":0,"P3":0},
+  "candidate_manifest_sha256": "19cb98bb51a14617538aafb9c1f17cb52818e78991b51269ee3b0f126db505e4",
+  "artifact_root_sha256": "0512b1af1ea38392ca62b37933404119c80b173a3d6e8e059d0e0f5418a7bfcb",
+  "accepted_component_roots": 24,
+  "results": {"test_files":12,"passed":240,"failed":0,"errors":0,"skipped":8,"subtests_passed":80},
+  "claims": {"phase7_default_off_implementation_complete":true,"phase8_may_begin":true,"live_wiring":false,"runtime_authority_added":false,"full_onyx_prd_complete":false}
+}

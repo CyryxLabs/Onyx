@@ -1,0 +1,33 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-GUILD-WORKFLOW-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-08-17",
+  "findings": {"P0":0,"P1":0,"P2":0,"P3":0},
+  "candidate_manifest_sha256": "ff15e7724f5ab0d30e4f02eedfce0728d54184a86c49183b4679e88aaf99d456",
+  "artifact_root_sha256": "48043deead60aecc926925a191926f785896229026097e1e2048e46916dabfdc",
+  "feature_flag": "ONYX_GUILD_WORKFLOW_V1",
+  "accepted_guild_handoff_root_sha256": "104efcc6762416ea6ffd2055a5368df49f605a9e507cc746d8cf0bbf37be6b79",
+  "results": {"test_files":30,"passed":752,"failed":0,"errors":0,"skipped":17,"subtests_passed":96},
+  "review_history": {
+    "functional": "PASS (autonomous session): byte-pinned templates (dup/unknown-status/regressing/must-end-done/tamper rejected), exact-prefix runs, stage/authority coupling with exclusive owner sets, run/story status coupling, sealed construction — adversarially tested (35 tests); no execution surface, machine-asserted",
+    "integrity": "PASS (autonomous session): artifact root 48043dee and all 8 artifacts recomputed exactly; A9.2 entry-bind byte-exact through the healed current-successor chain",
+    "quality": "PASS (autonomous session): mirrors accepted slice idioms; verifier forbids network/process/dispatch tokens and reproduces the 30-file gate with per-file sum check (752/0/0/17/96)"
+  },
+  "scope_exclusions": [
+    "execution binding / dispatch — A9.4, separately gated",
+    "sessions, grants, budgets, decommission — A9.5, separately gated",
+    "non-engineering squad packs and any live provider or model call — later gated work",
+    "runtime wiring / action authority — none added",
+    "matrix/ledger documentation updates — batched into the next documentation-authority pass"
+  ],
+  "claims": {
+    "guild_workflow_default_off_contract_complete": true,
+    "template_run_and_authority_coupling_enforced": true,
+    "execution_or_dispatch_authority_added": false,
+    "network_or_process_opened": false,
+    "independent_human_review_performed": false,
+    "later_guild_slices_started": false,
+    "full_onyx_prd_complete": false
+  }
+}

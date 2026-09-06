@@ -1,0 +1,48 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P8-MICROSOFT-GRAPH-TASKS-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-07-24",
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 3
+  },
+  "candidate_manifest_path": "docs/onyx/checkpoints/phase8-microsoft-graph-tasks-v1/manifest.json",
+  "candidate_manifest_sha256": "44337ca6fdd348cd8ff7010d8ffeeb6fd6bc3167b4b80f0e3a08888b1bc859a8",
+  "artifact_root_sha256": "984f32cf236bac4b9ef1c4ad0a63bcf9a1384c19a0fdc8feae5720d0334f6508",
+  "artifacts": 8,
+  "results": {
+    "test_files": 19,
+    "passed": 403,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "explained_platform_skips": 8,
+    "subtests_passed": 80
+  },
+  "review_history": {
+    "functional": "PASS: 0 P0, 0 P1, 0 P2, 3 P3",
+    "integrity": "PASS: root 984f32cf reconfirmed",
+    "quality": "PASS: 0 P0, 0 P1, 0 P2, 2 P3"
+  },
+  "claims": {
+    "microsoft_graph_tasks_v1_accepted": true,
+    "deterministic_notification_router": true,
+    "quiet_hours_wraps_midnight": true,
+    "workspace_device_suppression": true,
+    "exact_content_bound_task_grant": true,
+    "draft_content_digest_recomputed": true,
+    "durable_ledger_one_shot_seam": true,
+    "receipt_and_readback_reconciliation": true,
+    "uncertain_reconcile_before_retry": true,
+    "no_task_auto_retry_on_429": true,
+    "route_pinned_tasks_transport": true,
+    "task_update_delete_complete_authority": false,
+    "live_task_create_e2e": false,
+    "live_wiring": false,
+    "phase8_exit": false,
+    "full_onyx_prd_complete": false
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "schema": "OnyxPhase6GeminiLiveCompat.v1",
+  "candidate": "phase6-gemini-live-compat-candidate-003",
+  "supersedes": {
+    "candidate": "phase6-gemini-live-compat-candidate-002",
+    "disposition": "rejected_before_e6_never_live",
+    "record": {
+      "path": "docs/onyx/rejections/PHASE6_GEMINI_LIVE_COMPAT_V1_C002_REJECTION.md",
+      "sha256": "0b6ce502e597a0b813dd7185a01f27dd339aef57b14968c6dda8e3a81ac742ca"
+    }
+  },
+  "rejection_history": [
+    {
+      "candidate": "phase6-gemini-live-compat-candidate-001",
+      "disposition": "rejected_before_e6_never_live",
+      "path": "docs/onyx/rejections/PHASE6_GEMINI_LIVE_COMPAT_V1_C001_REJECTION.md",
+      "sha256": "fe63d4ecc62a965962f1e766256ecc23f72811bbd9b9b155427e12e4025cd67e"
+    },
+    {
+      "candidate": "phase6-gemini-live-compat-candidate-002",
+      "disposition": "rejected_before_e6_never_live",
+      "path": "docs/onyx/rejections/PHASE6_GEMINI_LIVE_COMPAT_V1_C002_REJECTION.md",
+      "sha256": "0b6ce502e597a0b813dd7185a01f27dd339aef57b14968c6dda8e3a81ac742ca"
+    }
+  ],
+  "status": "candidate_default_off_not_live",
+  "activation": {
+    "flag": "ONYX_PHASE6_GEMINI_LIVE_COMPAT_V1",
+    "enabled_value": "1",
+    "exact": "ONYX_PHASE6_GEMINI_LIVE_COMPAT_V1=1",
+    "default": "off",
+    "live_wiring": false
+  },
+  "artifact_root_algorithm": "sha256-sorted-path-nul-digest-lf-v1",
+  "artifact_root_sha256": "1ec67d869234ff8b389b5dd228d82516958cf68fe5e4b8f140610601b6233ed6",
+  "artifacts": [
+    {
+      "path": "core/phase6_gemini_live_compat_v1.py",
+      "bytes": 14072,
+      "sha256": "3fb18363c237c573c717472bb9b2d6b3891dccc6236be7f698ee0833b9a55df5"
+    },
+    {
+      "path": "tests/test_phase6_gemini_live_compat_v1.py",
+      "bytes": 7951,
+      "sha256": "bb44f68af05a64ac04a560034f89b84be7c44cc8797bc89bedbed2fdba6b4b09"
+    },
+    {
+      "path": "scripts/verify_phase6_gemini_live_compat_v1.py",
+      "bytes": 4893,
+      "sha256": "6227b9ddf9bd0957bd516242334859a6e6aaede27236b3ed0d3562d60a41d65d"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0020-phase6-gemini-live-compat-v1.md",
+      "bytes": 1305,
+      "sha256": "9735a42115f801f26bbfaac2da7978c591f05c6d87dc12380454a072c6599da7"
+    },
+    {
+      "path": "docs/onyx/rejections/PHASE6_GEMINI_LIVE_COMPAT_V1_C001_REJECTION.md",
+      "bytes": 738,
+      "sha256": "fe63d4ecc62a965962f1e766256ecc23f72811bbd9b9b155427e12e4025cd67e"
+    },
+    {
+      "path": "docs/onyx/rejections/PHASE6_GEMINI_LIVE_COMPAT_V1_C002_REJECTION.md",
+      "bytes": 671,
+      "sha256": "0b6ce502e597a0b813dd7185a01f27dd339aef57b14968c6dda8e3a81ac742ca"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase6-gemini-live-compat-v1/PHASE6_GEMINI_LIVE_COMPAT_V1_CHECKPOINT.md",
+      "bytes": 1218,
+      "sha256": "817b2ca0ee886473819c2452690b0fb3c0c39bd5c52193e1e3246576c69986d9"
+    }
+  ],
+  "contracts": {
+    "api_version": "v1beta",
+    "host_config_identity_passthrough": true,
+    "config_reconstruction": false,
+    "response_modalities": [
+      "AUDIO"
+    ],
+    "input_transcription": true,
+    "output_transcription": true,
+    "session_resumption": true,
+    "system_instruction_present_attested": true,
+    "system_instruction_content_persisted": false,
+    "factory_only": true,
+    "send_realtime_input_keyword": "media",
+    "send_realtime_input_keyword_only": true,
+    "host_wrapper_keyword_parity_ast": true,
+    "incompatible_audio_keyword_rejected": true,
+    "send_client_content_keywords": [
+      "turns",
+      "turn_complete"
+    ],
+    "explicit_receive_cancel_timeout": true,
+    "event_metadata_content_free": true,
+    "event_metadata_deterministic": true,
+    "strict_dataclass_invariants": true,
+    "connect_and_enter_failures": "UNAVAILABLE",
+    "prompt_or_api_key_stored": false,
+    "fallback_or_text_cross_route": false
+  },
+  "verification": {
+    "focused": "11 passed",
+    "fake_client_only": true,
+    "ast_host_characterization": true,
+    "network_calls": 0,
+    "live_activation": false,
+    "external_acceptance": "not_performed",
+    "e6": "not_performed"
+  },
+  "frozen_anchors": {
+    "main.py": "6b82fed0d7c932a08d2d1f8a31d7650a1b235d55085ee608fdbb7651e5f49712",
+    "core/live_model.py": "57e9b99a31d82a7ed157968a78669b148c877de3cc803616219c6e8406647b72",
+    "core/phase6_agentic_core_v6.py": "38f68d7dd8eb04fe7c9caa956db5a52d0a96426bab6a45f07b96e67e45d8001a",
+    "core/phase6_live_integration_v2.py": "e3194a0d8e206d33218bc8291cbd518788e8dfb3931adfd2f067908655d409b5",
+    "core/phase6_live_wiring_v1.py": "a658f430c10bb992724ad7bbd2ddae94b3c83f8893608fe724b241302b55d55f",
+    "core/onyx_live_activation_v9.py": "deb26314ef3871cb12fc8e3cee936f88e385122fad242c830580421ccb22a9d2"
+  },
+  "limitations": [
+    "The candidate is isolated, default-off and not imported by any live host.",
+    "Only deterministic fake clients were used; current Gemini availability and real audio interoperability are not proven.",
+    "Candidate 003 matches the unchanged host send_realtime_input(media=...) keyword surface; no live host call was changed.",
+    "Session resumption is configuration-attested but continuity against a provider is not exercised.",
+    "No E6 acceptance, live activation, cross-route or Phase 6 exit is claimed."
+  ]
+}

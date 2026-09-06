@@ -1,0 +1,11 @@
+Phase 5.1 R2 focused verification
+timestamp=2026-07-20T01:50:44.789065-04:00
+command=$base = Join-Path $env:TEMP ('onyx-p51-grants-r2-final-' + [guid]::NewGuid().ToString('N')); .\.venv\Scripts\python.exe -m pytest -q -p no:cacheprovider tests\test_session_grants_v2.py --basetemp $base --junitxml docs\onyx\checkpoints\phase5-grants-r2\phase5-grants-r2.junit.xml
+output=...................................................................      [100%]
+output=67 passed in 0.54s
+exit_code=0
+junit_tests=67
+junit_failures=0
+junit_errors=0
+junit_skipped=0
+junit_time_seconds=0.490

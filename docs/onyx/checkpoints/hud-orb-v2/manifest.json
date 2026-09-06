@@ -1,0 +1,81 @@
+{
+  "schema": "onyx.hud-orb-candidate-bundle.v1",
+  "candidate": "hud-orb-v2",
+  "created_at": "2026-07-22",
+  "bundle_root": "docs/onyx/checkpoints/hud-orb-v2",
+  "isolated": true,
+  "default_off": true,
+  "live_wired": false,
+  "files": [
+    {
+      "path": "core/render_governor.py",
+      "sha256": "923b659373d6194749ab5e9e803b6b0cd995f82c5410528cacea2d6fa2188461"
+    },
+    {
+      "path": "core/ui_projection.py",
+      "sha256": "b5bce8a27271ab0306fb21e61f3d90738490b946d987606ee104b2018d44cb19"
+    },
+    {
+      "path": "qml/OnyxShell.qml",
+      "sha256": "6fc614464c3015d724b11a5647a33fe0de5d980343451fc72dba27cb7e8ec98a"
+    },
+    {
+      "path": "qml/components/OnyxOrbV2.qml",
+      "sha256": "78fac811adb07de99f1e95baae94956ba41b189890224877a2441f0365e21311"
+    },
+    {
+      "path": "qml/components/HoloPanel.qml",
+      "sha256": "72959332c71b1dad12656e881177d0f75f4d8f4f9be41036cb5628a945e9cfcd"
+    },
+    {
+      "path": "qml/components/StatusPill.qml",
+      "sha256": "2637d1dd4cf3ab61d510c90a055d9063419c7dd05dc6275fb368a8dc6f64d038"
+    },
+    {
+      "path": "qml/components/TelemetryBar.qml",
+      "sha256": "d19be61a5e99145fb80afbf6fb6810cfad58bfce8720ca28357d5a30e51e3ff5"
+    },
+    {
+      "path": "tests/test_render_governor.py",
+      "sha256": "6ffc50f38cd5b7be1fe38d927c3599828b6d2ca0190f048a635baada11a338db"
+    },
+    {
+      "path": "tests/test_onyx_hud_v2.py",
+      "sha256": "f469ea701d1beacde24432e78373e864d75de4d75c881edc9e8a65e36c1332b8"
+    }
+  ],
+  "verification": {
+    "focused_and_regression": {
+      "passed": 34,
+      "failed": 0
+    },
+    "ruff": "pass",
+    "py_compile": "pass",
+    "qml_component": "pass",
+    "qquickview_context": "pass",
+    "performance": {
+      "snapshot_iterations": 20000,
+      "snapshot_p50_ms": 0.002900,
+      "snapshot_p95_ms": 0.005000,
+      "snapshot_max_ms": 1.734200,
+      "report_frame_iterations": 20000,
+      "report_frame_total_ms": 27.511
+    }
+  },
+  "limits": {
+    "fps_tiers": [12, 24, 30],
+    "audio_hz_max": 20,
+    "node_count_max": 160,
+    "idle_after_settle": true,
+    "hidden_or_minimized_fps": 0,
+    "renderer_count": 1
+  },
+  "limitations": [
+    "candidate-only; no startup, live UI, dashboard, or permission wiring",
+    "procedural 2.5D Canvas rather than ray-traced rendering",
+    "physical GPU, idle CPU/RSS delta, and motion quality pending",
+    "offscreen host exposes no fonts; real platform typography pending",
+    "native macOS and Linux execution pending",
+    "external acceptance review pending"
+  ]
+}

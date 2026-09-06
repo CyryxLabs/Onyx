@@ -1,0 +1,49 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P6-LOCAL-TEXT-COMPAT-V1-E6-001",
+  "decision": "accepted",
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "candidate_manifest": "docs/onyx/checkpoints/phase6-local-text-compat-v1/manifest.json",
+  "candidate_manifest_sha256": "a4c972e5ef74745884faf0c03e5bce3cad5424c524a7d03eee36a59f59ae49fc",
+  "artifact_root_sha256": "9c14301f67b1f01604909265a50b9591645fa7d11451f981811e90e30da80611",
+  "artifact_count": 5,
+  "frozen_anchor_count": 1,
+  "default_off": true,
+  "factory_only": true,
+  "live_activation": false,
+  "phase6_exit": false,
+  "scope": "isolated-local-text-compatibility-no-live-wiring",
+  "results": {
+    "focused_passed": 31,
+    "cumulative_passed": 133,
+    "cumulative_subtests_passed": 221,
+    "network_calls": 0,
+    "provider_calls": 0
+  },
+  "contracts": {
+    "providers": [
+      "ollama",
+      "openai_compatible"
+    ],
+    "streaming_nonstreaming": true,
+    "tool_call_parity": true,
+    "silent_retry": false,
+    "silent_cross_routing": false,
+    "timeout_enforcement": "injected_transport",
+    "blocking_cancellation": "cooperative",
+    "privacy": "http_loopback_only",
+    "exact_rollback": true
+  },
+  "integrity": {
+    "algorithm": "sha256",
+    "closed_membership": true,
+    "manifest_row_limit": 64,
+    "hmac": "not_applicable_no_mutable_authenticated_runtime_state",
+    "replay_control": "not_applicable_no_replayable_command"
+  }
+}

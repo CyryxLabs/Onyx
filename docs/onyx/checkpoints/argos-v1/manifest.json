@@ -1,0 +1,60 @@
+{
+  "schema": "onyx.argos.v1",
+  "candidate": "argos-v1",
+  "created_at": "2026-08-18T19:46:32-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_ARGOS_V1",
+  "default_off": true,
+  "accepted_phase9_exit_root_sha256": "90d1947576ebaf430cd179b1624c74974789a1426552afb42eab53b180f81fc6",
+  "verification": {
+    "test_files": 33,
+    "passed": 868,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 17,
+    "subtests_passed": 96
+  },
+  "artifacts": [
+    {
+      "path": "core/argos_v1.py",
+      "bytes": 10444,
+      "sha256": "349bb22c58088cc14212652b3e45078827cdb82357f96ccd08d1291193c53244"
+    },
+    {
+      "path": "tests/test_argos_v1.py",
+      "bytes": 6909,
+      "sha256": "013a376394c21f180573cc7915613f74f00d97f5930fd18f6c10f02ccce4c45f"
+    },
+    {
+      "path": "scripts/verify_argos_v1.py",
+      "bytes": 8030,
+      "sha256": "60bc1762ec8b7741a9083aedecc2c036b9b4526fcee6441060d2d1954e018c78"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0059-argos-v1.md",
+      "bytes": 2077,
+      "sha256": "4b64e6beba82f000dcc45688b7141f3b9015f8449ec97eea10c9d2c7e7461ab2"
+    },
+    {
+      "path": "docs/onyx/research/ARGOS_V1_SOURCES.md",
+      "bytes": 1319,
+      "sha256": "350b77f64e69300e0d7627d184bb5e1b084075aa036fd73f102fbdebf20c2d89"
+    },
+    {
+      "path": "docs/onyx/checkpoints/argos-v1/ARGOS_V1_CHECKPOINT.md",
+      "bytes": 1562,
+      "sha256": "5c5909dcab2b8a65801444babc068889f8af4f9a95d052784824d7bca75e05b2"
+    },
+    {
+      "path": "docs/onyx/checkpoints/argos-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 911,
+      "sha256": "4538a5c3e98d53e8482f06d1f4b1f94d03383438b35135bf3e7d242b0d47b429"
+    },
+    {
+      "path": "docs/onyx/checkpoints/argos-v1/cumulative-selection.json",
+      "bytes": 5001,
+      "sha256": "a6326201344a1a96d2941aaac4b2a36266d865f9e8f21b4554080d3b12f1d45a"
+    }
+  ],
+  "artifact_root_sha256": "11f51eb86be4e9e953bf0df0e7740683a291ec2f83c641b7054a0fe201738d62"
+}

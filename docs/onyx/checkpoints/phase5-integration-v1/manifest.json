@@ -1,0 +1,107 @@
+{
+  "schema": "onyx.phase5.integration-candidate-bundle.v1",
+  "candidate": "phase5-integration-v1",
+  "created_at": "2026-07-22",
+  "default_off": true,
+  "live_activated": false,
+  "live_restart_performed": false,
+  "accepted_anchors": [
+    {
+      "acceptance": "VE-P51-GRANTS-R11-E6-001",
+      "path": "core/session_grants_v11.py",
+      "sha256": "0f4ad25b72a9c64064dfc946afab6d2515edff1f91171d46d54e36e38c6cd159"
+    },
+    {
+      "acceptance": "VE-P52-APPROVAL-INBOX-V15-E6-001",
+      "path": "core/approval_inbox_v15.py",
+      "sha256": "f9627e6b9e840dbca8e098a047e56da4647d24ef80f201c5585a41d405d52061"
+    },
+    {
+      "acceptance": "VE-P53-CAPABILITY-NEXUS-V32-E6-001",
+      "path": "core/capability_nexus_v32.py",
+      "sha256": "576eed0bda063945d33f8bcb79b338e64976ca5252af793633fe3ab667ed1fc9"
+    },
+    {
+      "acceptance": "component-adapters-v3-independent-signoff",
+      "path": "core/phase5_component_adapters_v3.py",
+      "sha256": "9c570d40a410e57a18f82a4ee2c30eddfe515a0cc7798d13607d020e573e3239"
+    },
+    {
+      "acceptance": "VE-P5-RUNTIME-V10-E6-001",
+      "path": "core/phase5_runtime_v10.py",
+      "sha256": "f80fd636e145e669cc1ea76cfc024fcc5d385451cc1ef8624f7c9d8e0ac3f439"
+    }
+  ],
+  "reserved_surface": {
+    "path": "ui.py",
+    "sha256_before": "60bea0ac313efa7c77dfbc1e3bffec885a0dad010b6f3e9e332761d6cd0de043",
+    "sha256_after": "60bea0ac313efa7c77dfbc1e3bffec885a0dad010b6f3e9e332761d6cd0de043"
+  },
+  "integration_files": [
+    {
+      "path": "core/phase5_integration_v1.py",
+      "sha256": "234ba11fb9ce5336297c27951c97e0c9c63a34bf4841b6980b58cff026687cdc"
+    },
+    {
+      "path": "tests/test_phase5_integration_v1.py",
+      "sha256": "4d5a3432ee90009266cf57a33d098f57430aca1831f1ab07b354e0797e775fef"
+    }
+  ],
+  "live_surface_transitions": [
+    {
+      "path": "core/permission_broker.py",
+      "sha256_before": "8358ba39d7ff2d965eae7af7c24007f64f4670bef349447737c72e88776cbffc",
+      "sha256_after": "e37fb092410ba0843036dbdc779342c4d24a811bbfcf0de8812f2f6144e7d250"
+    },
+    {
+      "path": "main.py",
+      "sha256_before": "8ca34d65b368549531a3b2aa9f1bd49d46a8ea651e7d6035edc55b505f705a80",
+      "sha256_after": "bfb6edd48df6d8752404f60137ae7056fc9d529adff9bd8fa91578b81d7a6fb0"
+    },
+    {
+      "path": "dashboard/server.py",
+      "sha256_before": "40543e36af46f0f14533f8f3ca2f6c807f212c5532266ea2a9982e694fe9a712",
+      "sha256_after": "4d3142dc9c6a78cfe76f804de2b154334da2d7790484783a993babc92300bae1"
+    }
+  ],
+  "verification": {
+    "focused_and_regression": {
+      "passed": 185,
+      "failed": 0,
+      "subtests_passed": 269,
+      "warnings": 1
+    },
+    "ruff_new_candidate_files": "pass",
+    "py_compile": "pass",
+    "performance": {
+      "iterations": 100,
+      "operation": "authorize_consume_catalog_read",
+      "p50_ms": 5.631,
+      "p95_ms": 21.4261,
+      "max_ms": 73.3155,
+      "thread_delta": 0
+    }
+  },
+  "authority_boundary": {
+    "remote_reads": ["status", "inbox", "capabilities"],
+    "remote_mutations": ["kill"],
+    "remote_approve": false,
+    "remote_grant": false,
+    "remote_dispatch": false,
+    "executable_extension": "local.catalog/catalog_read",
+    "provider_free": true,
+    "effect": "none",
+    "egress": "none",
+    "cost_micro": 0
+  },
+  "operational_residue": {
+    "class": "pytest_basetemp",
+    "paths": [
+      ".pytest-p5-integration-v1-run",
+      ".pytest-p5-integration-combined-run",
+      ".pytest-p5-integration-final-run"
+    ],
+    "runtime_imported": false,
+    "cleanup": "host_policy_blocked_exact_safe_removal"
+  }
+}

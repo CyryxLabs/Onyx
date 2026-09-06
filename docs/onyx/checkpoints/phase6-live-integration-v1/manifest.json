@@ -1,0 +1,94 @@
+{
+  "schema": "OnyxPhase6LiveIntegrationCheckpoint.v1",
+  "status": "candidate_default_off_not_live",
+  "generated_at": "2026-07-23T02:20:00-04:00",
+  "environment": {
+    "platform": "Windows 11 10.0.26200",
+    "python": "3.13.7 x64"
+  },
+  "activation": {
+    "feature_flag": "ONYX_PHASE6_LIVE_INTEGRATION_V1",
+    "enabled_value": "true",
+    "default": "off",
+    "live_wiring": false
+  },
+  "artifacts": [
+    {
+      "path": "core/phase6_live_integration_v1.py",
+      "bytes": 46667,
+      "sha256": "d838b3789bd286188f4b8f21426135fe2034459f1382cc68e3568707952a3715"
+    },
+    {
+      "path": "tests/test_phase6_live_integration_v1.py",
+      "bytes": 21073,
+      "sha256": "830c3717737aed95bdf9fea10138c87cca3624201120778d496704e6f7990046"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0016-phase6-live-integration-v1.md",
+      "bytes": 5823,
+      "sha256": "b4257950e3f07bb0930cd832e571c633873ee1c8ae0513071445b8ca4324c6b6"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase6-live-integration-v1/PHASE6_LIVE_INTEGRATION_V1_CHECKPOINT.md",
+      "bytes": 6253,
+      "sha256": "f7d7159dd78e213c4eb030a5f73217e22fd3749e46a067df81a707ec42cf808b"
+    },
+    {
+      "path": "scripts/verify_phase6_live_integration_v1.py",
+      "bytes": 7331,
+      "sha256": "53520a1ae92c9bbed339dc3d56e9319c78082ebe137b77ea9a39e1f4f5733917"
+    }
+  ],
+  "artifact_root_sha256": "4f974bdef7fbf58a6fb3780d5d3158884240ce9e4984401c67025b5eb26089bd",
+  "accepted_dependencies": {
+    "phase6_agentic_core_v6_acceptance": "VE-P6-AGENTIC-CORE-V6-E6-001",
+    "phase6_agentic_core_v6_manifest_sha256": "cedea0a3ed3bf0c1ed069c589e2eb78035caa58886ced0c69658ac71d7bb4a15",
+    "phase5_integration_v3_acceptance": "VE-P5-INTEGRATION-V3-E6-001",
+    "phase5_integration_v3_manifest_sha256": "9ee4b34fc87a6be5e123c83c7dd244804498891eb175b5201cf074475ff0d167",
+    "mission_store_sha256": "fe2074eb132c09beecb9f13c5151659e745cf888676c4244c037e0a7ed7f2fe5",
+    "llm_client_sha256": "e5c0f805e0d10a07e38054316fb9c6423409190cfa0f48bc39694e65c6a4e417"
+  },
+  "scope": {
+    "standalone_text_adapter": true,
+    "text_loopback_only": true,
+    "privacy_hard_route": true,
+    "phase5_local_catalog_read_binding": true,
+    "generic_executor": false,
+    "gemini_live_adapter": false,
+    "model_generated_planning": false,
+    "live_network_test": false,
+    "live_activation": false,
+    "phase6_exit_claimed": false
+  },
+  "external_agent": {
+    "adapter_id": "external_agent_disabled",
+    "status": "blocked_by_access",
+    "live": false
+  },
+  "verification_before_manifest": {
+    "focused": "27 passed, 1 manifest test deselected, in 2.61s",
+    "cumulative": "217 passed, 1 manifest test deselected, in 69.30s",
+    "ruff_lint": "passed",
+    "ruff_format": "passed",
+    "py_compile": "passed"
+  },
+  "verification_after_manifest": {
+    "focused": "28 passed",
+    "cumulative": "218 passed",
+    "verifier": "P6_LIVE_INTEGRATION_V1_OK",
+    "ruff_lint": "passed",
+    "ruff_format": "passed",
+    "py_compile": "passed"
+  },
+  "frozen_live_anchors": {
+    "main_py_sha256": "6b82fed0d7c932a08d2d1f8a31d7650a1b235d55085ee608fdbb7651e5f49712",
+    "ui_py_sha256": "e5768626b7eb9d162a54cd67b08b5cb7d9685fb5c0e1b8c951843a1146fc252b",
+    "dashboard_server_sha256": "4d3142dc9c6a78cfe76f804de2b154334da2d7790484783a993babc92300bae1"
+  },
+  "limitations": [
+    "The existing text client exposes no exact token-usage response, so V1 reserves its full 600-token output ceiling.",
+    "The catalog plan remains WAITING_FOR_PHASE5 after the separately receipted authoritative read.",
+    "Gemini Live, provider-backed planning, planner memory and installed external agents remain separate slices.",
+    "No live surface imports this module and no Phase 6 exit is claimed."
+  ]
+}

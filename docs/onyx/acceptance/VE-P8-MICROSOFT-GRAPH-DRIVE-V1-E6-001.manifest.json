@@ -1,0 +1,66 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P8-MICROSOFT-GRAPH-DRIVE-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-07-24",
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 1
+  },
+  "candidate_manifest_path": "docs/onyx/checkpoints/phase8-microsoft-graph-drive-v1/manifest.json",
+  "candidate_manifest_sha256": "3ad944de2b85de78e343f0cbee0556644218ec7d7039b93efe9daffe774758b5",
+  "artifact_root_sha256": "c79ee2960fdf3c74f4ec33cb693cd328a79bfa5547a8e74d2033603f9f0a6c21",
+  "artifacts": 8,
+  "results": {
+    "test_files": 20,
+    "passed": 421,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "explained_platform_skips": 8,
+    "subtests_passed": 80
+  },
+  "review_history": {
+    "functional": "PASS-WITH-CONCERNS remediated: 0 P0, 0 P1, 0 P2, 2 P3 (facet conflict + missing identity) fixed and re-verified",
+    "integrity": "PASS: root c79ee296 reconciled byte-for-byte, no predecessor edited",
+    "quality": "PASS-WITH-CONCERNS remediated: 1 P2 (paging bounds tests) + P3 test gaps fixed and re-verified"
+  },
+  "remediation": {
+    "code": [
+      "reject folder+file facet conflict (drive facet conflict)",
+      "reject missing/empty id/name (drive item identity drift)",
+      "remove dead SCHEMA constant"
+    ],
+    "tests": [
+      "page-count bound (MAX_PAGES)",
+      "item-count bound (MAX_ITEMS)",
+      "get-item collection-shape rejection",
+      "post-expiry token refetch",
+      "best-effort rotation write-failure tolerance",
+      "cross-route nextLink host/scheme/fragment branches",
+      "broadened shape-drift table"
+    ],
+    "focused_tests_before": 12,
+    "focused_tests_after": 18
+  },
+  "residual_advisory": "Integrity closure model: predecessor modules covered transitively via accepted Tasks V1 chain and re-run predecessor tests, not byte-hashed in this closure. By design.",
+  "claims": {
+    "microsoft_graph_drive_v1_accepted": true,
+    "read_only_files_read": true,
+    "read_scope_exact_validation": true,
+    "route_pinned_drive_get": true,
+    "bounded_same_origin_nextlink_paging": true,
+    "normalized_drive_items": true,
+    "provider_shape_drift_denied": true,
+    "best_effort_refresh_rotation": true,
+    "content_download": false,
+    "drive_mutation_authority": false,
+    "sharepoint_library_enumeration": false,
+    "live_listing_e2e": false,
+    "live_wiring": false,
+    "phase8_exit": false,
+    "full_onyx_prd_complete": false
+  }
+}

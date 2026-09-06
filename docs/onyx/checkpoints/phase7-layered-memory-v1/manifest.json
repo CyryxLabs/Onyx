@@ -1,0 +1,127 @@
+{
+  "schema": "onyx.phase7.layered-memory.v1",
+  "candidate": "phase7-layered-memory-v1",
+  "created_at": "2026-07-23T18:15:00-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_PHASE7_LAYERED_MEMORY_V1",
+  "enabled_value": "true",
+  "default_off": true,
+  "workspace_memory_entry_root": {
+    "acceptance_id": "VE-P7-WORKSPACE-MEMORY-V1-E6-001",
+    "candidate_manifest_sha256": "59ed88abd6967a73f3050d1215fed0c278b21b5c6e5335814abe8267576c9cd7",
+    "decision": "accepted"
+  },
+  "layers": [
+    "session_working",
+    "episodic_mission",
+    "semantic_institutional",
+    "decision",
+    "procedural",
+    "preference",
+    "temporal_status"
+  ],
+  "claims": {
+    "seven_typed_layers": true,
+    "workspace_principal_isolation": true,
+    "pre_ranking_hard_filters": true,
+    "hmac_integrity": true,
+    "normalized_deduplication": true,
+    "explicit_entity_resolution": true,
+    "correction": true,
+    "supersession": true,
+    "contradiction_preservation": true,
+    "freshness_validity": true,
+    "retention_tombstones": true,
+    "principal_export_delete": true,
+    "source_deletion": true,
+    "poisoning_defenses": true,
+    "instruction_authority": false,
+    "global_vector_index": false,
+    "general_nlp_entity_extraction": false,
+    "accepted_workspace_memory_modified": false,
+    "e1_e5_ready": true,
+    "external_e6_accepted": false,
+    "live_wiring": false,
+    "runtime_authority_added": false,
+    "phase7_exit": false,
+    "full_onyx_prd_complete": false
+  },
+  "verification": {
+    "execution": "one-test-file-per-fresh-python-process",
+    "test_files": 9,
+    "passed": 161,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 1,
+    "subtests_passed": 77,
+    "ruff": "passed",
+    "black": "passed",
+    "new_module_mypy_errors": 0
+  },
+  "effects": {
+    "persistent_writes_when_explicitly_enabled": [
+      "memory_metadata rows with lmem_ namespace"
+    ],
+    "persistent_reads_when_explicitly_enabled": [
+      "workspaces",
+      "memory_metadata"
+    ],
+    "content_scrubbing_writes_when_explicitly_enabled": true,
+    "secret_reads": 0,
+    "url_fetches": 0,
+    "browser_launches": 0,
+    "network_calls": 0,
+    "process_calls": 0,
+    "provider_calls": 0,
+    "model_calls": 0,
+    "action_dispatches": 0,
+    "global_vector_index_writes": 0,
+    "live_surface_changes": 0
+  },
+  "rollback": "Leave the exact feature flag unset; the factory returns before accepted-entry verification or host binding and no layered-memory row is read or written.",
+  "limitations": [
+    "Candidate remains default-off and is not wired to V13, startup, voice, UI, dashboard or a scheduler.",
+    "General NLP entity extraction is not implemented; V1 requires explicit typed entity keys and relations.",
+    "Deletion retains only signed content and entity hashes plus non-content tombstone metadata for audit continuity.",
+    "Governed multi-format document ingestion and granular citation extraction remain pending.",
+    "Phase 7 is not exited and the full Onyx PRD is incomplete."
+  ],
+  "artifacts": [
+    {
+      "path": "core/phase7_layered_memory_v1.py",
+      "bytes": 58333,
+      "sha256": "d35a87fa38da37294d1814066d5f56cbb210c23abbb636159c279ef0c1887daf"
+    },
+    {
+      "path": "tests/test_phase7_layered_memory_v1.py",
+      "bytes": 18384,
+      "sha256": "24eb55fc3140644ad27c42f80a35a3ba32a9d78e38f48eb4ce11cb84e2f96dbf"
+    },
+    {
+      "path": "scripts/verify_phase7_layered_memory_v1.py",
+      "bytes": 12186,
+      "sha256": "65ee68e59c068feb7f50cb60be7cf4a6b6d1764f30d2b84b1f4f372d54c4e572"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0033-phase7-layered-memory-v1.md",
+      "bytes": 3364,
+      "sha256": "5787647f015fae74089a7c95889fa933ed84fc26d39988c08288e886c3c249f2"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase7-layered-memory-v1/PHASE7_LAYERED_MEMORY_V1_CHECKPOINT.md",
+      "bytes": 2476,
+      "sha256": "cdf6d9d792a39d76a751e45b847472b655f49b31a53a9dbe7c9ff5968e3576a1"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase7-layered-memory-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 1569,
+      "sha256": "2ec6c5ca2a9886fc991ecf2c3721ec528df86f261efbf65ffb6ee042668b876c"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase7-layered-memory-v1/cumulative-selection.json",
+      "bytes": 1657,
+      "sha256": "72bee02fbeb8756dbb394c6788bb4cb7c2eb490469d0d04425cff86c421c730f"
+    }
+  ],
+  "artifact_root_sha256": "96218afa17936918aaed3bc4f225db3fee0eb117fa4e94f9439d93d1f6ed1020"
+}

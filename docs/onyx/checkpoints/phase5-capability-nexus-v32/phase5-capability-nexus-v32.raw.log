@@ -1,0 +1,5 @@
+V32 focused tests: PASS
+V32 stable regressions: PASS
+V1-V32 combined suites: PASS
+V1-V31 frozen history: PASS
+Stable-state path metadata contract and deterministic TOCTOU limitation: PASS

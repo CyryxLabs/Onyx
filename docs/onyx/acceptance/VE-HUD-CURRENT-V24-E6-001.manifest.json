@@ -1,0 +1,71 @@
+{
+  "schema": "onyx.hud.current.v24.acceptance.v1",
+  "candidate": "onyx-hud-v10-v37-final-source-pinned-006",
+  "decision": "accepted-source",
+  "current_root": "qml/OnyxLiveShellV10.qml",
+  "runtime_qml_chain": [
+    "qml/OnyxLiveShellV7.qml",
+    "qml/OnyxLiveShellV8.qml",
+    "qml/OnyxLiveShellV9.qml",
+    "qml/OnyxLiveShellV10.qml",
+    "qml/components/OnyxOrbEntityV7.qml",
+    "qml/components/OnyxOrbVoiceLayerV8.qml"
+  ],
+  "predecessor": {
+    "manifest_path": "docs/onyx/acceptance/VE-HUD-CURRENT-V23-E6-001.manifest.json",
+    "manifest_sha256": "596b327705705866ceea11abe268702977840b22e77880bf6c633e9b24dd71e8",
+    "acceptance_path": "core/onyx_hud_current_acceptance_v23.py",
+    "acceptance_sha256": "97277751660fa24055b97acd561dbc4204f81848abd1f88201d8cc82ea4afb67"
+  },
+  "runtime_inputs": [
+    {"path": "qml/OnyxLiveShellV7.qml", "sha256": "2af16b3990fc6a48ae95eb23c77cdb70fad25f8a83b762ecc2a58cf11ae6d5d8"},
+    {"path": "qml/OnyxLiveShellV8.qml", "sha256": "20c60f4305da7adef80fe9e7e064ebd5c4ea554b8d17bc36a0b5558f9899a86a"},
+    {"path": "qml/OnyxLiveShellV9.qml", "sha256": "61dbf4534378a4f27a46cba8c1ce73b6acb1d375b9466505d7258cdcc357b52b"},
+    {"path": "qml/OnyxLiveShellV10.qml", "sha256": "daa6c7019db1360bd333aa886a5c51250496438f2413f386bbd507a62f3f9f9b"},
+    {"path": "qml/assets/onyx-orb-particle-v6.png", "sha256": "9582f4df844cbf03df45a97d6a7c351e9ad9dd291f097b53326f6d1597e44582"},
+    {"path": "qml/components/OnyxOrbEntityV7.qml", "sha256": "52f5db82488729324e230e6132ec44b19c5f4e529e3c636c904d341736f70131"},
+    {"path": "qml/components/OnyxOrbVoiceLayerV8.qml", "sha256": "585a56b343e72e41571755b05778b1f502573c48d41ac302c154b292bbd649a9"},
+    {"path": "core/onyx_hud_orb_v10.py", "sha256": "644bc48b95de594b460a03598eb8a3303d5260f666cc8d884591b8e28a7f4784"},
+    {"path": "core/ui_projection_v3.py", "sha256": "ecd7676424ed3cc15793c127cdb4d1700e1786faa2c51a917f6b8fc36504e4d8"},
+    {"path": "core/render_governor_v3.py", "sha256": "ee1f2145eb90e930e1663287bc0e71ff6f0809b9b4bce18e445c2f47e80d1de8"},
+    {"path": "core/onyx_live_activation_v24.py", "sha256": "a058c74fc9f80455b5f298d473775ece1f0ff805b774a9524a84d3de0493c82f"},
+    {"path": "core/installer_lifecycle_v1.py", "sha256": "17db2d1ed232e56b7f9168d3551324fe002134bfab79fec2b234acaee71b958a"},
+    {"path": "scripts/bootstrap_onyx.pyw", "sha256": "01229cb1aa633f1220daba4b40658ccf0e00b190706f66992665b10f3f9f2dc4"},
+    {"path": "scripts/bootstrap_onyx_live_v24.pyw", "sha256": "ff03df7cf39895998b54a524ebd43fb6ed9039be662c402c134de42011166817"},
+    {"path": "scripts/launch_onyx_live_v24.pyw", "sha256": "84ed7b15ee9590d5264521b1398dc7b27f603e4afb67d684dcd993ba1dbbf457"},
+    {"path": "ui.py", "sha256": "5076f0eab157df0c6498aa64fd51dee6fb2dd19aa8e2b364b8d6a07f609d2114"},
+    {"path": "main.py", "sha256": "e930fef288128707983cd7618cb9ea1c406c5034a3a1a1dcd0f8feb225158fb0"},
+    {"path": "scripts/build_release.py", "sha256": "32873d512c264d014f9e4e2d01585fbdc80c51dd4a9e16acb6193d43dd310d39"},
+    {"path": "scripts/package_hygiene.py", "sha256": "1f8ab8653b89cce78e1cbe3dcc43b3b62191ca1dcf3a205d4adc1d220fa79185"},
+    {"path": "packaging/onyx.spec", "sha256": "f2d6560a1d7870f5995de8bfbfbcdc9e05683d47bf0e17e282493a4214519aee"},
+    {"path": "tests/conftest.py", "sha256": "87afe7663dea28703415ac7b844f0cec042c6c4e6dfd4d80f1d0936c37dca1b1"},
+    {"path": "tests/test_pyside6_hud_collection_compat.py", "sha256": "82598abfe29aacda1bdb97845bf20bdde57ef40bb19328485571d405b6999e73"},
+    {"path": "core/onyx_hud_current_acceptance_v24.py", "sha256": "7ace2382c7bc734c62d54e12262b3fdbf8e7d34606dde1419b0f33881eea0095"}
+  ],
+  "artifact_root_sha256": "5b70cb63b4c65fa6349263940a0d6eb839b0319d5f7da1b650e1dc18e7dbece4",
+  "semantics": {
+    "brand": "Onyx by Cyryx Labs",
+    "legacy_external_branding_absent": true,
+    "current_source_projection": "V37",
+    "current_hud_shell": "V10",
+    "stable_activation": "V24",
+    "orb_internal_voice_rays": 22,
+    "speaking_equalizer_bars": 48,
+    "governed_max_fps": 12,
+    "decorative_keel_arcs_visible": false,
+    "speaking_state": "SPEAKING",
+    "audio_level_reactive": true,
+    "explicit_exit_action_visible": true,
+    "window_close_is_background_only": true,
+    "no_tray_restore_path": "taskbar_minimize",
+    "runtime_refusal_bypass": false,
+    "package_hud_v10_offscreen_smoke": true,
+    "frozen_predecessor_discovery_explicit": true,
+    "single_current_test_authority": true
+  },
+  "historical_acceptance": {
+    "status": "superseded_immutable_evidence",
+    "superseded_test_authority": "tests/test_onyx_hud_current_acceptance_v23.py",
+    "successor_test_authority": "tests/test_onyx_hud_current_acceptance_v24.py"
+  }
+}

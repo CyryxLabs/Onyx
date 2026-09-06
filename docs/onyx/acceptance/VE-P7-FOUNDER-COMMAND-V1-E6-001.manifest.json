@@ -1,0 +1,48 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P7-FOUNDER-COMMAND-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-07-23",
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "candidate_manifest_path": "docs/onyx/checkpoints/phase7-founder-command-v1/manifest.json",
+  "candidate_manifest_sha256": "b094e18b99342465e06cdc703b3a7db118ffe9fe3e3182171be61be06f63457e",
+  "artifact_root_sha256": "d636a5192224a48a0ef09038d0cfc4e805b16798c1857d7735b9f27748e0e633",
+  "artifacts": 7,
+  "company_graph_entry_roots": 4,
+  "results": {
+    "test_files": 8,
+    "passed": 168,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "explained_platform_skips": 8,
+    "subtests_passed": 65
+  },
+  "claims": {
+    "founder_command_v1_accepted": true,
+    "daily_founder_brief": true,
+    "weekly_operating_review": true,
+    "portfolio_view": true,
+    "blocker_dependency_report": true,
+    "decision_queue": true,
+    "revenue_opportunity_queue": true,
+    "risk_register": true,
+    "what_changed_delta": true,
+    "recommended_top_three_actions": true,
+    "semantic_freshness_analysis": true,
+    "declared_contradiction_preservation": true,
+    "structured_status_conflict_detection": true,
+    "general_nlp_contradiction_discovery": false,
+    "invented_revenue_or_traction": false,
+    "persistent_writes": false,
+    "live_wiring": false,
+    "runtime_authority_added": false,
+    "phase7_exit": false,
+    "full_onyx_prd_complete": false
+  }
+}

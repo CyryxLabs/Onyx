@@ -1,0 +1,116 @@
+{
+  "schema": "onyx.live-activation-v19.operational-observation.v1",
+  "evidence_id": "VE-ONYX-LIVE-ACTIVATION-V19-C001-E6-001",
+  "observation_date": "2026-08-01",
+  "host": {
+    "system": "Windows",
+    "architecture": "x64",
+    "activation": "v19",
+    "activation_profile": "current-windows",
+    "capability_limited": false,
+    "v15_v19_parity": true
+  },
+  "release": {
+    "manifest": {
+      "path": "rollback/releases/onyx-1.0.0-v19.1/release-manifest-Windows-x64.json",
+      "size": 893,
+      "sha256": "8bc265bfe3c367404492c63dbeadd015d859d04905664c088a59f7fbfac22887"
+    },
+    "checksums": {
+      "path": "rollback/releases/onyx-1.0.0-v19.1/SHA256SUMS-Windows-x64.txt",
+      "size": 203,
+      "sha256": "ea6b1313ccf22067a4d98e562eb1bd4f638835dbed8427e3aa8585174052edef"
+    },
+    "artifacts": [
+      {
+        "path": "rollback/releases/onyx-1.0.0-v19.1/Onyx-1.0.0-Windows-x64-Portable.zip",
+        "size": 540883667,
+        "sha256": "b9b60a5cb14b9412ca207837ad1f62ff29a9ce84d98c9dc552c3393c624f25f0"
+      },
+      {
+        "path": "rollback/releases/onyx-1.0.0-v19.1/Onyx-1.0.0-Windows-x64-Setup.exe",
+        "size": 474504904,
+        "sha256": "8d3222d352c5dd3d78790c9dff4b2e0f93728b81b3ba3db56d232456a1724cd3"
+      }
+    ]
+  },
+  "canonical_install": {
+    "path": "%LOCALAPPDATA%/Programs/Cyryx Labs/Onyx",
+    "install_exit": 0,
+    "installed_files": [
+      {
+        "path": "Onyx.exe",
+        "size": 26008334,
+        "sha256": "2749e96e881514f55a849982a1760c844953f10869f106d3d264a36b8406335d",
+        "bundle_match": true
+      },
+      {
+        "path": "_internal/core/onyx_live_activation_v19.py",
+        "size": 18010,
+        "sha256": "a75966dfa4aa77bb12268cdde766a6e5a543e99629a81933c36368a23c24de69",
+        "bundle_match": true
+      },
+      {
+        "path": "_internal/scripts/bootstrap_onyx_live_v19.pyw",
+        "size": 4317,
+        "sha256": "73b4ca1059a88c1de2d75f5360fa42028629dc51cf61ce12ada8ac2b9b0cc149",
+        "bundle_match": true
+      },
+      {
+        "path": "_internal/scripts/launch_onyx_live_v19.pyw",
+        "size": 11479,
+        "sha256": "2619a0439ebdb251f79551332f8f2645a7c05515ff7294e375e07a87ce8ac5c2",
+        "bundle_match": true
+      },
+      {
+        "path": "_internal/core/dayops_connection_v19.py",
+        "size": 9430,
+        "sha256": "2bcccb304e08e879507315cdb41106f0c2023897aba202f2d7175564e879b4f0",
+        "bundle_match": true
+      }
+    ]
+  },
+  "installed_validation": {
+    "package_smoke": "passed",
+    "preflight": "passed",
+    "native_startup_smoke": {
+      "contract": "OnyxNativeStartupSmoke.v1",
+      "status": "passed",
+      "activation": "v19",
+      "activation_profile": "current-windows",
+      "renderer": "cinematic-v5",
+      "capability_limited": false,
+      "v15_v19_parity": true,
+      "host_constructed": true,
+      "callbacks_bound": true,
+      "real_ui": true,
+      "network_calls": 0,
+      "provider_calls": 0,
+      "process_calls": 0
+    },
+    "completion_marker": "INSTALLED_V19_VALIDATION_OK v19 cinematic-v5 passed",
+    "process_observation": {
+      "path": "%LOCALAPPDATA%/Programs/Cyryx Labs/Onyx/Onyx.exe",
+      "window_title": "Onyx — Cyryx Labs - Onyx",
+      "state": "READY",
+      "responding": true
+    }
+  },
+  "command_response": {
+    "evidence_class": "owner_observed_manual",
+    "prompt": "Responda apenas: ONYX ONLINE.",
+    "observed_response": "ONYX ONLINE.",
+    "durable_receipt": false,
+    "machine_replayable": false
+  },
+  "explicitly_not_verified": {
+    "microsoft_graph_live": true,
+    "clean_machine": true,
+    "authenticode_signing": true,
+    "macos_linux_current_parity": true
+  },
+  "signing_observation": {
+    "setup": "NotSigned",
+    "installed_executable": "NotSigned"
+  }
+}

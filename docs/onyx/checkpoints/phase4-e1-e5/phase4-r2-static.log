@@ -1,0 +1,18 @@
+EXIT 0
+DURATION_SECONDS 1.681345
+COMMAND C:\MAAX_Assistant\Mark-XLVIII\.venv\Scripts\python.exe -m ruff check scripts/verify_phase4_exit_candidate_r2.py tests/test_phase4_exit_candidate_r2.py --select F,E9
+EXIT 0
+DURATION_SECONDS 1.335874
+STDOUT
+All checks passed!
+STDERR
+COMMAND C:\MAAX_Assistant\Mark-XLVIII\.venv\Scripts\python.exe -m py_compile scripts/verify_phase4_exit_candidate_r2.py tests/test_phase4_exit_candidate_r2.py
+EXIT 0
+DURATION_SECONDS 0.177611
+STDOUT
+STDERR
+COMMAND git diff --check
+EXIT 0
+DURATION_SECONDS 0.167837
+STDOUT
+STDERR

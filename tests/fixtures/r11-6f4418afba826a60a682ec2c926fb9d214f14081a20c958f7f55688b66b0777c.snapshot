@@ -1,0 +1,235 @@
+"""Compatibility API and command-line controls for Onyx memory."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+from dataclasses import asdict
+from pathlib import Path
+from typing import Any
+
+from core.paths import memory_dir, resource_root
+
+from memory.store import (
+    DEFAULT_MAX_CONTEXT_CHARS,
+    MemoryStore,
+    MemoryStoreError,
+    SensitiveMemoryError,
+    assemble_prompt_context,
+)
+
+
+def get_base_dir() -> Path:
+    return resource_root()
+
+
+BASE_DIR = get_base_dir()
+MEMORY_PATH = memory_dir() / "long_term.json"  # legacy, preserved after import
+DATABASE_PATH = memory_dir() / "onyx_memory.sqlite3"
+MEMORY_MAX_CHARS = DEFAULT_MAX_CONTEXT_CHARS
+DEFAULT_MAX_EPISODES = 2000
+_store: MemoryStore | None = None
+
+
+def get_store() -> MemoryStore:
+    global _store
+    if _store is None:
+        _store = MemoryStore(DATABASE_PATH)
+        _store.initialize()
+        _store.migrate_legacy_json(MEMORY_PATH)
+        if _store.privacy_enabled():
+            _store.enforce_retention(max_episodes=DEFAULT_MAX_EPISODES)
+    return _store
+
+
+def configure_store(path: Path | str | None = None, *, enable_fts: bool = True) -> MemoryStore:
+    """Replace the process store; primarily useful for packaging and tests."""
+    global _store
+    _store = MemoryStore(path or DATABASE_PATH, enable_fts=enable_fts)
+    _store.initialize()
+    return _store
+
+
+def _empty_memory() -> dict[str, dict]:
+    return {name: {} for name in ("identity", "preferences", "projects", "relationships", "wishes", "notes")}
+
+
+def load_memory() -> dict:
+    """Return the legacy structured view without making SQLite optional."""
+    result = _empty_memory()
+    try:
+        records = get_store().list(kind="semantic", limit=1000)
+    except MemoryStoreError as exc:
+        print(f"[Memory] Durable memory unavailable: {exc}")
+        return result
+    for record in reversed(records):
+        category = record.category or "notes"
+        key = record.key or record.id
+        if category not in result:
+            category = "notes"
+        result[category][key] = {
+            "value": record.content,
+            "updated": record.updated_at[:10],
+            "id": record.id,
+            "source": record.citation,
+        }
+    return result
+
+
+def update_memory(memory_update: dict) -> dict:
+    if not isinstance(memory_update, dict):
+        return load_memory()
+    store = get_store()
+    for category, items in memory_update.items():
+        if not isinstance(items, dict):
+            continue
+        for key, entry in items.items():
+            value = entry.get("value") if isinstance(entry, dict) else entry
+            if value is None or not str(value).strip():
+                continue
+            store.remember(
+                str(value), kind="semantic", source="user-approved",
+                citation=f"user:{category}/{key}", category=str(category), key=str(key),
+                salience=0.7,
+            )
+    return load_memory()
+
+
+def save_memory(memory: dict) -> None:
+    """Compatibility writer; merges values into the durable store."""
+    update_memory(memory)
+
+
+def format_memory_for_prompt(memory: dict | None = None, *, query: str = "", max_chars: int = MEMORY_MAX_CHARS) -> str:
+    """Retrieve and frame bounded memory. The legacy argument is ignored safely."""
+    del memory
+    try:
+        store = get_store()
+        records = store.search(query, limit=16) if query.strip() else store.list(limit=16)
+        return assemble_prompt_context(records, max_chars=max_chars)
+    except MemoryStoreError as exc:
+        print(f"[Memory] Prompt context unavailable: {exc}")
+        return ""
+
+
+def remember(
+    key: str,
+    value: str,
+    category: str = "notes",
+    *,
+    source: str = "user-approved",
+    salience: float = 0.7,
+) -> str:
+    record = get_store().remember(
+        value, kind="semantic", source=source, citation=f"user:{category}/{key}",
+        category=category, key=key, salience=salience,
+    )
+    return f"Remembered {record.id}: {category}/{key}"
+
+
+def record_episode(
+    content: str,
+    *,
+    source: str,
+    session_id: str | None = None,
+    task_id: str | None = None,
+    salience: float = 0.5,
+    metadata: dict[str, Any] | None = None,
+) -> str:
+    """Deliberately capture a useful event; callers must not pass raw transcripts."""
+    record = get_store().remember(
+        content, kind="episodic", source=source, citation=source, session_id=session_id,
+        task_id=task_id, salience=salience, metadata=metadata,
+    )
+    return record.id
+
+
+def search_memory(query: str, *, limit: int = 8) -> list[dict]:
+    return [asdict(record) for record in get_store().search(query, limit=limit)]
+
+
+def search_memory_context(query: str, *, limit: int = 8, max_chars: int = 1800) -> str:
+    """Return cited, bounded, injection-framed results for a live user query."""
+    return assemble_prompt_context(get_store().search(query, limit=limit), max_chars=max_chars)
+
+
+def list_memory(*, kind: str | None = None, limit: int = 100) -> list[dict]:
+    return [asdict(record) for record in get_store().list(kind=kind, limit=limit)]
+
+
+def forget(key: str, category: str = "notes") -> str:
+    if key.startswith("mem_"):
+        removed = int(get_store().forget(key))
+    else:
+        removed = get_store().forget_key(category, key)
+    return f"Forgotten: {removed} memory item(s)" if removed else f"Not found: {category}/{key}"
+
+
+forget_memory = forget
+
+
+def export_memory(destination: Path | str) -> Path:
+    return get_store().export(destination)
+
+
+def _print_json(value: Any) -> None:
+    print(json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True))
+
+
+def cli(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description="Inspect and control local Onyx memory")
+    parser.add_argument("--database", type=Path, help="Override the memory database path")
+    sub = parser.add_subparsers(dest="command", required=True)
+    listing = sub.add_parser("list", help="List memory records")
+    listing.add_argument("--kind", choices=("semantic", "episodic"))
+    listing.add_argument("--limit", type=int, default=100)
+    searching = sub.add_parser("search", help="Search memory")
+    searching.add_argument("query")
+    searching.add_argument("--limit", type=int, default=8)
+    remembering = sub.add_parser("remember", help="Store an explicitly approved fact")
+    remembering.add_argument("key")
+    remembering.add_argument("value")
+    remembering.add_argument("--category", default="notes")
+    forgetting = sub.add_parser("forget", help="Forget by id or category/key")
+    forgetting.add_argument("key")
+    forgetting.add_argument("--category", default="notes")
+    exporting = sub.add_parser("export", help="Export memory as JSON")
+    exporting.add_argument("destination", type=Path)
+    privacy = sub.add_parser("privacy", help="Show, enable, or pause durable memory writes")
+    privacy.add_argument("state", choices=("status", "on", "off"), default="status", nargs="?")
+    retention = sub.add_parser("retention", help="Apply bounded episodic retention")
+    retention.add_argument("--max-episodes", type=int, default=DEFAULT_MAX_EPISODES)
+    retention.add_argument("--min-salience", type=float, default=0.15)
+    args = parser.parse_args(argv)
+    try:
+        if args.database:
+            configure_store(args.database)
+        if args.command == "list":
+            _print_json(list_memory(kind=args.kind, limit=args.limit))
+        elif args.command == "search":
+            _print_json(search_memory(args.query, limit=args.limit))
+        elif args.command == "remember":
+            print(remember(args.key, args.value, args.category))
+        elif args.command == "forget":
+            print(forget(args.key, args.category))
+        elif args.command == "export":
+            print(export_memory(args.destination))
+        elif args.command == "privacy":
+            if args.state != "status":
+                get_store().set_privacy_enabled(args.state == "on")
+            print("on" if get_store().privacy_enabled() else "off")
+        elif args.command == "retention":
+            if not get_store().privacy_enabled():
+                raise MemoryStoreError("Retention is paused while memory privacy is off")
+            print(get_store().enforce_retention(
+                max_episodes=args.max_episodes, min_salience=args.min_salience
+            ))
+        return 0
+    except (MemoryStoreError, SensitiveMemoryError, ValueError) as exc:
+        print(f"Memory operation failed: {exc}", file=sys.stderr)
+        return 2
+
+
+if __name__ == "__main__":
+    raise SystemExit(cli())

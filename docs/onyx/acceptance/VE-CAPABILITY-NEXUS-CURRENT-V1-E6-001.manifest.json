@@ -1,0 +1,492 @@
+{
+  "schema": "onyx.capability-nexus.current.acceptance.v1",
+  "acceptance_id": "VE-CAPABILITY-NEXUS-CURRENT-V1-E6-001",
+  "decision": "accepted-current-source-integrity",
+  "catalog_versions": [
+    1,
+    32
+  ],
+  "catalog_count": 32,
+  "current_inputs": [
+    {
+      "path": "core/capability_nexus_v1.py",
+      "sha256": "cd196f8805b7d89923ce98607fe1c49a762c7001456b470677585f60fa27474a"
+    },
+    {
+      "path": "core/capability_nexus_v10.py",
+      "sha256": "74401ce43f11d544b2b6059c101702386e0e0bfec9fd2fd517f030cf21e699c0"
+    },
+    {
+      "path": "core/capability_nexus_v11.py",
+      "sha256": "c3b43708c10f28e23f03ef15a5dd3cbd7c8315c45beb22314be75e0ce7e7f5c1"
+    },
+    {
+      "path": "core/capability_nexus_v12.py",
+      "sha256": "bc155ad1a8f35543ff296173b7bd6238ed7248e5d47bf2077d98f3b210e29b65"
+    },
+    {
+      "path": "core/capability_nexus_v13.py",
+      "sha256": "44625eecb338ac891383413e85d6544b7893fa9f8bad3f463727d6f0f1498a27"
+    },
+    {
+      "path": "core/capability_nexus_v14.py",
+      "sha256": "110170dc17e43cec844eaae55387989d6b057a8f07c01feb83b7e292bc0d1c07"
+    },
+    {
+      "path": "core/capability_nexus_v15.py",
+      "sha256": "0c61979351e9cee695474acc16265af10199b4b36392005dc04e6463bc4faf73"
+    },
+    {
+      "path": "core/capability_nexus_v16.py",
+      "sha256": "f4fb99b94f1f5237afa81bd4c7e70f5987406e3b81da898cccaa534c00f90455"
+    },
+    {
+      "path": "core/capability_nexus_v17.py",
+      "sha256": "66419a598154c22d68f2d5a996bee6ab817d6602d57651c9cd6c56a41abbf422"
+    },
+    {
+      "path": "core/capability_nexus_v18.py",
+      "sha256": "daf165f09440e297bae81f74f45dd46d0c09f02ddf42d0eecd27c768f8c80a01"
+    },
+    {
+      "path": "core/capability_nexus_v19.py",
+      "sha256": "07843a76223dbb21658135774f442d5f33dbc25e5369001ad2b73a817e143cbc"
+    },
+    {
+      "path": "core/capability_nexus_v2.py",
+      "sha256": "4493fddc3d1d17da99db08aa98395ae14f0b9050c1d7238b59261e503424235a"
+    },
+    {
+      "path": "core/capability_nexus_v20.py",
+      "sha256": "d0ecdcbe63718e854a1c708f94b5c35c7ad2b9c7733a9efb10e6e6c5815cfb7a"
+    },
+    {
+      "path": "core/capability_nexus_v21.py",
+      "sha256": "1f1bc766f7062b15c5a64666c6b03231560733a0dc6e388d7b415927043ed41a"
+    },
+    {
+      "path": "core/capability_nexus_v22.py",
+      "sha256": "f5c2b025e8cb9fe3d78cf270ecab877fd81521c48b025e683276fd27a8eae526"
+    },
+    {
+      "path": "core/capability_nexus_v23.py",
+      "sha256": "32dd829130eb32eacb32052196052f7d66aa2f92e0e8d3c2ab1586e0011454ac"
+    },
+    {
+      "path": "core/capability_nexus_v24.py",
+      "sha256": "4150d020a57e20c96805106aa8edc3b941e6866a2491d4cd9721bedaa82330d7"
+    },
+    {
+      "path": "core/capability_nexus_v25.py",
+      "sha256": "88fca28c19bcaeb71e6840191440824339d87c33309ca58dd644706d9b02ca11"
+    },
+    {
+      "path": "core/capability_nexus_v26.py",
+      "sha256": "ba6a49717f371ad81feffcd4e565072b6fa9727b36c9cfe6c7ca956830aec1ed"
+    },
+    {
+      "path": "core/capability_nexus_v27.py",
+      "sha256": "ae84b12356c2c258b57fc44a9cfc6dc35c555b458509e24c846b69c97cd61abe"
+    },
+    {
+      "path": "core/capability_nexus_v28.py",
+      "sha256": "4010ec3cacd14c3f6804835e04af101b72550432d345ea008c9d4f7187c1b166"
+    },
+    {
+      "path": "core/capability_nexus_v29.py",
+      "sha256": "7fb6735afe304d22c3cac8f0654327789a2d603a398b892ccbe32b7ef552a9ca"
+    },
+    {
+      "path": "core/capability_nexus_v3.py",
+      "sha256": "4fed38cc65ecdce2aa4a352465cd91e4c5e36ab2ff4413333531957afa386aa2"
+    },
+    {
+      "path": "core/capability_nexus_v30.py",
+      "sha256": "d2a7bc76d14eb0ade4ac3ed04ee8c6c2eeebe0b81547af4e6ae44949387cd8d6"
+    },
+    {
+      "path": "core/capability_nexus_v31.py",
+      "sha256": "31943383dc4285b9af86502e428f4a8965664cccbaabecdc5e5a348a81f0b396"
+    },
+    {
+      "path": "core/capability_nexus_v32.py",
+      "sha256": "576eed0bda063945d33f8bcb79b338e64976ca5252af793633fe3ab667ed1fc9"
+    },
+    {
+      "path": "core/capability_nexus_v4.py",
+      "sha256": "587040b0b4e31ddb24ad51791232af3b731e8a525a63c715f26d6dfcdb97cd7b"
+    },
+    {
+      "path": "core/capability_nexus_v5.py",
+      "sha256": "cd3330522c275a88641884d9eb20c0448a3dd1a0b9051f3ea0a8c8983ee752f4"
+    },
+    {
+      "path": "core/capability_nexus_v6.py",
+      "sha256": "cc87b4d201ded06ad8fae44aaf295d40b279e329b981ee4e79368555fdc4f09f"
+    },
+    {
+      "path": "core/capability_nexus_v7.py",
+      "sha256": "8f2b8a7f0cfbf05712d9f4a339f4f0617dd35c20dda5dac2ba1df7bc614b4559"
+    },
+    {
+      "path": "core/capability_nexus_v8.py",
+      "sha256": "225071341b59e4acafb0f2fa35e19175c84620b268e5d26598ca224beef20c4c"
+    },
+    {
+      "path": "core/capability_nexus_v9.py",
+      "sha256": "36c281c8dcaf522b0d52ffbdcd28a55e6145f5cc08bf8370ae206da86464c7f8"
+    },
+    {
+      "path": "core/permission_broker.py",
+      "sha256": "97a8e3ed69944a554a7d7dae07014ca4627caf9a47e7ae39402acde3e9fff6fa"
+    },
+    {
+      "path": "docs/onyx/acceptance/VE-CAPABILITY-NEXUS-CURRENT-V1-E6-001.md",
+      "sha256": "3ba9f27cb6d0268ca1ed74620f66fc3d978844e50d4cfaa508ba127ce8e3a636"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0003-capability-nexus-and-mcp.md",
+      "sha256": "fba94de0834bd2117d5edae1bdd6f36fc06e41b0cc46b31c35c92d0edb54317c"
+    },
+    {
+      "path": "tests/test_capability_nexus_v1.py",
+      "sha256": "f1f183938294d4963ddc52e1910287b5ed4ff8854ff149011bb0cfda17a1571c"
+    },
+    {
+      "path": "tests/test_capability_nexus_v10.py",
+      "sha256": "be8197b10b095aaaafb5e58d9daab9f60dec15155fcb1359662dae4f819b458d"
+    },
+    {
+      "path": "tests/test_capability_nexus_v11.py",
+      "sha256": "817e8db14f480bbb35b543f9587552205e4ba2a6ba1bf2611b8566aef008f029"
+    },
+    {
+      "path": "tests/test_capability_nexus_v12.py",
+      "sha256": "35348d2044d8d6edba52ddc6f8113460c991629eac90cf9a06e582a441748642"
+    },
+    {
+      "path": "tests/test_capability_nexus_v13.py",
+      "sha256": "8585cec58401849383a7d2c6bcdbb492abf2136eb4c2492318b2655478a122be"
+    },
+    {
+      "path": "tests/test_capability_nexus_v14.py",
+      "sha256": "89ca8c50cef72cdc45cee5b2c2d9c28a98fda8f3ba9e9e2bbe6a2a32fd2ed8b3"
+    },
+    {
+      "path": "tests/test_capability_nexus_v15.py",
+      "sha256": "400a5c734b1330a7f1fe79270d1fc0eb8fb40c3e5827946d67b290f83d50aa52"
+    },
+    {
+      "path": "tests/test_capability_nexus_v16.py",
+      "sha256": "9987536d7022d4c99d3080c11752ffcec151c609b80e6c4608b7d5967cc6c695"
+    },
+    {
+      "path": "tests/test_capability_nexus_v17.py",
+      "sha256": "55899f8187631273901e750c1610966920f4dc604efb7396bd6585c5bc25a2dd"
+    },
+    {
+      "path": "tests/test_capability_nexus_v18.py",
+      "sha256": "9a8b992474479b58bfaaf2568d78206ff39f2c08566d5648dc4d44d00313af58"
+    },
+    {
+      "path": "tests/test_capability_nexus_v19.py",
+      "sha256": "5efee050ca7381aad2e89c57b9f91a5233eedc22eac8104b6dc565ed5a80f0c4"
+    },
+    {
+      "path": "tests/test_capability_nexus_v2.py",
+      "sha256": "61e0b9256e3397b16fed985a7c0f39e9ff8b66dd42e1420e3bb79f37fa5b7b52"
+    },
+    {
+      "path": "tests/test_capability_nexus_v20.py",
+      "sha256": "5c4fd2410e3c815d1e75d885e01aee013cb6d0bddb0af9d700d09ddf9c89d297"
+    },
+    {
+      "path": "tests/test_capability_nexus_v21.py",
+      "sha256": "72596e20060699e4f3a414b9800c68eabc5e2998d3a7bc015579aba829bf455b"
+    },
+    {
+      "path": "tests/test_capability_nexus_v22.py",
+      "sha256": "7e76146aec6b0ab49765535ef99cd779da0def7bdfb8f903814fd19bf8db16d5"
+    },
+    {
+      "path": "tests/test_capability_nexus_v23.py",
+      "sha256": "6d2bc6924f979b50c0b86f1090f489dd9c45d6dfa4623b34fe583d57fefa4f7d"
+    },
+    {
+      "path": "tests/test_capability_nexus_v24.py",
+      "sha256": "d3a144a6bcd0215597f3a4a8a26f03d54cb996e5c31061aa2ab8b4285db9724e"
+    },
+    {
+      "path": "tests/test_capability_nexus_v25.py",
+      "sha256": "7fb273a548778a8bff27d6b7d81f86c13fc67f8ac856d47f9d899958d4f2f3ba"
+    },
+    {
+      "path": "tests/test_capability_nexus_v26.py",
+      "sha256": "abb62f01b165fffc2f983dcd97ec3ec450a2cf8a698e11b760e89d613d6180d0"
+    },
+    {
+      "path": "tests/test_capability_nexus_v27.py",
+      "sha256": "0335a5ee2ce1cae523e5a829fde31c7fb24466d578bf0775b5492ff95ce084c7"
+    },
+    {
+      "path": "tests/test_capability_nexus_v28.py",
+      "sha256": "9964312809fb03c100066ab9a3b028fc0807264c8e664814836f5dbcc649ce3d"
+    },
+    {
+      "path": "tests/test_capability_nexus_v29.py",
+      "sha256": "bfbfbb70c8fe28f63c7a78c89e9e850a998e059f1fdd779ec100c72c21a6325c"
+    },
+    {
+      "path": "tests/test_capability_nexus_v3.py",
+      "sha256": "64b2a6c2fd252b4f30bc9bb04afad021757ea1980b4d020d7b38e99748aee035"
+    },
+    {
+      "path": "tests/test_capability_nexus_v30.py",
+      "sha256": "dcc5db95a7ebfda08ab30cdb4cf196f1534df9956fb54ab007d13a9dfeae4840"
+    },
+    {
+      "path": "tests/test_capability_nexus_v31.py",
+      "sha256": "ae2fc412a7b0a28680bed3188100d8a1b193502c481fc84e59812842db91b1c2"
+    },
+    {
+      "path": "tests/test_capability_nexus_v32.py",
+      "sha256": "4088a5815b8ccd122b61055bd520b23efc1956b436581df10f09ba1e6ede5408"
+    },
+    {
+      "path": "tests/test_capability_nexus_v4.py",
+      "sha256": "51f49438f264134af7fda251158ab96c1aa35714ec4f02d5601058f9e697f0b2"
+    },
+    {
+      "path": "tests/test_capability_nexus_v5.py",
+      "sha256": "f75be0cb1c9124a3fa329945de5a2b949b5598bbf9b6c181746eb5461df63e65"
+    },
+    {
+      "path": "tests/test_capability_nexus_v6.py",
+      "sha256": "8b56668d27140eca0cdf0b2b78b1525401e388bdc67155b4fb9737793d06b312"
+    },
+    {
+      "path": "tests/test_capability_nexus_v7.py",
+      "sha256": "e6979f4d07c032229b87aa3d27138471afc2a80b0e504a93b68be87594a7a96c"
+    },
+    {
+      "path": "tests/test_capability_nexus_v8.py",
+      "sha256": "59ee46547dbfe5b6f8790ca68b602495ddac2b3d51bab6d67193b2b0a0e441b9"
+    },
+    {
+      "path": "tests/test_capability_nexus_v9.py",
+      "sha256": "3111f403eff79d911547cd54675502b148958926a44732f58749c33102f3de0c"
+    }
+  ],
+  "current_input_count": 67,
+  "current_root_algorithm": "sha256(domain || sorted(path || NUL || hex_sha256 || LF)); domain=onyx.capability-nexus.current.v1+NUL",
+  "current_root_sha256": "4b41d577d22b4cd6e01530e94a1f1b1cb4448e60d68ec1181ecc5bdc5ecfe4a1",
+  "historical_tombstones": [
+    {
+      "version": 1,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V1-001.sha256",
+      "sha256": "1d46529ff185c1389c353cb5a125e5c8cb28bc8cf7fa56a0f0fa106b304501c5",
+      "records": 23
+    },
+    {
+      "version": 2,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V2-001.sha256",
+      "sha256": "668c5ced47eb6c1b654fcc5fb11c372e36b279e5a4af9f83121ebd806a7d8e7b",
+      "records": 30
+    },
+    {
+      "version": 3,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V3-001.sha256",
+      "sha256": "270f2dd2ad0249e33bc0d04fff50ff150e74d75d687cd76fe2a16fae436b32a6",
+      "records": 37
+    },
+    {
+      "version": 4,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V4-001.sha256",
+      "sha256": "476508f1b33497eae86b53699fcdb53ce8a5d0557c2b28a07ba9b4eff297805d",
+      "records": 44
+    },
+    {
+      "version": 5,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V5-001.sha256",
+      "sha256": "edc93fe63291f83e09115f4e383e1998b80f456497193bfce3654525ebf3e58d",
+      "records": 56
+    },
+    {
+      "version": 6,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V6-001.sha256",
+      "sha256": "76917c2516ccb000d0b5bfc351d405e365759badbfffd4c5d2b9c1599070b2d3",
+      "records": 68
+    },
+    {
+      "version": 7,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V7-001.sha256",
+      "sha256": "1421797efec725795d861d1d374329158e745af475e56bfde7d298863c872eca",
+      "records": 80
+    },
+    {
+      "version": 8,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V8-001.sha256",
+      "sha256": "8f12047f2632f61d62417201fff9fcbf0e926ffbfde11a9a760ed4b907377aaa",
+      "records": 92
+    },
+    {
+      "version": 9,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V9-001.sha256",
+      "sha256": "d55419e2841634f91a1c71b5f70ade61b17dac2d3799da8d757252decb94e4f9",
+      "records": 104
+    },
+    {
+      "version": 10,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V10-001.sha256",
+      "sha256": "48b962b42c9705b4bc2ea376a50617f791b72d53fe5335ec9f58420280aae293",
+      "records": 116
+    },
+    {
+      "version": 11,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V11-001.sha256",
+      "sha256": "472b6a1ae970cb4d2bd5ac7228f5d6716509aa9220f4f04218e30444ea9452f1",
+      "records": 128
+    },
+    {
+      "version": 12,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V12-001.sha256",
+      "sha256": "949f7f31a2b8a8b67bddb2c8654bd5846a203a00bc741ed129c45ead9e1ef67c",
+      "records": 140
+    },
+    {
+      "version": 13,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V13-001.sha256",
+      "sha256": "e48bd590ce86e207259fbd97999a4c0fe5df9e3179f7fd04801a290b963d13ba",
+      "records": 152
+    },
+    {
+      "version": 14,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V14-001.sha256",
+      "sha256": "5429f58302cab5e15a8e3d9076b316591a47fd3857a150ceb532d9e5fa5050e4",
+      "records": 164
+    },
+    {
+      "version": 15,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V15-001.sha256",
+      "sha256": "08daf2b93e74f0b83d6487c30849313948fbf8b0d8ec6981a49fb076b2c69212",
+      "records": 179
+    },
+    {
+      "version": 16,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V16-001.sha256",
+      "sha256": "8873308e576eae482bbb46ce764a4aa00af39709abd83fc4a842db8132dbb419",
+      "records": 197
+    },
+    {
+      "version": 17,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V17-001.sha256",
+      "sha256": "adc0aa3a417b59adc180901ea5b0d08c1449bb426402ce155c6297ed957e40c1",
+      "records": 215
+    },
+    {
+      "version": 18,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V18-001.sha256",
+      "sha256": "5d9f457e54c625ed846bc9a0c193adb5da7da84bfdd5dbac39733f8ba6fb010b",
+      "records": 234
+    },
+    {
+      "version": 19,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V19-001.sha256",
+      "sha256": "5f7f49a67142decccdb66e70aca7f726e704dfbbbc1bf9321d798faf18432ef6",
+      "records": 253
+    },
+    {
+      "version": 20,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V20-001.sha256",
+      "sha256": "d9e92f17f0386bba9bce421f72e6ef8ac60bb5e8aab98dfac9f6671df2db58b2",
+      "records": 271
+    },
+    {
+      "version": 21,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V21-001.sha256",
+      "sha256": "055672516e56743f64df810a4c9f3bad4186cad3c6b9bb285640e4a36e65ad16",
+      "records": 289
+    },
+    {
+      "version": 22,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V22-001.sha256",
+      "sha256": "bcb19bf1a5b51084ff026ef861809fd365cff9d0fb6a06134ba516c1d3b03626",
+      "records": 307
+    },
+    {
+      "version": 23,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V23-001.sha256",
+      "sha256": "a69d4a66d6c829d52412e38434751c87ed5f24f72385aa016504224bead30d34",
+      "records": 325
+    },
+    {
+      "version": 24,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V24-001.sha256",
+      "sha256": "dab74bcb848b08b74fc005045d1709755bb45d224208eff3b06a348d01c85332",
+      "records": 343
+    },
+    {
+      "version": 25,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V25-001.sha256",
+      "sha256": "6d23c5825c45b41a9577ccd43dac683deb9dbadd52c853298ddc61aaf0f81799",
+      "records": 361
+    },
+    {
+      "version": 26,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V26-001.sha256",
+      "sha256": "be0b46af882855d7acee1e219b470a2e2ab9ffcc1e6b5781326c1c0839e4b508",
+      "records": 379
+    },
+    {
+      "version": 27,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V27-001.sha256",
+      "sha256": "324072931ddaaff6baba1c1047434fff1b591f7bba7369b6411d8556d630bef8",
+      "records": 397
+    },
+    {
+      "version": 28,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V28-001.sha256",
+      "sha256": "a305eb161afa80a31f434378682d778f4a2dce54aafa487719813bbaa954128a",
+      "records": 415
+    },
+    {
+      "version": 29,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V29-001.sha256",
+      "sha256": "c3450d183158860aa91bf73245883f0feb41402b8f0c4567c28854bcb10e0ec3",
+      "records": 433
+    },
+    {
+      "version": 30,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V30-001.sha256",
+      "sha256": "13f5adecf2ee987761511a492a4066446ba6e7d42bc9a677dbab0c272b3b584a",
+      "records": 454
+    },
+    {
+      "version": 31,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V31-001.sha256",
+      "sha256": "e332c904fac7fe9f53cd976210637fbb1a3b8aa74d55e828c95aa9ca448bc3ed",
+      "records": 475
+    },
+    {
+      "version": 32,
+      "path": "docs/onyx/VE-ARTIFACTS-P53-CAPABILITY-NEXUS-V32-001.sha256",
+      "sha256": "3d32ebf989f198534377d35c0ffc8c1f3abf10c8aa001f24406c355bafff0249",
+      "records": 496
+    }
+  ],
+  "historical_manifest_count": 32,
+  "historical_root_algorithm": "sha256(domain || version || NUL || path || NUL || manifest_sha256 || NUL || record_count || LF); domain=onyx.capability-nexus.history.v1+NUL",
+  "historical_root_sha256": "8aeb1e9b6243cf7c8f7d09e8bdffd3b75cdb07468dbece1b0f40e4873dcbe311",
+  "historical_policy": {
+    "current_runtime_authority": false,
+    "embedded_digests_rebound_to_live_bytes": false,
+    "parse_mode": "canonical-historical-only",
+    "status": "superseded-immutable-evidence"
+  },
+  "mutable_projections": [
+    "docs/onyx/CAPABILITY_MATRIX.md",
+    "docs/onyx/RELEASE_CUT_TODAY.md",
+    "docs/onyx/VERIFICATION_EVIDENCE.md"
+  ],
+  "runtime_effect": "none"
+}

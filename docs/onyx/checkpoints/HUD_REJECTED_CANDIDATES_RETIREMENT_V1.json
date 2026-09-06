@@ -1,0 +1,26 @@
+{
+  "schema": "OnyxHudRejectedCandidateRetirement.v1",
+  "policy": "Rejected pre-V5 HUD source snapshots are historical evidence only. Their executable source trees and screenshots are intentionally absent from the maintained repository and must not be packaged or activated.",
+  "retired": [
+    {
+      "candidate": "ONYX-HUD-ORB-V3-LIVE-INTEGRATION-001",
+      "snapshot_root": "docs/onyx/checkpoints/hud-orb-v3-live/candidate-001-snapshot",
+      "state": "absent",
+      "files": 12,
+      "bytes": 2061782,
+      "manifest_sha256": "ab6d43bb91eb35613f37ed968b44f6022cd56177ed81eded61dd5a4b2a065411",
+      "checkpoint_sha256": "107c4079b6579c65d74edade651ca827526ef68cd698456631f401e7c7f0ae02",
+      "screenshot_sha256": "beb76bae5dea82e6daf8ac994c445c5c7b1fad003ec3b24ceb6e0e1f6400301b"
+    },
+    {
+      "candidate": "ONYX-HUD-ORB-V4-LIVE-INTEGRATION-002",
+      "snapshot_root": "docs/onyx/checkpoints/hud-orb-v4-live/candidate-002-snapshot",
+      "state": "absent",
+      "files": 13,
+      "bytes": 2095770,
+      "manifest_sha256": "8daf7a43fd08ee6d7548992f4a8ef2da48c4271142dabae4e8fb0ee76c50d495",
+      "checkpoint_sha256": "42148552f863791979812f19b1019921ce9b785153f511f80803e40d127126d5",
+      "screenshot_sha256": "03b99d56a542d48680c5baa42ffd818e20c6e87043dc82333d098be662ee57a1"
+    }
+  ]
+}

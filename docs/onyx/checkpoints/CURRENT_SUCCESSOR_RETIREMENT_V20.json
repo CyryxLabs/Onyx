@@ -1,0 +1,38 @@
+{
+  "schema": "onyx.current-successor-retirement.v20",
+  "issued_at": "2026-08-24T01:30:00-04:00",
+  "predecessor": {"path": "docs/onyx/checkpoints/CURRENT_SUCCESSOR_RETIREMENT_V19.json", "sha256": "98bb577a70761fac13840704368c52bb5bed592f70653afb196b336f562ca0e6"},
+  "policy": {
+    "historical_tests_are_rewritten": false,
+    "historical_hashes_are_rebound": false,
+    "registered_nodes_must_remain_collected": true,
+    "successor_sources_are_sha256_bound": true,
+    "successor_tests_must_execute": true,
+    "exact_nodeids_only": true,
+    "v20_precedes_v19_on_overlap": true
+  },
+  "additional_claims": [
+    {
+      "id": "liquid-metal-hud-v36-packaged-v5-release-v61",
+      "disposition": "superseded-not-rebound",
+      "historical_test_ids": [
+        "tests/test_native_release_gate_v1.py::test_pyinstaller_input_discovery_covers_entrypoints_and_resources",
+        "tests/test_onyx_hud_orb_v7_candidate.py::test_v7_one_widget_projection_and_exact_v6_rollback",
+        "tests/test_onyx_hud_orb_v8_candidate.py::test_module_does_not_enable_itself_or_edit_v7",
+        "tests/test_onyx_hud_orb_v8_candidate.py::test_v8_one_widget_projection_and_exact_v7_rollback",
+        "tests/test_onyx_hud_orb_v8_candidate.py::test_voice_layer_has_speaking_only_governed_motion",
+        "tests/test_onyx_hud_current_acceptance_v35.py::test_v35_authenticates_v4_current_runtime",
+        "tests/test_packaged_runtime_hud_contract_v4.py::test_packaged_v4_authenticates_exact_current_runtime",
+        "tests/test_packaged_runtime_hud_contract_v4.py::test_packaged_v4_rejects_runtime_tamper",
+        "tests/test_release_workflow_transition_v60.py::test_release_v60_authenticates_current_runtime_closure"
+      ],
+      "successor_tests": [
+        {"path": "tests/test_onyx_hud_current_acceptance_v36.py", "sha256": "9ab510c0c1ddd9ead120764e9cd8f8a90d7079f000c6f6c7f2fdf298d009534b"},
+        {"path": "tests/test_packaged_runtime_hud_contract_v5.py", "sha256": "879a4ff7d2f9a79af11a9d38e50686d5319d4a67324a835ac14136100dd01f28"},
+        {"path": "tests/test_release_workflow_transition_v61.py", "sha256": "2861345215004507e81844ee08823da3af074af6acebbf15b6c6e76b7673d9b0"}
+      ],
+      "validated_tests": 9,
+      "reason": "V36/V5/V61 authenticate the additive living liquid-metal runtime while V19, V35, V4 and V60 remain immutable predecessors."
+    }
+  ]
+}

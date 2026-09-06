@@ -1,0 +1,17 @@
+{
+  "schema": "onyx.phase7.exit-candidate.v1",
+  "candidate": "phase7-exit-candidate-v1",
+  "created_at": "2026-07-23T20:00:00-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "accepted_component_roots": 24,
+  "claims": {"phase7_default_off_implementation_complete": true, "external_e6_accepted": false, "live_wiring": false, "phase8_started": false, "full_onyx_prd_complete": false},
+  "verification": {"test_files": 12, "passed": 240, "failed": 0, "errors": 0, "skipped": 8, "subtests_passed": 80},
+  "artifacts": [
+    {"path":"scripts/verify_phase7_exit_candidate_v1.py","bytes":7632,"sha256":"75bec4caacfe4976a2bb8f63400615b674ade7c0edac4977a620cd3c08836835"},
+    {"path":"docs/onyx/adrs/ADR-0035-phase7-exit-candidate-v1.md","bytes":582,"sha256":"c38c6d37bf2601b0692a7d2e37abd35c4523a2ae479a2faf38b80d5430b2cedf"},
+    {"path":"docs/onyx/checkpoints/phase7-exit-candidate-v1/PHASE7_EXIT_CANDIDATE_V1_CHECKPOINT.md","bytes":457,"sha256":"dcb4de57445a4d2744c22e2c34ef703b8197b1c469bd9f06330b38549c7623e1"},
+    {"path":"docs/onyx/checkpoints/phase7-exit-candidate-v1/coverage-map.json","bytes":2556,"sha256":"0643c2be1cf32a3c5a270b6e8cd9cb076a6fc1acc7c3f3c387703a95170ec95e"},
+    {"path":"docs/onyx/checkpoints/phase7-exit-candidate-v1/cumulative-selection.json","bytes":1399,"sha256":"dc18ae7fb2a3154234ad57126e2419fa650464ce6c4c7dd3b6abec0a52999878"}
+  ],
+  "artifact_root_sha256": "0512b1af1ea38392ca62b37933404119c80b173a3d6e8e059d0e0f5418a7bfcb"
+}

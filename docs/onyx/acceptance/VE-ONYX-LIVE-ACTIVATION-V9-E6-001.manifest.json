@@ -1,0 +1,12 @@
+{
+  "schema":"onyx.external-acceptance.v1",
+  "acceptance_id":"VE-ONYX-LIVE-ACTIVATION-V9-E6-001",
+  "decision":"accepted",
+  "findings":{"P0":0,"P1":0,"P2":0,"P3":0},
+  "candidate_manifest_sha256":"38de625b7725dab7aa9c7906f7f3164687f1f20a0cca6e683fe64145bb53142a",
+  "checkpoint_sha256":"ab4c6af74832a0cc8f7aa66bb442c3d367dfbd18015f5a314a1b61a53ece3e6a",
+  "evidence_root_sha256":"88307dbbf5ac2f3d1656549db94cd1293103a12b38ba8d157271f71700c5123d",
+  "binding_count":20,
+  "scope":"windows-source-shortcut-bootstrap-default-off-no-live-activation",
+  "results":{"focused":11,"network_calls":0,"failpoints":3}
+}

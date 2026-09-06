@@ -1,0 +1,36 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-GUILD-PROJECT-ENVELOPE-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-08-19",
+  "findings": {"P0":0,"P1":0,"P2":0,"P3":0},
+  "candidate_manifest_sha256": "2e75f42c8e2fbb9fe9322f437a91678c92ba8a771c94b331489e0de421446cb0",
+  "artifact_root_sha256": "438fe075ca88e31e588b4e04dc087ab9e58fce5c3fabdfa658a1dc199ad60874",
+  "feature_flag": "ONYX_GUILD_PROJECT_ENVELOPE_V1",
+  "accepted_guild_execution_intent_root_sha256": "68a4fc775dbdccb0741c0bf69aa5ff786966f4f828f2220ac35ec21efde64e83",
+  "results": {"test_files":34,"passed":910,"failed":0,"errors":0,"skipped":17,"subtests_passed":96},
+  "review_history": {
+    "functional": "PASS (autonomous session): hard budget bounds (zero/negative/over-ceiling/non-int rejected), loss-above-cap rejected, KPI required with bounded target, every decommission-policy field mandatory, closed revoke_and_decommission vocabulary (softer outcomes rejected), kill_switch_ref required, intent existence + owner-approval + single-binding coupling, sealed construction — adversarially tested (42 tests); is_active structurally False, machine-asserted",
+    "integrity": "PASS (autonomous session): artifact root 438fe075 and all 8 artifacts recomputed exactly; A9.4 entry-bind byte-exact",
+    "quality": "PASS (autonomous session): mirrors accepted slice idioms; verifier asserts the decommission vocabulary and budget floor as constants and forbids network/process/dispatch/activation/spend tokens, anchoring the executable 'def decommission(' form so the read-only decommission_outcome projection stays legitimate; reproduces the 34-file gate with per-file sum check (910/0/0/17/96)"
+  },
+  "scope_exclusions": [
+    "activation / real spending / measurement — later separately gated runtime slice",
+    "decommission EXECUTION — later runtime slice coupling grants and the kill switch",
+    "MissionStore, session-grant, approval-inbox and kill-switch coupling — not built",
+    "non-engineering squad packs and any live provider or model call — later gated work",
+    "runtime wiring / action authority — none added",
+    "matrix/ledger documentation updates — batched into the next documentation-authority pass"
+  ],
+  "claims": {
+    "guild_project_envelope_default_off_contract_complete": true,
+    "hard_budgets_kpis_and_decommission_policy_enforced": true,
+    "unlimited_budget_representable": false,
+    "softer_decommission_outcome_representable": false,
+    "activation_or_spend_authority_added": false,
+    "decommission_execution_added": false,
+    "network_or_process_opened": false,
+    "independent_human_review_performed": false,
+    "full_onyx_prd_complete": false
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "schema": "onyx.advanced-operations-successor-retirement.v2",
+  "issued_at": "2026-08-24T15:30:00-04:00",
+  "predecessor": {
+    "path": "docs/onyx/acceptance/VE-ADVANCED-OPS-V22-001.manifest.json",
+    "sha256": "70a25ee9e9669b30205c39d99e26f8f53aceb383401dff5916858f519d41b128"
+  },
+  "policy": {
+    "historical_manifests_are_immutable": true,
+    "historical_hashes_are_rebound": false,
+    "registered_nodes_must_remain_collected": true,
+    "successor_test_is_sha256_bound": true
+  },
+  "historical_test_ids": [
+    "tests/test_advanced_operations_source_acceptance_v22.py::test_v22_is_reproducible_exact_and_append_only",
+    "tests/test_advanced_operations_source_acceptance_v22.py::test_v22_rejects_selection_scope_reduction"
+  ],
+  "successor_test": {
+    "path": "tests/test_advanced_operations_source_acceptance_v23.py",
+    "sha256": "0e79c2c0361f680f45e46b53513d884bf837654062dd5c6565442dae3eedeecd"
+  }
+}

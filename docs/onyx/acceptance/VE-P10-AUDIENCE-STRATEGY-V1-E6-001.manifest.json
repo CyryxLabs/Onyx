@@ -1,0 +1,32 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P10-AUDIENCE-STRATEGY-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-08-19",
+  "findings": {"P0":0,"P1":0,"P2":0,"P3":0},
+  "candidate_manifest_sha256": "4670f177cc261c7c92747a5ab7fdc078f27869b6226f05f72cc832ec53810bc9",
+  "artifact_root_sha256": "81199863a9d0acea479c639b1023a1abd119cbb2b76cc8fcdec1caabf9c22829",
+  "feature_flag": "ONYX_PHASE10_AUDIENCE_STRATEGY_V1",
+  "accepted_content_draft_root_sha256": "59308ada89f691443238644bdb18b7bc29aa66a61365b95908bc5631d8b8d449",
+  "results": {"test_files":32,"passed":833,"failed":0,"errors":0,"skipped":17,"subtests_passed":96},
+  "review_history": {
+    "functional": "PASS (autonomous session): cited-research gate (uncited claim / claimless segment rejected), per-platform KPIs with 30/60/90 horizons, key-set cadence contract (missing/extra horizon rejected), closed funnel references with unique order, experiment sample floor and winner gate — adversarially tested (37 tests); no publish/schedule/action surface",
+    "integrity": "PASS (autonomous session): artifact root 81199863 and all 8 artifacts recomputed exactly; content-draft entry-bind byte-exact through the documented current-successor chain",
+    "quality": "PASS (autonomous session): mirrors accepted Phase 10 slice idioms; verifier asserts cadence and sample-floor constants, forbids network/process/publish/schedule tokens, reproduces the 32-file gate with per-file sum check (833/0/0/17/96)"
+  },
+  "scope_exclusions": [
+    "publishing / scheduling — later owner-gated slices",
+    "live provider reads / analytics ingestion — BLOCKED_BY_ACCESS",
+    "paid media — separate blocked capability",
+    "runtime wiring / action authority — none added",
+    "matrix/ledger documentation updates — batched into the next documentation-authority pass"
+  ],
+  "claims": {
+    "phase10_audience_strategy_default_off_contract_complete": true,
+    "cited_research_cadence_and_sample_floor_enforced": true,
+    "publish_or_schedule_authority_added": false,
+    "network_or_process_opened": false,
+    "independent_human_review_performed": false,
+    "full_onyx_prd_complete": false
+  }
+}

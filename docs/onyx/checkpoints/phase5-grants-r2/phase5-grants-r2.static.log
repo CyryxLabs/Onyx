@@ -1,0 +1,13 @@
+Phase 5.1 R2 static verification
+timestamp=2026-07-20T01:50:44.789065-04:00
+command=.\.venv\Scripts\python.exe -m ruff check --select F,E9 core\session_grants_v2.py tests\test_session_grants_v2.py scripts\verify_phase5_grants_r2.py
+output=All checks passed!
+exit_code=0
+command=.\.venv\Scripts\python.exe -m py_compile core\session_grants_v2.py tests\test_session_grants_v2.py scripts\verify_phase5_grants_r2.py
+exit_code=0
+command=for each of core/session_grants_v2.py, tests/test_session_grants_v2.py, scripts/verify_phase5_grants_r2.py: git diff --no-index --check -- NUL <file>; fail only when diagnostic output is non-empty
+output=UNTRACKED_DIFF_CHECK_OK files=3
+exit_code=0
+command=reconstruct docs/onyx/VE-SCOPE-P51-GRANTS-V1-001.sha256
+output=P51_V1_HISTORICAL_OK files=10
+exit_code=0

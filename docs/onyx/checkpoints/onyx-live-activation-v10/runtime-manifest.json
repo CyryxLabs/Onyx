@@ -1,0 +1,25 @@
+{
+  "schema": "onyx.live-activation.v10.runtime",
+  "candidate": "onyx-live-activation-v10-c003",
+  "onboarding": {
+    "secure_unknown_owner_ready": true,
+    "credential_required": true,
+    "valid_os_required": true,
+    "unreadable_config_denied": true,
+    "fallback_address": "Sir"
+  },
+  "files": {
+    "pythonw": {
+      "path": ".venv/Scripts/pythonw.exe",
+      "sha256": "51361a2d68a5b4ecf1bad4d7214066e05f9598074e72662e62f7b2e3be3329b3"
+    },
+    "bootstrap": {
+      "path": "scripts/bootstrap_onyx_live_v10.pyw",
+      "sha256": "dd874140b0a7486b4897827196ba43c8bdf010db6c8ac503d473b0daa9fda675"
+    },
+    "launcher": {
+      "path": "scripts/launch_onyx_live_v10.pyw",
+      "sha256": "b47b039f6c1a6215bcbcda5dea1964260d83cdedaf5210bfd498061446fec0b9"
+    }
+  }
+}

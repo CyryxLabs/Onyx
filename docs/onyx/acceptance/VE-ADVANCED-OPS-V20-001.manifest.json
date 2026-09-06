@@ -1,0 +1,45 @@
+{
+  "schema": "onyx.advanced-operations-source-acceptance.v3",
+  "evidence_id": "VE-ADVANCED-OPS-V20-001",
+  "status": "source_candidate",
+  "predecessor": {
+    "path": "docs/onyx/acceptance/VE-ADVANCED-OPS-V19-001.manifest.json",
+    "sha256": "3f24f6d92855668c4ada72e997bf3f66894ac432d9d37d94440cd57d589c8336"
+  },
+  "domain": "ONYX-ADVANCED-OPS-SOURCE-V20",
+  "root_sha256": "7f5781da230af44a33d197a26ce2875d3aee98e812d5b7db36ae9e5f05ed5608",
+  "policy": {
+    "accepted_runtime_engine_replaced": false,
+    "phase6_authority_replaced": false,
+    "voice_provider_or_voice_changed": false,
+    "mutable_state_inside_application_tree": false,
+    "owner_private_runtime_required": true,
+    "historical_v10_function_restored_after_activation": true,
+    "diagnostic_credentials_are_ephemeral": true,
+    "smoke_cleanup_runs_on_failure": true
+  },
+  "validation": {
+    "focused_command": ".venv-release-v16/Scripts/python.exe -m pytest -q tests/test_smoke_credential_cleanup_v1.py tests/test_phase5_current_successor_transition_v22.py",
+    "focused_passed": 4,
+    "focused_failed": 0,
+    "integrated_passed": 284,
+    "integrated_failed": 0,
+    "activation_chain_passed": 139,
+    "activation_chain_failed": 0,
+    "transition_chain_passed": 53,
+    "transition_chain_failed": 0,
+    "predecessor_integrated_passed": 280,
+    "predecessor_activation_chain_passed": 139,
+    "predecessor_transition_chain_passed": 51
+  },
+  "files": [
+    {
+      "path": "scripts/build_release.py",
+      "sha256": "c05b439dda5967b496cd724bf186572088b622f79914b8b25506faf1446e30d3"
+    },
+    {
+      "path": "tests/test_smoke_credential_cleanup_v1.py",
+      "sha256": "802c9a745bdf5933be97fe004f69a4243c7fc07977bd43d62bb82749efae64dd"
+    }
+  ]
+}

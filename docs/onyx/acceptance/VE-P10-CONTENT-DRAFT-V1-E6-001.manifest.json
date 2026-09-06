@@ -1,0 +1,30 @@
+{
+  "schema": "onyx.external-acceptance.v1",
+  "acceptance_id": "VE-P10-CONTENT-DRAFT-V1-E6-001",
+  "decision": "accepted",
+  "decision_date": "2026-07-25",
+  "findings": {"P0":0,"P1":0,"P2":0,"P3":0},
+  "candidate_manifest_sha256": "f57046e1f65de10484b8ef31c706323683fd57952076d164dd0395150fdba8ff",
+  "artifact_root_sha256": "59308ada89f691443238644bdb18b7bc29aa66a61365b95908bc5631d8b8d449",
+  "feature_flag": "ONYX_PHASE10_CONTENT_DRAFT_V1",
+  "accepted_provider_connector_root_sha256": "7aba66ad246c75b1660c70c00dbf012526de72e1592892bee0fd1ea363a35711",
+  "results": {"test_files":27,"passed":607,"failed":0,"errors":0,"skipped":8,"subtests_passed":80},
+  "review_history": {
+    "functional": "PASS: provenance (licensed/authorized need rights_ref), claim-validation (validated needs evidence; approved needs all claims validated), accessibility (visual needs alt_text) and policy-review gates enforced + adversarially tested; published unrepresentable, no publish/schedule method; no over-claim (competitor-copying caught by the human policy gate; disclosure is a readiness not approval requirement)",
+    "integrity": "PASS: artifact root 59308ada and all 8 candidate artifacts recomputed exactly; accepted provider-connector entry-bind genuine; no predecessor modified",
+    "quality": "PASS: mirrors accepted Phase 10 slice idioms (sealed factory, entry-bind, frozen dataclasses, byte-bounded text contract); verifier forbids network/process/publish/schedule authority tokens, asserts published is not a status, reproduces the 27-file gate with per-file sum check"
+  },
+  "scope_exclusions": [
+    "publishing / scheduling — no publish or schedule method; 'published' is not a representable status; later owner-gated slices",
+    "live provider action / analytics — later gated Phase 10 slices",
+    "runtime wiring / action authority — none added"
+  ],
+  "claims": {
+    "phase10_content_draft_default_off_contract_complete": true,
+    "provenance_claim_accessibility_policy_gates_enforced": true,
+    "publish_authority_added": false,
+    "network_or_process_opened": false,
+    "phase10_further_slices_started": false,
+    "full_onyx_prd_complete": false
+  }
+}

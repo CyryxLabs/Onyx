@@ -1,0 +1,60 @@
+{
+  "schema": "onyx.phase10.provider-connector.v1",
+  "candidate": "phase10-provider-connector-v1",
+  "created_at": "2026-07-25T15:30:00-04:00",
+  "status": "candidate_e1_e5_e6_pending",
+  "feature_flag": "ONYX_PHASE10_PROVIDER_CONNECTOR_V1",
+  "default_off": true,
+  "accepted_editorial_calendar_root_sha256": "415bbc4de20811c3d7caac47dacb8a01cf50a4ed1660f9670ee5278136411939",
+  "verification": {
+    "test_files": 26,
+    "passed": 570,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 8,
+    "subtests_passed": 80
+  },
+  "artifacts": [
+    {
+      "path": "core/phase10_provider_connector_v1.py",
+      "bytes": 15892,
+      "sha256": "b1468818362888343277dc24a60549a208e5aa3d518c5b3f99bb875609f76f75"
+    },
+    {
+      "path": "tests/test_phase10_provider_connector_v1.py",
+      "bytes": 9650,
+      "sha256": "9864a6b0f2211ae01e279ff6cdd74f8f0fcb81117aac996f9e6c1d2f26afe759"
+    },
+    {
+      "path": "scripts/verify_phase10_provider_connector_v1.py",
+      "bytes": 8151,
+      "sha256": "3bb27bbe76887966c529cde3ad00eed7da3fac50230fd444d904348a7ff1f20b"
+    },
+    {
+      "path": "docs/onyx/adrs/ADR-0051-phase10-provider-connector-v1.md",
+      "bytes": 3399,
+      "sha256": "d5eeb17d3e2360dca5cc79f95656fc40184b0fd78950715fa586269b676f01a2"
+    },
+    {
+      "path": "docs/onyx/research/PHASE10_PROVIDER_CONNECTOR_V1_SOURCES.md",
+      "bytes": 2052,
+      "sha256": "990e08ad0b38323a7e14699fc9e337086385152a12624ed886c28f3fe6af2a44"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase10-provider-connector-v1/PHASE10_PROVIDER_CONNECTOR_V1_CHECKPOINT.md",
+      "bytes": 1761,
+      "sha256": "48ac7ba3c70aed86068657f98f25fc6af2bc7753f6b4234f9f7111e601591590"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase10-provider-connector-v1/CAPABILITY_DELTA_SNAPSHOT.md",
+      "bytes": 1114,
+      "sha256": "1fc89a2ff5c958cb512f5c7ec675b77efba527603433c21bbd960a71d3c5aa91"
+    },
+    {
+      "path": "docs/onyx/checkpoints/phase10-provider-connector-v1/cumulative-selection.json",
+      "bytes": 4059,
+      "sha256": "1a9b7df2434b5019be7a91313e7856f0b0d11255738094b92f1f840003f11319"
+    }
+  ],
+  "artifact_root_sha256": "7aba66ad246c75b1660c70c00dbf012526de72e1592892bee0fd1ea363a35711"
+}

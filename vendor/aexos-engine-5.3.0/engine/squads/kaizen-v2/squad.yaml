@@ -1,0 +1,183 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# AEXOS Squad Manifest — kaizen-v2
+# Conforms to .aexos-core/schemas/squad-schema.json (task-first architecture).
+# components/ is derived from disk by scripts/normalize-squad-manifests.js.
+# ═══════════════════════════════════════════════════════════════════════════════
+
+name: kaizen-v2
+version: 2.2.0
+short-title: kaizen-v2
+description: >-
+  Evolução do kaizen v1: sistema nervoso do projeto com sensoriamento diário (Tier 0). Captura
+  contínua de learnings, padrão de esquecimento (forgetting curve), relatórios inteligentes com
+  padrões reinforçados, e briefings proativos de sessão. Extensão fork do kaizen v1 — não modifica
+  v1.3.0, estende capacidades.
+author: Cyryx Labs LLC
+license: UNLICENSED
+slashPrefix: kaizen-v2
+tags: []
+cyryx:
+  minVersion: 2.1.0
+  type: squad
+components:
+  tasks:
+    - audit-output-quality.md
+    - auto-healing-gate.md
+    - build-report.md
+    - capture-daily.md
+    - compact-archive.md
+    - cost-analysis.md
+    - detect-gaps.md
+    - generate-recommendations.md
+    - health-check.md
+    - install.md
+    - mine-patterns.md
+    - performance-dashboard.md
+    - reflect.md
+    - self-improve.md
+    - uninstall.md
+    - update-radar.md
+  agents:
+    - kaizen-v2-bottleneck-hunter.md
+    - kaizen-v2-capability-mapper.md
+    - kaizen-v2-chief.md
+    - kaizen-v2-cost-analyst.md
+    - kaizen-v2-memory-keeper.md
+    - kaizen-v2-performance-tracker.md
+    - kaizen-v2-tech-radar.md
+    - kaizen-v2-topology-analyst.md
+  workflows:
+    - wf-daily-capture.yaml
+    - wf-ecosystem-analysis.yaml
+    - wf-install.yaml
+    - wf-overnight-reflect.yaml
+    - wf-self-improve.yaml
+    - wf-weekly-report.yaml
+  checklists:
+    - agent-activation-checklist.md
+    - analysis-quality-checklist.md
+    - daily-capture-checklist.md
+    - installation-checklist.md
+    - reflection-quality-checklist.md
+    - report-quality-checklist.md
+  templates:
+    - capability-map-tmpl.md
+    - daily-digest-tmpl.yaml
+    - monthly-report-tmpl.md
+    - performance-dashboard-tmpl.md
+    - reflection-tmpl.md
+    - tech-radar-tmpl.md
+    - weekly-report-tmpl.md
+  tools: []
+  scripts:
+    - kaizen-trigger.sh
+    - session-briefing.cjs
+    - stop-capture.cjs
+    - validate-report.sh
+config:
+  extends: extend
+dependencies:
+  node: []
+  squads:
+    - kaizen
+status: ACTIVE
+cadence: daily (capture); overnight (reflect); weekly/monthly (report)
+AEXOS:
+  minVersion: 2.1.0
+  type: squad
+automation_boundary:
+  deterministic:
+    - Stop hook → git log do dia → daily YAML
+    - SessionStart hook → patterns.yaml decay → briefing inject
+    - Reflect workflow → mine patterns com forgetting curve
+    - Report gen → agrega dailies por período + learnings
+    - Archive rotate → dailies > 90 dias + patterns decay < 0.1
+  probabilistic:
+    - Pattern extraction criteria — non-obvious + verified + reusable
+    - Suggestion generation — contexto + heuristics
+    - Briefing compression — ≤ 2KB, ≤ 5 padrões chave
+  autonomy_level: 2
+  autonomy_rationale: Captura automática, análise de padrões requer LLM, reflexão requer validação humana em crítico.
+commands:
+  - name: '*capture'
+    description: Captura manual daily (fallback se hook falhar)
+    skill: kaizen-v2:capture
+  - name: '*reflect'
+    description: Reflexão overnight — extrai padrões com forgetting curve
+    skill: kaizen-v2:reflect
+  - name: '*report'
+    description: 'Relatório: weekly/monthly/yearly com seção learnings'
+    skill: kaizen-v2:report
+  - name: '*health'
+    description: Health check — hooks, dirs, patterns.yaml, último daily
+    skill: kaizen-v2:health
+  - name: '*install'
+    description: Instalação auto — merge hooks + init dirs + first briefing
+    skill: kaizen-v2:install
+  - name: '*uninstall'
+    description: Desinstalação — remove hooks (preserve intelligence data)
+    skill: kaizen-v2:uninstall
+  - name: '*analyze'
+    description: '[v1] Análise completa — 6 dimensões'
+    skill: kaizen:analyze
+  - name: '*self-improve'
+    description: Meta-análise e auto-melhoria do squad
+    skill: kaizen-v2:self-improve
+  - name: '*gaps'
+    description: '[v1] Detecta competências faltando'
+    skill: kaizen:gaps
+metrics:
+  agents: 8
+  frameworks: 14
+  heuristics: 35
+  minds: 3
+  quality_gates: 6
+  daily_cost: ~$0.30
+  weekly_cost: ~$4.80
+entry_agent: kaizen-v2-chief
+domain: kaizen-v2
+keywords:
+  - kaizen-v2
+  - kaizen
+  - v2
+agents:
+  kaizen-v2-bottleneck-hunter:
+    file: agents/kaizen-v2-bottleneck-hunter.md
+    persona: Kaizen V2 Bottleneck Hunter
+    title: System Constraint Analyst & Flow Optimizer
+    icon: ◈K201
+  kaizen-v2-capability-mapper:
+    file: agents/kaizen-v2-capability-mapper.md
+    persona: Kaizen V2 Capability Mapper
+    title: Competency Gap Analyst & Resource Strategist
+    icon: ◈K202
+  kaizen-v2-chief:
+    file: agents/kaizen-v2-chief.md
+    persona: Kaizen V2 Chief
+    title: Ecosystem Intelligence Orchestrator (v2 — Daily + Weekly)
+    icon: ◈K203
+  kaizen-v2-cost-analyst:
+    file: agents/kaizen-v2-cost-analyst.md
+    persona: Kaizen V2 Cost Analyst
+    title: FinOps Analyst & ROI Strategist
+    icon: ◈K204
+  kaizen-v2-memory-keeper:
+    file: agents/kaizen-v2-memory-keeper.md
+    persona: Kaizen V2 Memory Keeper
+    title: Tier 0 Sensorial — Daily Intelligence Curator
+    icon: ◈K205
+  kaizen-v2-performance-tracker:
+    file: agents/kaizen-v2-performance-tracker.md
+    persona: Kaizen V2 Performance Tracker
+    title: Squad Performance Analyst & Metrics Diagnostician
+    icon: ◈K206
+  kaizen-v2-tech-radar:
+    file: agents/kaizen-v2-tech-radar.md
+    persona: Kaizen V2 Tech Radar
+    title: Technology Evaluator & Fitness Function Architect
+    icon: ◈K207
+  kaizen-v2-topology-analyst:
+    file: agents/kaizen-v2-topology-analyst.md
+    persona: Kaizen V2 Topology Analyst
+    title: Squad Structure Analyst & Cognitive Load Diagnostician
+    icon: ◈K208
